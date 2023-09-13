@@ -1,0 +1,14 @@
+<div class="vel-card-loan" (click)="setValue()">
+  <ion-radio
+    mode="md"
+    class="vel-card-loan-radio"
+    [value]="value"
+  ></ion-radio>
+  <small>{{bank}}</small>
+  <div class="vel-card-loan-img {{nameClass}}">
+    <img [src]="img" [alt]="type" *ngIf="isImg">
+    <i class="{{img}}" *ngIf="!isImg"></i>
+  </div>
+  <strong>{{type}}</strong>
+  <p>{{id}}</p>
+</div>

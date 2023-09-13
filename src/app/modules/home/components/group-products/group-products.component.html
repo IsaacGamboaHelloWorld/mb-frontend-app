@@ -1,0 +1,76 @@
+<section class="group-products group-products-config" [id]="'group-' + typeAccount | lowercase">
+  <p class="text-subtitle-3">{{ 'PRODUCT_TYPES.' + typeAccount | translate}} ({{quantityProducts}})</p>
+  <ion-slides pager="false"
+              [options]="slideOpts"
+              class="cont-slides"
+              [class.space-slide]="sufficientSlides">
+    <ng-container *ngFor="let product of products; let i = index; trackBy: trackByFn">
+      <ion-slide class="slide" [class.only]="isOnly(products)">
+        <velocity-card
+          [product]="setProduct(product)"
+          [id]="'card-' + (product.typeAccount | lowercase) + '-' + i"
+          [footer]="footer"
+          [hiddenIcon]="product.hiddenIdStatus ? 'icon-vel-eye-off' : 'icon-vel-eye'"
+          [showHidden]="product.showHiddenId"
+          (retry)="retryProduct.emit({type: product.typeAccount, id: product.id})"
+          (viewDetail)="goToDetail.emit({type: product.typeAccount, id: product.id})"
+          (toogleHiddenId)="toogleHidden(product.typeAccount, product.id)"
+        ></velocity-card>
+
+        <ng-template #footer>
+          <ng-container [ngSwitch]="product.typeAccount">
+            <ng-container *ngSwitchCase="typeAccounts.CURRENT_ACCOUNT">
+              <div class="vel-card-footer full">
+                <div class="date-container">
+                  <span>{{'PRODUCTS.CURRENT_ACCOUNT.DAYS_OVERDRAFT' | translate}}</span>
+                  <strong>{{product?.overDraftDays}}</strong>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="typeAccounts.DEPOSIT_ACCOUNT">
+              <div class="vel-card-footer full">
+                <div class="date-container">
+                  <span>{{'PRODUCTS.DEPOSIT_ACCOUNT.TOTAL_BALANCE' | translate}}</span>
+                  <strong
+                    [innerHTML]="product?.productAccountBalances?.saldo_actual?.amount | currencyFormat: true"></strong>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="typeAccounts.CERTIFIED_DEPOSIT_TERM">
+              <div class="vel-card-footer">
+                <div class="date-container">
+                  <span>{{'PRODUCTS.CDT.DATE' | translate}}</span>
+                  <strong
+                    class="capitalize">{{product?.closedDate | date: 'dd/MMM/yyyy' | replace : '.' : '' }}</strong>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="typeAccounts.CREDIT_CARD">
+              <div class="vel-card-footer" [class.padding-small]="!neededToPay(product)">
+                <div class="date-label">
+                  <span>{{ (neededToPay(product) ? 'PRODUCTS.CREDIT_CARD.NEXT_PAYMENT' : 'PRODUCTS.CREDIT_CARD.CUTOFF_DATE') | translate}}</span>
+                  <strong class="capitalize">{{product?.dueDate | date: 'dd/MMM/yyyy' | replace : '.' : '' }}</strong>
+                </div>
+                <div class="total-label" [class.align-right]="neededToPay(product)">
+                  <velocity-button
+                    [text]="'PRODUCTS.CREDIT_CARD.BUTTON_PAY' | translate"
+                    [class]="'btn-primary small credit-card-pay'"
+                    (actionButton)="redirectPay(product)"
+                    *ngIf="neededToPay(product)"></velocity-button>
+                  <ng-container *ngIf="!neededToPay(product)">
+                    <span>{{'PRODUCTS.CREDIT_CARD.TOTAL_DEBT' | translate}}</span>
+                    <strong
+                      [innerHTML]="product?.productAccountBalances?.pago_total_pesos?.amount | currencyFormat: true"></strong>
+                    <progress class="progress-status" max="100" [value]="progress(product)"></progress>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </ng-template>
+
+      </ion-slide>
+    </ng-container>
+
+  </ion-slides>
+</section>

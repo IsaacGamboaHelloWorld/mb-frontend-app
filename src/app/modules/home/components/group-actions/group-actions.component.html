@@ -1,0 +1,32 @@
+<section class="group-actions group-products-config">
+  <ion-slides pager="false"
+              class="cont-slides"
+              [options]="slideOpts"
+              [class.space-slide]="hasTypeStocks$ | async">
+    <ng-container *ngIf="hasTuplus$ | async">
+      <ion-slide class="slide" [class.only]="!(hasTypeStocks$ | async)">
+        <velocity-card
+          [product]="setTuplus(tuplus$ | async)"
+          [footer]="tuplusFooter"
+          (viewDetail)="redirectTuplusDetail()"
+        ></velocity-card>
+        <ng-template #tuplusFooter>
+          <div class="btn-container">
+            <velocity-button [text]="'TUPLUS.BTN' | translate" class="btn-primary small"
+                             [id]="'to-plus-redirect'" (actionButton)="redirectTuplusRedeem()">
+            </velocity-button>
+          </div>
+        </ng-template>
+      </ion-slide>
+      <ion-slide class="slide" *ngIf="hasTypeStocks$ | async">
+        <app-cont-actions
+          [types]="typeStocks$ | async"
+          [periods]="periodStocks$ | async"
+          [loading]="isLoadingStocksAll$ | async"
+          (actionsStocks)="fetchStocks($event)"
+        ></app-cont-actions>
+      </ion-slide>
+    </ng-container>
+
+  </ion-slides>
+</section>

@@ -1,0 +1,15 @@
+<ion-header translucent="true" class="ion-no-border header" mode="ios">
+  <ion-toolbar [class.show-border]="showBorder" class="{{type}}">
+    <ion-buttons slot="start" class="buttons-left">
+      <ion-back-button defaultHref="/" *ngIf="showBack" class="button-back"></ion-back-button>
+      <i *ngIf="hasIconLeft" [className]="iconLeft" (click)="btnLeft.emit()"></i>
+    </ion-buttons>
+    <ion-title *ngIf="!isTypeThreeOrFour" class="header-title" [class.show-back]="showBack">{{newText}}</ion-title>
+    <img *ngIf="isTypeThreeOrFour" class="header-image" src="/assets/images/bp-horizontal.png" alt="">
+    <ion-buttons slot="end" class="buttons-right">
+      <i *ngIf="showMessages" class="icon-vel-essential-email open-menu-btn" (click)="btnMessages.emit()"></i>
+      <i *ngIf="showMenu" class="icon-vel-hot-dog open-menu-btn" (click)="toggleMenu()"></i>
+      <i *ngIf="iconRight" [className]="iconRight" (click)="btnRight.emit()"></i>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,59 @@
+@import mixins
+
+.cont-contacts
+  .group-tell
+    border-radius: 12px
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08)
+    background-color: var(--vel-color-neutral-light-10)
+    padding: 24px
+    margin-bottom: 16px
+    position: relative
+    > i,
+    > div
+      +inline(middle)
+    > i
+      width: 48px
+      height: 48px
+      font-size: 26px
+      border-radius: 50%
+      background-color: rgba(255, 235, 182, 0.64)
+      color: var(--vel-color-warning-400)
+      +flex(inline-flex, center, center)
+      img
+        width: 32px
+        height: auto
+    > div
+      padding-left: 16px
+      width: calc(100% - 48px)
+      p
+        font-size: 16px
+        font-weight: 600
+        line-height: 1.75
+        margin-bottom: 4px
+    li
+      span,
+      a
+        color: var(--vel-color-neutral-mid-200)
+        display: inline-block
+        font-size: 13px
+        line-height: 2.15
+      a
+        text-decoration: none
+        font-weight: 500
+        color: var(--vel-color-neutral-dark-900)
+      .icon-ike
+        position: absolute
+        right: 24px
+        top: 50%
+        transform: translateY(-50%)
+        font-size: 24px
+        text-decoration: none
+        color: var(--vel-color-warning-900)
+
+    &.last
+      > i
+        background: var(--vel-color-neutral-light-20)
+    &.first
+      > i
+        background-color: rgba(196, 233, 192, 0.64)
+        color: var(--vel-color-success-700)

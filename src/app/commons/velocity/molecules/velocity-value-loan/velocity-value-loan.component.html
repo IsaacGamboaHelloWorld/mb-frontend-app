@@ -1,0 +1,8 @@
+<div class="vel-value-loan" [class.active]="addClass" (click)="setValue()">
+  <ion-radio
+    mode="md"
+    class="vel-value-loan-radio"
+    [value]="value"></ion-radio>
+  <p>{{title}}</p>
+  <strong [class.placeholder]="!hasValue">{{hasValue ? valueCurrency: placeholder}}</strong>
+</div>

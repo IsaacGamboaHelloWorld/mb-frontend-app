@@ -1,0 +1,35 @@
+<div class="otp-tuplus">
+  <div class="animated fade-in-up white-container ">
+    <div class="margin-b-24">
+      <velocity-image-title
+        [img]="'/smartphone-hand.png' | imageCdn"
+        [title]="'AUTH.OTP_DATA.TITLE' | translate"
+        [description]="'AUTH.OTP_DATA.DESCRIPTION' | translate"
+      ></velocity-image-title>
+    </div>
+    <div class="form-group padding-bottom">
+      <ion-label class="text-body-2">{{'AUTH.OTP_DATA.PASSWORD' | translate}}
+      </ion-label>
+      <div class="vel-otp-input-cont margin-b-16">
+        <app-cont-error [control]="controlOtp">
+          <app-velocity-otp-input
+            [digits]="8"
+            [control]="controlOtp"
+            [id]="'otpValue'"
+            [autocomplete]="'one-time-code'"
+            [square]="true"
+          >
+          </app-velocity-otp-input>
+
+        </app-cont-error>
+      </div>
+    </div>
+    <div class="template-submit-btn">
+      <velocity-button [text]="!retryRedeemOtp? ('CONTINUE'| translate): ('RETRY' | translate)" class="btn-primary margin-t-20 margin-b-8"
+                       (actionButton)="actionButtonOtp.emit() " [isLoading]="Isloading | async"
+      >
+      </velocity-button>
+    </div>
+  </div>
+</div>
+

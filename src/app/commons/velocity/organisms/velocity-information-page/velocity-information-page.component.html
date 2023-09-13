@@ -1,0 +1,11 @@
+<div class="vel-information-page">
+  <div class="vel-information-page-img">
+    <img [src]="img" [alt]="text" class="animated fade-in-up">
+  </div>
+  <span *ngIf="hasTitle">{{title}}</span>
+  <p [innerHTML]="text"></p>
+  <velocity-button
+      (actionButton)="actionButton.emit()"
+      [class]="'btn btn-secondary medium'"
+      [text]="btn" *ngIf="hasBtn"></velocity-button>
+</div>

@@ -1,0 +1,15 @@
+<div class="header-complement p-lr-global complement-size-ls padding-b-16">
+  <div class="white-container retries-container">
+    <velocity-image-title
+      class="image-title"
+      [img]="'/icon-intentos-excedidos.png' | imageCdn"
+      [title]="'EXPERIENCE.RETRIES_LIMIT_EXCEED.TITLE' | translate"
+      [description]="'EXPERIENCE.RETRIES_LIMIT_EXCEED.DESCRIPTION' | translate">
+    </velocity-image-title>
+    <velocity-button
+      [text]="'EXPERIENCE.RETRIES_LIMIT_EXCEED.BUTTON' | translate"
+      class="btn-primary"
+      (click)="back()">
+    </velocity-button>
+  </div>
+</div>

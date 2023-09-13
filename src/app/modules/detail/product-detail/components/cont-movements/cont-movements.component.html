@@ -1,0 +1,36 @@
+<div class="movements">
+  <div class="movements-head">
+    <p class="text-subtitle-2">{{title}}</p>
+    <div class="movements-actions">
+      <button type="button" (click)="showFilters.emit()" [disabled]="!hasMovements" *ngIf="showSearch">
+        <i class="icon-vel-search"></i>
+      </button>
+    </div>
+  </div>
+  <div class="movements-content">
+    <ul *ngIf="hasMovements; else loadingOrErrorMovements">
+      <li *ngFor="let movement of movements?.list; trackBy: trackByMovements">
+        <app-movement [movement]="movement"></app-movement>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #loadingOrErrorMovements>
+  <ul class="skeleton-global" *ngIf="movements?.loading">
+    <li *ngFor="let loading of [].constructor(loadings)" class="loading-movement">
+      <p class="skeleton width-40"></p>
+      <p class="skeleton"></p>
+    </li>
+  </ul>
+  <div class="error-movements" *ngIf="!movements?.loading && movements?.error">
+    <div>
+      <velocity-image-title
+          [img]="'/problemas-tecnicos.png' | imageCdn"
+          [description]="'MOVEMENTS.ERROR_MESSAGE' | translate"
+      ></velocity-image-title>
+      <velocity-button [text]="'PRODUCTS.ERROR.BTN' | translate" class="btn-primary small"
+                       [id]="'error-list-products'" (actionButton)="loadMovements.emit()"></velocity-button>
+    </div>
+  </div>
+</ng-template>

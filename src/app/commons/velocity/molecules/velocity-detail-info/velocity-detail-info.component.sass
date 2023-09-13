@@ -1,0 +1,56 @@
+@import '../../../../../sass/mixins'
+
+.vel-detail
+  background: var(--vel-color-neutral-light-10)
+  border-radius: 12px
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14)
+  &-header
+    padding: 24px 20px
+  &-content
+    padding: 0 24px 24px 24px
+  &-amount
+    text-align: center
+    p
+      color: var(--vel-color-neutral-mid-200)
+      line-height: normal
+      margin-bottom: 8px
+    h4
+      line-height: normal
+  &-content
+    ul
+      transition: .5s
+      overflow: hidden
+    li
+      +flex(flex, center, space-between)
+      margin-bottom: 12px
+      line-height: normal
+      span
+        font-size: 14px
+        line-height: normal
+        color: var(--vel-color-neutral-mid-200)
+      p
+        font-size: 14px
+        line-height: normal
+        &.event
+          color: var(--vel-color-accent-o-900)
+          font-weight: 500
+      &:last-child
+        margin: 0
+    > p
+      line-height: 2.09
+      font-size: 11px
+      margin-top: 10px
+      color: var(--vel-color-neutral-mid-200)
+    &.show-content
+      ul
+        max-height: 1000px
+        transition: .5s
+      .vel-detail-view-more
+        transform: rotate(180deg)
+  &-view-more
+    text-align: center
+    padding-bottom: 24px
+    p
+      transition: .3s
+      color: var(--vel-color-accent-o-900)
+

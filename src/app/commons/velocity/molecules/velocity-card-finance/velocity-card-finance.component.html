@@ -1,0 +1,23 @@
+<ng-container *ngIf="finance; else loadingOrError">
+  <div class="vel-card-finance" [id]="finance.type.toLocaleLowerCase()">
+    <div class="vel-card-finance-img">
+      <i [className]="finance?.icon"></i>
+    </div>
+    <div class="vel-card-finance-info">
+      <strong [innerHTML]="finance?.amount"></strong>
+      <p class="text-body-2 config-text remove-l-h">{{finance?.name}}</p>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loadingOrError>
+
+  <div class="vel-card-finance">
+      <div class="skeleton-global vel-card-finance-skeleton-img">
+      </div>
+      <div class="skeleton-global vel-card-finance-skeleton-info">
+        <strong class="skeleton width-100"></strong>
+        <strong class="skeleton width-70"></strong>
+      </div>
+  </div>
+</ng-template>

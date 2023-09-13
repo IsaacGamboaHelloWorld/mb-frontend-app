@@ -1,0 +1,37 @@
+<div class="center-modal">
+  <form [formGroup]="formBlock" class="modal-block-product" (ngSubmit)="submitForm()">
+    <i class="icon-vel-close" (click)="modalService.close()"></i>
+    <p>{{'BLOCK_PRODUCT.MODAL.ACTIVE.TITLE' | translate}}</p>
+    <ul>
+      <ion-radio-group formControlName="typeBlock">
+        <li>
+          <velocity-withdrawal-place
+            [icon]="'icon-vel-money'"
+            [iconColor]="'success'"
+            [align]="'center'"
+            [name]="'BLOCK_PRODUCT.MODAL.ACTIVE.LOSS_LOCK' | translate"
+            [value]="'LOSS_LOCK'"
+            [control]="typeBlock"
+          ></velocity-withdrawal-place>
+        </li>
+        <li>
+          <velocity-withdrawal-place
+            [icon]="'icon-vel-money'"
+            [iconColor]="'success'"
+            [align]="'center'"
+            [name]="'BLOCK_PRODUCT.MODAL.ACTIVE.DEFINITIVE_LOCK' | translate"
+            [value]="'DEFINITIVE_LOCK'"
+            [control]="typeBlock"
+          ></velocity-withdrawal-place>
+        </li>
+      </ion-radio-group>
+    </ul>
+    <velocity-button
+      [text]="'TO_BLOCK' | translate"
+      class="btn-primary medium margin-t-28"
+      [disabled]="formBlock.invalid || (isLoading$ | async)"
+      [isLoading]="isLoading$ | async"
+      (actionButton)="blockProduct()"
+    ></velocity-button>
+  </form>
+</div>

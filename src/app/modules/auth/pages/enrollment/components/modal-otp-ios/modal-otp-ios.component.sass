@@ -1,0 +1,37 @@
+.modal-otp-ios
+  padding: 16px
+  background: var(--vel-color-neutral-light-20)
+  .space-modal-ios
+    padding-top: constant(safe-area-inset-top)
+    padding-top: env(safe-area-inset-top)
+    > div
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08)
+      background: var(--vel-color-neutral-light-10)
+  .cont-example-ios
+    position: relative
+    width: 248px
+    display: block
+    margin: 0 auto 24px auto
+    span
+      position: absolute
+      z-index: 1
+      width: 19px
+      height: 19px
+      border-radius: 50%
+      background: rgb(25 25 25 / 22%)
+      box-shadow: 0px 0px 0px 2px rgb(0 0 0 / 0.10)
+      right: -10px
+      bottom: 10px
+      animation: animateCursor 5s infinite
+    img
+      width: 100%
+      height: auto
+
+
+@keyframes animateCursor
+  0%
+    transform: translate(0px, 0px)
+  50%, 70%
+    transform: translate(-125px, -100px)
+  100%
+    transform: translate(0px, 0px)

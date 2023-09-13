@@ -1,0 +1,45 @@
+@import mixins
+
+.vel-checkbox
+  input[type=checkbox]
+    display: none
+    visibility: hidden
+
+  label
+    position: relative
+    padding-left: 24px
+
+    &::after
+      content: ''
+      position: absolute
+      width: 20px
+      height: 20px
+      border-radius: 6px
+      border: 1px solid var(--vel-color-carbon-light-900)
+      transition: .3s
+      left: 0
+      top: 0
+
+    &::before
+      content: '\e923'
+      font-family: 'velocity-icons'
+      position: absolute
+      opacity: 0
+      left: 0
+      top: 0
+      width: 21px
+      width: 21px
+      height: 21px
+      transition: .3s
+      color: var(--vel-color-carbon-light-100)
+      z-index: 1
+      font-size: 20px
+      font-weight: bold
+      +flex(flex, center, center)
+
+  input[type=checkbox]:checked + label::after
+    background: var(--vel-color-primary-600)
+    border-color: var(--vel-color-primary-600)
+
+  input[type=checkbox]:checked + label::before
+    opacity: 1

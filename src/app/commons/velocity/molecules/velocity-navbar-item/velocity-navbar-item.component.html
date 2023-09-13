@@ -1,0 +1,13 @@
+<div
+  (click)="redirect()"
+  class="navbar-item"
+  [class.disabled]="!enable"
+  [class.not-permission]="!hasPermissions"
+  [class.new-product]="state">
+    <div class="item-icon">
+      <div class="new-product-tag hide-element">{{ textTagNewProduct }}</div>
+      <i class="{{ icon }}"></i>
+      <i class="{{ icon }}-shadow item-shadow"></i>
+    </div>
+    <p class="item-description">{{ text }}</p>
+</div>

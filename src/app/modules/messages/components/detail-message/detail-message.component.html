@@ -1,0 +1,20 @@
+<app-custom-header>
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back(messageUrl)"></i>
+  </div>
+  <div center>
+    <p>{{message?.title}}</p>
+  </div>
+  <div right>
+    <i class="icon-vel-essential-delete margin-l-20" (click)="openModal(deleteMessage)"></i>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <div class="p-lr-global animated fade-in-up">
+    <div class="detail-message">
+      <small class="capitalize">{{message?.startDt | date: isSameDate(message?.startDt || '') ? 'shortTime' : 'dd/LLL'}}</small>
+      <p>{{message?.content}}</p>
+    </div>
+  </div>
+</ion-content>

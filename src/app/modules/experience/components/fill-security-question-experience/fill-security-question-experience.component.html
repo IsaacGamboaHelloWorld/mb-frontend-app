@@ -1,0 +1,42 @@
+<form (ngSubmit)="submitSecureData()"
+      [formGroup]="secureDataSecret"
+      class="header-complement complement-size-md p-lr-global padding-b-16 center-items">
+  <div class="animated fade-in-up white-container center-content">
+    <div class="margin-b-32 padding-lr-24">
+      <velocity-image-title
+        [description]="'EXPERIENCE.FILL_SECURITY_QUESTION.DESCRIPTION' | translate"
+        [img]="'/identity-validation.png' | imageCdn"
+        [title]="'EXPERIENCE.FILL_SECURITY_QUESTION.TITLE' | translate">
+      </velocity-image-title>
+    </div>
+    <div class="form-group">
+      <ion-label class="text-body-2 universal-forgot">
+        {{'EXPERIENCE.FILL_SECURITY_QUESTION.PASSWORD'|translate}} {{valueComplete}}
+      </ion-label>
+      <div class="validate-container">
+        <div class="vel-otp-input-cont">
+          <app-cont-error [control]="secureDataSecret">
+            <ng-otp-input
+              (clickIcon)="toggleType()"
+              [config]="configOtpInput"
+              [customControl]="secureDataSecret"
+              [icon]="otpInputIcon"
+              [typeInput]="otpInputType">
+            </ng-otp-input>
+          </app-cont-error>
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <velocity-button
+        [disabled]="formSecureData.invalid || (isLoading$ | async)"
+        [isLoading]="isLoading$ | async"
+        [text]="'EXPERIENCE.FILL_SECURITY_QUESTION.BUTTON' | translate"
+        class="btn-primary margin-t-28"
+        id="universal-password-submit"
+        type="submit">
+      </velocity-button>
+    </div>
+  </div>
+</form>
+

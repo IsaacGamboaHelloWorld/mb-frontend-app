@@ -1,0 +1,46 @@
+<form class="new-payment-how-much-public form-global-template"
+      [formGroup]="formHowMuch"
+      (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+    <velocity-general-information
+        [img]="'/money-hand.png' | imageCdn"
+        [title]="'PAYMENT.HOW_MUCH.AMOUNT' | translate"
+        [value]="amount?.value | currencyFormat: true"
+        *ngIf="isBiller"
+    ></velocity-general-information>
+
+    <div class="cont-form-groups" *ngIf="!isBiller">
+      <div class="form-group margin-b-23">
+        <ion-label class="text-body-2">{{'VALUE' | translate}}</ion-label>
+        <app-cont-error [control]="amount">
+          <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="numeric"
+              placeholder="$ 0.00"
+              formControlName="amount"
+              appCleave
+              [cleave]="configCurrency"
+          ></ion-input>
+        </app-cont-error>
+      </div>
+      <div class="form-group">
+        <ion-label class="text-body-2">{{'PAYMENT.HOW_MUCH.REFERENCE' | translate}}</ion-label>
+        <app-cont-error [control]="reference">
+          <ion-input
+            type="text"
+            clearInput="true"
+            inputmode="numeric"
+            formControlName="reference"
+            appOnlyNumbers
+          ></ion-input>
+        </app-cont-error>
+      </div>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formHowMuch.invalid" [id]="'payment-how-much-public'">
+    </velocity-button>
+  </div>
+</form>

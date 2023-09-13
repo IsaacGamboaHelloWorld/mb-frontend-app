@@ -1,0 +1,24 @@
+<div class="center-modal">
+  <div class="pockets-modal-terms">
+    <strong class="text-subtitle-2 padding-lr-24 text-center">{{title}}</strong>
+    <div class="item-pockets-terms margin-t-12">
+      <p [innerHTML]="firstDescription" class="margin-b-24"></p>
+      <p [innerHTML]="secondDescription" class="margin-b-24"></p>
+      <p [innerHTML]="thirdDescription" class="margin-b-24"></p>
+    </div>
+    <div class="form-group padding-bottom">
+      <div class="cont-checkbox">
+        <ion-checkbox (ionChange)="changeShowModalAgain()" id="terms-conditions"></ion-checkbox>
+        <p class="text-body-2 config-text">
+          {{checkboxText}}
+        </p>
+      </div>
+    </div>
+    <velocity-button
+      [text]="textBtn"
+      [class]="'btn btn-primary'"
+      (actionButton)="closeModal()"
+    ></velocity-button>
+  </div>
+</div>
+

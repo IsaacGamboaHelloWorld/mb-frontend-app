@@ -1,0 +1,20 @@
+<div class="vel-card-lite-credit-card {{type}}" (click)="setValue()">
+  <ion-radio
+    mode="md"
+    class="vel-card-lite-credit-card-radio"
+    [value]="value"
+    *ngIf="hasControl"
+  ></ion-radio>
+  <p class="vel-card-lite-credit-card-title">{{title}}</p>
+  <div class="vel-card-lite-credit-card-number">
+    <span *ngFor="let block of [].constructor(blocks)">{{point.repeat(4)}}</span>
+    <span>{{number}}</span>
+  </div>
+  <div class="vel-card-lite-credit-card-amount">
+    <span>{{titleAmount}}</span>
+    <p>{{amount}}</p>
+  </div>
+  <div class="vel-card-lite-credit-card-img">
+    <img [src]="img" [alt]="title">
+  </div>
+</div>

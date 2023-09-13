@@ -1,0 +1,14 @@
+<div class="center-modal">
+  <div class="modal-product-block">
+    <i class="icon-vel-close" *ngIf="close" (click)="modalService.close()"></i>
+    <i class="modal-product-block-icon {{icon}} {{iconType}}" *ngIf="hasIcon"></i>
+    <strong class="padding-lr-24">{{title}}</strong>
+    <span *ngIf="hasSubtitle" class="modal-product-block-subtitle">{{subtitle}}</span>
+    <p>{{descriptionOne}} <a (click)="openBrowser()" *ngIf="hasLink" class="orange">{{linkText}}</a> {{descriptionTwo}}</p>
+    <velocity-button
+      [text]="buttonText"
+      [class]="'btn btn-primary medium margin-top'"
+      (actionButton)="modalService.close()"
+    ></velocity-button>
+  </div>
+</div>

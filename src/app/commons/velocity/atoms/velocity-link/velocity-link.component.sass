@@ -1,0 +1,81 @@
+.velocity-link
+  color: var(--vel-color-accent-o-900)
+  font-size: 15px
+  font-weight: 600
+  position: relative
+  &.medium
+    font-size: 14px
+    font-weight: 500
+  &.small
+    font-size: 12px
+    font-weight: 500
+  .loading-dots-link
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    display: none
+    justify-content: center
+    align-items: center
+    span
+      margin: 0 3px
+      animation-name: dotTwo
+      &:first-child
+        animation-name: dotOne
+      &:last-child
+        animation-name: dotThree
+  &.direction-right
+    .loading-dots-link
+      justify-content: flex-end
+  &.direction-left
+    .loading-dots-link
+      justify-content: flex-start
+  &.disabled
+    cursor: inherit
+  &.link-loading
+    position: relative
+    .loading-dots-link
+      display: flex
+  &.disabled,
+  &.link-loading
+    color: transparent
+
+
+.dot-btn-link
+  width: 4px
+  height: 4px
+  display: inline-block
+  position: relative
+  transform: translate3d(0, 0, 0)
+  animation: .6s ease-out
+  background: var(--vel-color-neutral-mid-90)
+  border-radius: 50%
+  vertical-align: middle
+  animation-fill-mode: forwards
+  animation-iteration-count: infinite
+  transition: background-color .2s, border .2s, box-shadow .2s
+
+
+@keyframes dotOne
+  0%
+    transform: scale(1) translate3d(0, 0, 0)
+  20%
+    transform: scale(1) translate3d(0, 100%, 0)
+  80%
+    transform: scale(1) translate3d(0, 0, 0)
+
+@keyframes dotTwo
+  13.3333%
+    transform: scale(1) translate3d(0, 0, 0)
+  33.3333%
+    transform: scale(1) translate3d(0, 100%, 0)
+  93.3333%
+    transform: scale(1) translate3d(0, 0, 0)
+
+@keyframes dotThree
+  26.6667%
+    transform: scale(1) translate3d(0, 0, 0)
+  46.6667%
+    transform: scale(1) translate3d(0, 100%, 0)
+

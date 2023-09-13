@@ -1,0 +1,24 @@
+@import mixins
+
+.modal-block-product
+  background: var(--vel-color-neutral-light-10)
+  border-radius: 12px
+  padding: 24px
+  position: relative
+  .icon-vel-close
+    position: absolute
+    right: 16px
+    top: 16px
+    color: var(--vel-color-neutral-mid-200)
+    font-size: 20px
+  > p
+    font-size: 16px
+    font-weight: 600
+    line-height: 1.5
+    text-align: center
+    margin-bottom: 24px
+    margin-top: 28px
+  ul ion-radio-group
+    +flex(flex, center, space-between)
+  li
+    min-width: 130px

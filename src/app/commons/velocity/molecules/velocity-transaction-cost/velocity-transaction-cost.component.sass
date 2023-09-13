@@ -1,0 +1,24 @@
+@import 'mixins'
+
+.vel-transaction-cost
+  padding: 24px 0
+  border-width: 1px 0
+  border-style: dashed
+  position: relative
+  border-color: var(--vel-color-neutral-mid-80)
+  p
+    font-weight: normal
+    color: var(--vel-color-neutral-mid-200)
+  strong
+    font-weight: 500
+  img
+    width: 36px
+    position: absolute
+    top: 50%
+    right: -10px
+    transform: translateY(-50%)
+  .d-flex-btw
+    +flex(flex, center, space-between)
+    width: 100%
+  .quantity-fees
+    margin-top: 8px

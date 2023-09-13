@@ -1,0 +1,26 @@
+<div class="vel-detail">
+  <div class="vel-detail-header">
+    <div class="vel-detail-amount">
+      <p class="text-subtitle-3">{{product?.amount?.title}}</p>
+      <h4 [innerHTML]="product?.amount?.value"></h4>
+    </div>
+  </div>
+  <div class="vel-detail-content" [class.show-content]="showContent">
+    <ul>
+      <li *ngFor="let list of product?.content?.list | slice:0:contentLength; trackBy: trackByList">
+        <span class="text-body-1">{{list?.title}}</span>
+        <p [innerHTML]="list?.value" *ngIf="!list?.hasPocket"></p>
+        <velocity-link
+          *ngIf="list?.hasPocket"
+          [text]="list?.value"
+          [isLoading]="list?.loading"
+          [class]="'medium direction-right'"
+          (actionButton)="viewPockets.emit()"></velocity-link>
+      </li>
+    </ul>
+    <p *ngIf="hasContentDescription">{{product?.content?.description}}</p>
+  </div>
+  <div class="vel-detail-view-more" (click)="seeMore.emit()" *ngIf="showArrow">
+    <p class="text-subtitle-3">{{showDetailText}}</p>
+  </div>
+</div>

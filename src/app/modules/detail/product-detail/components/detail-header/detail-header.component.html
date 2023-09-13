@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border detail-header">
+  <ion-toolbar class="show-border">
+    <ion-buttons slot="start" class="buttons-left">
+      <i class="icon-vel-arrows-diagrams-left-2" routerLink="/"></i>
+    </ion-buttons>
+    <div class="info-container">
+      <div class="product-name">
+        <div class="product-img" *ngIf="hasIcon">
+          <img [src]="product?.icon" [alt]="product?.name">
+        </div>
+        <p class="text-subtitle-2">{{product?.name}}</p>
+      </div>
+      <div class="detail-account-status">
+        <div class="id-icon-container">
+          <p>
+            {{product?.id}}
+          </p>
+          <i *ngIf="showHidden" class="{{hiddenIcon}}" (click)="toogleHiddenId.emit()"></i>
+        </div>
+        <span class="status-item" *ngIf="hasStatus" [className]="product?.status?.class">{{product?.status?.text}}</span>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>

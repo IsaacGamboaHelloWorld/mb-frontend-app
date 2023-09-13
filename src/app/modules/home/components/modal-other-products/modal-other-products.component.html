@@ -1,0 +1,36 @@
+<div class="center-modal">
+  <div class="modal-other-products">
+    <div class="modal-other-header">
+      <p>{{((isLoading$ | async)
+        ? 'AVAL_PRODUCTS.TITLE.LOADING'
+        : (hasProducts$ | async) ? 'AVAL_PRODUCTS.TITLE.COMPLETED' : 'AVAL_PRODUCTS.TITLE.EMPTY') | translate}}</p>
+    </div>
+    <div class="modal-other-body">
+      <ul>
+        <li *ngFor="let product of products$ | async">
+          <div class="img-bank {{product.key | lowercase}}">
+            <img [src]="'/' + ( product.key | lowercase) + '.png' | imageCdn"
+                 [alt]="'BANKS.'+ product.key | translate">
+          </div>
+          <div class="cont-info-bank">
+            <strong [class.error-text]="product.error">{{'BANKS.'+ product.key | translate}}</strong>
+            <p
+                [class.success]="product.completed"
+                [class.error]="product.error"
+                [class.info]="lengthProducts(product?.products) === 0"
+                [class.loading]="product?.loading"
+            >{{text(product)}}</p>
+            <div class="loading-bank" *ngIf="product.loading"><span></span></div>
+            <a class="link" *ngIf="product.error" (click)="loadOtherBank(product.key)">Reintentar</a>
+          </div>
+        </li>
+      </ul>
+      <div class="cont-link">
+        <a (click)="close()" class="link">{{
+          ((isLoading$ | async)
+            ? 'CANCEL'
+            : (hasProducts$ | async) ? 'AVAL_PRODUCTS.SHOW_PRODUCTS' : 'AVAL_PRODUCTS.BACK') | translate}}</a>
+      </div>
+    </div>
+  </div>
+</div>

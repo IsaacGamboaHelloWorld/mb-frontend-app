@@ -1,0 +1,25 @@
+@import mixins
+
+.custom-header
+    width: 100%
+
+.center-items
+    display: flex
+    position: relative
+    height: 100%
+    .center-content
+        +flex(flex,center,center,column)
+        position: relative
+        .content
+            transform: translateY(-18%)
+            .lottie-well-done
+                position: absolute
+                +flex(flex,center,center,column)
+                top: -65px
+                z-index: 0
+            .lottine-success
+                transform: translateY(20%)
+            .image-title
+                z-index: 1
+            .button
+                z-index: 2

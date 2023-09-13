@@ -1,0 +1,48 @@
+<app-custom-header size="medium">
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{'STATEMENTS.TITLE' | translate}}</p>
+  </div>
+  <div right>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <div class="header-complement cont-extracts p-lr-global padding-b-28">
+    <form [formGroup]="formGenerateExtracts">
+      <ng-container *ngIf="statement$ | async as file">
+        <velocity-card-download
+          [img]="'/isologo.png' | imageCdn"
+          [account]="'PRODUCT_TYPES.' + (productBasic?.type | uppercase) | translate"
+          [id]="('PRODUCTS.CREDIT_CARD.TEXT_PRE_NUMBER' | translate) + '. ' + (isTC ? (productBasic?.id | typeCreditCard)?.maskId : productBasic?.id)"
+          [isDisabled]="items.completed ? formGenerateExtracts.invalid || items.loading || file.loading : items.loading || file.loading"
+          [isLoading]="file.loading"
+          [btnText]="(items.error ? 'RETRY': file.error? 'STATEMENTS.RETRY_DOWNLOAD' : 'DOWNLOAD') | translate"
+          *ngIf="periods$ | async as items"
+          (actionBtn)="fetchStatement(items.error)"
+        >
+          <div class="form-group float-spinner">
+            <ion-select
+              mode="md"
+              formControlName="period"
+              interface="action-sheet"
+              [class.error]="items.error"
+              cancelText="{{'CANCEL' | translate}}"
+              [attr.disabled]="items.loading || items.error"
+              [placeholder]="'STATEMENTS.DEFAULT_OPTION' | translate">
+              <ion-select-option *ngFor="let period of items.periods" [value]="period">
+                {{period.periodName | titlecase}}
+              </ion-select-option>
+            </ion-select>
+            <div class="cont-spinner" *ngIf="items.loading">
+              <img [src]="'/spinner.svg' | imageCdn">
+            </div>
+          </div>
+          <velocity-error [text]="'¡' + ('STATEMENTS.ERROR' | translate) +'!'" *ngIf="items.error"></velocity-error>
+        </velocity-card-download>
+      </ng-container>
+    </form>
+  </div>
+</ion-content>

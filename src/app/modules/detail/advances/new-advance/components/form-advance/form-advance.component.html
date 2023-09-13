@@ -1,0 +1,123 @@
+<form [formGroup]="formAdvances" class="form-global-template" (ngSubmit)="submitAdvance()">
+  <div class="overflow-content">
+    <div class="margin-b-32 margin-t-28">
+      <ion-label class="label-global p-lr-global">¿{{'ADVANCES.TO_WHO.FROM' | translate}}</ion-label>
+      <ul class="registered-account">
+        <ion-radio-group formControlName="from">
+          <li *ngFor="let creditCard of (creditCard$ | async); trackBy: trackBy">
+            <velocity-card-lite-credit-card
+              [value]="creditCard"
+              [control]="from"
+              [amount]="creditCard?.productAccountBalances?.cupo_disponible_avances_pesos?.amount | currencyFormat"
+              [titleAmount]="'PRODUCTS.CREDIT_CARD.QUOTA_AVAILABLE' | translate"
+              [title]="('PRODUCT_TYPES.CREDIT_CARD' | translate) + ' ' + (creditCard?.id | typeCreditCard).typeClass"
+              [type]="(creditCard?.id | typeCreditCard).typeClass"
+              [img]="((creditCard?.id | typeCreditCard).imgBig) | imageCdn"
+              [number]="creditCard?.id.slice(-4)">
+            </velocity-card-lite-credit-card>
+          </li>
+        </ion-radio-group>
+      </ul>
+    </div>
+    <ion-item class="hidden-element">
+      <ion-label>¿{{'ADVANCES.TO_WHO.TO' | translate}}?</ion-label>
+      <ion-select
+        formControlName="to"
+        [placeholder]="'ADVANCES.TO_WHO.TO_DEFAULT' | translate"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'ADVANCES.TO_WHO.TO' | translate}}</ion-label>
+      <app-cont-error [control]="to">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="showButtonProductActive$ | async"
+          [isError]="!(hasDepositAccount$ | async)"
+          (actionBtn)="changeAccount()"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+    <div class="margin-b-32 p-lr-global">
+      <div class="cont-form-groups">
+        <div class="form-group padding-bottom">
+          <ion-label class="text-body-2">{{('ADVANCES.TO_WHO.AMOUNT' | translate: {
+            min: getMinAmountFormatted,
+            max: getMaxAmountFormatted
+          })}}</ion-label>
+          <app-cont-error [control]="amount">
+            <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="numeric"
+              placeholder="$"
+              formControlName="amount"
+              appCleave
+              [cleave]="configCurrency"
+            ></ion-input>
+          </app-cont-error>
+        </div>
+        <div class="form-group padding-bottom">
+          <ion-label class="text-body-2">{{'ADVANCES.TO_WHO.DESCRIPTION.LABEL' | translate}}</ion-label>
+          <app-cont-error [control]="description">
+            <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="text"
+              formControlName="description"
+              placeholder="{{'ADVANCES.TO_WHO.DESCRIPTION.PLACEHOLDER' | translate}}"
+            ></ion-input>
+          </app-cont-error>
+        </div>
+        <div class="form-group">
+          <ion-label class="text-body-2">{{'ADVANCES.TO_WHO.EXPIRATION_DATE.LABEL' | translate}}</ion-label>
+          <div class="expiration-date">
+
+              <ion-input
+                type="text"
+                inputmode="numeric"
+                class="expiration-input margin-r-8"
+                placeholder="{{'ADVANCES.TO_WHO.EXPIRATION_DATE.PLACEHOLDER_MONTH' | translate}}"
+                formControlName="expirationMonth"
+                minlength="2"
+                maxlength="2"
+                appOnlyNumbers
+              ></ion-input>
+
+              <ion-input
+                type="text"
+                inputmode="numeric"
+                class="expiration-input"
+                placeholder="{{'ADVANCES.TO_WHO.EXPIRATION_DATE.PLACEHOLDER_YEAR' | translate}}"
+                formControlName="expirationYear"
+                minlength="2"
+                maxlength="2"
+                appOnlyNumbers
+              ></ion-input>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="margin-b-32 p-lr-global">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="'COST_TRANSACTION.VALUE' | translate"
+                                 [nameFees]="'ADVANCES.DEFERRED_FEES.TITLE' | translate"
+                                 [quantityFees]="'ADVANCES.DEFERRED_FEES.VALUE' | translate"
+      ></velocity-transaction-cost>
+    </div>
+    <div class="template-submit-btn p-lr-global">
+      <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                       [disabled]="formAdvances.invalid" [id]="'advances-step-one'">
+      </velocity-button>
+    </div>
+  </div>
+</form>

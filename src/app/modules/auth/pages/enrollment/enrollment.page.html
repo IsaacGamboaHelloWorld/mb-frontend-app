@@ -1,0 +1,49 @@
+<ion-content>
+  <ng-container *ngIf="step$ | async as step">
+    <app-header
+      *ngIf="showHeader(step)"
+      [iconLeft]="showBackButton(step)"
+      [text]="showText(step) ? ('AUTH.ENROLLMENT.TITLE' | translate) : ''"
+      [type]="showBigHeader(step) ? 'type-three' : 'type-four'"
+      [showMenu]="false"
+      [showGreeting]="false"
+      (btnLeft)="back()"
+    ></app-header>
+    <ng-container [ngSwitch]="step">
+      <div class="align-items" app-universal-password *ngSwitchCase="stepEnrollmentType.FILL_UNIVERSAL_PASSWORD"
+           [information]="information$ | async"></div>
+      <div class="align-items" app-channel-password
+           *ngSwitchCase="stepEnrollmentType.FILL_CURRENT_CHANNEL_PASSWORD"></div>
+      <div class="align-items" app-new-universal-password
+           *ngSwitchCase="stepEnrollmentType.FILL_NEW_UNIVERSAL_PASSWORD"></div>
+      <div class="align-items" app-accept-channel-policies
+           *ngSwitchCase="stepEnrollmentType.ACCEPT_CHANNEL_POLICIES"></div>
+      <div class="align-items" app-otp-data *ngSwitchCase="stepEnrollmentType.FILL_OTP_DATA"></div>
+      <div class="align-items" app-fill-secure-data *ngSwitchCase="stepEnrollmentType.FILL_SECURE_DATA"></div>
+      <div class="align-items" app-limit-exceed
+           *ngSwitchCase="stepEnrollmentType.LIMIT_EXCEED_ON_SECURE_DATA_GENERATION || stepEnrollmentType.LIMIT_EXCEED_ON_OTP_GENERATION"></div>
+      <div class="align-items" app-service-error *ngSwitchCase="stepEnrollmentType.SERVICE_ERROR"></div>
+
+      <!-- Enrollment v3 -->
+      <div class="align-items" app-channel-password
+           *ngSwitchCase="stepEnrollmentType.FILL_CURRENT_CHANNEL_CREDENTIALS"></div>
+      <div class="align-items" app-new-universal-password *ngSwitchCase="stepEnrollmentType.FILL_NEW_CREDENTIALS"></div>
+      <div class="align-items" app-universal-password *ngSwitchCase="stepEnrollmentType.FILL_LOGIN_CREDENTIALS"
+           [information]="information$ | async"
+      ></div>
+      <div class="align-items" app-fill-secure-data *ngSwitchCase="stepEnrollmentType.FILL_SECURITY_QUESTION"></div>
+      <div class="align-items" app-otp-data *ngSwitchCase="stepEnrollmentType.V2_FILL_OTP_DATA"></div>
+      <div class="align-items" app-accept-channel-policies
+           *ngSwitchCase="stepEnrollmentType.V2_ACCEPT_CHANNEL_POLICIES"></div>
+      <div class="align-items" app-service-error *ngSwitchCase="stepEnrollmentType.V2_SERVICE_ERROR"></div>
+      <div class="align-items" app-limit-exceed *ngSwitchCase="stepEnrollmentType.RETRIES_LIMIT_EXCEED_ON_USER_TASK"></div>
+      <div class="align-items" app-limit-exceed *ngSwitchCase="stepEnrollmentType.RETRIES_LIMIT_EXCEED_ON_FILL_SECURITY_QUESTION"></div>
+      <div class="align-items" app-limit-exceed *ngSwitchCase="stepEnrollmentType.RETRIES_LIMIT_EXCEED_ON_LOAD_ENROLLMENT_OTP"></div>
+      <div class="align-items" app-limit-exceed *ngSwitchCase="stepEnrollmentType.RETRIES_LIMIT_EXCEED_ON_FILL_ENROLLMENT_OTP"></div>
+      <div class="align-items" app-limit-exceed *ngSwitchCase="stepEnrollmentType.RETRIES_LIMIT_EXCEED_ON_FILL_CREDENTIALS"></div>
+      <div class="align-items" app-limit-exceed *ngSwitchCase="stepEnrollmentType.RETRIES_LIMIT_EXCEED_ON_CREATE_OR_MIGRATE_USER_CREDENTIALS"></div>
+      <!-- end Enrollment v3 -->
+
+    </ng-container>
+  </ng-container>
+</ion-content>

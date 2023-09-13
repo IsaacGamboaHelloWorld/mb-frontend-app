@@ -1,0 +1,26 @@
+<div class="header-complement p-lr-global padding-b-16">
+  <div class="white-container">
+    <velocity-image-title
+      [img]="'/success_v.png' | imageCdn"
+      [title]="confirmationData.title | translate"
+      [description]="confirmationData.description | translate"
+    ></velocity-image-title>
+    <div class="template-submit-btn">
+      <velocity-button
+        *ngIf="confirmationData.showSecondaryButton"
+        type="submit"
+        class="btn-secondary medium margin-b-16"
+        [text]="'BIOMETRIC.SUCCESSFUL_REMOVAL.BTN_CANCEL' | translate"
+        [id]="'successful-removal-cancel-btn'"
+        (actionButton)="goToRegisterBiometric()">
+      </velocity-button>
+      <velocity-button
+        type="submit"
+        class="btn-primary medium"
+        [text]="'BIOMETRIC.SUCCESSFUL_REMOVAL.BTN_CONFIRM' | translate"
+        [id]="'ConfigurarHuella_btn_irInicio'"
+        (actionButton)="goHome()">
+      </velocity-button>
+    </div>
+  </div>
+</div>

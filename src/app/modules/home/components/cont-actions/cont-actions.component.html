@@ -1,0 +1,31 @@
+<velocity-card-custom [name]="'STOCKS.TITLE' | translate">
+  <form class="cont-actions" [formGroup]="formActions" (ngSubmit)="formSubmit()">
+    <div class="form-group month-action">
+      <ion-label class="label-global">{{'STOCKS.PERIOD' | translate}}</ion-label>
+      <ion-select
+        class="small"
+        mode="md"
+        formControlName="period"
+        interface="action-sheet" cancelText="{{'CANCEL' | translate}}">
+        <ion-select-option *ngFor="let period of periods"
+                           [value]="period?.id">
+          {{period.value | date: 'MMMM yyyy' | titlecase}}</ion-select-option>
+      </ion-select>
+    </div>
+    <div class="form-group">
+      <ion-label class="label-global">{{'STOCKS.TYPE' | translate}}</ion-label>
+      <ion-select
+        class="small"
+        mode="md"
+        formControlName="type"
+        interface="action-sheet" cancelText="{{'CANCEL' | translate}}">
+        <ion-select-option *ngFor="let type of types" [value]="type.id">
+          {{type.value}}</ion-select-option>
+      </ion-select>
+    </div>
+    <velocity-button [text]="'CONSULT' | translate"
+                     [isLoading]="loading"
+                     [disabled]="formActions.invalid || loading"
+                     class="btn-secondary small" type="submit"></velocity-button>
+  </form>
+</velocity-card-custom>

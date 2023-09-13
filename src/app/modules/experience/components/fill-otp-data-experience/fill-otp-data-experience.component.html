@@ -1,0 +1,71 @@
+<div *ngIf="showToast" class="toast-ios-otp-data animated fade-in-down">
+  <velocity-toast
+    [description]="'Por favor selecciona la sugerencia de tu teclado.'"
+    [icon]="'icon-vel-notification-bell'"
+    [type]="'toast-warning'"
+  ></velocity-toast>
+</div>
+<form (ngSubmit)="submitOtp()" [formGroup]="formOtpData"
+      class="header-complement complement-size-md p-lr-global padding-b-16">
+  <div class="animated fade-in-up white-container">
+    <div class="margin-b-24">
+      <velocity-image-title
+        [description]="'EXPERIENCE.FILL_OTP_DATA.DESCRIPTION' | translate"
+        [img]="'/smartphone-hand.png' | imageCdn"
+        [title]="'EXPERIENCE.FILL_OTP_DATA.TITLE' | translate"
+      ></velocity-image-title>
+    </div>
+    <div *ngIf="isIos" class="margin-b-24">
+      <velocity-toast
+        [description]="(isIos ? 'EXPERIENCE.FILL_OTP_DATA.TOAST_NORMAL.DESCRIPTION_IOS' :'EXPERIENCE.FILL_OTP_DATA.TOAST_NORMAL.DESCRIPTION') | translate"
+        [icon]="'icon-vel-notification-bell'"
+        [title]="'EXPERIENCE.FILL_OTP_DATA.TOAST_NORMAL.TITLE' | translate"
+        [type]="'toast-normal'"
+      ></velocity-toast>
+    </div>
+    <div class="form-group padding-bottom">
+      <ion-label class="text-body-2">{{'EXPERIENCE.FILL_OTP_DATA.PASSWORD' | translate}}
+      </ion-label>
+      <div class="vel-otp-input-cont margin-b-16">
+        <app-cont-error [control]="otpValue">
+          <app-velocity-otp-input
+            (actionFocus)="showToastIos()"
+            (oneTimeCode)="sendIos($event)"
+            [autocomplete]="'one-time-code'"
+            [control]="otpValue"
+            [digits]="8"
+            [disabled]="isDisabled"
+            [id]="'otpValue'"
+            [square]="true"
+            [type]="'tel'"
+          >
+          </app-velocity-otp-input>
+          <p *ngIf="showLoading" class="otp-data-loading">
+            <img [src]="'/spinner.svg' | imageCdn" alt="">
+            {{'EXPERIENCE.FILL_OTP_DATA.LOADING' | translate}}...
+          </p>
+        </app-cont-error>
+      </div>
+      <div class="link-otp-data text-center">
+        <ion-label class="text-body-2 otp-text">{{'EXPERIENCE.FILL_OTP_DATA.LINK_TEXT' | translate}}
+        </ion-label>
+        <ion-label *ngIf="isCurrentTime; else reSendOtp"
+                   [innerHTML]="currentTimeString" class="text-body-2 otp-text">
+        </ion-label>
+        <ng-template #reSendOtp>
+          <ion-label (click)="reSendOtpCode()" [innerHTML]="currentTimeString" class="text-body-2 ">
+          </ion-label>
+        </ng-template>
+      </div>
+    </div>
+    <velocity-button
+      *ngIf="isIos"
+      [text]="'EXPERIENCE.FILL_OTP_DATA.BUTTON_TEXT' | translate"
+      class="btn-primary margin-t-24"
+      type="submit"
+      [isLoading]="isLoading$ | async"
+      [disabled]="formOtpData.invalid || (isLoading$ | async)"
+      id="new-universal-password-submit"
+    ></velocity-button>
+  </div>
+</form>

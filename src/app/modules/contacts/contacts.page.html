@@ -1,0 +1,41 @@
+<app-custom-header>
+  <div left></div>
+  <div center>
+    <p>{{'CONTACTS.TITLE' | translate}}</p>
+  </div>
+  <div right>
+    <i class="icon-vel-essential-delete-2" (click)="back()"></i>
+  </div>
+</app-custom-header>
+
+<ion-content class="cont-contacts">
+  <div class="header-complement complement-size-md">
+    <div class="p-lr-global">
+      <div *ngFor="let tell of tells?.contacts; let i = index" class="group-tell" [class.first]="isFirst(i)">
+        <i class="{{setIcon(i)}}"></i>
+        <div>
+          <p>{{tell.group}}</p>
+          <ul>
+            <li *ngFor="let contact of tell?.numbers">
+              <span>{{contact?.name}}</span> -
+              <a href="tel:{{contact?.number}}">{{contact?.numberText}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="group-tell last">
+        <i><img [src]="'/icon-ike.png' | imageCdn" alt=""></i>
+        <div>
+          <p>{{tells?.stores?.title}}</p>
+          <ul>
+            <li>
+              <span>{{'CONTACTS.DOWNLOAD' | translate}}</span>
+              <a class="icon-ike" (click)="openApp(tells?.stores?.ios)" *ngIf="isPlatform('ios')"><i class="icon-vel-essential-download"></i></a>
+              <a class="icon-ike" (click)="openApp(tells?.stores?.android)" *ngIf="isPlatform('android')"><i class="icon-vel-essential-download"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

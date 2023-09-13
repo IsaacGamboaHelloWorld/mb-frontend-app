@@ -1,0 +1,54 @@
+<form class="agreement-finder form-global-template" [formGroup]="formCityFinder" (ngSubmit)="submitForm()">
+  <div class="search-input form-group padding-bottom-small p-lr-global">
+    <ion-input
+      type="text"
+      id="city-finder-input"
+      [placeholder]="'PAYMENT.TAXES.CITY_FINDER.SEARCH_PLACEHOLDER' | translate"
+      formControlName="searchTerm"
+      clearInput="true"
+    ></ion-input>
+    <button type="button" class="cancel-btn" (click)="closeModal()">
+      {{'PAYMENT.TAXES.CITY_FINDER.CANCEL_BTN' | translate}}
+    </button>
+  </div>
+  <ng-container *ngIf="hasResults$ | async; else loadingServices">
+    <div class="overflow-content">
+      <div class="result-finder-cont p-lr-global padding-b-28">
+        <ul>
+          <ion-radio-group formControlName="selectedItem">
+            <li class="result-finder-card" *ngFor="let city of (cities$ | async)?.listCities | filter: searchTerm.value: 'name'; trackBy: trackByTo">
+              <velocity-label-text-radio
+                [description]="city.name | titlecase"
+                [control]="selectedItem"
+                [value]="city">
+              </velocity-label-text-radio>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </div>
+    </div>
+    <div class="p-lr-global padding-b-28 margin-t-28">
+      <velocity-button
+        class="btn-primary"
+        type="submit"
+        [id]="'city-finder-continue'"
+        [text]="'CONTINUE' | translate"
+        [disabled]="formCityFinder.invalid">
+      </velocity-button>
+    </div>
+  </ng-container>
+  <div class="search-image" *ngIf="(cities$ | async).error">
+    <velocity-image-title
+      [img]="'/money-world.png' | imageCdn"
+      [title]="'PAYMENT.TAXES.CITY_FINDER.ERROR_MSG' | translate"
+    ></velocity-image-title>
+  </div>
+</form>
+
+<ng-template #loadingServices>
+  <ul class="finder-loading overflow-content skeleton-global" *ngIf="(cities$ | async)?.loading">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <strong class="skeleton"></strong>
+    </li>
+  </ul>
+</ng-template>

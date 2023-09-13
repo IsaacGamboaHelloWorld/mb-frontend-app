@@ -1,0 +1,133 @@
+<app-custom-header>
+  <div left>
+    <p class='header-greeting'>{{greeting}},</p>
+    <p class='customer-name'>
+      {{customerName$ | async}}
+    </p>
+  </div>
+  <div right>
+    <i class='icon-vel-essential-email' id='HomeCliente_href_buzon' (click)='goToMessages()'></i>
+    <i class='icon-vel-hot-dog margin-l-20' id='HomeCliente_href_opciones' (click)='toggleMenu()'></i>
+  </div>
+</app-custom-header>
+
+<ion-content class='content-home'>
+  <div class='cont-section-home'
+       [class.error-t1]='!(infoProducts$ | async)?.loading && (infoProducts$ | async)?.error'
+       [class.padding-nav-bar]='!(hiddenNavBar$ | async) && !(hasErrorProducts$ | async)'>
+    <div class='position-sections'>
+      <app-finances [products]='products$ | async'></app-finances>
+      <app-complementary-card *ngIf='showComplementaryCard$ | async'></app-complementary-card>
+      <ng-container *ngIf='hasProducts$ | async; else loadingOrError'>
+        <div *ngFor='let account of products$ | async | keys | orderProducts; trackBy: trackByFn' class='products'>
+          <app-group-products
+            [typeAccount]='account.key'
+            [products]='account.value'
+            [nicknames]='nicknames$ | async'
+            (retryProduct)='retryProduct($event)'
+            (goToDetail)='goToDetail($event)'
+          ></app-group-products>
+        </div>
+      </ng-container>
+      <app-group-actions *ngIf='hasOtherCards$ | async'></app-group-actions>
+
+      <div class='padding-lr-16'>
+        <velocity-section-other-products
+          [title]="'CREDITS.TITLE' | translate"
+          [description]="'CREDITS.DESCRIPTION' | translate"
+          [check]='isCheckCredits$ | async'
+          (actionClick)='toggleRollLoans()'
+        ></velocity-section-other-products>
+      </div>
+
+      <app-other-credits
+        *ngIf='isCheckCredits$ | async'
+        [rollLoansAll]='payRollLoans$ | async'
+        [freeDestination]='freeDestination$ | async'
+        (goToDetail)='goToDetail($event)'
+        (actionCredits)='fetchRollLoans()'
+      ></app-other-credits>
+
+      <div class='padding-lr-16'>
+        <velocity-section-other-products
+          [img]="'/aval.png' | imageCdn"
+          [description]="'AVAL.TOGGLE' | translate"
+          [check]='isCheckAval$ | async'
+          (actionClick)='openModalAval()'
+        ></velocity-section-other-products>
+      </div>
+
+      <ng-container *ngIf='showOtherProducts$ | async'>
+        <app-group-other-products [products]='otherProducts$ | async'></app-group-other-products>
+      </ng-container>
+      <div class='padding-lr-16' [class.margin-t-12]='isCheckAval$ | async'>
+        <div class='line-credits'></div>
+      </div>
+
+      <div class='cont-cards-open-new-products padding-lr-16 margin-t-24'>
+        <p>{{'CARDS_OPEN_ACCOUNT.TITLE' | translate}}</p>
+        <ul>
+          <li>
+            <velocity-card-open-new-product
+              [title]="'CARDS_OPEN_ACCOUNT.DEPOSIT_ACCOUNT.TITLE' | translate"
+              [description]="'CARDS_OPEN_ACCOUNT.DEPOSIT_ACCOUNT.DESCRIPTION' | translate"
+              [textLink]="'CARDS_OPEN_ACCOUNT.DEPOSIT_ACCOUNT.TEXT_LINK' | translate"
+              [img]="'/open-current-account.png' | imageCdn"
+              [idButton]="'HomeClienteAdquirir_btn_abrirCta'"
+              (actionButton)='openBrowserToken(urlOpenDepositAccount, true, false)'
+            ></velocity-card-open-new-product>
+          </li>
+          <li>
+            <velocity-card-open-new-product
+              [title]="'CARDS_OPEN_ACCOUNT.CDT.TITLE' | translate"
+              [description]="'CARDS_OPEN_ACCOUNT.CDT.DESCRIPTION' | translate"
+              [textLink]="'CARDS_OPEN_ACCOUNT.CDT.TEXT_LINK' | translate"
+              [img]="'/card-open-cdt.png' | imageCdn"
+              [positionImg]="'right'"
+              [backgroundColor]="'green'"
+              [idButton]="'HomeClienteAdquirir_btn_abrirCDT'"
+              (actionButton)='openBrowserToken(urlOpenCDT, true, false)'
+              *ngIf='showAccounts'
+            ></velocity-card-open-new-product>
+          </li>
+          <li>
+            <velocity-card-open-new-product
+              [title]="'CARDS_OPEN_ACCOUNT.TC.TITLE' | translate"
+              [description]="'CARDS_OPEN_ACCOUNT.TC.DESCRIPTION' | translate"
+              [textLink]="'CARDS_OPEN_ACCOUNT.TC.TEXT_LINK' | translate"
+              [img]="'/card-open-tc.png' | imageCdn"
+              [idButton]="'HomeClienteAdquirir_btn_solicitarTC'"
+              (actionButton)='openBrowserToken(urlOpenTC, false)'
+            ></velocity-card-open-new-product>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #loadingOrError>
+  <ul class='loading-t1 margin-b-16' *ngIf='(infoProducts$ | async)?.loading'>
+    <li *ngFor="let i of ['', '']">
+      <velocity-skeleton-card></velocity-skeleton-card>
+    </li>
+  </ul>
+  <div class='padding-lr-16 margin-t-16 margin-b-16'
+       *ngIf='!(infoProducts$ | async)?.loading && (infoProducts$ | async)?.error'>
+    <div class='error-products'>
+      <div></div>
+      <div class='error-info-products'>
+        <div class='cont-icon-error'>
+          <i class='icon-vel-face-wrong'></i>
+        </div>
+        <velocity-image-title
+          [description]="'PRODUCTS.ERROR.PRODUCTS_DESCRIPTION' | translate"
+          [title]="'¡'+ ('PRODUCTS.ERROR.PRODUCTS_TITLE' | translate ) +'!'"></velocity-image-title>
+      </div>
+      <velocity-button [text]="'PRODUCTS.ERROR.BTN' | translate" (click)='fetchProducts()'
+                       [class]="'btn-primary medium margin-t-16'"
+                       [id]="'error-list-products'"></velocity-button>
+    </div>
+  </div>
+</ng-template>

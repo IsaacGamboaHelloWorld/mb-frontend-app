@@ -1,0 +1,25 @@
+<div class="vel-card-account">
+  <div class="vel-card-account-container">
+    <div class="vel-card-account-data">
+      <div class="vel-card-account-data-title">
+        <div class="color-copy color-copy-type-one"
+             [class.one]="validateType('one')"
+             [class.two]="validateType('two')"
+             [class.three]="validateType('three')"></div>
+        <i [className]="accountIcon" [class.disable]="validateType('three')"></i>
+        <p [class.disable]="validateType('three')">{{title}} <span [class.disable]="validateType('three')"
+                                                                   [class.enable]="!validateType('three')">{{number}}</span>
+        </p>
+      </div>
+      <div class="vel-card-account-data-description">
+        <p [innerText]="descriptionAmount"></p>
+        <span>{{amount}}</span>
+      </div>
+    </div>
+    <div class="vel-card-account-action" [class.disable]="validateType('three')" [class.enable]="!validateType('three')"
+         *ngIf="hasOption" (click)="clickOption.emit()">
+      <i class="icon-vel-lock-circle"></i>
+      <span [innerText]="textOption"></span>
+    </div>
+  </div>
+</div>

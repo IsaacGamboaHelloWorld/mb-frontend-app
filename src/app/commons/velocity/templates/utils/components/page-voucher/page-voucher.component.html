@@ -1,0 +1,25 @@
+<div class="form-global-template cont-global-voucher">
+  <velocity-voucher
+      [config]="infoVoucher?.voucher"
+  ></velocity-voucher>
+
+  <div class="vel-voucher-buttons p-lr-globals">
+    <velocity-button
+      (actionButton)="buttonPrimary()"
+      [text]="infoVoucher?.buttonFirst?.name"
+      [isLoading]="infoVoucher?.buttonFirst?.loading"
+      [disabled]="infoVoucher?.buttonFirst?.loading"
+      [class]="infoVoucher?.buttonFirst?.className"
+      [id]="!!infoVoucher?.buttonFirst?.id ? infoVoucher?.buttonFirst?.id : ''"
+      *ngIf="hasBtnFirst"
+    ></velocity-button>
+
+    <velocity-button
+        [text]="infoVoucher?.buttonSecond?.name"
+        [class]="infoVoucher?.buttonSecond?.className"
+        [id]="!!infoVoucher?.buttonSecond?.id ? infoVoucher?.buttonSecond?.id : ''"
+        *ngIf="hasBtnSecond"
+        (actionButton)="buttonSecondary()"
+    ></velocity-button>
+  </div>
+</div>

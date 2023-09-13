@@ -1,0 +1,14 @@
+<app-custom-header>
+  <div left>
+    <i class="{{iconLeft()}}" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{'PAYMENT.TITLE' | translate}}</p>
+  </div>
+  <div right>
+    <i class="{{iconRight()}}" (click)="openModal()"></i>
+  </div>
+</app-custom-header>
+<ion-content class="feature-template-container">
+  <router-outlet></router-outlet>
+</ion-content>

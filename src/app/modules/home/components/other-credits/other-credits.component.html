@@ -1,0 +1,99 @@
+<section class="other-credits group-products-config">
+  <ng-container *ngIf="hasRollLoans;  else loadingOrError">
+    <p class="text-subtitle-3" *ngIf="validateLengthLoan"> {{ (validatePlural('payrollLoan')) | translate}}
+      ({{quantityLoans}})</p>
+    <ion-slides pager="false"
+                [options]="slideOpts"
+                class="cont-slides"
+                [class.space-slide]="sufficientSlides(quantityLoans)">
+      <ng-container *ngFor="let rollLoan of dataRollLoans; let i = index;">
+        <ion-slide class="slide" [class.only]="isOnly(dataRollLoans)">
+          <velocity-card
+            [product]="setRollLoans(rollLoansAll,rollLoan)"
+            [id]="'card-' + (rollLoan.accountType | lowercase) +'-' + i"
+            (viewDetail)="goToDetail.emit({type: rollLoan.accountType, id: rollLoan.accountId})"
+            [footer]="footer"
+          ></velocity-card>
+
+          <ng-template #footer>
+            <ng-container>
+              <ng-container>
+                <div class="vel-card-footer" [class.padding-right]="neededToPay(rollLoan)">
+                  <div>
+                    <ng-container *ngIf="neededToPay(rollLoan)">
+                      <span>{{'PAY_ROLL_LOANS.PAYMENT_PROGRESS' | translate}} : {{progress(rollLoan)}} % </span>
+                      <progress class="progress-status" max="100" [value]="progress(rollLoan)"></progress>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-template>
+
+        </ion-slide>
+      </ng-container>
+    </ion-slides>
+  </ng-container>
+
+  <ng-container *ngIf="hasFreeDestination;">
+    <p
+      class="text-subtitle-3"> {{ (validatePlural('freeDestination')) | translate}} {{'FREE_DESTINATION.SHORT_NAME' | translate}}
+      ({{quantityFreeDestinationCredits}})</p>
+    <ion-slides pager="false"
+                [options]="slideOpts"
+                class="cont-slides"
+                [class.space-slide]="sufficientSlides(quantityFreeDestinationCredits)">
+      <ng-container *ngFor="let freeDestination of dataFreeDestinationDetails; let i = index;">
+        <ion-slide class="slide" [class.only]="!sufficientSlides(quantityFreeDestinationCredits)">
+          <velocity-card
+            [product]="setFreeDestinationCredits(freeDestination)"
+            [id]="'card-' + (freeDestination.productType | lowercase) +'-' + i"
+            (viewDetail)="goToDetail.emit({type: freeDestination.productType, id: freeDestination.accountIdentifier})"
+            [footer]="footer"
+          ></velocity-card>
+
+          <ng-template #footer>
+            <ng-container>
+              <ng-container>
+                <div class="vel-card-footer" [class.padding-right]="isOverdueCredit(freeDestination)">
+                  <div>
+                    <ng-container *ngIf="isOverdueCredit(freeDestination)">
+                      <span>{{'FREE_DESTINATION.DUE_DAYS' | translate}}</span>
+                      <strong>{{freeDestination?.dueDays}}</strong>
+                    </ng-container>
+                    <ng-container *ngIf="!isOverdueCredit(freeDestination)">
+                      <span>{{'FREE_DESTINATION.CREDIT_AMOUNT' | translate}}</span>
+                      <strong
+                        [innerHTML]="freeDestination?.approvalAmount | currencyFormat: true"></strong>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-template>
+
+        </ion-slide>
+      </ng-container>
+    </ion-slides>
+  </ng-container>
+  <div class="padding-lr-16 margin-b-24" *ngIf="!hasRollLoans && !hasFreeDestination && !rollLoansAll?.loading">
+    <velocity-error-and-empty
+      [icon]="{ name:'icon-vel-notification-bell', type: 'information' }"
+      [title]="'CREDITS.EMPTY.TITLE' | translate">
+    </velocity-error-and-empty>
+  </div>
+
+</section>
+
+<ng-template #loadingOrError>
+  <div class="padding-lr-16 margin-b-24">
+    <velocity-error-and-empty
+      [icon]="{ name:'icon-vel-face-wrong', type: 'error' }"
+      [title]="'CREDITS.ERROR.TEXT' | translate"
+      [buttonText]="'CREDITS.ERROR.BUTTON' | translate"
+      (actionButton)="actionCredits.emit()"
+      *ngIf="!rollLoansAll?.loading && rollLoansAll?.error">
+    </velocity-error-and-empty>
+    <velocity-skeleton-card *ngIf="rollLoansAll?.loading"></velocity-skeleton-card>
+  </div>
+</ng-template>

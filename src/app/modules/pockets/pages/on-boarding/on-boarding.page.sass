@@ -1,0 +1,69 @@
+@import mixins
+
+.onboarding-contet
+  --ion-background-color: var(--vel-color-primary-g-500)
+
+  .general-container
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+
+    .swiper-slide-next, .swiper-slide-prev
+      .onboarding-container
+        opacity: 0.64
+        max-height: 482px
+
+    .onboarding-container
+      position: relative
+      width: calc(100% - 48px)
+      height: 85%
+      max-height: 506px
+      border-radius: 12px
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08)
+      background-color: var(--vel-color-neutral-light-10)
+      padding: 24px
+
+      i.icon-vel-close
+        position: absolute
+        top: 12px
+        right: 12px
+        font-size: 16px
+        padding: 4px
+        color: var(--vel-color-carbon-mid-400)
+
+      .container-image
+        padding-top: 28%
+        display: flex
+        justify-content: center
+
+      .container-button
+        margin-top: 36px
+        width: 100%
+
+      .link
+        margin-top: 24px
+        width: 100%
+        text-align: center
+        font-size: 14px
+        font-weight: 600
+        line-height: 1.71
+
+      &.flex-end
+        +flex(flex, inherit, flex-end, column)
+
+    .prime
+      height: 90%
+      max-height: 532px
+
+.onboarding-slides
+  height: 100%
+  --bullet-background: var(--vel-color-primary-g-100)
+  --bullet-background-active: var(--vel-bullet-active)
+
+  .swiper-pagination-bullets
+    bottom: 4%
+
+  .swiper-pagination-bullet
+    opacity: 1

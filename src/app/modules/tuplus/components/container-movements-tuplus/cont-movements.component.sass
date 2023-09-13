@@ -1,0 +1,72 @@
+@import 'src/sass/mixins'
+
+.movements
+  background: var(--vel-color-carbon-light-100)
+  border-radius: 24px 24px 0 0
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+
+  .movements-head
+    padding: 0 var(--vel-grid-padding)
+    height: 64px
+    +flex(flex, center, space-between)
+    border-bottom: 1px solid var(--vel-color-neutral-mid-70)
+
+    .movements-actions
+      button
+        background: transparent
+        font-size: 24px
+        cursor: pointer
+
+  .movements-content
+    height: 100%
+    > ul
+      > li
+        &:last-child
+          margin: 0
+
+        .skeleton
+          margin-bottom: 5px
+
+        &.loading-movement
+          padding: var(--vel-grid-padding)
+
+  .error-movements-tuplus
+    margin: 30px 40px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    text-align: center
+    width: auto
+    height: auto
+
+    &-icon
+      +flex(flex,inherit,center,row)
+
+    button
+      margin: 15px auto
+      width: auto
+      display: block
+
+
+    .container-icon
+      width: 32px
+      height: 32px
+      background: var(--vel-color-e-cyan-100)
+      border-radius: 50%
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      align-self: center
+
+      i
+        font-size: 20px
+        color: var(--vel-color-e-cyan-400)
+        align-self: center
+
+    .message-description
+      font-size: 12px
+      font-weight: 500
+      line-height: 2
+      color: var(--vel-color-carbon-mid-600)

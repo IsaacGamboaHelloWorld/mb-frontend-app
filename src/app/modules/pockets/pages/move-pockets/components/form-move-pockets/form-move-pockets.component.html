@@ -1,0 +1,111 @@
+<form class="form-global-template"
+      [formGroup]="formMovePocket"
+      (ngSubmit)="submitForm()"
+      *ngIf="formMovePocket">
+  <div class="overflow-content margin-t-28 padding-b-28">
+    <div class="p-lr-global">
+      <div class="cont-form-groups margin-b-24">
+        <div class="move-pocket-header">
+          <p class="text-subtitle-2">{{pocket?.pocketName}}</p>
+          <p class="balance-available margin-t-8">{{'BALANCE_AVAILABLE' | translate}}</p>
+          <h4 [innerHTML]="pocket?.amountSaved | currencyFormat: true"></h4>
+        </div>
+      </div>
+    </div>
+    <div class="p-lr-global">
+      <div class="cont-form-groups margin-b-24">
+        <div class="form-group">
+          <ion-label class="text-body-2">{{'POCKETS.MOVE.AMOUNT_TO_MOVE' | translate}}</ion-label>
+          <app-cont-error [control]="amountToMove">
+            <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="numeric"
+              placeholder="$ 0.00"
+              formControlName="amountToMove"
+              appDetectFocus
+              appCleave
+              [cleave]="configCurrency"
+            ></ion-input>
+          </app-cont-error>
+        </div>
+      </div>
+    </div>
+    <div class="form-group margin-b-28">
+      <ion-label
+        class="text-subtitle-3 p-lr-global margin-b-8">{{'POCKETS.MOVE.DESTINATION.TITLE' | translate}}</ion-label>
+      <ul class="destination-container">
+        <ion-radio-group formControlName="where">
+          <li>
+            <velocity-withdrawal-place
+              [icon]="'icon-vel-money-box-b'"
+              [name]="'POCKETS.MOVE.DESTINATION.THIS_POCKET' | translate"
+              [value]="1"
+              [align]="'center'"
+              [control]="where"
+            ></velocity-withdrawal-place>
+          </li>
+          <li *ngIf="hasMorePockets">
+            <velocity-withdrawal-place
+              [icon]="'icon-vel-money-progress'"
+              [name]="'POCKETS.MOVE.DESTINATION.OTHER_POCKET' | translate"
+              [value]="2"
+              [align]="'center'"
+              [control]="where"
+            ></velocity-withdrawal-place>
+          </li>
+          <li>
+            <velocity-withdrawal-place
+              [icon]="'icon-vel-deposit-Box'"
+              [name]="'POCKETS.MOVE.DESTINATION.PARENT_ACCOUNT' | translate"
+              [value]="3"
+              [align]="'center'"
+              [control]="where"
+            ></velocity-withdrawal-place>
+          </li>
+        </ion-radio-group>
+      </ul>
+    </div>
+    <ng-container *ngIf="showAccount">
+      <div class="margin-b-32 p-lr-global">
+        <ion-label *ngIf="where.value " class="label-global">{{labelAccount | translate}}</ion-label>
+        <velocity-small-card
+          [product]="productActive$ | async"
+          [showButton]="false"
+        ></velocity-small-card>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showPocketsList">
+      <div class="p-lr-global">
+        <div class="cont-form-groups margin-b-24">
+          <div class="form-group">
+            <ion-label class="text-body-2">{{'POCKETS.MOVE.WHICH_POCKET' | translate}}</ion-label>
+            <app-cont-error [control]="pocketTo">
+              <ion-select
+                id="pockets-move-list"
+                mode="md"
+                interface="action-sheet"
+                cancelText="{{'CANCEL' | translate}}"
+                class="pockets-cont-border-select"
+                formControlName="pocketTo">
+                <ion-select-option *ngFor="let pocket of (pocketsShowList$ | async)" [value]="pocket">
+                  {{pocket?.pocketName}}
+                </ion-select-option>
+              </ion-select>
+            </app-cont-error>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button
+      type="submit"
+      class="btn-primary"
+      [text]="'POCKETS.MOVE.BUTTON' | translate"
+      [id]="'move-pockets-btn'"
+      [disabled]="formMovePocket.invalid"
+      [isLoading]="isLoading$ |async">
+    </velocity-button>
+  </div>
+</form>

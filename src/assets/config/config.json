@@ -1,0 +1,74 @@
+{
+  "config": [
+    {
+      "id": "QR",
+      "enabled": false,
+      "new": false
+    },
+    {
+      "id": "payment",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "transferWithDrawal",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "recharge",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "transfer",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "profile",
+      "enabled": false,
+      "new": false
+    },
+    {
+      "id": "paymentTaxes",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "paymentPila",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "paymentObligations",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "paymentRegistered",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "paymentNotRegistered",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "transferRegistered",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "transferNotRegistered",
+      "enabled": true,
+      "new": false
+    },
+    {
+      "id": "blockingProducts",
+      "enabled": true,
+      "new": false
+    }
+  ]
+}

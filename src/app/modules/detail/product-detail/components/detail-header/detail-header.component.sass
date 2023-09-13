@@ -1,0 +1,65 @@
+@import mixins
+@import text
+.detail-header
+  ion-toolbar
+    --background: var(--vel-color-primary-g-500)
+    --color: var(--vel-color-neutral-light-10)
+    --min-height: 60px
+    --opacity: 1
+    text-align: left
+    transition: .3s
+
+    ion-buttons
+      i
+        font-size: 24px
+        margin-left: 10px
+
+  .info-container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 10px 38px 5px 0
+
+    .product-name
+      display: flex
+      justify-content: center
+
+      .product-img
+        width: 32px
+        height: 28px
+        padding: 6px 4px
+        border-radius: 4px
+        margin-right: 8px
+        background-color: var(--vel-color-success-900)
+
+    .detail-account-status
+      +flex(flex, center, center, column)
+      padding: 5px 0
+
+      .id-icon-container
+        +flex(flex, center, center, row)
+        line-height: normal
+        padding-bottom: 10px
+        width: 100%
+
+        i
+          font-size: 24px
+          margin-left: 6px
+
+      p
+        font-size: 13px
+        font-weight: normal
+
+      span
+        @extend .vel-text-action-3
+        @extend .vel-text-medium
+        padding: 5px 16px
+        border-radius: 20px
+
+        &.success
+          background-color: var(--vel-color-semantic-info-100)
+          color: var(--vel-color-semantic-info-600)
+
+        &.error
+          background-color: var(--vel-color-semantic-error-100)
+          color: var(--vel-color-semantic-error-600)

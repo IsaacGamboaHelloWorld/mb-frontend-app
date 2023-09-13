@@ -1,0 +1,8 @@
+<div class="cont-template-advance" [class.header-complement]="!hasLineTime">
+  <div class="cont-line-time margin-b-28" *ngIf="hasLineTime">
+    <velocity-line-time [items]="lineTime" [step]="step"></velocity-line-time>
+  </div>
+  <div class="advance-template-ro" [class.overflow-content]="hasLineTime">
+    <router-outlet></router-outlet>
+  </div>
+</div>

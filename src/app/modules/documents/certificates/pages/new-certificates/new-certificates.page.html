@@ -1,0 +1,68 @@
+<app-custom-header size='medium'>
+  <div left>
+    <i class='icon-vel-arrows-diagrams-left-2' (click)='goHome()'></i>
+  </div>
+  <div center>
+    <p>{{'DOCUMENTS.CERTIFICATES.TITLE' | translate}}</p>
+  </div>
+  <div right>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <form class='form-global-template' [formGroup]='formNewCertificates' (ngSubmit)='formSubmit()'>
+    <div class='margin-t-24'>
+      <div class='overflow-content'>
+        <div class='form-group margin-b-28'>
+          <ion-label class='label-global p-lr-global'>{{'DOCUMENTS.CERTIFICATES.PRODUCTS_LABEL' | translate}}</ion-label>
+          <ul class='products-small-card-list'>
+            <ion-radio-group formControlName='selectedProduct'>
+              <li *ngFor='let product of (products$ | async); let i = index'>
+                <velocity-product-card-small
+                  [info]='infoProductCardSmall(product)'
+                  [id]="'card-product-small-' + (product.typeAccount | lowercase) + '-' + i"
+                  [control]='selectedProduct'
+                  [value]='product'
+                ></velocity-product-card-small>
+              </li>
+            </ion-radio-group>
+          </ul>
+        </div>
+
+        <div class='margin-b-32 p-lr-global'>
+          <ng-container *ngIf='hasSelectedProduct'>
+            <ion-label class='label-global'>{{'DOCUMENTS.CERTIFICATES.SECTION_LABEL' | translate}}</ion-label>
+              <div class='cont-form-groups'>
+                <div class="form-group margin-b-24">
+                  <ion-label class="text-body-2">{{'DOCUMENTS.CERTIFICATES.RECIPIENT_LABEL' | translate}}</ion-label>
+                  <ion-input
+                    type="text"
+                    formControlName="recipient"
+                    placeholder="{{'DOCUMENTS.CERTIFICATES.RECIPIENT_PLACEHOLDER' | translate}}"
+                    clearInput="true"
+                  ></ion-input>
+                </div>
+                <div class="form-group">
+                  <ion-select mode="md" formControlName="balance" interface="action-sheet" cancelText="{{'CANCEL' | translate}}">
+                    <ion-select-option
+                      [value]="false">{{'CERTIFICATE.NO_BALANCE' | translate}}</ion-select-option>
+                    <ion-select-option
+                      [value]="true">{{'CERTIFICATE.BALANCE' | translate}}</ion-select-option>
+                  </ion-select>
+                </div>
+              </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div *ngIf='hasSelectedProduct' class='template-submit-btn p-lr-global padding-b-16'>
+      <velocity-button class='btn-primary'
+                       [text]="((certificate$ | async)?.error ? 'DOCUMENTS.CERTIFICATES.RETRY_BTN': 'DOCUMENTS.CERTIFICATES.DOWNLOAD_BTN') | translate"
+                       [type]="'submit'"
+                       [disabled]='(certificate$ | async)?.loading || formNewCertificates.invalid'
+                       [isLoading]='(certificate$ | async)?.loading'
+                       [id]="'download-certificate-btn'">
+      </velocity-button>
+    </div>
+  </form>
+</ion-content>

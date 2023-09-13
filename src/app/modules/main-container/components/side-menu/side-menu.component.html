@@ -1,0 +1,59 @@
+<ion-menu #appSideMenu
+          side="start"
+          type="push"
+          menuId="app-side-menu"
+          contentId="main-container-ro"
+          class="side-menu"
+          swipeGesture="false"
+          (ionWillOpen)="openMenuAnimation()"
+          (ionWillClose)="closeMenuAnimation()">
+  <div class="side-menu-header">
+    <img [src]="'/logotipo-horizontal.png' | imageCdn" [alt]="'NAME_BANK' | translate">
+    <div class="hm-close-btn" (click)="toggleMenu()">
+      <i class="icon-vel-close"></i>
+    </div>
+  </div>
+  <ion-content>
+    <ion-list lines="none" class="menu-items-list">
+      <ng-container *ngFor="let item of sideMenuItems">
+        <ion-menu-toggle
+          class="toggle-item"
+          *ngIf="item.children?.length === 0"
+          (click)="redirect(item.path)">
+          <ion-item class="text-subtitle-2 item-sm enabled-item" [class.disabled]="!item.enable">
+            <i class="{{item.icon}}"></i>
+            {{item.text | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <div class="toggle-item" *ngIf="item.children.length > 0" (click)="item.open = !item.open">
+          <ion-item class="text-subtitle-2 item-sm">
+            <i class="{{item.icon}}"></i>
+            {{item.text | translate}}
+            <i class="arrow icon-vel-arrow-down-s" [class.rotate]="item.open"></i>
+          </ion-item>
+        </div>
+        <ion-list class="cont-sub-menu" [class.show]="item.open">
+          <ion-menu-toggle>
+            <ion-item *ngFor="let sub of item.children" class="sub-menu enabled-item"
+                      [class.disabled]="!sub.enable"
+                      (click)="redirect(sub.path, sub.externalUrl)"
+                      [id]="!!sub.id ? sub.id : ''"
+                      detail="false">{{sub.text | translate}}</ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ng-container>
+    </ion-list>
+  </ion-content>
+  <div class="side-menu-footer">
+    <ion-item lines="none" class="text-subtitle-2" (click)="logout()">
+      <i class="icon-vel-logout-box"></i>
+      {{'SIDE_MENU.EXIT' | translate}}
+    </ion-item>
+    <img [src]="'/aval.png' | imageCdn" [alt]="'NAME_GROUP' | translate">
+    <span class="text-caption">
+      <small *ngIf="hasLasDate$ | async">{{'LAST_ENTRY' | translate}}:
+        {{(lastDate$ | async) | date:'dd/MMM/yyyy - h:mm a' | replace : '.' : ''}}</small>
+      © {{currentYear}} {{'NAME_BANK' | translate}} | v{{version}}
+    </span>
+  </div>
+  </ion-menu>

@@ -1,0 +1,52 @@
+<ng-container *ngIf="!showFilter">
+  <div *ngIf="product$ | async as product">
+    <app-detail-header 
+      [product]="productDetail(product)?.information"
+      [showHidden]="product?.showHiddenId"
+      [hiddenIcon]="product?.hiddenIdStatus ? 'icon-vel-eye-off' : 'icon-vel-eye'"
+      (toogleHiddenId)="toogleHidden(product.typeAccount, product.id)">
+    </app-detail-header>
+  </div>
+  <ion-content class="detail-container">
+    <div class="mask-green"></div>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pulling-icon="arrow-dropdown" refreshing-spinner="lines"></ion-refresher-content>
+    </ion-refresher>
+    <div class="min-height">
+      <ng-container *ngIf="hasProduct">
+        <ng-container *ngIf="product$ | async as product">
+          <section class="detail-info-section" [id]="'detail-info-' + productBasic?.type">
+            <div *ngIf="pockets$ | async as pockets">
+              <velocity-detail-info
+                [product]="productDetail(product, pockets?.loading)?.information"
+                [showDetailText]="'SEE_MORE' | translate"
+                [contentLength]="contentLength(product)"
+                (seeMore)="openDetailModal(productDetail(product)?.information)"
+                (viewPockets)="showPockets()"
+              ></velocity-detail-info>
+            </div>
+          </section>
+          <section class="detail-service-section">
+            <ul>
+              <li *ngFor="let service of productDetail(product, false, complementary$ | async, productsAccount | async)?.services; trackBy: trackByServices">
+                <velocity-product-service [service]="service" (actionClick)="actionService(service, product)"></velocity-product-service>
+              </li>
+            </ul>
+          </section>
+        </ng-container>
+      </ng-container>
+    </div>
+    <section class="detail-movements">
+      <app-cont-movements
+        [title]="(isFinance ? 'PAY_ROLL_LOANS.TITLE_MOVEMENTS': 'MOVEMENTS.TITLE') | translate"
+        [showSearch]="!isFinance"
+        [movements]="setMovements(movements$ | async, product$ | async)" (loadMovements)="fetchMovements($event)"
+        (showFilters)="toggleFilters()"></app-cont-movements>
+    </section>
+  </ion-content>
+</ng-container>
+<ng-container *ngIf="showFilter">
+  <ion-content>
+    <app-movements-filter [movements]="setMovements(movements$ | async, product$ | async)" (cancel)="toggleFilters()"></app-movements-filter>
+  </ion-content>
+</ng-container>

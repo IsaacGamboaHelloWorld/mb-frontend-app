@@ -1,0 +1,60 @@
+.animated
+  animation-duration: 1s
+  animation-fill-mode: both
+
+  &.quick
+    animation-duration: .5s
+
+  &.loop
+    animation-iteration-count: 100
+
+@keyframes fadeInUp
+  0%
+    opacity: 0
+    transform: translate3d(0, 20px, 0)
+  100%
+    opacity: 1
+    transform: none
+
+.fade-in-up
+  animation-name: fadeInUp
+
+@keyframes invert-zoom
+  0%
+    transform: none
+  100%
+
+    opacity: 1
+    transform: scale(0.98, 0.98)
+
+.invert-zoom
+  animation-name: invert-zoom
+
+
+@keyframes fadeInDown
+  0%
+    opacity: 0
+    transform: translate3d(0, -20px, 0)
+  100%
+    opacity: 1
+    transform: none
+
+.fade-in-down
+  animation-name: fadeInDown
+
+
+@keyframes skeleton-progress
+  0%
+    left: -500px
+  to
+    left: 100%
+
+
+.hide-element
+  animation-duration: 15s
+  animation-fill-mode: both
+  animation-name: hideElement
+
+@keyframes hideElement
+  to
+    visibility: hidden

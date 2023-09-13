@@ -1,0 +1,97 @@
+<form class="new-payment-to-who-loans form-global-template"
+      [formGroup]="formToWhoPayment"
+      (ngSubmit)="submitForm()">
+  <div>
+    <ion-item class="hidden-element">
+      <ion-label>¿{{'RECHARGE.TO_WHO.ORIGIN' | translate}}?</ion-label>
+      <ion-select
+        formControlName="from"
+        [placeholder]="'RECHARGE.TO_WHO.ORIGIN_DEFAULT' | translate"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'RECHARGE.TO_WHO.ORIGIN' | translate}}</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="showButtonProductActive$ | async"
+          [isError]="isErrorCardActive"
+          (actionBtn)="changeAccount(hiddenElement)"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+
+    <div class="form-group margin-b-32">
+      <ion-label class="label-global p-lr-global">{{'PAYMENT.LOANS.TO_WHO.DESTINATION' | translate}}</ion-label>
+      <ng-container *ngIf="hasLoans$ | async as loans; else loadingServices">
+        <ul class="service-payment-loans">
+          <ion-radio-group formControlName="to">
+            <li *ngFor="let loan of (registeredLoans$ | async)?.information; trackBy: trackByTo">
+              <velocity-card-loan
+                [value]="loan"
+                [bank]="loan?.bankName"
+                [control]="to"
+                [isImg]="isTC(loan?.accountType)"
+                [img]="isTC(loan?.accountType) ? (setIcon(loan?.accountId) | imageCdn) : 'icon-vel-money-circle'"
+                [nameClass]="isTC(loan?.accountType) ? ((loan?.accountId | typeCreditCard).name | lowercase) : ''"
+                [id]="('PRODUCTS.CREDIT_CARD.TEXT_PRE_NUMBER' | translate) + '. ' +
+                    (isTC(loan?.accountType) ? (loan?.accountId | typeCreditCard)?.maskId?.slice(-9) : loan?.accountId)"
+                [type]="loan?.loanName"
+              ></velocity-card-loan>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </ng-container>
+    </div>
+
+    <div class="margin-b-32 p-lr-global">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="'COST_TRANSACTION.VALUE' | translate"
+      ></velocity-transaction-cost>
+    </div>
+
+  </div>
+
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formToWhoPayment.invalid"
+                     [id]="'payment-loan-step-one'">
+    </velocity-button>
+  </div>
+</form>
+
+<ng-template #loadingServices>
+  <ul class="service-payment-loans skeleton-global" *ngIf="(registeredLoans$ | async)?.loading">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <div class="skeleton img-loading"></div>
+      <p class="skeleton width-90"></p>
+      <strong class="skeleton width-50"></strong>
+    </li>
+  </ul>
+  <div *ngIf="!(registeredLoans$ | async)?.loading && (registeredLoans$ | async)?.error">
+    <velocity-general-error
+      [img]="'/falla-tecnica.png' | imageCdn"
+      [title]="'¡' + ('PAYMENT.ERROR' | translate) + '!'"
+      [btn]="'RETRY' | translate"
+      (actionBtn)="fetchLoans()"
+    ></velocity-general-error>
+  </div>
+  <div *ngIf="(registeredLoans$ | async)?.completed">
+    <velocity-general-error
+      [img]="'/icon-bank.png' | imageCdn"
+      [title]="'PAYMENT.EMPTY' | translate"
+    ></velocity-general-error>
+  </div>
+</ng-template>
+
+

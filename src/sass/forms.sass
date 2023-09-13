@@ -1,0 +1,374 @@
+@import 'mixins'
+
+.form-global
+  width: 100%
+
+.form-group
+  &.float-button
+    padding: var(--vel-grid-padding-bottom) 0
+
+  &.padding-bottom
+    padding-bottom: 24px
+
+  &.padding-bottom-small
+    padding-bottom: 16px
+
+  ion-select,
+  ion-input
+    @extend .vel-text-action-2
+    background-color: var(--vel-color-carbon-light-100)
+    border-radius: 8px
+    height: 48px
+    transition: .3s
+    border: solid 1.2px var(--vel-color-carbon-light-900)
+
+    +placeholder(var(--vel-color-carbon-mid-400))
+    --padding-end: 12px
+    --padding-start: 12px
+
+    &[disabled='true']
+      opacity: 1
+      background-color: var(--vel-color-carbon-light-400)
+      border: solid 1.2px var(--vel-color-carbon-mid-600)
+      color: var(--vel-color-carbon-mid-100)
+      -webkit-text-fill-color: var(--vel-color-carbon-light-900)
+
+    input.native-input
+      padding-inline-end: 0
+
+      &:disabled
+        opacity: 1
+
+    .input-clear-icon
+      width: 24px
+      height: 24px
+      margin-right: 12px
+      border-radius: 50%
+      background: var(--vel-color-carbon-light-900)
+      color: var(--vel-color-carbon-mid-100)
+      font-size: 16px
+      +flex(flex, center, center)
+
+      &::after
+        +velocity-icons('\e904')
+
+    &.ng-dirty.ion-valid.has-focus
+      border-color: var(--vel-color-semantic-success-600)
+      background-color: var(--vel-color-semantic-success-100)
+
+    &.ng-dirty.ng-invalid
+      border-color: var(--vel-color-semantic-error-600)
+      background-color: var(--vel-color-semantic-error-100)
+
+    &.ng-touched.ng-invalid
+      border-color: var(--vel-color-semantic-error-600)
+      background-color: var(--vel-color-semantic-error-100)
+
+    &.ng-dirty.warning
+      border-color: var(--vel-color-semantic-warning-600)
+      background-color: var(--vel-color-semantic-warning-100)
+
+    &.has-focus
+      border-color: var(--vel-color-carbon-mid-600)
+      background-color: var(--vel-color-carbon-light-100)
+
+    &.ng-dirty.ion-valid
+      border-color: var(--vel-color-carbon-mid-600)
+      background-color: var(--vel-color-carbon-light-100)
+
+  ion-select
+    position: relative
+    --padding-end: 28px
+    --padding-start: 12px
+
+    &.small
+      height: 40px
+
+      &::after
+        font-size: 20px
+
+    &::after
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      +velocity-icons('\e901')
+      color: var(--vel-color-success-500)
+      width: 30px
+      height: 30px
+      background: var(--vel-color-neutral-light-10)
+      padding-right: 12px
+      right: 0
+      +flex(flex, center, center)
+      font-size: 24px
+      transition: .3s
+
+    &[disabled='true']
+      &::after
+        background-color: var(--vel-color-carbon-light-100)
+
+    &.ng-dirty.ng-invalid, &.ng-touched.ng-invalid
+      &::after
+        background-color: var(--vel-color-s-error-light)
+        color: var(--vel-color-error-800)
+
+    &.error
+      background-color: var(--vel-color-s-error-light)
+      opacity: 1
+      color: var(--vel-color-error-800)
+      border-color: var(--vel-color-s-error-600)
+
+      &::after
+        color: var(--vel-color-error-800)
+        background-color: var(--vel-color-s-error-light)
+
+  ion-checkbox
+    --background: var(--vel-color-carbon-light-100)
+    --background-checked: var(--vel-color-primary-600)
+    --border-color: var(--vel-color-carbon-light-900)
+    --border-color-checked: var(--vel-color-primary-600)
+    --border-radius: 6px
+    --border-style: solid
+    --border-width: 1px
+    --checkmark-color: var(--vel-color-carbon-light-100)
+    --size: 20px
+
+    &.checkbox-checked
+      --border-width: 5px
+
+  ion-radio
+    &::part(mark)
+      width: 8px
+      height: 8px
+
+    &::part(container)
+      border-width: 1px
+      border-color: var(--vel-color-carbon-light-900)
+
+    &.radio-checked
+      &::part(container)
+        background-color: var(--vel-color-primary-600)
+        border-color: var(--vel-color-primary-600)
+
+      &::part(mark)
+        background-color: var(--vel-color-carbon-light-100)
+
+.cont-input
+  position: relative
+
+  ion-input
+    --padding-end: 36px
+
+  > i
+    position: absolute
+    right: 12px
+    top: 50%
+    transform: translateY(-50%)
+    z-index: 2
+    color: var(--vel-color-neutral-mid-90)
+    cursor: pointer
+    font-size: 24px
+
+.cont-checkbox
+  position: relative
+
+  ion-checkbox
+    position: absolute
+    margin-top: 2px
+
+  p
+    padding-left: 30px
+
+.config-item
+  --padding-start: 0
+  --background-activated: transparent
+
+
+.select-action-sheet
+  .action-sheet-wrapper
+    .action-sheet-container
+      > div:first-child
+        padding-top: 32px
+        border-radius: 12px 12px 0 0
+        position: relative
+        max-height: 60vh
+
+        &::before
+          width: 32px
+          height: 4px
+          border-radius: 2px
+          background-color: var(--vel-color-neutral-light-60)
+          content: ''
+          position: absolute
+          top: 8px
+          left: 50%
+          margin-left: -16px
+
+    .action-sheet-group
+      padding: 0 24px
+
+      button
+        padding-inline-start: 0
+        padding-inline-end: 0
+        margin-bottom: 32px
+        height: 24px
+
+        span
+          font-size: 14px
+          font-weight: 500
+          line-height: 1.71
+          white-space: nowrap
+          overflow: hidden
+          display: block
+          text-overflow: ellipsis
+
+        &.action-sheet-selected
+          span
+            color: var(--vel-color-primary-g-800)
+
+    .action-sheet-group-cancel
+      button
+        border-top: 1px solid var(--vel-color-neutral-light-50)
+        padding-inline-start: 12px
+        padding-inline-end: 12px
+        height: 75px
+        margin-bottom: 0
+
+        span
+          justify-content: center
+          font-weight: 600
+          font-size: 15px
+          color: var(--vel-color-accent-o-900)
+          display: flex
+
+.cont-form-groups
+  border-radius: 12px
+  padding: 24px 16px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+  background-color: var(--vel-color-neutral-light-10)
+
+.white-container
+  border-radius: 12px
+  padding: 36px 24px 24px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+  background-color: var(--vel-color-neutral-light-10)
+
+.separator-line
+  width: 100%
+  border-bottom: 1px solid var(--vel-color-neutral-light-50)
+  margin: 20px 0
+
+.text-wrap-ellipsis
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+.label-global
+  font-size: 14px
+  font-weight: 500
+  +flex(flex, center, space-between)
+  margin-bottom: 16px
+
+  small
+    font-size: 11px
+    color: var(--vel-color-neutral-mid-200)
+
+.vel-otp-input-cont
+  display: flex
+  justify-content: center
+  margin-top: 8px
+
+  .vel-error
+    text-align: left
+
+.padding-lr-16
+  padding-left: 16px
+  padding-right: 16px
+
+.padding-lr-24
+  padding-left: 24px
+  padding-right: 24px
+
+.padding-bt-28
+  padding-bottom: 28px
+  padding-top: 28px
+
+.padding-l-16
+  padding-left: 16px
+
+.padding-b-16
+  padding-bottom: 16px
+
+.padding-b-28
+  padding-bottom: 28px
+
+.padding-b-32
+  padding-bottom: 32px
+
+.margin-t-8
+  margin-top: 8px
+
+.margin-t-12
+  margin-top: 12px
+
+.margin-t-16
+  margin-top: 16px
+
+.margin-t-24
+  margin-top: 24px
+
+.margin-t-28
+  margin-top: 28px
+
+.margin-t-36
+  margin-top: 36px
+
+.margin-b-23
+  margin-bottom: 23px
+
+.margin-b-4
+  margin-bottom: 4px
+
+.margin-b-8
+  margin-bottom: 8px
+
+.margin-b-12
+  margin-bottom: 12px
+
+.margin-b-16
+  margin-bottom: 16px
+
+.margin-b-20
+  margin-bottom: 20px
+
+.margin-b-24
+  margin-bottom: 24px
+
+.margin-b-28
+  margin-bottom: 28px
+
+.margin-b-32
+  margin-bottom: 32px
+
+.margin-b-36
+  margin-bottom: 36px
+
+.margin-b-48
+  margin-bottom: 48px
+
+.margin-b-50
+  margin-bottom: 50px
+
+.margin-r-8
+  margin-right: 8px
+
+.margin-l-8
+  margin-left: 8px
+
+.margin-l-20
+  margin-left: 20px
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right

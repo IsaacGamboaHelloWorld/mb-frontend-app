@@ -1,0 +1,102 @@
+@import mixins
+
+.content-home
+  --padding-top: 20px
+  .cont-section-home
+    &.error-t1
+      &::before
+        height: 20px
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      top: -4px
+      border-radius: 0 0 32px 32px
+      background: var(--vel-color-primary-g-500)
+      z-index: 1
+      height: 90px
+  .position-sections
+    position: relative
+    z-index: 2
+    width: 100%
+.products
+  padding-bottom: 24px
+
+.error-products
+  +flex(flex, $justify-content: space-between)
+  background: var(--vel-color-neutral-light-10)
+  flex-direction: column
+  border-radius: 12px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08)
+  padding: 24px
+  overflow: hidden
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    height: 3px
+    background: var(--vel-color-primary-g-500)
+    width: 100%
+    left: 50%
+    margin-left: -50%
+    z-index: 1
+    border-radius: 10px
+    top: 0
+  .error-info-products
+    padding: 0 15px
+    text-align: center
+    .cont-icon-error
+      text-align: center
+      background: var(--vel-color-error-100)
+      border-radius: 50%
+      width: 48px
+      height: 48px
+      +flex(flex, center, center)
+      margin: 0 auto 12px
+    i
+      color: var(--vel-error)
+      font-size: 25px
+
+
+
+.loading-t1
+  padding-left: 16px
+  +scrollHorizontal
+  li
+    +inline()
+    margin-right: 16px
+    overflow: hidden
+    width: 308px
+
+.group-products-config
+  padding-top: 14px
+  > p
+    padding: 0 var(--vel-grid-padding)
+  .cont-slides
+    padding: 10px 0
+    &.space-slide
+      padding: 10px var(--vel-grid-padding)
+    .slide
+      width: 308px
+      margin-right: 16px
+      flex-direction: column
+      &.only
+        width: 100%
+        padding: 0 var(--vel-grid-padding)
+        margin-right: 0
+  velocity-card,
+  app-cont-actions
+    width: 100%
+
+.cont-cards-open-new-products
+  > p
+    font-size: 14px
+    font-weight: 500
+    line-height: 2
+    margin-bottom: 26px
+  li
+    margin-bottom: 28px
+
+.line-credits
+  border-bottom: 1px solid var(--vel-color-neutral-light-60)

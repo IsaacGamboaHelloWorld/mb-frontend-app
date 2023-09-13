@@ -1,0 +1,28 @@
+.vel-cont-lab-txt-rad
+  background: var(--vel-color-neutral-light-10)
+  padding: 16px 24px
+  position: relative
+  border-radius: 12px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+  border: 1.5px solid var(--vel-color-neutral-light-50)
+  transition: .3s
+  &.active
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.14)
+    border-color: var(--vel-color-primary-g-500)
+    background: rgb(196 233 192 / 0.16)
+  .vel-card-label
+    font-size: 11px
+    font-weight: 500
+    line-height: 1.82
+    color: var(--vel-color-neutral-mid-100)
+  .vel-card-description
+    padding-right: 30px
+    font-size: 14px
+    font-weight: 600
+    line-height: 2
+    color: var(--vel-color-neutral-dark-900)
+  &-radio
+    position: absolute
+    right: 24px
+    top: 50%
+    transform: translateY(-50%)

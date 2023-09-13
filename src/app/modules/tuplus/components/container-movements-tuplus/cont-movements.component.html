@@ -1,0 +1,46 @@
+<div class="movements" *ngIf="movements">
+    <div class="movements-head">
+        <p class="text-subtitle-2">  {{'TUPLUS.MOVEMENTS'|translate}}</p>
+        <div class="movements-actions">
+            <button type="button" (click)="showFilters.emit()">
+                <i class="icon-vel-search"></i>
+            </button>
+        </div>
+    </div>
+    <div class="movements-content">
+        <ul *ngIf="hasMovements; else loadingOrErrorMovements">
+            <li *ngFor="let movement of movements?.information?.ListTransactions">
+                <app-movement [movement]="movement"></app-movement>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #loadingOrErrorMovements>
+    <ul class="skeleton-global" *ngIf="movements?.loading">
+        <li *ngFor="let loading of [].constructor(loadings)" class="loading-movement">
+            <p class="skeleton width-40"></p>
+            <p class="skeleton"></p>
+        </li>
+    </ul>
+    <div class="error-movements-tuplus padding-b-28" *ngIf="!movements?.loading && !hasMovements">
+        <div>
+            <div class="error-movements-tuplus-icon">
+                <div class="container-icon">
+                    <i class="icon-vel-notification-bell"></i>
+                </div>
+            </div>
+            <div>
+                <p class="text-subtitle-2 margin-t-16">{{'MOVEMENTS.NOT_FOUND' | translate}}</p>
+            </div>
+            <div>
+                <p class="message-description margin-t-8">
+                    {{'MOVEMENTS.USE_ACCOUNT'|translate}}
+                </p>
+            </div>
+            <velocity-button [text]="'PRODUCTS.ERROR.BTN' | translate" class="btn-primary small margin-b-16 margin-t-16"
+                             [id]="'error-list-products'" (actionButton)="loadMovements.emit()"></velocity-button>
+        </div>
+    </div>
+</ng-template>
+

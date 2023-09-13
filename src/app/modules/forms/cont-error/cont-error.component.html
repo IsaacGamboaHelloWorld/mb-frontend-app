@@ -1,0 +1,4 @@
+<div class="cont-input" *ngIf="hasControl">
+  <ng-content></ng-content>
+  <velocity-error *ngIf="isErrorMessage" [text]="textError"></velocity-error>
+</div>

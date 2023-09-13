@@ -1,0 +1,62 @@
+<form class="agreement-finder form-global-template" [formGroup]="formAgreementFinder" (ngSubmit)="submitForm()">
+  <div class="search-input form-group padding-bottom-small p-lr-global">
+    <ion-input
+      type="text"
+      id="agreement-finder-input"
+      [placeholder]="'PAYMENT.NOT_REGISTERED.AGREEMENT_FINDER.SEARCH_PLACEHOLDER' | translate"
+      formControlName="searchTerm"
+      clearInput="true"
+    ></ion-input>
+    <button type="button" class="cancel-btn" (click)="closeModal()">
+      {{'PAYMENT.NOT_REGISTERED.AGREEMENT_FINDER.CANCEL_BTN' | translate}}
+    </button>
+  </div>
+  <ng-container *ngIf="hasResults$ | async; else loadingServices">
+    <div class="overflow-content">
+      <div class="result-finder-cont p-lr-global padding-b-28">
+        <ul>
+          <ion-radio-group formControlName="selectedItem">
+          <li class="result-finder-card" *ngFor="let itemFound of (resultsFound$ | async)?.information; trackBy: trackByTo">
+            <velocity-label-text-radio
+              [label]="itemFound.city | titlecase"
+              [description]="itemFound.entityName | uppercase"
+              [control]="selectedItem"
+              [value]="itemFound">
+            </velocity-label-text-radio>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </div>
+    </div>
+    <div class="p-lr-global padding-b-28 margin-t-28">
+      <velocity-button
+        class="btn-primary"
+        type="submit"
+        [id]="'agreement-finder-continue'"
+        [text]="'CONTINUE' | translate"
+        [disabled]="formAgreementFinder.invalid">
+      </velocity-button>
+    </div>
+  </ng-container>
+  <div class="search-image" *ngIf="(showWelcomeMsg | async) && !(hasResults$ | async)">
+    <velocity-image-title
+      [img]="'/pay-sheet-search.png' | imageCdn"
+      [title]="'PAYMENT.NOT_REGISTERED.AGREEMENT_FINDER.WELCOME_IMG_TITLE' | translate"
+    ></velocity-image-title>
+  </div>
+  <div class="search-image" *ngIf="(resultsFound$ | async).error">
+    <velocity-image-title
+      [img]="'/money-world.png' | imageCdn"
+      [title]="'PAYMENT.NOT_REGISTERED.AGREEMENT_FINDER.NOT_FOUND_IMG_TITLE' | translate"
+    ></velocity-image-title>
+  </div>
+</form>
+
+<ng-template #loadingServices>
+  <ul class="finder-loading overflow-content skeleton-global" *ngIf="(resultsFound$ | async)?.loading">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <p class="skeleton"></p>
+      <strong class="skeleton"></strong>
+    </li>
+  </ul>
+</ng-template>

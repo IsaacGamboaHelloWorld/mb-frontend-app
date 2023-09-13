@@ -1,0 +1,44 @@
+<form class="header-complement complement-size-md p-lr-global padding-b-16" [formGroup]="formSecureData"
+      (ngSubmit)="concatData()">
+  <div class="animated fade-in-up white-container">
+    <div class="margin-b-32 padding-lr-24">
+      <velocity-image-title
+        [img]="'/identity-validation.png' | imageCdn"
+        [title]="'AUTH.FILL_SECURE_DATA.TITLE' | translate"
+        [description]="'AUTH.FILL_SECURE_DATA.DESCRIPTION' | translate"
+      ></velocity-image-title>
+    </div>
+    <div class="form-group">
+      <ion-label class="text-body-2 universal-forgot" *ngIf="isTel">
+        {{'AUTH.FILL_SECURE_DATA.COMPLETE'|translate}} {{'PRODUCT_TYPES_SMALL.' + productType|translate}}
+      </ion-label>
+      <ion-label class="text-body-2 universal-forgot" *ngIf="!isTel">
+        {{'AUTH.FILL_SECURE_DATA.PASSWORD_DEBIT'|translate}} {{valueComplete}}
+      </ion-label>
+      <div class="validate-container">
+        <div class="vel-otp-input-cont">
+          <app-cont-error [control]="secureDataSecret">
+            <ng-otp-input
+              [config]="configOtpInput"
+              [typeInput]="otpInputType"
+              [icon]="otpInputIcon"
+              (clickIcon)="toggleType()"
+              [customControl]="secureDataSecret"
+            ></ng-otp-input>
+          </app-cont-error>
+        </div>
+        <div class="validate-numbers" *ngIf="isTel">
+          {{valueComplete}}
+        </div>
+      </div>
+    </div>
+    <velocity-button
+      [text]="'AUTH.FILL_SECURE_DATA.BUTTON' | translate"
+      class="btn-primary margin-t-28"
+      type="submit"
+      [isLoading]="isLoading$ | async"
+      [disabled]="formSecureData.invalid || (isLoading$ | async)"
+      id="universal-password-submit"
+    ></velocity-button>
+  </div>
+</form>

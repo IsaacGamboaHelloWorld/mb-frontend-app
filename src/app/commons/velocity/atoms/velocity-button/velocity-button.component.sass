@@ -1,0 +1,150 @@
+@import 'mixins'
+@import "text"
+.btn
+  line-height: 54px
+  transition: .3s
+  cursor: pointer
+  user-select: none
+  width: 100%
+  outline: none
+  letter-spacing: normal
+  border: none
+
+  .loading-dots
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    display: none
+
+    span
+      margin: 0 6px
+      animation-name: dotTwo
+
+      &:first-child
+        animation-name: dotOne
+
+      &:last-child
+        animation-name: dotThree
+
+  &:disabled
+    cursor: inherit
+    color: var(--vel-color-carbon-light-100)
+
+    &:hover,
+    &.active
+      box-shadow: inherit
+
+  &.btn-loading
+    position: relative
+
+    .loading-dots
+      display: block
+
+  &:disabled,
+  &.btn-loading
+    background-color: var(--vel-color-carbon-mid-100)
+
+  &.btn-loading
+    color: var(--vel-color-carbon-mid-100)
+
+
+.dot-btn
+  width: 4px
+  height: 4px
+  display: inline-block
+  position: relative
+  transform: translate3d(0, 0, 0)
+  animation: .6s ease-out
+  background: var(--vel-color-carbon-light-100)
+  border-radius: 50%
+  vertical-align: middle
+  animation-fill-mode: forwards
+  animation-iteration-count: infinite
+  transition: background-color .2s, border .2s, box-shadow .2s
+
+.btn-primary
+  background-color: var(--vel-color-primary-600)
+  color: var(--vel-color-carbon-light-100)
+  border-radius: 8px
+
+.btn-secondary
+  color: var(--vel-color-primary-600)
+  background-color: var(--vel-color-primary-100)
+  border-radius: 8px
+
+
+.text-primary
+  color: var(--vel-color-secondary-900)
+
+.text-secondary
+  color: var(--vel-color-primary-600)
+
+.text
+  transition: .3s
+  cursor: pointer
+  user-select: none
+  outline: none
+  font-family: 'Inter', sans-serif
+  letter-spacing: normal
+  border: none
+  background: none
+
+  &:disabled
+    color: var(--vel-color-carbon-mid-100)
+
+  .loading-dots
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    display: none
+
+.text-container
+  +flex(flex, center, center, row)
+
+  i
+    font-size: 20px
+    margin-left: 10px
+    font-weight: 600
+
+.btn, .text
+  &.large
+    @extend .vel-text-action-1
+    padding: 16px 32px
+
+  &.tiny
+    @extend .vel-text-action-3
+    padding: 8px 16px
+
+  &.small
+    @extend .vel-text-action-2
+    padding: 8px 24px
+
+  &.medium
+    @extend .vel-text-action-2
+    padding: 12px 32px
+
+@keyframes dotOne
+  0%
+    transform: scale(1) translate3d(0, 0, 0)
+  20%
+    transform: scale(1) translate3d(0, 100%, 0)
+  80%
+    transform: scale(1) translate3d(0, 0, 0)
+
+@keyframes dotTwo
+  13.3333%
+    transform: scale(1) translate3d(0, 0, 0)
+  33.3333%
+    transform: scale(1) translate3d(0, 100%, 0)
+  93.3333%
+    transform: scale(1) translate3d(0, 0, 0)
+
+@keyframes dotThree
+  26.6667%
+    transform: scale(1) translate3d(0, 0, 0)
+  46.6667%
+    transform: scale(1) translate3d(0, 100%, 0)

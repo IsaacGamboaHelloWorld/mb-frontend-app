@@ -1,0 +1,31 @@
+<div class="modal-otp-ios">
+  <div class="space-modal-ios">
+    <div class="white-container">
+      <div class="margin-b-24">
+        <velocity-image-title
+          [title]="'AUTH.OTP_DATA.TOAST_FLOAT.TITLE' | translate"
+          [description]="'AUTH.OTP_DATA.TOAST_FLOAT.DESCRIPTION' | translate"
+        ></velocity-image-title>
+      </div>
+      <div class="cont-example-ios">
+        <img [src]="'/otp_ios.jpg' | imageCdn" alt="">
+        <span></span>
+      </div>
+      <div class="margin-b-24">
+        <velocity-toast
+          [type]="'toast-normal'"
+          [title]="'AUTH.OTP_DATA.TOAST_NORMAL.TITLE_IOS' | translate"
+          [description]="'AUTH.OTP_DATA.TOAST_NORMAL.DESCRIPTION_IOS' | translate"
+          [icon]="'icon-vel-notification-bell'"
+        ></velocity-toast>
+      </div>
+      <velocity-button
+        [text]="'AUTH.OTP_DATA.TOAST_FLOAT.BTN' | translate"
+        class="btn-primary"
+        type="button"
+        id="modal-ios-otp"
+        (actionButton)="modalService.close()"
+      ></velocity-button>
+    </div>
+  </div>
+</div>

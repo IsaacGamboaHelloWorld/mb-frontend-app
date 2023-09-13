@@ -1,0 +1,11 @@
+<div class="vel-payment-service" (click)="setValue()" [class.active]="addClass" *ngIf="hasInfo">
+  <ion-radio
+      mode="md"
+      class="vel-payment-service-radio"
+      [value]="value"
+  ></ion-radio>
+  <p>{{title}}</p>
+  <strong>{{name}}</strong>
+  <small>{{description}}</small>
+  <p class="vel-payment-date" *ngIf="hasDate">{{date}}</p>
+</div>

@@ -1,0 +1,119 @@
+<form [formGroup]="formTransferWithdrawal" class="form-transfer-withdrawal form-global-template"
+      (ngSubmit)="submitGenerate()">
+  <div class="overflow-content">
+    <div class="transfer-toggle-container header-complement">
+      <label class='toggle-label'>
+        <input type='checkbox' formControlName="transferToggle"/>
+        <span class='back'>
+        <span class='toggle'></span>
+        <span class='label left'>{{'TRANSFER_WITHDRAWAL.TO_WHO.TOGGLE.LEFT' | translate}}</span>
+        <span class='label right'>{{'TRANSFER_WITHDRAWAL.TO_WHO.TOGGLE.RIGHT' | translate}}</span>
+        </span>
+      </label>
+    </div>
+    <div class="form-transfer-withdrawal-container overflow-content p-lr-global">
+      <velocity-box-input [title]="'¿'+ ('TRANSFER_WITHDRAWAL.TO_WHO.AMOUNT.TITLE' | translate) + '?'"
+                          [description]="'TRANSFER_WITHDRAWAL.TO_WHO.AMOUNT.VALUE' | translate :{min: '$10.000', max: '$2.000.000'}">
+        <div class="form-group">
+          <ion-select formControlName="fixedAmount" id="fixedAmount" mode="md" interface="action-sheet"
+                      cancelText="{{'CANCEL' | translate}}"
+                      placeholder="Selecciona el valor">
+            <ion-select-option *ngFor="let amount of fixedAmounts" [value]="amount">
+              {{amount.value | currency}}</ion-select-option>
+            <ion-select-option
+              [value]="otherAmountOpt">{{'TRANSFER_WITHDRAWAL.TO_WHO.OTHER_AMOUNT' | translate}}</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="amount-container" *ngIf="otherAmount">
+          <ion-label class="text-body-2">{{'TRANSFER_WITHDRAWAL.TO_WHO.AMOUNT.AMOUNT' | translate}}</ion-label>
+          <app-cont-error [control]="amount">
+            <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="numeric"
+              placeholder="$ 0.00"
+              formControlName="amount"
+              appCleave
+              [cleave]="configCurrency"
+            ></ion-input>
+          </app-cont-error>
+        </div>
+      </velocity-box-input>
+
+      <div class="form-group margin-b-28" *ngIf="showTransfer">
+        <ion-label class="text-body-2">{{'TRANSFER_WITHDRAWAL.TO_WHO.DOCUMENT' | translate}}</ion-label>
+        <app-cont-error [control]="documentId">
+          <ion-input
+            id="document-id-transfer-withdrawal"
+            type="text"
+            inputmode="numeric"
+            formControlName="documentId"
+            clearInput="true"
+            maxlength="12"
+            appOnlyNumbers
+            appCleave
+          ></ion-input>
+        </app-cont-error>
+      </div>
+
+      <div class="form-group margin-b-28">
+        <ion-label class="label-global">{{'TRANSFER_WITHDRAWAL.TO_WHO.WHERE' | translate}}</ion-label>
+        <ng-container>
+          <ul class="places-container">
+            <ion-radio-group formControlName="where">
+              <li *ngFor="let place of withdrawalPlaces">
+                <velocity-withdrawal-place
+                  [icon]="place.icon"
+                  [name]="place.name | translate"
+                  [value]="place"
+                  [control]="where"
+                  [align]="'center'"
+                ></velocity-withdrawal-place>
+              </li>
+            </ion-radio-group>
+          </ul>
+        </ng-container>
+      </div>
+
+      <ion-item class="hidden-element">
+        <ion-label>{{'TRANSFER_WITHDRAWAL.TO_WHO.ORIGIN' | translate}}</ion-label>
+        <ion-select
+          formControlName="from"
+          mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+          [placeholder]="'TRANSFER_WITHDRAWAL.TO_WHO.ORIGIN_DEFAULT' | translate"
+          #hiddenElement>
+          <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+            {{product?.nameSmall}}
+            {{product.id | slice: -4}}
+            {{!!product?.productAccountBalances?.saldo_disponible?.amount
+            ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+            : ''}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="margin-b-32">
+        <ion-label class="label-global">{{'TRANSFER_WITHDRAWAL.TO_WHO.ORIGIN' | translate}}</ion-label>
+        <app-cont-error [control]="from" [validateDirty]="false">
+          <velocity-small-card
+            [product]="productActive"
+            [showButton]="showButtonProductActive$ | async"
+            [isError]="isErrorCardActive"
+            (actionBtn)="changeAccount()"
+          ></velocity-small-card>
+        </app-cont-error>
+      </div>
+
+      <div class="margin-b-32">
+        <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                   [value]="'COST_TRANSACTION.VALUE' | translate"
+        ></velocity-transaction-cost>
+      </div>
+    </div>
+    <div class="template-submit-btn p-lr-global">
+      <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                       [disabled]="formTransferWithdrawal.invalid" [id]="'transfer-withdrawal-step-one'">
+      </velocity-button>
+    </div>
+  </div>
+</form>

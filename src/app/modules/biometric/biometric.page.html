@@ -1,0 +1,13 @@
+<app-custom-header>
+  <div left></div>
+  <div center>
+    <p>{{'BIOMETRIC.TITLE' | translate}}</p>
+  </div>
+  <div right>
+    <i class="icon-vel-essential-delete-2" (click)="close()"></i>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <router-outlet></router-outlet>
+</ion-content>

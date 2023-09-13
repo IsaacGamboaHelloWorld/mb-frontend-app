@@ -1,0 +1,42 @@
+
+.pockets-cont
+  background: var(--vel-color-carbon-light-100)
+  height: 98px
+  padding-top: 24px
+  padding-bottom: 24px
+  z-index: 2
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08)
+  &-new-pocket
+    width: 100%
+    display: flex
+    align-items: center
+    border-radius: 12px
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08)
+    background-color: var(--vel-color-carbon-light-100)
+    padding: 24px 0
+    flex-direction: column
+    &.maximum-pockets
+      padding: 16px 24px
+      flex-direction: row-reverse
+      .pockets-cont-icon
+        width: 36px
+        height: 36px
+        margin-bottom: 0
+  &-icon
+    width: 48px
+    height: 48px
+    margin-bottom: 8px
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    color: var(--vel-color-carbon-light-100)
+    background-color: var(--vel-color-accent-400)
+    font-size: 32px
+  &-width-complete
+    flex-grow: 1
+  &-border-select
+    border: solid 1px var(--vel-color-neutral-mid-200)
+
+.pockets-card-container
+  flex-grow: 1

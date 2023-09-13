@@ -1,0 +1,58 @@
+<div class="movements-filter-tuplus">
+  <div class="search-input form-group padding-bottom-small p-lr-global">
+    <ion-input type="text" id="movements-filter-input" [placeholder]="'MOVEMENTS.SEARCH.PLACEHOLDER' | translate"
+               [(ngModel)]="search" clearInput="true"></ion-input>
+    <button type="button" class="cancel-btn" (click)="cancel.emit()">
+      {{'MOVEMENTS.FILTER.CANCEL_BTN' | translate}}
+    </button>
+  </div>
+
+  <div class="buttons-date-cont">
+    <button class="delete-btn margin-r-8" [disabled]="!hasSelectedDate" (click)="resetDate()">
+      {{'MOVEMENTS.FILTER.DATE.DELETE' | translate}}
+    </button>
+    <ion-segment scrollable [(ngModel)]="searchDate" class="movements-filter-options">
+      <ion-segment-button id="ion-segment-button-day" value="day" class="margin-r-8" mode="ios">
+        <ion-label>{{'MOVEMENTS.FILTER.DATE.LAST_DAY' | translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button id="ion-segment-button-week" value="week" class="margin-r-8" mode="ios">
+        <ion-label>{{'MOVEMENTS.FILTER.DATE.LAST_WEEK' | translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button id="ion-segment-button-month" value="month" class="mr-16" mode="ios">
+        <ion-label>{{'MOVEMENTS.FILTER.DATE.LAST_MONTH' | translate}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-content
+    *ngIf="hideElement((movements?.ListTransactions | filter: search: 'BranchName' | filterDateMovementsTuplus: searchDate: 'CreatedDt'))">
+    <div class="movements-content">
+      <div class="result-head">
+        <p class="text-body-2">{{'MOVEMENTS.FILTER.FILTER_RESULT.RESULT' | translate}}
+          : {{(movements?.ListTransactions | filter: search: 'BranchName' | filterDateMovementsTuplus: searchDate: 'CreatedDt').length}}</p>
+      </div>
+      <div class="result-content overflow-content">
+        <ul>
+          <li
+            *ngFor="let movement of movements?.ListTransactions| filter: search: 'BranchName' | filterDateMovementsTuplus: searchDate: 'CreatedDt'; trackBy: trackByMovements">
+            <app-movement [movement]="movement"></app-movement>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ion-content>
+  <div class="search-image" *ngIf="showWelcomeMsg">
+    <velocity-image-title
+      [img]="'/pay-sheet-search.png' | imageCdn"
+      [title]="'MOVEMENTS.FILTER.WELCOME_MSG.TITLE' | translate"
+    ></velocity-image-title>
+  </div>
+  <div class="search-image"
+       *ngIf="hideElement((movements?.ListTransactions | filter: search: 'BranchName' | filterDateMovementsTuplus: searchDate: 'CreatedDt'), true)">
+    <velocity-image-title
+      [img]="'/money.png' | imageCdn"
+      [title]="'MOVEMENTS.FILTER.NOT_FOUND_MSG.TITLE' | translate"
+    ></velocity-image-title>
+  </div>
+
+</div>

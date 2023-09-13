@@ -1,0 +1,15 @@
+<div class="vel-card-custom">
+  <div class="vel-card-custom-content">
+    <div class="vel-card-custom-account-type">
+      <div class="vel-card-img" *ngIf="hasImg">
+        <img [src]="img" [alt]="name">
+      </div>
+      <div class="vel-card-account-type-info">
+        <p class="text-subtitle-2 config-text remove-l-h">{{name}}</p>
+      </div>
+    </div>
+    <div class="vel-card-custom-account-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

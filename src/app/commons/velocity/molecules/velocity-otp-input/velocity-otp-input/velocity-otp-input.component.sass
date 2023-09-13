@@ -1,0 +1,59 @@
+@mixin otp-input($circle: false, $android: false)
+  height: 48px
+  @if $android
+    font-size: 20px
+  @else
+    font-size: 18px
+  text-align: center
+  outline: none
+  padding-left: 0
+  padding-right: 0
+  @if $circle
+    -webkit-appearance: none
+    width: 48px
+    border-radius: 24px
+    border: 1.2px solid var(--vel-color-carbon-mid-100)
+    &:focus
+      background-color: var(--vel-color-carbon-light-600)
+    &.filled
+      @if $android
+        font-size: 34px
+      @else
+        font-size: 12px
+
+  @else
+    border: solid var(--vel-color-carbon-light-900)
+    border-width: 1px 0
+    width: inherit
+    border-radius: unset
+    &:first-child
+      border-radius: 8px 0 0 8px
+      border-width: 1px 0 1px 1px
+    &:last-child
+      border-radius: 0 8px 8px 0
+      border-width: 1px 1px 1px 0
+
+@mixin otp-input-container($circle: false)
+  display: flex
+  @if $circle
+    width: 240px
+    justify-content: space-between
+  @else
+    width: 100%
+  align-items: center
+  .otp-input-android
+    @include otp-input($circle: $circle, $android: true)
+  .otp-input-ios
+    @include otp-input($circle: $circle, $android: false)
+
+.otp-input-container-square
+  @include otp-input-container($circle: false)
+
+  input:disabled
+    background: var(--vel-color-carbon-light-400)
+
+.otp-input-container-circle
+  @include otp-input-container($circle: true)
+
+.focus-square
+  background-color: var(--vel-color-carbon-light-600)

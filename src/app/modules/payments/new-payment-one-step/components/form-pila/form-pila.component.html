@@ -1,0 +1,156 @@
+<form class="form-global-template" [formGroup]="formToWhoPayment" (ngSubmit)="submitForm()">
+  <div class="p-lr-global padding-bt-28">
+    <ion-item class="hidden-element">
+      <ion-select
+        formControlName="from"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="margin-b-28">
+      <ion-label class="new-text-body-2">{{'PAYMENT.PILA.TO_WHO.FROM' | translate}}</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="showButtonProductActive$ | async"
+          [isError]="isErrorCardActive"
+          (actionBtn)="changeAccount(hiddenElement)"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+
+    <div class="margin-b-28">
+      <ion-label class="new-text-body-2">{{'PAYMENT.PILA.TO_WHO.TO' | translate}}</ion-label>
+      <div class="form-group">
+        <ion-select
+          mode="md"
+          formControlName="to"
+          interface="action-sheet"
+          cancelText="{{'CANCEL' | translate}}"
+          placeholder="{{'PAYMENT.PILA.TO_WHO.SELECT_PAYROLL' | translate}}"
+          [attr.disabled]="(pilaAgreements$ | async)?.loading || (pilaAgreements$ | async)?.error">
+          <ion-select-option *ngFor="let agreement of (pilaAgreements$ | async)?.agreementsAvailable"
+                             [value]="agreement">
+            {{agreement.entityName | titlecase}}
+          </ion-select-option>
+        </ion-select>
+      </div>
+    </div>
+
+    <div class="margin-b-28">
+      <ion-label class="new-text-body-2">{{'PAYMENT.PILA.TO_WHO.PAYMENT_REFERENCE' | translate}}</ion-label>
+      <ul class="categories-container">
+        <ion-radio-group formControlName="referenceType">
+          <li>
+            <velocity-withdrawal-place
+              [icon]="'icon-vel-rocket'"
+              [name]="'PAYMENT.PILA.TO_WHO.REFERENCE_TYPE.PAYROLL' | translate"
+              [value]="1"
+              [align]="'center'"
+              [control]="referenceType"
+            ></velocity-withdrawal-place>
+          </li>
+          <li>
+            <velocity-withdrawal-place
+              [icon]="'icon-vel-calendar'"
+              [name]="'PAYMENT.PILA.TO_WHO.REFERENCE_TYPE.DOCUMENT_ID' | translate"
+              [value]="2"
+              [align]="'center'"
+              [control]="referenceType"
+            ></velocity-withdrawal-place>
+          </li>
+        </ion-radio-group>
+      </ul>
+    </div>
+
+    <ng-container *ngIf="showPayroll">
+      <div class="form-group margin-b-28">
+        <ion-label class="new-text-body-2">{{'PAYMENT.PILA.TO_WHO.PAYROLL_NUMBER' | translate}}</ion-label>
+        <app-cont-error [control]="payrollNumber">
+          <ion-input
+            id="pila-payroll-number"
+            type="tel"
+            inputmode="numeric"
+            maxlength="20"
+            clearInput="true"
+            formControlName="payrollNumber"
+            appOnlyNumbers
+          ></ion-input>
+        </app-cont-error>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="showDocument">
+      <div class="form-group margin-b-28">
+        <ion-label class="new-text-body-2">{{'PAYMENT.PILA.TO_WHO.DOCUMENT_ID' | translate}}</ion-label>
+        <app-cont-error [control]="documentId">
+          <ion-input
+            id="pila-document-id"
+            type="text"
+            inputmode="numeric"
+            maxlength="12"
+            clearInput="true"
+            formControlName="documentId"
+            appOnlyNumbers
+          ></ion-input>
+        </app-cont-error>
+      </div>
+
+      <div class="pila-period margin-b-28">
+        <ion-label class="new-text-body-2">{{'PAYMENT.PILA.TO_WHO.PERIOD' | translate}}</ion-label>
+        <div class="period-container">
+          <div class="form-group period-field">
+            <app-cont-error [control]="month">
+              <ion-select
+                mode="md"
+                formControlName="month"
+                interface="action-sheet"
+                cancelText="{{'CANCEL' | translate}}">
+                <ion-select-option *ngFor="let month of months" [value]="month">
+                  {{month?.name | translate | titlecase}}
+                </ion-select-option>
+              </ion-select>
+            </app-cont-error>
+          </div>
+          <div class="form-group period-field">
+            <app-cont-error [control]="year">
+              <ion-input
+                id="pila-period-year"
+                type="tel"
+                inputmode="numeric"
+                maxlength="4"
+                minlength="4"
+                clearInput="true"
+                formControlName="year"
+                placeholder="{{'YEAR' | translate}}"
+                appOnlyNumbers
+              ></ion-input>
+            </app-cont-error>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="margin-b-28">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="'COST_TRANSACTION.VALUE' | translate"
+      ></velocity-transaction-cost>
+    </div>
+    <div class="template-submit-btn">
+      <velocity-button
+        type="submit"
+        class="btn-primary"
+        [text]="'CONTINUE' | translate"
+        [disabled]="formToWhoPayment.invalid || (isLoadingDetailBiller$ | async) || (isLoadingPilaInformation$ | async)"
+        [isLoading]="(isLoadingDetailBiller$ | async) || (isLoadingPilaInformation$ | async)"
+        [id]="'pila-payment-step-one'">
+      </velocity-button>
+    </div>
+  </div>
+</form>

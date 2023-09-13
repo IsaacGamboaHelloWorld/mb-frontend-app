@@ -1,0 +1,62 @@
+.navbar-item
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  flex-direction: column
+  height: 100%
+  padding-bottom: 12px
+  .item-icon
+    position: relative
+    padding: 0
+    i
+      font-size: 24px
+      &.item-shadow
+        display: none
+    .new-product-tag
+      display: none
+  p
+    font-size: 11px
+    font-weight: 500
+    color: var(--vel-color-neutral-mid-200)
+  &.active
+    i
+      color: var(--vel-color-primary-g-500)
+      &.item-shadow
+        display: block
+        color: var(--vel-color-primary-g-100)
+        position: absolute
+        font-size: 24px
+        z-index: -1
+        top: 2px
+        left: 2px
+    p
+      color: var(--vel-color-neutral-dark-900)
+  &.not-permission
+    i
+      color: var(--vel-color-neutral-mid-90)
+      &.item-shadow
+        display: none
+    p
+      color: var(--vel-color-neutral-mid-90)
+  &.disabled
+    touch-action: none
+    i
+      color: var(--vel-color-neutral-mid-80)
+      &.item-shadow
+        display: none
+    p
+      color: var(--vel-color-neutral-mid-80)
+  &.new-product
+    .new-product-tag
+      display: block
+      width: 34px
+      height: 11px
+      border-radius: 6px
+      border: solid 1.3px var(--vel-color-neutral-light-10)
+      background-color: var(--vel-color-accent-o-900)
+      font-size: 7px
+      text-align: center
+      color: var(--vel-color-neutral-light-10)
+      position: absolute
+      top: -4px
+      left: 10px

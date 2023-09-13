@@ -1,0 +1,99 @@
+@mixin transition
+  @for $i from 1 through 4
+    &:nth-of-type(#{$i}) ion-item
+      animation: slideInRight
+      animation-timing-function: ease-in-out
+
+ion-menu
+  --background: var(--vel-color-neutral-light-20)
+  --height: 100%
+  --max-height: 100%
+  --min-height: 100%
+  --width: calc(100% - 14px)
+  --max-width: calc(100% - 14px)
+  --min-width: calc(100% - 14px)
+  --ion-backdrop-color: none
+  color: var(--vel-color-neutral-dark-800)
+  z-index: 2
+  i
+    color: var(--vel-color-primary-g-500)
+
+  .side-menu-header
+    display: flex
+    justify-content: space-between
+    padding: 42px 28px
+    img
+      height: 29px
+      width: 167px
+    .hm-close-btn
+      height: 36px
+      width: 36px
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+      border-radius: 18px
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 24px
+      background-color: var(--vel-color-neutral-light-10)
+
+  .menu-items-list
+    padding-top: 20px
+    padding-bottom: 20px
+  ion-list
+    min-width: 250px
+    max-width: 85%
+    ion-item
+      --padding-start: 28px
+      --min-height: 40px
+      margin-bottom: 16px
+    i
+      font-size: 24px
+      margin-right: 8px
+  .cont-sub-menu
+    padding: 0
+    transition: .5s
+    max-height: 0
+    overflow: hidden
+    &.show
+      max-height: 1000px
+      transition: .5s
+    .sub-menu
+      font-size: 13px
+      line-height: 2.15
+      --padding-start: 58px
+      --min-height: 28px
+      color: var(--vel-color-neutral-mid-200)
+  .side-menu-footer
+    display: flex
+    flex-direction: column
+    padding: 28px
+    ion-item
+      --padding-start: 0
+      --min-height: 40px
+      --background: none
+      margin-bottom: 40px
+      i
+        font-size: 24px
+        margin-right: 8px
+    img
+      width: 90px
+      height: 27px
+      margin-bottom: 12px
+    small
+      display: block
+
+.toggle-item
+  @include transition
+  .arrow
+    font-size: 16px
+    margin-left: 8px
+    transition: .3s
+    color: var(--vel-color-neutral-dark-800)
+    &.rotate
+      transform: rotate(180deg)
+
+@keyframes slideInRight
+  0%
+    left: -50px
+  100%
+    left: 10px

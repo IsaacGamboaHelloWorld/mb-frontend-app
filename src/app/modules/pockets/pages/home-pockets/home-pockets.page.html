@@ -1,0 +1,58 @@
+<app-custom-header>
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{'POCKETS.TITLE' | translate}}</p>
+  </div>
+  <div right></div>
+</app-custom-header>
+
+<ion-content class="feature-template-container ">
+  <div class="form-global-template">
+    <div class="form-group pockets-cont padding-lr-16">
+      <ion-select
+        id="pockets-main-account"
+        mode="md"
+        interface="action-sheet"
+        cancelText="{{'CANCEL' | translate}}"
+        class="pockets-cont-border-select"
+        [value]="productById$() | async"
+        (ionChange)="showPockets($event.target.value)">
+        <ion-select-option *ngFor="let product of productsByType$ | async;" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+        </ion-select-option>
+      </ion-select>
+    </div>
+    <div class="p-lr-global overflow-content pockets-card-container padding-b-16">
+      <div class="pockets-cont-new-pocket margin-t-24" [class.maximum-pockets]="hasMaximumNumberOfPockets$ | async">
+        <div class="pockets-cont-icon" (click)="goToCreate()">
+          <i class="icon-vel-add-progress"></i>
+        </div>
+        <div class="pockets-cont-width-complete">
+          <p class="text-body-1 text-bold"> {{textNewPocket() | translate}}</p>
+        </div>
+      </div>
+      <ng-container>
+        <velocity-card-pockets *ngFor="let pocket of (pocketsByProduct$ | async)"
+                               [pocketName]="pocket.pocketName | titlecase"
+                               [pocketPeriodDescription]="pocket.pocketPeriodDescription"
+                               [textHave]="textHave(pocket) | translate"
+                               [textGoal]="'POCKETS.GOAL' | translate"
+                               [textAutomaticDebit]="'POCKETS.AUTOMATIC_DEBIT' | translate"
+                               [textBtnEdit]="'POCKETS.EDIT_BTN' | translate"
+                               [textBtnMove]="'POCKETS.MOVE_BTN' | translate"
+                               [typePocket]="pocket.category"
+                               [savingGoal]="pocket.savingGoal | currencyFormat: true"
+                               [amountSaved]="pocket.amountSaved | currencyFormat: true"
+                               [average]="pocket.amountSaved/pocket.savingGoal"
+                               [loading]="pocket.loading"
+                               [goalIsAccomplished]="goalIsAccomplished(pocket)"
+                               (buttonEdit)="navigateTo(pocket, 'edit')"
+                               (buttonMove)="navigateTo(pocket, 'move')">
+        </velocity-card-pockets>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>

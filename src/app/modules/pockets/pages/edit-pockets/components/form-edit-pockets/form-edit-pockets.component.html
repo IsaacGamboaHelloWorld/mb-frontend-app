@@ -1,0 +1,100 @@
+<form class="form-global-template" [formGroup]="formPocket" (ngSubmit)="submitEdit()" *ngIf="formPocket">
+  <div class="p-lr-global overflow-content">
+    <div class="form-group margin-t-24">
+      <velocity-box-input [title]="'POCKETS.EDIT.NAME' | translate">
+        <app-cont-error [control]="name">
+          <ion-input
+            type="text"
+            clearInput="true"
+            placeholder="Nombre"
+            formControlName="name"
+          ></ion-input>
+        </app-cont-error>
+      </velocity-box-input>
+    </div>
+    <ion-label class="label-global">{{'POCKETS.EDIT.USE' | translate}}</ion-label>
+    <div class="form-group margin-b-24">
+      <ul class="destination-container">
+        <ion-radio-group formControlName="pocketType">
+          <li>
+            <velocity-withdrawal-place
+              [icon]="customCategory('Gasto')?.icon"
+              [name]="(customCategory('Gasto')?.description) | translate"
+              [value]="customCategory('Gasto')?.category"
+              [align]="'center'"
+              [control]="pocketType"
+            ></velocity-withdrawal-place>
+          </li>
+          <li>
+            <velocity-withdrawal-place
+              [icon]="customCategory('Ahorro')?.icon"
+              [name]="(customCategory('Ahorro')?.description) | translate"
+              [value]="customCategory('Ahorro')?.category"
+              [align]="'center'"
+              [control]="pocketType"
+            ></velocity-withdrawal-place>
+          </li>
+        </ion-radio-group>
+      </ul>
+    </div>
+    <div class="form-group margin-b-24">
+      <velocity-box-input [title]="'POCKETS.EDIT.GOAL' | translate" class="margin-t-24">
+        <app-cont-error [control]="amount">
+          <ion-input
+            type="text"
+            clearInput="true"
+            inputmode="numeric"
+            placeholder="$ 0.00"
+            formControlName="amount"
+            appCleave
+            appDetectFocus
+            [cleave]="configCurrency"
+          ></ion-input>
+        </app-cont-error>
+        <div class="form-group margin-t-24">
+          <ion-label class="label-global">{{'POCKETS.EDIT.PERIODICITY' | translate}}</ion-label>
+          <ul class="periodicity-container margin-t-12">
+            <ion-radio-group formControlName="periodicity">
+              <li *ngFor="let periodicityItem of periodicityItems">
+                <velocity-operator
+                  [name]="periodicityItem.name | translate"
+                  [value]="periodicityItem.value"
+                  [showImage]="false"
+                  [control]="periodicity"
+                ></velocity-operator>
+              </li>
+            </ion-radio-group>
+          </ul>
+        </div>
+        <div class="form-group margin-t-24">
+          <ion-label class="label-global">{{'POCKETS.EDIT.PERIOD' | translate}}</ion-label>
+          <app-cont-error [control]="periodicAmount">
+            <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="numeric"
+              placeholder="$ 0.00"
+              formControlName="periodicAmount"
+              appCleave
+              appDetectFocus
+              [cleave]="configCurrency"
+            ></ion-input>
+          </app-cont-error>
+        </div>
+      </velocity-box-input>
+    </div>
+    <div class="form-group margin-b-32 text-center">
+      <a class="link" (click)="deletePocket()">{{"POCKETS.EDIT.DELETE" | translate}}</a>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global padding-b-16">
+    <velocity-button
+      type="submit"
+      class="btn-primary"
+      [id]="'edit-pocket-btn'"
+      [text]="((pocketEdit$ | async)?.error ? 'RETRY': 'POCKETS.EDIT.SAVE') | translate"
+      [disabled]="formPocket.invalid"
+      [isLoading]="isLoading$ |async">
+    </velocity-button>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<div class="center-modal">
+  <velocity-modal-leave
+    [title]="props?.title"
+    [description]="props?.description"
+    [firstBtn]="props?.firstBtn"
+    [secondBtn]="props?.secondBtn"
+    [hasLink]="props?.hasLink"
+    [areButtonsWidthComplete]="props?.areButtonsWidthComplete"
+    (actionFirstBtn)="redirect()"
+    (actionSecondBtn)="modalService.close()"
+  >
+    <div class="card-container">
+      <velocity-card-lite-credit-card
+        [title]="'Tarjeta de credito '+(props?.id | typeCreditCard)?.typeClass"
+        [img]="(props?.id | typeCreditCard)?.imgBig | imageCdn"
+        [type]="(props?.id | typeCreditCard)?.typeClass"
+        [titleAmount]="'Cupo disponible'"
+        [amount]="props?.amount | currency"
+        [number]="props?.id | slice:-4">
+      </velocity-card-lite-credit-card>
+    </div>
+  </velocity-modal-leave>
+</div>

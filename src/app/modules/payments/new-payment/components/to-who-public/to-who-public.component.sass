@@ -1,0 +1,25 @@
+@import 'mixins'
+
+.new-payment-to-who-public
+  .service-payment-public
+    +scrollHorizontal()
+    padding: 4px 16px 10px 16px
+    &.skeleton-global
+      li
+        background: var(--vel-color-neutral-light-10)
+        padding: 24px
+        border-radius: 12px
+        height: 133px
+        p
+          margin-bottom: 23px
+        strong
+          display: block
+          margin-bottom: 8px
+      .skeleton
+        height: 8px
+    li
+      width: 206px
+      margin-right: 8px
+      +inline(middle)
+    li:last-child
+      margin-right: 0

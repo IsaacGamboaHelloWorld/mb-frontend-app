@@ -1,0 +1,36 @@
+<form class="form-global-template"
+      [formGroup]="formHowMuch"
+      (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+    <div class="cont-form-groups margin-b-24">
+      <div class='margin-b-16'>
+        <velocity-image-title
+          [img]="'/pocket.png' | imageCdn"
+          class="margin-b-32 margin-t-12"
+        ></velocity-image-title>
+      </div>
+      <p class="text-subtitle-2 text-center padding-b-16">{{'POCKETS.CREATE.HOW_MUCH.TITLE' | translate}}</p>
+      <div class="separator-line"></div>
+      <div class="form-group">
+        <ion-label class="text-body-2">{{'POCKETS.CREATE.HOW_MUCH.SAVING_AMOUNT' | translate}}</ion-label>
+        <app-cont-error [control]="savingAmount">
+          <ion-input
+            type="text"
+            clearInput="true"
+            inputmode="numeric"
+            placeholder="$ 0.00"
+            formControlName="savingAmount"
+            appDetectFocus
+            appCleave
+            [cleave]="configCurrency"
+          ></ion-input>
+        </app-cont-error>
+      </div>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formHowMuch.invalid" [id]="'create-pocket-how-much-btn'">
+    </velocity-button>
+  </div>
+</form>

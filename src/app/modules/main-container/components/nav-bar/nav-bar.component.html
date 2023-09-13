@@ -1,0 +1,92 @@
+<ion-footer translucent="true" class="ion-no-border navbar">
+  <div class="qr-shadow" [class.show]="isOpenQr" (click)="toggleQr()"></div>
+  <div class="qr-content" [class.show]="isOpenQr">
+    <p>{{'QR.NAV_BAR.TITLE' | translate}}</p>
+    <ul>
+      <li>
+        <velocity-withdrawal-place
+          [icon]="'icon-vel-bank-card-cancel'"
+          [iconColor]="'success'"
+          [align]="'center'"
+          [name]="'QR.NAV_BAR.ANNULMENT' | translate"
+          (click)="actionQr(false)"
+        ></velocity-withdrawal-place>
+      </li>
+      <li>
+        <velocity-withdrawal-place
+          [icon]="'icon-vel-bank-card'"
+          [iconColor]="'success'"
+          [align]="'center'"
+          [name]="'QR.NAV_BAR.PAYMENT' | translate"
+          (click)="actionQr(true)"
+        ></velocity-withdrawal-place>
+      </li>
+    </ul>
+  </div>
+  <div class="wave">
+    <div class="wave-side"></div>
+    <div class="wave-curve"></div>
+    <div class="wave-side"></div>
+  </div>
+  <div class="navbar-items-container">
+    <div class="side-content">
+      <velocity-navbar-item *ngFor="let item of navBarItems$ | async | slice:0:1"
+                            [icon]="item.icon"
+                            [text]="item.text | translate"
+                            [navigateTo]="item.path"
+                            [hasAmount]="enableItem$(item.minAmount) | async"
+                            [hasProducts]="hasProducts | async"
+                            [enable]="item.enable"
+                            [hasPermissions]="item.hasPermissions"
+                            [state]="item.state"
+                            [textTagNewProduct]="'NAV_BAR_ITEMS.NEW_PRODUCT' | translate"
+                            (actionClick)="clickItem($event)"
+      ></velocity-navbar-item>
+      <velocity-navbar-item *ngFor="let item of navBarItems$ | async | slice:1:2"
+                            [icon]="item.icon"
+                            [text]="item.text | translate"
+                            [navigateTo]="item.path"
+                            [hasAmount]="enableItem$(item.minAmount) | async"
+                            [hasProducts]="hasProducts | async"
+                            [enable]="item.enable"
+                            [hasPermissions]="item.hasPermissions"
+                            [state]="item.state"
+                            [textTagNewProduct]="'NAV_BAR_ITEMS.NEW_PRODUCT' | translate"
+                            (actionClick)="clickItem($event)"
+      ></velocity-navbar-item>
+    </div>
+    <div class="middle-content" >
+      <ng-container *ngIf="disabledQR | async as qr">
+        <button class="qr-button" [class.active]="isOpenQr" (click)="openQR(qr?.hasPermissions)" [class.not-permission]="!qr?.hasPermissions" [disabled]="qr?.disabled">
+          <i class="{{iconQr}}"></i>
+        </button>
+      </ng-container>
+    </div>
+    <div class="side-content">
+      <velocity-navbar-item *ngFor="let item of navBarItems$ | async | slice:2:3"
+                            [icon]="item.icon"
+                            [text]="item.text | translate"
+                            [navigateTo]="item.path"
+                            [hasAmount]="enableItem$(item.minAmount) | async"
+                            [hasProducts]="hasProducts | async"
+                            [enable]="item.enable"
+                            [hasPermissions]="item.hasPermissions"
+                            [state]="item.state"
+                            [textTagNewProduct]="'NAV_BAR_ITEMS.NEW_PRODUCT' | translate"
+                            (actionClick)="clickItem($event)"
+      ></velocity-navbar-item>
+      <velocity-navbar-item *ngFor="let item of navBarItems$ | async | slice:3:4"
+                            [icon]="item.icon"
+                            [text]="item.text | translate"
+                            [navigateTo]="item.path"
+                            [hasAmount]="enableItem$(item.minAmount) | async"
+                            [hasProducts]="hasProducts | async"
+                            [enable]="item.enable"
+                            [hasPermissions]="item.hasPermissions"
+                            [state]="item.state"
+                            [textTagNewProduct]="'NAV_BAR_ITEMS.NEW_PRODUCT' | translate"
+                            (actionClick)="clickItem($event)"
+      ></velocity-navbar-item>
+    </div>
+  </div>
+</ion-footer>

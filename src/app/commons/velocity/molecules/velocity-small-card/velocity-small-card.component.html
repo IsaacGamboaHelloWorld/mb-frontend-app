@@ -1,0 +1,16 @@
+<div class="vel-small-card" [class.error]="isError">
+  <div class="vel-small-card-info">
+    <p class="text-body-2 config-text remove-l-h">{{product?.typeAccount}} <span>{{product?.id}}</span></p>
+    <div class="vel-small-card-amount">
+      <p class="text-body-2 config-text remove-l-h">{{product?.title}}</p>
+      <strong class="text-subtitle-1 config-text remove-l-h" [innerHTML]="product?.amount"></strong>
+    </div>
+  </div>
+  <velocity-button
+      [text]="product?.button?.text"
+      [class]="product?.button?.className"
+      (actionButton)="actionBtn.emit()"
+      [id]="idButton"
+      *ngIf="showButton"
+  ></velocity-button>
+</div>

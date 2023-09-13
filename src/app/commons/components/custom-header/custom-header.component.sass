@@ -1,0 +1,64 @@
+@import mixins
+
+.custom-header
+  background: var(--vel-color-primary-g-500)
+  padding-top: constant(safe-area-inset-top)
+  padding-top: env(safe-area-inset-top)
+  &-content
+    position: relative
+    padding: 0 16px
+    +flex(flex, center, space-between)
+    &.medium
+      padding: 26px 16px
+    &.big
+      padding: 36px 16px
+  i
+    font-size: 24px
+    color: var(--vel-color-neutral-light-10)
+    +flex(inline-flex, center, center)
+    width: 35px
+    height: 35px
+  &-left,
+  &-right
+    position: relative
+    z-index: 3
+    padding: 17px 0
+    .regular-text
+      font-size: 14px
+  &-left,
+  &-center,
+  &-right
+    .regular-text
+      font-weight: 600
+      line-height: 1.5
+      color: var(--vel-color-neutral-light-10)
+  &-center
+    position: absolute
+    left: 0
+    width: 100%
+    top: 0
+    height: 100%
+    z-index: 2
+    text-align: center
+    +flex(flex, center, center)
+    p
+      font-size: 16px
+      font-weight: 600
+      line-height: 1.5
+      color: var(--vel-color-neutral-light-10)
+  &-section:empty
+    display: none
+
+.header-greeting
+  font-size: 21px
+  font-weight: 500
+  line-height: 32px
+  color: var(--vel-color-primary-gc-800)
+
+.customer-name
+  font-size: 14px
+  font-weight: 500
+  line-height: 28px
+  color: var(--vel-color-neutral-light-10)
+  text-align: left
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="123px" height="61px" viewBox="0 0 123 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>navbar-shape</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="navbar-shape" transform="translate(0.000000, 1.000000)" fill-rule="nonzero">
+            <path d="M122.547,60 L-1.77635684e-13,60 L-1.77635684e-13,0 C12.358,0 23.672,6.933 29.284,17.943 L29.397,18.167 C42.697,44.264 80.005,44.195 93.21,18.051 C98.799,6.98 110.145,0 122.547,0 L122.547,60 Z" id="BG" fill="#FFFFFF"></path>
+            <path d="M-1.77635684e-13,0 C12.358,0 23.672,6.933 29.284,17.943 L29.397,18.167 C42.697,44.264 80.005,44.195 93.21,18.051 C98.799,6.98 110.145,0 122.547,0" id="Line" stroke="#E4E4E4"></path>
+        </g>
+    </g>
+</svg>

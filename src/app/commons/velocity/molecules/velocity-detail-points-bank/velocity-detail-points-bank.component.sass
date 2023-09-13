@@ -1,0 +1,46 @@
+@import 'mixins'
+
+
+.detail-points-bank
+  +flex(flex,center,space-between,row)
+  width: 100%
+
+  .image-bank
+    display: grid
+    grid-template-rows: repeat(1,1fr)
+    justify-items: start
+
+    .background-img-bank
+      width: 36px
+      height: 36px
+      border-radius: 50%
+      grid-column-start: 1
+      padding: 8px
+      +flex(flex,center,center)
+      &.banco_occidente
+        background-color: var(--vel-color-s-info-400)
+      &.banco_popular
+        background-color: var(--vel-color-highlight-mid-600)
+      &.banco_de_bogota
+        background-color: var(--vel-color-s-info-900)
+      &.banco_av_villas
+        background-color: var(--vel-color-s-error-600)
+
+
+  .name-bank
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+    width: 100%
+
+    span
+      font-size: 14px
+      line-height: normal
+      color: var(--vel-color-neutral-mid-200)
+
+  .points
+    p
+      font-size: 14px
+      line-height: normal
+
+

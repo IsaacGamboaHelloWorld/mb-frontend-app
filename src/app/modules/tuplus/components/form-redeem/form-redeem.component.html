@@ -1,0 +1,145 @@
+<form [formGroup]="formWhereToRedeem"
+      class="form-where-to-redeem form-global-template"
+      (ngSubmit)="submitGenerated()">
+  <ng-container *ngIf="!openOtpTuplus">
+    <p class="text-subtitle-3">
+      {{'TUPLUS.WHERE_TO_REDEEM.AVAILABLE_POINTS' | translate}}
+    </p>
+    <div class="white-container margin-t-16 form-where-to-redeem-header-balance">
+      <div class="h-36 w-36">
+        <img [src]="'/icon-tuplus.png' | imageCdn" alt="">
+      </div>
+      <p class="text-subtitle-2 margin-l-8">
+        {{(tuplusTotalPoints$ | async)
+        |number|replace:',':'.'}}
+      </p>
+    </div>
+    <div class="white-container form-where-to-redeem-input-points margin-t-24">
+      <div class="form-group">
+        <div>
+          <p class="text-subtitle-3">
+            {{'TUPLUS.WHERE_TO_REDEEM.POINTS_TO_REDEEM' | translate}}
+          </p>
+        </div>
+        <div class="margin-t-8">
+          <app-cont-error [control]="points">
+            <ion-input
+              type="number"
+              inputmode="numeric"
+              formControlName="points"
+              clearInput="true"
+              appOnlyNumbers
+              appCleave
+            ></ion-input>
+          </app-cont-error>
+        </div>
+        <div class="margin-t-8" *ngIf="formWhereToRedeem.controls?.['points'].dirty">
+          <div *ngIf="formWhereToRedeem.controls?.['points'].errors">
+            <p class="text-body-5 text-amount"
+               [class.color-red]="formWhereToRedeem.controls?.['points'].errors">
+              {{limitPointsMessage()}}
+            </p>
+          </div>
+        </div>
+        <div class="margin-t-36">
+          <p class="text-amount">
+            {{'TUPLUS.WHERE_TO_REDEEM.EQUIVALENT_IN_PESOS' | translate}}
+          </p>
+          <p class="margin-t-8 text-subtitle-1 text-bold">
+            {{equivalentAmount|currencyFormat}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="margin-t-24 form-where-to-redeem-info-redeem">
+      <p>{{'TUPLUS.WHERE_TO_REDEEM.INFO_REDEEM' | translate}}</p>
+    </div>
+    <div class=" margin-t-24 form-where-to-redeem-where">
+      <ion-label class="label-global">{{'TUPLUS.WHERE_TO_REDEEM.CHOOSE_WHERE_REDEEM' | translate}}</ion-label>
+      <ng-container>
+        <ul class="places-container margin-t-16">
+          <ion-radio-group formControlName="where">
+            <li *ngFor="let place of withdrawalPlaces">
+              <velocity-withdrawal-place
+                [icon]="place.icon"
+                [name]="place.name | translate"
+                [value]="place"
+                [control]="where"
+                [align]="'center'"
+              ></velocity-withdrawal-place>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </ng-container>
+    </div>
+    <ion-item class="hidden-element">
+      <ion-select
+        formControlName="deposit"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product?.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="margin-t-24" *ngIf="depositAccountSelected && showCardsAccounts">
+      <div class="margin-b-24">
+        <ion-label class="label-global">{{'TUPLUS.WHERE_TO_REDEEM.WHERE' | translate}}</ion-label>
+      </div>
+      <app-cont-error [control]="deposit">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="true"
+          [isError]="false"
+          (actionBtn)="changeAccount(hiddenElement)"
+        ></velocity-small-card>
+      </app-cont-error>
+      <p class="margin-t-24 form-where-to-redeem-info-redeem">{{'TUPLUS.WHERE_TO_REDEEM.INFO_DEPOSIT' | translate}}</p>
+    </div>
+    <div class="margin-t-24" *ngIf="!depositAccountSelected && showCardsAccounts">
+      <div class="" *ngIf="hasCreditCard">
+        <div>
+          <ion-label class="label-global">{{'TUPLUS.WHERE_TO_REDEEM.WHERE' | translate}}</ion-label>
+        </div>
+        <ul class="registered-account">
+          <ion-radio-group formControlName="credit">
+            <li *ngFor="let creditCard of enableCreditCards ; trackBy: trackBy ">
+              <velocity-card-lite-credit-card
+                [value]="creditCard"
+                [control]="credit"
+                [amount]="creditCard?.productAccountBalances?.cupo_disponible_avances_pesos?.amount | currencyFormat"
+                [titleAmount]="'PRODUCTS.CREDIT_CARD.QUOTA_AVAILABLE' | translate"
+                [title]="('PRODUCT_TYPES.CREDIT_CARD' | translate)"
+                [type]="(creditCard?.id | typeCreditCard).typeClass"
+                [img]="((creditCard?.id | typeCreditCard).imgBig) | imageCdn"
+                [number]="creditCard?.id.slice(-4)">
+              </velocity-card-lite-credit-card>
+            </li>
+          </ion-radio-group>
+        </ul>
+        <p class="margin-t-16 form-where-to-redeem-info-redeem">
+          {{'TUPLUS.WHERE_TO_REDEEM.INFO_CREDIT' | translate}}
+        </p>
+      </div>
+    </div>
+    <div class="margin-t-24">
+      <velocity-button [text]=" !retryRedeem? ('CONTINUE'| translate): ('RETRY' | translate)"
+                       class="btn-primary margin-b-8" type="submit"
+                       [disabled]="formWhereToRedeem.invalid"
+                       [isLoading]="(isLoadingGenerateOtp$ | async) || (isLoadingRedeemService$ |async)"
+
+      >
+      </velocity-button>
+    </div>
+  </ng-container>
+  <div class="container-otp-tuplus" *ngIf="openOtpTuplus">
+    <app-otp-redeem-tuplus [Isloading]="isLoadingRedeemService$" (actionButtonOtp)="dispatchRedeem()"
+                           [controlOtp]="formWhereToRedeem?.controls?.['otp']"
+                           [retryRedeemOtp]="retryRedeem"></app-otp-redeem-tuplus>
+  </div>
+</form>
+

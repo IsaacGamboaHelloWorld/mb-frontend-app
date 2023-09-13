@@ -1,0 +1,59 @@
+<div class="vel-card-pocket">
+  <ng-container *ngIf="!loading; else loadingSkeleton">
+    <div class="vel-card-pocket-container">
+      <div class="vel-card-pocket-cont-end margin-b-28">
+        <i class="vel-card-pocket-cont-img {{icon}}"></i>
+        <div class="margin-l-8 vel-card-pocket-name-pocket">
+          <p class="text-body-1 text-bold">{{pocketName}}</p>
+        </div>
+        <div class="vel-card-pocket-bagde">
+          <velocity-badge [text]="typePocket"></velocity-badge>
+        </div>
+      </div>
+      <div class="vel-card-pocket-cont">
+        <div class="vel-card-pocket-width-complete">
+          <p class="text-body-2 vel-card-pocket-color-neutral">{{textHave}}</p>
+          <p class="text-subtitle-2 text-bold" [innerHTML]="amountSaved"></p>
+        </div>
+        <div *ngIf="!goalIsAccomplished" class="vel-card-pocket-width-complete">
+          <p class="text-body-2 vel-card-pocket-color-neutral vel-card-pocket-align-end">{{textGoal}}</p>
+          <p class="text-subtitle-2 text-bold vel-card-pocket-align-end" [innerHTML]="savingGoal"></p>
+        </div>
+      </div>
+      <div class="vel-card-pocket-progress-bar">
+        <ion-progress-bar
+          class="vel-card-pocket-progress-bar"
+          [class.green-bar]="goalIsAccomplished"
+          [class.orange-bar]="!goalIsAccomplished"
+          value="{{average}}">
+        </ion-progress-bar>
+      </div>
+      <div *ngIf="!goalIsAccomplished" class="margin-b-4">
+        <span class="text-caption vel-card-pocket-color-mid">{{textAutomaticDebit}}</span>
+        <span class="text-caption text-bold ">{{pocketPeriodDescription}}</span>
+      </div>
+    </div>
+    <div class="vel-card-pocket-cont">
+      <div class="vel-card-pocket-btn-cont text-caption" type="button" (click)="buttonEdit.emit()">{{textBtnEdit}}
+        <i class="icon-vel-essential-edit-8 vel-card-pocket-icon"></i>
+      </div>
+      <div class="vel-card-pocket-btn-cont text-caption" type="button" (click)="buttonMove.emit()">{{textBtnMove}}
+        <i class="icon-vel-essential-arrows-4 vel-card-pocket-icon"></i>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #loadingSkeleton>
+  <div class="vel-card-pocket-skeleton">
+    <div class="skeleton-global vel-card-pocket-skeleton-title">
+      <div class="skeleton vel-card-pocket-skeleton-title-img"></div>
+      <p class="skeleton width-20"></p>
+    </div>
+    <div class="skeleton-global">
+      <p class="skeleton width-40 margin-b-8"></p>
+      <p class="skeleton width-70"></p>
+    </div>
+  </div>
+</ng-template>
+

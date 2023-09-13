@@ -1,0 +1,46 @@
+@import mixins
+
+.wrapper
+  +flex(flex, center, space-between)
+  position: relative
+  height: 48px
+  width: 100%
+  border-radius: 8px
+  border: 1px solid var(--vel-color-carbon-light-900)
+  color: var(--vel-color-carbon-dark-900)
+
+  .otp-input
+    height: 100%
+    width: 100%
+    text-align: center
+    font-size: 21px
+    background-color: transparent
+    border: none
+    outline: none
+
+  .otp-input-icon-container
+    flex: 0 0 56px
+    text-align: center
+
+    i
+      font-size: 24px
+
+  &.ng-dirty.ion-valid.has-focus
+    border-color: var(--vel-color-semantic-success-600)
+    background-color: var(--vel-color-semantic-success-100)
+
+  &.ng-dirty.ng-invalid
+    border-color: var(--vel-color-semantic-error-600)
+    background-color: var(---vel-color-semantic-error-100)
+
+  &.ng-touched.ng-invalid
+    border-color: var(--vel-color-semantic-error-600)
+    background-color: var(--vel-color-semantic-error-100)
+
+  &.has-focus
+    border-color: var(--vel-color-carbon-mid-600)
+    background-color: var(--vel-color-carbon-light-400)
+
+.otp-control-error
+  border-color: var(--vel-color-semantic-error-600)
+  background-color: var(--vel-color-semantic-error-100)

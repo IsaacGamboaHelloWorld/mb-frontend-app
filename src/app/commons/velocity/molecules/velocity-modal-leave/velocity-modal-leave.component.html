@@ -1,0 +1,73 @@
+<div class="vel-modal-leave">
+  <i class="icon-vel-close" *ngIf="close" (click)="actionClose.emit()"></i>
+  <i class="vel-modal-leave-icon {{icon}} {{iconType}} m-b-3s" *ngIf="hasIcon"></i>
+  <strong class="vel-text-subtitle-2 vel-text-semibold">{{title}}</strong>
+  <span *ngIf="hasSubtitle" class="vel-text-subtitle-2 vel-text-semibold">{{subtitle}}</span>
+  <p [innerHTML]="description" class="vel-text-body-1 m-t-3s"></p>
+  <ng-content></ng-content>
+  <div class="vel-modal-leave-buttons" *ngIf="!hasLink && !areButtonsWidthComplete && !hasInLineLink">
+    <velocity-button
+      *ngIf="hasSecondBtn"
+      [text]="secondBtn"
+      [class]="'btn btn-secondary medium'"
+      [class.with-100]="!hasFirstBtn"
+      (actionButton)="actionSecondBtn.emit()"
+    ></velocity-button>
+    <velocity-button
+      *ngIf="hasFirstBtn"
+      [text]="firstBtn"
+      [class.width-100]="!hasSecondBtn"
+      [class]="'btn btn-primary medium'"
+      (actionButton)="actionFirstBtn.emit()"
+    ></velocity-button>
+  </div>
+  <div class="vel-modal-leave-button-link" *ngIf="hasLink && !areButtonsWidthComplete">
+    <velocity-button
+      *ngIf="hasFirstBtn"
+      [text]="firstBtn"
+      [class.width-100]="!hasSecondBtn"
+      [class]="'btn btn-primary medium'"
+      (actionButton)="actionFirstBtn.emit()"
+    ></velocity-button>
+    <velocity-button
+      *ngIf="hasFirstBtn" Ï
+      [text]="secondBtn"
+      [class.width-100]="!hasSecondBtn"
+      [class]="'text text-primary medium'"
+      (click)="actionSecondBtn.emit()">
+    </velocity-button>
+  </div>
+  <div class="vel-modal-leave-button-link-inline" *ngIf="hasInLineLink && !areButtonsWidthComplete">
+    <velocity-button
+      *ngIf="hasSecondBtn"
+      [text]="secondBtn"
+      type="text"
+      [class]="'text text-primary medium'"
+      (click)="actionSecondBtn.emit()">
+    </velocity-button>
+    <velocity-button
+      *ngIf="hasFirstBtn" Ï
+      [text]="firstBtn"
+      [class.width-100]="!hasSecondBtn"
+      [class]="'btn btn-primary medium'"
+      (actionButton)="actionFirstBtn.emit()"
+    ></velocity-button>
+  </div>
+  <div class="vel-modal-leave-button-width-complete" *ngIf="areButtonsWidthComplete">
+    <velocity-button
+      *ngIf="hasFirstBtn"
+      class="margin-top"
+      [text]="firstBtn"
+      [class.width-100]="!hasSecondBtn"
+      [class]="'btn btn-primary medium'"
+      (actionButton)="actionFirstBtn.emit()"
+    ></velocity-button>
+    <velocity-button
+      *ngIf="hasSecondBtn"
+      [text]="secondBtn"
+      type="text"
+      [class]="'text text-primary medium'"
+      (click)="actionSecondBtn.emit()">
+    </velocity-button>
+  </div>
+</div>

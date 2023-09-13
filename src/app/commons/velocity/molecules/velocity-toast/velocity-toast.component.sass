@@ -1,0 +1,70 @@
+@import mixins
+
+.velocity-toast
+  padding: 14px 20px
+  +flex(flex, flex-start, flex-start)
+  border: solid 1px var(--vel-color-neutral-light-50)
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08)
+  background: var(--vel-color-neutral-light-10)
+  border-radius: 6px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 2px
+    top: 14px
+    height: 24px
+    width: 4px
+    border-radius: 2px
+  &-icon
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    font-size: 16px
+    margin-right: 8px
+    +inline(top, inline-flex)
+    background: #bbe0ff
+    justify-content: center
+    align-items: center
+  &-content
+    +inline(top)
+    width: calc(100% - 32px)
+    &.full-toast
+      width: 100%
+    strong
+      font-size: 13px
+      font-weight: 600
+      line-height: 2.15
+      color: var(--vel-color-carbon-900)
+    p
+      font-size: 12px
+      font-weight: 500
+      line-height: 2
+      color: var(--vel-color-carbon-900)
+  &.toast-normal
+    background: var(--vel-color-s-info-light)
+    &::before
+      background: var(--vel-info-600)
+    .velocity-toast-icon
+      background: var(--vel-color-info-100)
+      color: var(--vel-info-600)
+  &.toast-warning
+    &::before
+      background: var(--vel-color-warning)
+    .velocity-toast-icon
+      background: var(--vel-color-warning-100)
+      color: var(--vel-color-warning)
+  &.toast-success
+    &::before
+      background: var(--vel-success-400)
+    .velocity-toast-icon
+      background: var(--vel-color-success-100)
+      color: var(--vel-success-400)
+  &.toast-error
+    &::before
+      background: var(--vel-error)
+    .velocity-toast-icon
+      background: var(--vel-color-error-100)
+      color: var(--vel-error)
+
+

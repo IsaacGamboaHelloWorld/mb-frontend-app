@@ -1,0 +1,86 @@
+@import '../../../../sass/mixins'
+
+.header
+  ion-toolbar
+    --background: var(--vel-color-primary-g-500)
+    --color: var(--vel-color-neutral-light-10)
+    --opacity: 1
+    --border-color: transparent
+    text-align: left
+    border-bottom: 1px solid var(--vel-color-primary-g-500)
+    &.type-one
+      --min-height: 60px
+      transition: .3s
+    &.type-two
+      --min-height: 60px
+      padding-top: 16px
+      transition: .3s
+      .buttons-left,
+      .buttons-right
+        font-size: 24px
+      .buttons-left
+        padding-left: 10px
+      .buttons-right
+        padding-right: 10px
+      .header-title
+        text-align: center
+        font-size: 16px
+        font-weight: 600
+        padding-inline-end: var(--vel-grid-padding)
+        color: var(--vel-color-neutral-light-10)
+    &.type-three
+      --min-height: 128px
+      text-align: center
+      .buttons-left,
+      .buttons-right
+        font-size: 24px
+        position: absolute
+        top: 10px
+      .buttons-left
+        padding-left: 10px
+      .buttons-right
+        padding-right: 10px
+      .header-image
+        height: 32px
+        margin-top: 48px
+    &.type-four
+      --min-height: 70px
+      text-align: center
+      .buttons-left,
+      .buttons-right
+        font-size: 24px
+        position: absolute
+      .buttons-left
+        padding-left: 10px
+      .buttons-right
+        padding-right: 10px
+      .header-image
+        height: 28px
+
+    &.show-border
+      border-color: var(--vel-color-success-700)
+  .button-back
+    --color: var(--vel-color-neutral-light-10)
+  .header-background
+    backdrop-filter: none
+  .open-menu-btn
+    font-size: 24px
+    margin-right: 16px
+  &.ios
+    .header-title
+      padding-inline-start: var(--vel-grid-padding)
+      text-align: left
+      font-size: 21px
+      font-weight: 500
+      color: var(--vel-color-primary-gc-800)
+      &.show-back
+        line-height: 1.52
+        padding-inline-start: 34px
+      i
+        font-size: 30px
+        +inline(middle)
+  &.md
+    .header-title
+      &.show-back
+        padding-inline-start: 0
+        padding-inline-end: 0

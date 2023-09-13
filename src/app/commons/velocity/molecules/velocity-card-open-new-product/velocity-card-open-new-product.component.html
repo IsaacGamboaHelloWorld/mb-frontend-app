@@ -1,0 +1,10 @@
+<div class="velocity-card-open-new-product {{positionImg}} {{backgroundColor}}">
+  <div class="velocity-card-open-new-product-img">
+    <img [src]="img" [alt]="title">
+  </div>
+  <div class="velocity-card-open-new-product-content">
+    <strong>{{title}}</strong>
+    <p>{{description}}</p>
+    <button type="button" [id]="idButton" (click)="actionButton.emit()">{{textLink}}</button>
+  </div>
+</div>

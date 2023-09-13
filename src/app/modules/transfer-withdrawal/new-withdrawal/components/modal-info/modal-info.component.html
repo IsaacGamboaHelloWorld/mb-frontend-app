@@ -1,0 +1,19 @@
+<div class="center-modal">
+  <div class="modal-info-transfer-withdrawal">
+    <strong>{{'TRANSFER_WITHDRAWAL.MODAL_TERMS.TITLE' | translate}}</strong>
+    <ol>
+      <li *ngFor="let item of ('TRANSFER_WITHDRAWAL.MODAL_TERMS.LIST' | translate)" [innerHTML]="item"></li>
+    </ol>
+    <div class="form-group cont-checkbox margin-t-16 margin-b-23">
+      <ion-checkbox id="modal-withdrawal-checkbox" (ionChange)="toggle()" [checked]="saveData"></ion-checkbox>
+      <p>
+        {{'TRANSFER_WITHDRAWAL.MODAL_TERMS.CHECK' | translate}}
+      </p>
+    </div>
+    <velocity-button
+      [text]="'UNDERSTOOD' | translate"
+      [class]="'btn btn-primary medium'"
+      (actionButton)="close()"
+    ></velocity-button>
+  </div>
+</div>

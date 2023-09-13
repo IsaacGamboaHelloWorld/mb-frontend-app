@@ -1,0 +1,30 @@
+<div class="center-modal">
+  <velocity-modal-leave *ngIf="!props?.success"
+                        [title]="props?.infoError?.title"
+                        [description]="props?.infoError?.description"
+                        [firstBtn]="props?.infoError?.firstBtn"
+                        (actionFirstBtn)="modalService.close()"
+  ></velocity-modal-leave>
+  <div class="modal-actions" *ngIf="props?.success">
+    <div class="modal-actions-close" (click)="modalService.close()"><i class="icon-vel-close"></i></div>
+    <div class="modal-actions-header">
+      <p>{{props?.information?.title}}</p>
+      <img [src]="props?.information?.img" [alt]="props?.information?.title">
+    </div>
+    <div class="modal-actions-content">
+      <div class="modal-actions-amount">
+        <p>{{props?.information?.amount?.name}}</p>
+        <strong>{{ props?.information?.amount?.value }}</strong>
+      </div>
+      <ul>
+        <li *ngFor="let stock of props?.information?.stocksAll">
+          <span>{{stock.name}}</span>
+          <strong>{{stock?.value}}</strong>
+        </li>
+      </ul>
+      <div class="modal-actions-description">
+        <p>{{props?.information?.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

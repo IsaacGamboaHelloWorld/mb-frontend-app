@@ -1,0 +1,24 @@
+<div>
+  <app-custom-header
+    class="custom-header"
+    [size]="'big'">
+    <div left></div>
+    <div center>
+      <img class="header-image" src="/assets/images/bp-horizontal.png" alt="">
+    </div>
+    <div right></div>
+  </app-custom-header>
+  <div class="header-complement p-lr-global complement-size-ls content-full padding-b-16">
+    <div class="white-container content-full">
+      <div>
+        <velocity-image-title [description]="'EXPERIENCE.ACTIVATE_CARD.DESCRIPTION' | translate"
+          [img]="'/credit-card.png' | imageCdn" [title]="'EXPERIENCE.ACTIVATE_CARD.TITLE' | translate"
+          class="image-title">
+        </velocity-image-title>
+        <velocity-button (click)="back()" [text]="'EXPERIENCE.ACTIVATE_CARD.BUTTON' | translate"
+          class="btn-primary margin-t-36">
+        </velocity-button>
+      </div>
+    </div>
+  </div>
+</div>

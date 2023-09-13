@@ -1,0 +1,105 @@
+<form class="new-transfer-to-who-not-registered form-global-template" [formGroup]="formNewTransferToWho"
+  (ngSubmit)="submitForm()">
+  <div>
+    <ion-item class="hidden-element p-lr-global p-t-4s">
+      <ion-label>¿{{'RECHARGE.TO_WHO.ORIGIN' | translate}}?</ion-label>
+      <ion-select formControlName="from" mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        [placeholder]="'RECHARGE.TO_WHO.ORIGIN_DEFAULT' | translate" #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' +
+          (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'RECHARGE.TO_WHO.ORIGIN' | translate}}</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card 
+          [product]="productActive" 
+          [showButton]="showButtonProductActive$ | async"
+          (actionBtn)="changeAccount(hiddenElement)" [isError]="isErrorCardActive"></velocity-small-card>
+      </app-cont-error>
+    </div>
+    <div class="form-group p-b-4s p-lr-global">
+      <div class="cont-form-groups">
+
+        <div class="form-group margin-b-24">
+          <ion-label class="label-global">{{'NEW_TRANSFER.DESTINATION' | translate}}</ion-label>
+          <div class="default-bank">
+            <div>
+              <img [src]="'/isologo.png' | imageCdn" alt="Banco Popular">
+              <p>{{'NAME_BANK' | translate}}</p>
+            </div>
+            <i class="icon-vel-check"></i>
+          </div>
+        </div>
+        <div class="margin-b-24">
+          <ion-radio-group formControlName="typeAccount">
+            <div class="cont-type-account-not-registered">
+              <velocity-label-radio 
+                [control]="typeAccount" 
+                [name]="'PRODUCT_TYPES_SMALL.DEPOSIT_ACCOUNT' | translate"
+                [value]="'DEPOSIT_ACCOUNT'"></velocity-label-radio>
+              <velocity-label-radio 
+                [control]="typeAccount" 
+                [name]="'PRODUCT_TYPES_SMALL.CURRENT_ACCOUNT' | translate"
+                [value]="'CURRENT_ACCOUNT'"></velocity-label-radio>
+            </div>
+          </ion-radio-group>
+        </div>
+        <div class="margin-b-32">
+          <app-cont-error [control]="numberAccount">
+            <ion-input type="tel" inputmode="numeric" placeholder="No. de cuenta" clearInput="true"
+              formControlName="numberAccount" appOnlyNumbers maxlength="12"></ion-input>
+          </app-cont-error>
+        </div>
+        <div class="form-group m-b-4s">
+          <ion-label class="vel-text-body-3 vel-text-medium">{{'NEW_TRANSFER.NOT_REGISTERED.VALUE_TO_TRANSFER' |
+            translate}} ( Min. $10.000 Máx.
+            $1.0000.000)</ion-label>
+          <app-cont-error [control]="amount">
+            <ion-input type="text" clearInput="true" inputmode="numeric" placeholder="$ 0.00" formControlName="amount"
+              appDetectFocus appCleave [cleave]="configCurrency">
+            </ion-input>
+          </app-cont-error>
+        </div>
+        <div *ngIf="!showOptions" (click)="toggleOptions()" class="show-options m-t-2s m-b-2s">
+          <i class="icon-vel-add-circle"></i>
+          <p class="vel-text-semibold vel-text-action-2">{{'NEW_TRANSFER.NOT_REGISTERED.MORE_OPTIONS' | translate}}</p>
+        </div>
+        <div *ngIf="showOptions" (click)="toggleOptions()" class="show-options m-t-2s m-b-2s"><i
+            class="icon-vel-subtract-circle"></i>
+          <p class="vel-text-semibold vel-text-action-2">{{'NEW_TRANSFER.NOT_REGISTERED.FEWER_OPTIONS' | translate}}</p>
+        </div>
+        <ng-container *ngIf="showOptions">
+          <div class="form-group m-b-4s m-t-4s">
+            <ion-label class="text-body-2">{{'MOVEMENTS.DEPOSIT.DESCRIPTION' | translate}} (opcional)</ion-label>
+            <app-cont-error [control]="description">
+              <ion-input type="text" clearInput="true" formControlName="description"
+                [placeholder]="'NEW_TRANSFER.HOW_MUCH.PLACEHOLDER_DESCRIPTION' | translate" appDetectFocus
+                maxlength="24">
+              </ion-input>
+            </app-cont-error>
+          </div>
+          <div class="form-group">
+            <ion-label class="text-body-2">{{'NEW_TRANSFER.VOUCHER' | translate}}</ion-label>
+            <app-cont-error [control]="voucherId">
+              <ion-input type="text" clearInput="true" formControlName="voucherId" appDetectFocus maxlength="24">
+              </ion-input>
+            </app-cont-error>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit" [id]="'new-transfer-step-one'"
+      [disabled]="formNewTransferToWho.invalid">
+    </velocity-button>
+  </div>
+</form>

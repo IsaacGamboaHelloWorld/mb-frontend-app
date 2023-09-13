@@ -1,0 +1,27 @@
+@import 'mixins'
+
+.velocity-section-other-products
+  padding: 24px 0
+  border-top: 1px solid var(--vel-color-neutral-light-60)
+  +flex(flex, center, space-between)
+  &.disabled
+    user-select: none
+    .vel-card-load-aval-info,
+    .vel-card-load-aval-toggle
+      opacity: .7
+  &-info
+    text-align: left
+    img
+      height: 24px
+      width: auto
+    span
+      font-size: 14px
+      font-weight: 500
+      line-height: 2
+    p
+      font-size: 12px
+      font-weight: 500
+      line-height: 2
+      color: var(--vel-color-neutral-mid-100)
+  &-toggle
+    padding-left: 34px

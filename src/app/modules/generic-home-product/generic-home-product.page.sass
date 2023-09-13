@@ -1,0 +1,40 @@
+@import 'mixins'
+  
+.generic-home-item
+  height: 72px
+  border-top: 1px solid var(--vel-color-carbon-light-900)
+  display: flex
+  align-items: center
+  .icon-container
+    +flex(flex, center, center)
+    width: 40px
+    height: 40px
+    background: var(--vel-color-secondary-100)
+    color: var(--vel-color-secondary-900)
+    border-radius: 50%
+    margin-right: 8px
+    .vel-icon
+      font-size: 24px
+  .home-item-text
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    &.with-icon
+      width: calc(100% - 72px)
+    .item-title
+      font-size: 14px
+      font-weight: 600
+    .item-description
+      font-size: 11px
+      font-weight: 500
+      color: var(--vel-color-carbon-mid-600)
+  .navigation-btn
+    display: flex
+    +flex(flex, center, center)
+    height: 24px
+    width: 24px
+    display: flex
+    i
+      color: var(--vel-color-primary-g-500)
+      font-size: 20px
+      margin-left: 8px

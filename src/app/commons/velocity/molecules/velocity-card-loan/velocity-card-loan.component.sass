@@ -1,0 +1,49 @@
+@import mixins
+
+.vel-card-loan
+  border-radius: 12px
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+  background: var(--vel-color-neutral-light-10)
+  padding: 16px 24px
+  position: relative
+  height: 150px
+  &-radio
+    position: absolute
+    top: 8px
+    right: 8px
+  small
+    display: block
+    font-size: 11px
+    font-weight: 500
+    line-height: 1.82
+    color: var(--vel-color-neutral-mid-200)
+    margin-bottom: 16px
+    min-height: 20px
+  &-img
+    width: 32px
+    height: 32px
+    border-radius: 50%
+    +flex(flex, center, center)
+    background: var(--vel-color-accent-400)
+    margin-bottom: 12px
+    &.visa
+      background: #15216a
+    &.master
+      background: var(--vel-color-neutral-mid-300)
+    i
+      color: var(--vel-color-neutral-light-10)
+      font-size: 24px
+    img
+      width: 24px
+  strong
+    display: block
+    font-size: 13px
+    font-weight: 500
+    margin-bottom: 2px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  p
+    font-size: 11px
+    line-height: 1.82
+    color: var(--vel-color-neutral-mid-200)

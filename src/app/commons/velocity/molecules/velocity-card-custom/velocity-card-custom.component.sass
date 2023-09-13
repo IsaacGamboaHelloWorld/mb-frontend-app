@@ -1,0 +1,38 @@
+@import mixins
+
+.vel-card-custom
+  text-align: left
+  border-radius: 15px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14)
+  background-color: var(--vel-color-neutral-light-10)
+  height: 298px
+  overflow: hidden
+  position: relative
+  &-content
+    padding: 24px
+  &-account-type
+    +flex(flex, flex-start, flex-start)
+    margin-bottom: 22px
+    .text-subtitle-2
+      margin-bottom: 4px
+    .text-body-2
+      color: var(--vel-color-neutral-mid-100)
+  &-img
+    border: 1.3px solid var(--vel-color-neutral-light-60)
+    margin-right: 8px
+    border-radius: 4px
+    +flex(flex, center, center)
+    width: 32px
+    height: 28px
+    img
+      width: 22px
+  &::before
+    content: ''
+    position: absolute
+    height: 3px
+    background: var(--vel-color-primary-g-500)
+    width: 100%
+    left: 50%
+    margin-left: -50%
+    z-index: 1
+    border-radius: 10px

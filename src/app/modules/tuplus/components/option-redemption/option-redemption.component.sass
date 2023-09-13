@@ -1,0 +1,42 @@
+@import mixins
+.redeem-section
+  padding: 24px 16px 24px var(--vel-grid-padding)
+
+  .card-type-redemption
+    padding: 16px 24px
+    border-radius: 12px
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08)
+    background-color: var(--vel-color-carbon-light-100)
+    position: relative
+
+    .container-icon
+      width: 32px
+      height: 32px
+      background: var(--vel-color-s-success-100)
+      border-radius: 50%
+      i
+        font-size: 20px
+        color: var(--vel-color-s-success-400)
+
+    .container-message-content
+      width: calc(100% - 32px)
+      padding-left: 15px
+      .message-title
+        position: relative
+        min-height: 28px
+        span
+          font-size: 14px
+          font-weight: 600
+          line-height: 2
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+          display: inline-block
+          vertical-align: middle
+          max-width: calc(100% - 80px)
+
+      .message-description
+        font-size: 12px
+        font-weight: 500
+        line-height: 2
+        color: var(--vel-color-carbon-mid-600)

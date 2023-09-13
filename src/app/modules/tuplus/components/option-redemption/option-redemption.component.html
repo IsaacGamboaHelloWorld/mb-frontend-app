@@ -1,0 +1,37 @@
+<app-custom-header>
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{'TUPLUS.OPTION_TO_REDEEM.TITLE'|translate}}</p>
+  </div>
+  <div right>
+    <i class="icon-vel-essential-delete-2" (click)="openModal()"></i>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <section class="redeem-section">
+    <div>
+      <p class="text-subtitle-3">{{'TUPLUS.OPTION_TO_REDEEM.HOW'|translate}}</p>
+    </div>
+    <ng-container>
+      <div class="margin-t-24">
+        <ul class="messages-container">
+          <li *ngFor="let type of typeOptionToRedeem">
+            <div class="margin-t-24">
+              <velocity-custom-message
+                [title]="type.title"
+                [id]="type.id"
+                [description]="type.content"
+                [deactivate]="validateStatusConfiguration(type.id)"
+                [icon]="type.icon"
+                [isLoading]="isLoadingConfiguration$"
+                (viewCard)="validateOnTypeCard(type.id)"></velocity-custom-message>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </section>
+</ion-content>

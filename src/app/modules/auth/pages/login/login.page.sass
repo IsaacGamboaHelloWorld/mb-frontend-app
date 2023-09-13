@@ -1,0 +1,53 @@
+@import mixins
+
+.space-notch-login
+  padding-top: var(--ion-safe-area-top, 0)
+  background: var(--vel-color-primary-g-500)
+
+
+.head-login
+  padding: 68px 0 48px
+  text-align: center
+  background: var(--vel-color-primary-g-500)
+  img
+    height: 32px
+    width: auto
+.link-auth
+  text-align: center
+  background: var(--vel-color-primary-g-500)
+  padding: 0 25px
+  margin-bottom: 24px
+  +flex(flex, center, space-between)
+  a,
+  i
+    +inline(middle)
+  a
+    color: var(--vel-color-neutral-light-10)
+    line-height: 1.71
+    font-size: 14px
+    font-weight: 600
+    text-decoration: none
+  i
+    font-size: 26px
+    margin-right: 3px
+
+.remove-account
+    display: block
+    font-size: 12px
+    margin-bottom: 10px
+    i
+      +inline(middle)
+      margin-left: 4px
+      font-size: 24px
+
+#document-id
+  .input-clear-icon
+    display: none
+  &:focus-within > .input-clear-icon
+    display: flex
+
+.version-app
+  display: block
+  margin-top: 30px
+  text-align: center
+  font-size: 10px

@@ -1,0 +1,68 @@
+<ng-container *ngIf="!showFilter">
+  <app-custom-header>
+    <div left>
+      <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+    </div>
+    <div center>
+      <p>{{'TUPLUS.NAME' | translate}}</p>
+    </div>
+  </app-custom-header>
+
+  <ion-content class="tuplus-container">
+    <div class="header-complement"></div>
+    <ng-container *ngIf="tuplus$|async as tuplus">
+      <section class="tuplus-info-section">
+        <div class="white-container">
+          <div class="white-container-header">
+            <div>
+              <p id="titletuplus" class="text-body-1">
+                {{'TUPLUS.TOTAL_POINTS' | translate}}
+              </p>
+              <div class="margin-t-5">
+                <strong class="margin-t-8 text-subtitle-2">{{pointsTuplus$ | async }}</strong>
+              </div>
+            </div>
+            <div>
+              <img [src]="'/icon-detail-tuplus.png' | imageCdn" alt="">
+            </div>
+            <div *ngIf="conversionFactor$|async as conversion">
+              <p class="text-body-1 text-color-gray-1">
+                {{'TUPLUS.EQUIVALENT_MONEY' | translate}}
+              </p>
+              <div class="margin-t-5">
+                <strong class="text-subtitle-2">
+                  {{equivalentPoints(tuplus,conversion) |currencyFormat}}
+                </strong>
+              </div>
+            </div>
+          </div>
+          <div class="white-container-points-banks" *ngFor="let bankPoints of tuplus.information?.points | keyvalue | orderBanksTuplus ">
+            <velocity-detail-points-bank
+              [detailBanksPoints]="setBankPoints(bankPoints.key,bankPoints.value)"></velocity-detail-points-bank>
+          </div>
+          <div class="white-container-btn-redeem">
+            <velocity-button [text]="'TUPLUS.BTN' | translate" class="btn-primary" [id]="'tu-plus-redirect'"
+                             (actionButton)="redirectToRedemption()">
+            </velocity-button>
+          </div>
+        </div>
+      </section>
+    </ng-container>
+    <section class="movements-section" *ngIf="movements$|async as movement">
+      <app-container-movements-tuplus (loadMovements)="fetchMovements()" (showFilters)="toggleFilters()"
+                                      [movements]="movement">
+      </app-container-movements-tuplus>
+    </section>
+  </ion-content>
+</ng-container>
+
+<ng-container *ngIf="movements$|async as movement">
+  <ng-container *ngIf="showFilter">
+    <ion-content>
+      <app-movements-filter-tuplus [movements]="movement?.information" (cancel)="toggleFilters()">
+      </app-movements-filter-tuplus>
+    </ion-content>
+  </ng-container>
+</ng-container>
+
+

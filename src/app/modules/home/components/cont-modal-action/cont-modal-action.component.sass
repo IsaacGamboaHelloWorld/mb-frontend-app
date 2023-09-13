@@ -1,0 +1,73 @@
+@import mixins
+
+.modal-actions
+  border-radius: 12px
+  overflow: hidden
+  position: relative
+  &-close
+    position: absolute
+    right: 12px
+    top: 12px
+    font-size: 24px
+    z-index: 2
+    color: var(--vel-color-neutral-light-10)
+  &-header
+    background: #004ea4
+    padding: 32px
+    text-align: center
+    +flex(flex, center, center)
+    p
+      color: var(--vel-color-neutral-light-10)
+      font-size: 16px
+      font-weight: 600
+    img
+      height: 27px
+      width: auto
+      margin-left: 12px
+  &-content
+    padding: 24px
+    background: var(--vel-color-neutral-light-10)
+    overflow-y: auto
+    max-height: 60vh
+  &-amount
+    padding-bottom: 24px
+    text-align: center
+  ul,
+  &-amount
+    border-bottom: 1px dashed var(--vel-color-neutral-mid-80)
+    p
+      font-size: 14px
+      font-weight: 500
+      color: var(--vel-color-neutral-mid-200)
+      margin-bottom: 8px
+    strong
+      display: block
+      font-size: 28px
+      font-weight: 600
+      letter-spacing: -0.2px
+  ul
+    padding: 24px 0
+  li
+    margin-bottom: 16px
+    +flex(flex, center, space-between)
+    span
+      max-width: 185px
+      font-size: 13px
+      line-height: 1.85
+      color: var(--vel-color-neutral-mid-200)
+    strong
+      text-align: right
+      font-size: 14px
+      font-weight: 500
+      line-height: 1.71
+    &:last-child
+      margin-bottom: 0
+  &-description
+    padding-top: 24px
+    p
+      font-size: 11px
+      line-height: 1.82
+      color: var(--vel-color-neutral-mid-200)
+
+
+

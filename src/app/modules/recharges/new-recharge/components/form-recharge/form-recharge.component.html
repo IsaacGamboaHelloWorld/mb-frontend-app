@@ -1,0 +1,106 @@
+<form [formGroup]="formRecharge" class="form-global-template" (ngSubmit)="submitRecharge()">
+  <div class="overflow-content">
+    <div class="header-complement">
+      <div class="p-lr-global">
+        <velocity-box-input [title]="'¿'+ ('RECHARGE.TO_WHO.AMOUNT.TITLE' | translate) + '?'"
+                            [description]="'RECHARGE.TO_WHO.AMOUNT.VALUE' | translate :{min: '$1000', max: '$100000'}">
+          <app-cont-error [control]="amount">
+            <ion-input
+              type="text"
+              clearInput="true"
+              inputmode="numeric"
+              placeholder="$ 0.00"
+              formControlName="amount"
+              appDetectFocus
+              appCleave
+              id="RecargaCelular_input_cantidad"
+              [cleave]="configCurrency"
+            ></ion-input>
+          </app-cont-error>
+        </velocity-box-input>
+      </div>
+
+      <div class="form-group margin-b-28">
+        <ion-label class="label-global p-lr-global">{{'RECHARGE.TO_WHO.DESTINATION' | translate}}</ion-label>
+        <ng-container *ngIf="hasOperators | async; else loadingOperators">
+          <ul class="operators">
+            <ion-radio-group formControlName="to">
+              <li *ngFor="let operator of (operators$ | async)?.names">
+                <velocity-operator
+                  [img]="'/' + operator?.id + '.png' | imageCdn"
+                  [name]="operator?.name"
+                  [value]="operator"
+                  [control]="to"
+                  [id]="'RecargaCelular_rdo_operador' + operator?.id"
+                ></velocity-operator>
+              </li>
+            </ion-radio-group>
+          </ul>
+        </ng-container>
+      </div>
+
+      <div class="form-group margin-b-28 p-lr-global">
+        <ion-label class="text-body-2">{{'RECHARGE.TO_WHO.OPERATOR' | translate}}</ion-label>
+        <app-cont-error [control]="phoneNumber">
+          <ion-input
+            type="text"
+            clearInput="true"
+            inputmode="numeric"
+            appDetectFocus
+            formControlName="phoneNumber"
+            appCleave
+            [cleave]="configPhone"
+          ></ion-input>
+        </app-cont-error>
+      </div>
+
+      <ion-item class="hidden-element p-lr-global">
+        <ion-label>{{'RECHARGE.TO_WHO.ORIGIN' | translate}}</ion-label>
+        <ion-select
+          formControlName="from"
+          mode="md"  interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+          [placeholder]="'RECHARGE.TO_WHO.ORIGIN_DEFAULT' | translate"
+          #hiddenElement>
+          <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+            {{product?.nameSmall}}
+            {{product.id | slice: -4}}
+            {{!!product?.productAccountBalances?.saldo_disponible?.amount
+            ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+            : ''}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="margin-b-32 p-lr-global">
+        <ion-label class="label-global">{{'RECHARGE.TO_WHO.ORIGIN' | translate}}</ion-label>
+        <app-cont-error [control]="from">
+          <velocity-small-card
+            [product]="productActive"
+            [showButton]="showButtonProductActive$ | async"
+            [idButton]="'RecargaCelular_btn_cambiarCuenta'"
+            [isError]="isErrorCardActive"
+            (actionBtn)="changeAccount()"
+          ></velocity-small-card>
+        </app-cont-error>
+      </div>
+
+      <div class="margin-b-32 p-lr-global">
+        <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                   [value]="'COST_TRANSACTION.VALUE' | translate"></velocity-transaction-cost>
+      </div>
+    </div>
+    <div class="template-submit-btn p-lr-global">
+      <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                       [disabled]="formRecharge.invalid" [id]="'RecargaCelular_btn_continuarRecarga'">
+      </velocity-button>
+    </div>
+  </div>
+</form>
+
+<ng-template #loadingOperators>
+  <ul class="operators skeleton-global">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <div class="skeleton"></div>
+    </li>
+  </ul>
+</ng-template>

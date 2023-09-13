@@ -1,0 +1,16 @@
+@import 'mixins'
+
+.move-pocket-header
+  text-align: center
+  p.balance-available
+    font-size: 13px
+    color: var(--vel-color-neutral-mid-200)
+.destination-container
+  +scrollHorizontal()
+  padding: 4px 16px
+  li
+    width: 148px
+    margin-right: 8px
+    +inline(middle)
+  li:last-child
+    margin-right: 0

@@ -1,0 +1,21 @@
+<app-custom-header>
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{params?.title | translate}}</p>
+  </div>
+  <div right></div>
+</app-custom-header>
+
+<ion-content>
+  <div class="header-complement complement-size-xxl p-lr-global padding-b-28">
+    <velocity-information-page
+      [img]=" params?.img | imageCdn"
+      [text]="params?.text | translate"
+      [title]="params?.subTitle | translate"
+      [btn]="params?.btn | translate"
+      (actionButton)="openBrowser(params?.url, params?.isExternal)"
+    ></velocity-information-page>
+  </div>
+</ion-content>

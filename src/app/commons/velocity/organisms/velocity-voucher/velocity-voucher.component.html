@@ -1,0 +1,27 @@
+<div class="voucher-container">
+  <div class="header-complement p-lr-global">
+    <div class="vel-voucher" [id]="config?.id" *ngIf="hasConfig">
+      <div class="vel-voucher-head">
+        <img [src]="config?.img?.url" [alt]="config?.title"
+             [className]="config?.img?.type" *ngIf="hasImage">
+        <strong class="text-subtitle-2">{{config?.title}}</strong>
+        <p class="text-body-2">{{config?.description}}</p>
+      </div>
+      <div class="vel-voucher-body half-circles" *ngIf="hasList || hasAmount">
+        <div class="vel-voucher-amount" *ngIf="hasAmount || hasDate">
+          <ng-container *ngIf="hasAmount">
+            <p class="text-body-1 config-text remove-l-h">{{config?.amount?.name}}</p>
+            <h4 class="config-text remove-l-h" [innerHTML]="config?.amount?.value"></h4>
+          </ng-container>
+          <small *ngIf="hasDate" [class.margin-top]="hasAmount">{{config?.date}}</small>
+        </div>
+        <ul [class.lines-voucher]="!hasAmount" *ngIf="hasList">
+          <li *ngFor="let item of config?.list">
+            <p class="text-body-2 config-text remove-l-h">{{item?.name}}</p>
+            <strong class="text-body-1" [innerHTML]="item?.value"></strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

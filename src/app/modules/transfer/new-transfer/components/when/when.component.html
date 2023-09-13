@@ -1,0 +1,25 @@
+<form class="new-transfer-when form-global-template"
+      [formGroup]="formWhen"
+      (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+    <div class="form-group margin-b-32">
+      <velocity-general-information
+          [img]="'/calendar.png' | imageCdn"
+          [title]="'NEW_TRANSFER.WHEN.DATE' | translate"
+          [value]="('TODAY' | translate) + ' - ' + (today | date:'dd/MMM/yyyy' | replace : '.' : '')"
+      ></velocity-general-information>
+    </div>
+
+    <div class="form-group margin-b-32" *ngIf="false">
+      <ion-item lines="none" class="config-item cont-date">
+        <ion-checkbox formControlName="favorite" id="new-transfer-favorite"></ion-checkbox>
+        <ion-label class="text-body-2">{{'NEW_TRANSFER.FAVORITE' | translate}}</ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formWhen.invalid" [id]="'new-payment-step-three'">
+    </velocity-button>
+  </div>
+</form>

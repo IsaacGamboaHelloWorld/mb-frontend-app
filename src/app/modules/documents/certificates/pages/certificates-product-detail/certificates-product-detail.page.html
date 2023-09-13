@@ -1,0 +1,43 @@
+<app-custom-header>
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{'CERTIFICATE.TITLE' | translate}}</p>
+  </div>
+  <div right></div>
+</app-custom-header>
+
+<ion-content>
+  <div class="header-complement cont-certificate p-lr-global padding-b-28" *ngIf="certificate$ | async as certificate">
+    <form [formGroup]="formGenerateCertificate">
+      <velocity-card-download
+        *ngIf="productBasic"
+        [img]="'/isologo.png' | imageCdn"
+        [account]="'PRODUCT_TYPES.' + (productBasic?.type | uppercase) | translate"
+        [id]="('PRODUCTS.CREDIT_CARD.TEXT_PRE_NUMBER' | translate) + '. ' + productBasic?.id"
+        [btnText]="'DOWNLOAD' | translate"
+        [isLoading]="certificate.loading"
+        [isDisabled]="certificate.loading"
+        (actionBtn)="loadCertificate()"
+      >
+        <div class="form-group margin-b-24">
+          <ion-label class="text-body-2">{{'CERTIFICATE.RECIPIENT' | translate}}</ion-label>
+          <ion-input
+            type="text"
+            formControlName="recipient"
+            clearInput="true"
+          ></ion-input>
+        </div>
+        <div class="form-group">
+          <ion-select mode="md" formControlName="balance" interface="action-sheet" cancelText="{{'CANCEL' | translate}}">
+            <ion-select-option
+              [value]="false">{{'CERTIFICATE.NO_BALANCE' | translate}}</ion-select-option>
+            <ion-select-option
+              [value]="true">{{'CERTIFICATE.BALANCE' | translate}}</ion-select-option>
+          </ion-select>
+        </div>
+      </velocity-card-download>
+    </form>
+  </div>
+</ion-content>

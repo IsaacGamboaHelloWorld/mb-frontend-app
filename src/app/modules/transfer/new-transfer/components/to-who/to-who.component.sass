@@ -1,0 +1,33 @@
+@import 'mixins'
+
+.new-transfer-to-who
+  .registered-account
+    +scrollHorizontal()
+    padding: 4px 16px 10px 16px
+    &.skeleton-global
+      li
+        background: var(--vel-color-neutral-light-10)
+        border-radius: 12px
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+        height: 112px
+        padding: 24px
+        > p
+          margin-bottom: 16px
+        div
+          +inline(middle)
+        .cont-info-loading
+          width: calc(100% - 52px)
+        .profile-loading
+          width: 40px
+          height: 40px
+          margin-right: 12px
+          border-radius: 50%
+        strong
+          margin-bottom: 8px
+          display: block
+    li
+      width: 204px
+      margin-right: 8px
+      +inline(middle)
+    li:last-child
+      margin-right: 0

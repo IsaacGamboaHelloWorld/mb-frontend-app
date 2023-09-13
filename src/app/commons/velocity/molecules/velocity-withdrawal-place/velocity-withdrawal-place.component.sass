@@ -1,0 +1,65 @@
+@import 'mixins'
+
+.vel-withdrawal-place
+  background-color: var(--vel-color-neutral-light-10)
+  border-radius: 12px
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+  padding: 24px
+  height: 124px
+  width: 100%
+  position: relative
+  &.small
+    height: 88px
+  &.center
+    +flex(flex, center, center)
+    .icon-cont
+      margin: 0 auto 12px auto
+  &.left
+    +flex(flex, center, flex-start)
+    .icon-cont
+      margin: 0 auto 12px auto
+  .vel-withdrawal-place-container
+    &.column
+      display: flex
+      flex-direction: column
+    &.row
+      display: flex
+      flex-direction: row
+      align-items: center
+      .icon-cont
+        margin: 0 12px 0 0
+      .vel-withdrawal-text
+        display: flex
+        flex: 1 0 0
+        white-space: normal
+  .vel-place-radio
+    position: absolute
+    top: 8px
+    right: 8px
+  .icon-cont
+    +flex(flex, center, center)
+    height: 44px
+    width: 44px
+    border-radius: 22px
+    background-color: rgba(255,235,182,0.64)
+    color: var(--vel-color-accent-600)
+    margin-bottom: 12px
+    font-size: 24px
+    &.success
+      background-color: var(--vel-color-primary-g-100)
+      color: var(--vel-color-success-500)
+  p
+    font-size: 13px
+    font-weight: 600
+  &.active
+    box-shadow: 0 0 0 1.5px var(--vel-color-primary-g-500)
+  &.disabled
+    pointer-events: none
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08)
+    background-color: var(--vel-color-neutral-light-10)
+    color: var(--vel-color-carbon-mid-100)
+    .icon-cont
+      color: var(--vel-color-carbon-mid-100)
+      background-color: var(--vel-color-carbon-light-400)
+
+

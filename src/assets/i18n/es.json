@@ -1,0 +1,1553 @@
+{
+  "NAME_BANK": "Banco Popular",
+  "NAME_GROUP": "Grupo Aval",
+  "ALERT_ERROR": "Error",
+  "ALERT_BTN": "Ok",
+  "ACTIVE": "Activa",
+  "INACTIVE": "Inactiva",
+  "CONTINUE": "Continuar",
+  "EDIT": "Editar",
+  "BACK": "Volver",
+  "LEAVE": "Abandonar",
+  "DELETE": "Eliminar",
+  "CANCEL": "Cancelar",
+  "CONSULT": "Consultar",
+  "DOWNLOAD": "Descargar",
+  "CHANGE": "Cambiar",
+  "SEE_MORE": "Ver más",
+  "TRY_AGAIN_LATER": "Intentar más tarde",
+  "USER_BLOCKED": "user-blocked",
+  "DAYS": "Días",
+  "NRO": "Nro.",
+  "SAVE": "Guardar",
+  "CONFIRM": "Confirmar",
+  "VALUE": "Valor",
+  "VALUE_OF_PAYMENT": "Valor de tu pago",
+  "TODAY": "Hoy",
+  "DATE": "Fecha",
+  "FINISH": "Finalizar",
+  "RETRY": "Reintentar",
+  "EXPIRE": "Vence",
+  "TO_BLOCK": "Bloquear",
+  "TO_RESTRICT": "Restringir",
+  "SET_FREE": "Liberar",
+  "TO_UNLOCK": "Desbloquear",
+  "UNDERSTOOD": "Entendido",
+  "BALANCE_AVAILABLE": "Saldo disponible",
+  "BALANCE_AVAILABLE_SHORT": "Saldo disp",
+  "POCKET": "Bolsillo",
+  "MONTHS": "Meses",
+  "YEAR": "Año",
+  "REDIRECT": "Serás redigirido",
+  "MONTHS_NAME": {
+    "JANUARY": "enero",
+    "FEBRUARY": "febrero",
+    "MARCH": "marzo",
+    "APRIL": "abril",
+    "MAY": "mayo",
+    "JUNE": "junio",
+    "JULY": "julio",
+    "AUGUST": "agosto",
+    "SEPTEMBER": "septiembre",
+    "OCTOBER": "octubre",
+    "NOVEMBER": "noviembre",
+    "DECEMBER": "diciembre"
+  },
+  "AUTH": {
+    "ENROLLMENT": {
+      "TITLE": "Registro"
+    },
+    "NOT_COMPLEMENTARY": "Podrás realizar transacciones como consulta de movimientos y saldos, extractos, pagos de servicios y transferencias previamente inscritas en tu portal transaccional.",
+    "ERROR": {
+      "TITLE": "No eres tú, somos nosotros",
+      "DESCRIPTION": "Tenemos problemas técnicos en este momento. <strong>¡Intenta más tarde!</strong>",
+      "BTN": "Entendido"
+    },
+    "BLOCKED": {
+      "TITLE": "Acceso Bloqueado",
+      "DESCRIPTION": "Puedes habilitarlo llamando<br> a la Línea Verde <strong>6017434646</strong>",
+      "CALL": "Llama ahora",
+      "NUMBER": "6017434646"
+    },
+    "OVERFLOW_MODAL": {
+      "TITLE": "¡Lo sentimos!",
+      "DESCRIPTION": "Has excedido el límite máximo de intentos. <strong>¡Intenta más tarde!</strong>",
+      "BTN": "Entendido"
+    },
+    "REMEMBER": "Recordar tipo y número de documento",
+    "BUTTON": "Ingresar",
+    "TITLE": "Bienvenido a tu Banca Móvil",
+    "DOCUMENT": {
+      "TYPE": "Tipo de documento",
+      "ID": "Número de documento (sin puntos ni comas)"
+    },
+    "DOCUMENT_TYPE": [
+      {
+        "name": "Cédula de Ciudadanía",
+        "id": "CC"
+      },
+      {
+        "name": "Cédula de Extranjería",
+        "id": "CE"
+      },
+      {
+        "name": "Tarjeta de Identidad",
+        "id": "NUI"
+      }
+    ],
+    "LOGIN": {
+      "UNLIKE_DEVICE": "Desvincular dispositivo",
+      "MODALS": {
+        "UNLIKE_DEVICE": {
+          "TITLE": "¿Para qué desvincularlo?",
+          "DESCRIPTION": "Recuerda que solamente puedes usar esta aplicación en un solo dispositivo. Para volver a registrar un dispositivo tendremos que validar tu identidad.",
+          "FIRST_BTN": "No, volver",
+          "SECOND_BTN": "Si, eliminar"
+        },
+        "LOADING": {
+          "TEXT": "Eliminando tus datos de este dispositivo…"
+        }
+      }
+    },
+    "UNIVERSAL_PASSWORD": {
+      "TITLE": "Escribe tu contraseña",
+      "DESCRIPTION": "La misma que usabas para entrar a nuestra anterior plataforma.",
+      "PASSWORD": "Contraseña Única",
+      "FORGOT": "¿La olvidaste?",
+      "FINGERPRINT": {
+        "DESCRIPTION": "Validación Banco Popular.",
+        "CANCEL_BUTTON": "Cancelar",
+        "ERROR": "¡La autenticación falló! Se canceló la operación de huella digital."
+      }
+    },
+    "CHANNEL_PASSWORD": {
+      "TITLE": "Escribe tu contraseña",
+      "DESCRIPTION": "La misma que usabas para entrar a nuestra anterior plataforma.",
+      "PASSWORD": "Contraseña",
+      "FORGOT": "¿La olvidaste?"
+    },
+    "MIGRATION_PASSWORD_NOTIFICATION": {
+      "TITLE": "¡Queremos hacerte la vida más fácil!",
+      "DESCRIPTION": "Actualiza tu contraseña a una <strong>Contraseña Única</strong> de 4 dígitos que te permitirá ingresar a nuestros canales virtuales.",
+      "BUTTON": "¡Hagámoslo!"
+    },
+    "NEW_UNIVERSAL_PASSWORD": {
+      "TITLE": "Escribe tu nueva contraseña",
+      "DESCRIPTION": "No debes repetir ningún número, ni poner cuatro números consecutivos.",
+      "PASSWORD": "Contraseña",
+      "CONFIRM_PASSWORD": "Repite la contraseña",
+      "BUTTON": "Actualizar"
+    },
+    "ACCEPT_CHANNEL_POLICIES": {
+      "TITLE": "Antes de ingresar...",
+      "DESCRIPTION": "Debes aceptar las condiciones de uso de este servicio.",
+      "TERMS_AND_CONDITIONS": {
+        "PREFIX": "Declaro que he leído y acepto los ",
+        "DOCUMENT_URL": "/terms-and-conditions.pdf",
+        "LINK_TEXT": "términos y condiciones."
+      },
+      "BANK_POLICIES": {
+        "PREFIX": "Acepto y autorizo el ",
+        "DOCUMENT_URL": "/bank-policies.pdf",
+        "LINK_TEXT": "tratamiento de mis datos personales."
+      },
+      "BUTTON": "Continuar"
+    },
+    "OTP_DATA": {
+      "TITLE": "Revisa tu celular.",
+      "DESCRIPTION": "Hemos enviado un mensaje de texto al número registrado en el banco con un código temporal que leeremos automáticamente.",
+      "PASSWORD": "Código temporal",
+      "LINK_TEXT": "¿No la has recibido?",
+      "LINK_TEXT_TIMER": "Espera <strong>00:{{value}}</strong> y recibiras tu código.",
+      "LINK_TEXT_RESEND": "<strong>Solicitar nuevo código.</strong>",
+      "BUTTON_TEXT": "Continuar",
+      "LOADING": "Buscando código en el dispositivo",
+      "TOAST_NORMAL": {
+        "TITLE": "Importante",
+        "TITLE_IOS": "Ten en cuenta",
+        "DESCRIPTION": "Nunca compartas esta código en una llamada o chat.",
+        "DESCRIPTION_IOS": "Cuando vayas a ingresarlo, utiliza la sugerencia de tu teclado."
+      },
+      "TOAST_FLOAT": {
+        "TITLE": "Validemos tu celular",
+        "DESCRIPTION": "Hemos enviado un mensaje de texto al número registrado en el banco con un código temporal.",
+        "BTN": "Entendido"
+      },
+      "MODAL": {
+        "TITLE": "No pudimos leer tu código",
+        "DESCRIPTION": "Necesitamos que tu código sea leído automáticamente para que podamos habilitar tus transacciones, por ahora puedes:",
+        "BTN": "Solicitar nuevo código",
+        "BTN_SECOND": "Ingresar código manualmente"
+      }
+    },
+    "TIMELESS_SESSION": {
+      "TITLE": "Hemos cerrado tu sesión",
+      "DESCRIPTION": "Ha pasado mucho tiempo desde tu último click en la pantalla.",
+      "BUTTON_TEXT": "Entendido"
+    },
+    "FILL_SECURE_DATA": {
+      "TITLE": "Validemos tu identidad",
+      "DESCRIPTION": "Antes de continuar con el registro, debemos validar que eres tú.",
+      "COMPLETE": "Completa el Nro. de tu",
+      "PASSWORD_DEBIT": "Clave de tu tarjeta débito terminada en",
+      "BUTTON": "Validar"
+    },
+    "LIMIT_EXCEED": {
+      "TITLE": "¡Lo sentimos!",
+      "DESCRIPTION": "Has excedido el límite máximo de intentos para ingresar una respuesta válida.",
+      "BUTTON": "Volver al inicio"
+    },
+    "SERVICE_ERROR": {
+      "TITLE": "¡Error en la carga!",
+      "DESCRIPTION": "En estos momentos tenemos problemas técnicos para validar el código.",
+      "BUTTON": "Volver al inicio"
+    },
+    "USER_DOES_NOT_EXISTS": "El usuario no existe"
+  },
+  "POCKETS": {
+    "ONBOARDING": {
+      "HELLO": "Hola",
+      "FIRST_DESCRIPTION": "¿Separas o guardas parte del dinero que recibes alguna vez?",
+      "SECOND_TITLE": "Mis bolsillos",
+      "SECOND_DESCRIPTION": "Nos pusimos a pensar cómo ayudarte a organizar tu dinero cuando lo recibes.",
+      "THIRD_TITLE": "Tienen diferentes usos",
+      "THIRD_DESCRIPTION": "A veces lo tienes comprometido con algo o alguien… A veces quieres guardarlo para una meta futura.",
+      "FOURTH_TITLE": "Tú escoges",
+      "FOURTH_DESCRIPTION": " Por eso creamos bolsillos que puedas usar como tú quieras. Cuánto separar o guardar, cuándo y cómo, tú decides.",
+      "YES": "Si, a veces",
+      "NO": "No, pero cuéntame más",
+      "NEW_POCKET": "Crear bolsillo <i class='icon-vel-add-circle'></i>",
+      "VIEW_POCKETS": "Ver bolsillos <i class='icon-vel-eye'></i>"
+    },
+    "CREATE": {
+      "TITLE": "Nuevo bolsillo",
+      "FOR_WHAT": {
+        "NAME_LABEL": "¿Cómo quieres llamar este bolsillo?",
+        "USE": "¿Para qué lo vas a usar?",
+        "USE_DESCRIPTION": "Así lo verás con mas o menos prioridad"
+      },
+      "HOW_MUCH": {
+        "TITLE": "¿Cuánto necesitas separar este mes?",
+        "SAVING_AMOUNT": "Meta del bolsillo"
+      },
+      "HOW": {
+        "PERIODICITY": "¿Cada cuánto quieres separar dinero?",
+        "HOW_MUCH": "¿Cuánto?",
+        "BTN_CREATE": "Crear bolsillo"
+      },
+      "SUCCESS_VOUCHER": {
+        "TITLE": "Bolsillo creado de forma exitosa",
+        "DESCRIPTION": "Resumen de tu transacción",
+        "TITLE_AMOUNT": "Meta del bolsillo",
+        "ORIGIN": "Desde",
+        "DESTINATION": "Nombre del bolsillo",
+        "APPROVAL_ID": "No. Comprobante",
+        "FIRST_BTN": "Ir a bolsillos"
+      },
+      "MODAL_LEAVE": {
+        "TITLE": "¡Cancelar proceso!",
+        "DESCRIPTION": "¿Estás seguro que quieres salir de la creación de tu bolsillo?"
+      }
+    },
+    "EDIT": {
+      "TITLE": "Editar bolsillo",
+      "NAME": "Nombre del bolsillo",
+      "USE": "¿Para qué lo vas a usar?",
+      "SPENDING_MONTH": "Gasto de este mes",
+      "FUTURE": "Meta futura",
+      "GOAL": "Meta del bolsillo",
+      "PERIODICITY": "¿Cada cuánto quieres separar dinero?",
+      "PERIOD": "¿Cuánto?",
+      "SAVE": "Guardar",
+      "DELETE": "Eliminar bolsillo",
+      "POCKET_EDITED": "Información del bolsillo actualizada",
+      "POCKET_DELETED": "Bolsillo Eliminado",
+      "MODAL_DELETE": {
+        "TITLE": "¿Estás seguro de eliminarlo?",
+        "DESCRIPTION": "Si tienes dinero, será movido a la cuenta de origen terminada en <strong>{{description}}</strong>.",
+        "DELETE_BTN": "Si, eliminar",
+        "CANCEL_BTN": "Cancelar"
+      },
+      "MODAL_LEAVE": {
+        "TITLE": "¡Cancelar Proceso!",
+        "DESCRIPTION": "¿Estás seguro que quieres salir de la edición de tu bolsillo?",
+        "FIRST_BTN": "Si, cancelar",
+        "SECOND_BTN": "No, volver"
+      },
+      "SUCCESS_VOUCHER": {
+        "TITLE": "Bolsillo eliminado de forma exitosa",
+        "DESCRIPTION": "Resumen de tu transacción",
+        "TITLE_AMOUNT": "Valor de tu transferencia",
+        "ORIGIN": "Desde",
+        "DESTINATION": "Hacia",
+        "APPROVAL_ID": "No. Comprobante",
+        "FIRST_BTN": "Ir a bolsillos"
+      }
+    },
+    "MOVE": {
+      "TITLE": "Mover dinero",
+      "AMOUNT_TO_MOVE": "¿Cuánto dinero quieres mover?",
+      "DESTINATION": {
+        "TITLE": "¿A dónde quieres moverlo?",
+        "THIS_POCKET": "A este bolsillo",
+        "OTHER_POCKET": "A otro bolsillo",
+        "PARENT_ACCOUNT": "De regreso a la cta"
+      },
+      "FROM": "Desde",
+      "TO": "Hacia",
+      "WHICH_POCKET": "¿A cuál bolsillo?",
+      "BUTTON": "Mover dinero",
+      "MODAL_LEAVE": {
+        "TITLE": "¡Cancelar Proceso!",
+        "DESCRIPTION": "¿Estás seguro que quieres salir de mover dinero?",
+        "FIRST_BTN": "Si, cancelar",
+        "SECOND_BTN": "No, volver"
+      },
+      "SUCCESS_VOUCHER": {
+        "TITLE": "Transferencia exitosa",
+        "DESCRIPTION": "Resumen de tu transacción",
+        "TITLE_AMOUNT": "Valor de tu transferencia",
+        "ORIGIN": "Desde",
+        "DESTINATION": "Hacia",
+        "APPROVAL_ID": "No. Comprobante",
+        "FIRST_BTN": "Ir a bolsillos"
+      }
+    },
+    "MAXIMUM_POCKETS_MODAL": {
+      "TITLE": "Administra tus bolsillos",
+      "DESCRIPTION": "Por ahora sólo puedes crear 5 bolsillos. Administralos bien. \uD83E\uDD70",
+      "BUTTON": "Entendido"
+    },
+    "MODAL_TERMS": {
+      "TITLE": "¿Qué necesitas saber sobre tu bolsillo?",
+      "TERMS": {
+        "ONE": "1. Crear o mover plata desde y hacia tus bolsillos no generará <strong>ningún costo para ti.</strong> \uD83E\uDD1F\n\n",
+        "TWO": "2. Mover dinero hacia o desde tus bolsillos no <strong>significa que el dinero salga de tu cuenta,</strong> sino que lo guardamos o lo separamos. \uD83D\uDE0E\n\n",
+        "THREE": "3. Tu dinero estará <strong>disponible cuando tú quieras,</strong> solo tienes que moverlo de regreso a tu cuenta o a otro bolsillo. \uD83D\uDE42"
+      },
+      "CHECKBOX": "No volver a mostrar este mensaje.",
+      "BTN": "Continuar"
+    },
+    "CATEGORIES": {
+      "SAVING_DESCRIPTION": "Meta futura",
+      "SPENDING_DESCRIPTION": "Gasto de este mes"
+    },
+    "PERIODICITY": {
+      "MONTHLY": "Mensual",
+      "BIWEEKLY": "Quincenal",
+      "WEEKLY": "Semanal"
+    },
+    "TITLE": "Mis bolsillos",
+    "NEW_POCKET": "Nuevo bolsillo",
+    "NEW_FIRST_POCKET": "Nuevo bolsillo",
+    "AUTOMATIC_DEBIT": "Débito automático: ",
+    "SAVING_POCKET": "SAVING_POCKET",
+    "SAVE": "Ahorro",
+    "SPEND": "Gasto",
+    "EDIT_BTN": "Editar",
+    "MOVE_BTN": "Mover dinero",
+    "GOAL": "Mi meta",
+    "I_HAVE": "Tengo",
+    "GOAL_ACCOMPLISHED": "¡Meta cumplida!"
+  },
+  "PRODUCT_TYPES": {
+    "DEPOSIT_ACCOUNT": "Cuenta de Ahorros",
+    "CREDIT_CARD": "Tarjeta de Crédito",
+    "TC": "Tarjeta de Crédito",
+    "CURRENT_ACCOUNT": "Cuenta Corriente",
+    "CERTIFIED_DEPOSIT_TERM": "CDT",
+    "FIDUCIARY": "Fiduciaría",
+    "FREE_DESTINATION": "Libre destino",
+    "CH": "Crédito Hipotecario",
+    "EXTRA_MONEY": "Dinero Extra",
+    "CREDIT_SERVICE": "Crediservice",
+    "DEBIT_CARD": "Tarjeta débito",
+    "OC": "Otros Créditos",
+    "OTHER_CREDIT": "Otros Créditos",
+    "MORTGAGE_CREDIT": "Crédito hipotecario",
+    "UNEMPLOYMENT_ACCOUNT": "Cesantias",
+    "VOLUNTARY_PENSIONS": "Pensiones voluntarias",
+    "MANDATORY_PENSIONS": "Pensiones obligatorias",
+    "FACIL_PASS_ACCOUNT": "Cuenta",
+    "AFC": "Cuenta AFC",
+    "SAVING_POCKET": "Bolsillo",
+    "CREDIT": "Crédito",
+    "PLURAL_CREDIT": "Créditos",
+    "PAYDAY_LOAN": "Crédito de libranza"
+  },
+  "PRODUCT_TYPES_SMALL": {
+    "DEPOSIT_ACCOUNT": "Cta. Ahorros",
+    "CURRENT_ACCOUNT": "Cta. Corriente",
+    "CREDIT_CARD": "Tarjeta de Crédito",
+    "CERTIFIED_DEPOSIT_TERM": "CDT"
+  },
+  "SHORT_PRODUCT_NAMES": {
+    "DEPOSIT_ACCOUNT": "Ahorros",
+    "CREDIT_CARD": "TC",
+    "TC": "TC",
+    "CURRENT_ACCOUNT": "Corriente",
+    "CERTIFIED_DEPOSIT_TERM": "CDT",
+    "FIDUCIARY": "Fiduciaria",
+    "FREE_DESTINATION": "L. Destino",
+    "CH": "Crédito Hipotecario",
+    "EXTRA_MONEY": "Dinero Extra",
+    "CREDIT_SERVICE": "Crediservice",
+    "DEBIT_CARD": "Tarjeta débito",
+    "OC": "Otros Créditos",
+    "OTHER_CREDIT": "Otros Créditos",
+    "MORTGAGE_CREDIT": "Crédito hipotecario",
+    "UNEMPLOYMENT_ACCOUNT": "Cesantias",
+    "VOLUNTARY_PENSIONS": "Pensiones voluntarias",
+    "MANDATORY_PENSIONS": "Pensiones obligatorias",
+    "FACIL_PASS_ACCOUNT": "Cuenta",
+    "AFC": "Cuenta AFC",
+    "SAVING_POCKET": "Bolsillo",
+    "CREDIT": "Crédito"
+  },
+  "PRODUCTS": {
+    "CREDIT_CARD": {
+      "BUTTON_PAY": "Pagar",
+      "FULL_PAYMENT": "Pago total",
+      "NEXT_PAYMENT": "Fecha próximo pago",
+      "TOTAL_DEBT": "Total gastado",
+      "MINIMUM": "mínimo",
+      "QUOTA_AVAILABLE": "Cupo disponible",
+      "TITLE_MASTERCARD": "Tarjeta de Crédito",
+      "TITLE_VISA": "Tarjeta de Crédito",
+      "STATE_ACTIVE": "Activa",
+      "TEXT_PRE_NUMBER": "Nro",
+      "QUOTA_TOTAL": "Cupo total",
+      "QUOTA_ADVANCE": "Cupo avances",
+      "CUTOFF_DATE": "Fecha de corte",
+      "NEXT_PAYMENT_MIN": "Próximo pago mínimo",
+      "PAYMENTS_TO_APPLY": "Pagos por aplicar*",
+      "PURCHASES_TO_APPLY": "Compras por aplicar*",
+      "NOTES_TO_APPLY_CONDITIONS": "*Compras o pagos que has realizado pero que aún no se aplican a tu cupo disponible."
+    },
+    "DEPOSIT_ACCOUNT": {
+      "BALANCE_AVAILABLE": "Saldo disponible",
+      "NEW_BALANCE_AVAILABLE": "Nuevo saldo disponible",
+      "TOTAL_BALANCE": "Saldo total",
+      "POCKETS": "En bolsillos",
+      "TOTAL_OVERDRAFT": "En Sobregiro",
+      "MONEY_AVAILABLE": "Saldo disponible",
+      "MONEY_POCKETS": "Saldo en bolsillos",
+      "MONEY_EXCHANGE": "Saldo en canje",
+      "NO_CARD_BTN": "Retiro sin tarjeta",
+      "VIEW_POCKETS_BALANCE_BTN": "Ver saldo",
+      "LINK_POCKETS": "Administrar bolsillos"
+    },
+    "CURRENT_ACCOUNT": {
+      "OVERDRAFT": "En sobregiro",
+      "DAYS_OVERDRAFT": "Días en sobregiro",
+      "TOTAL_OVERDRAFT": "En Sobregiro",
+      "TOTAL_BALANCE": "Saldo total",
+      "MONEY_AVAILABLE": "Saldo disponible",
+      "AVAILABLE_OVERDRAFT": "Sobregiro disponible",
+      "QUOTA_OVERDRAFT": "Cupo de sobregiro"
+    },
+    "CDT": {
+      "INVEST_VALUE": "Valor invertido",
+      "DATE": "Vence",
+      "TERM": "Plazo",
+      "TOTAL_BALANCE": "¿Cuánto vas a recibir?",
+      "YOUR_INVERSION": "Tu inversión",
+      "PROJECTED_INTEREST": "Intereses proyectados"
+    },
+    "ERROR": {
+      "PRODUCTS_TITLE": "Error en la carga",
+      "PRODUCTS_DESCRIPTION": "Tenemos demoras en la carga de tus productos.",
+      "BTN": "Intentar de nuevo",
+      "PRODUCT_ERROR_MESSAGE": "No es posible obtener la información de tu producto.",
+      "PRODUCT_TITLE": "¡Oh oh!",
+      "PRODUCT_DESCRIPTION": "No es posible obtener la información de este producto."
+    },
+    "VIEW_DETAIL": "Ver detalle",
+    "NUMBER": "Nro",
+    "SERVICES": {
+      "WITHDRAWN_WITHOUT_CARD": "Girar/Retirar",
+      "PAYMENT_OBLIGATION": "Pagar",
+      "PAYMENT": "Pagar",
+      "TRANSFER_ACCOUNTS": "Transferir",
+      "MOBILE_RECHARGES": "Recargar",
+      "POCKETS": "Bolsillos",
+      "STATEMENT": "Extracto",
+      "CERTIFICATE": "Certificado",
+      "CERTIFICATE_TC": "Certificado",
+      "PAYMENT_CARD": "Pagar <span>Tarjeta</span>",
+      "ADVANCE": "Avance"
+    }
+  },
+  "GREETINGS": {
+    "MORNING": "Buenos días",
+    "AFTERNOON": "Buenas tardes",
+    "NIGHT": "Buenas noches",
+    "BIRTHDAY": "¡Feliz cumpleaños!",
+    "CHRISTMAS": "¡Feliz Navidad!",
+    "NEW_YEAR": "¡Feliz Año!",
+    "STAY_AT_HOME": "Quédate en casa"
+  },
+  "FINANCES": {
+    "TYPES": {
+      "MY_CURRENT_BAG": "Total ahorros",
+      "MY_TOTAL_DEBTS": "Total créditos"
+    },
+    "ICONS": {
+      "MY_CURRENT_BAG": "icon-vel-money-box",
+      "MY_TOTAL_DEBTS": "icon-vel-money-square"
+    }
+  },
+  "CREDITS": {
+    "TITLE": "Créditos",
+    "DESCRIPTION": "Mostrar Créditos de Libranza o Libre Destino",
+    "EMPTY": {
+      "TITLE": "No tienes créditos aún"
+    },
+    "ERROR": {
+      "TEXT": "¡Error en la carga!",
+      "BUTTON": "Intentarlo de nuevo"
+    }
+  },
+  "AVAL": {
+    "TOGGLE": "Mostrar productos AVAL"
+  },
+  "MOVEMENTS": {
+    "TITLE": "Últimos movimientos",
+    "RESULT": "Resultados:",
+    "OF": "de",
+    "EMPTY": "No tienes movimientos",
+    "NOT_FOUND": "No encontramos movimientos",
+    "USE_ACCOUNT": "Usa tu cuenta y disfruta de todos los beneficios que tenemos para ti.",
+    "TITLE_CDT": "Detalle de tu inversión",
+    "ERROR_MESSAGE": "No es posible obtener los movimientos de tu producto.",
+    "SEARCH": {
+      "PLACEHOLDER": "Escribe el nombre de la transacción",
+      "BTN": "Descargar",
+      "FILTER": "Filtrar por fecha"
+    },
+    "FILTER": {
+      "PLACEHOLDER": "Nombre de la transacción",
+      "CANCEL_BTN": "Cancelar",
+      "DATE": {
+        "DELETE": "Borrar",
+        "LAST_DAY": "Último día",
+        "LAST_WEEK": "Última semana",
+        "LAST_MONTH": "Último mes"
+      },
+      "WELCOME_MSG": {
+        "TITLE": "Búsqueda de movimientos"
+      },
+      "NOT_FOUND_MSG": {
+        "TITLE": "No encontramos movimientos"
+      },
+      "FILTER_RESULT": {
+        "RESULT": "Resultados"
+      }
+    },
+    "DEPOSIT": {
+      "MOVEMENT": "Movimiento",
+      "VALUE": "Valor",
+      "DATE": "Fecha",
+      "DESCRIPTION": "Descripción",
+      "OFFICE": "Oficina",
+      "NID": "Código de oficina",
+      "VALUE_CASH": "Valor efectivo",
+      "VALUE_BILL": "Valor cheque",
+      "NOTE": "Nota"
+    },
+    "CREDIT_CARD": {
+      "RATE": "Tasa de interés",
+      "FEES": "Cuotas"
+    },
+    "CDT": {
+      "RATE": "Tasa de interés:",
+      "OPEN_DATE": "Fecha de apertura:",
+      "PAYMENT_WAY": "Modalidad de pago de intereses:",
+      "TERM": "Plazo:",
+      "LAST_DATE": "Fecha de vencimiento:"
+    }
+  },
+  "NAV_BAR_ITEMS": {
+    "MONEY_ORDER": "Retirar/Girar",
+    "RECHARGE_PHONE": "Recargar",
+    "PAY": "Pagar",
+    "TRANSFER": "Transferir",
+    "NEW_PRODUCT": "NUEVO"
+  },
+  "SIDE_MENU": {
+    "PROFILE": {
+      "TITLE": "Perfil"
+    },
+    "SECURITY": {
+      "TITLE": "Seguridad",
+      "SUBMENU": {
+        "EXPERIENCE": "Mejorar mi experiencia",
+        "PUSH_NOTIFICATION": "Activar/Desactivar notificaciones",
+        "BLOCKING_PRODUCTS": "Bloquear productos",
+        "ACTIVATE_PRODUCTS": "Activar productos",
+        "CHANGE_PASSWORD": "Cambiar contraseña",
+        "CONFIG_FINGERPRINT": "Configuración de huella",
+        "REGISTER_DEVICE": "Dispositivos registrados"
+      }
+    },
+    "DOCUMENTS": {
+      "TITLE": "Documentos"
+    },
+    "INFORMATION": {
+      "TITLE": "Más información",
+      "SUBMENU": {
+        "CONTACT": "Contáctanos",
+        "TERMS": "Términos y condiciones"
+      }
+    },
+    "REQUEST_PRODUCTS": {
+      "TITLE": "Solicitar productos"
+    },
+    "CONTACT": {
+      "TITLE": "Contacto"
+    },
+    "EXIT": "Salida segura"
+  },
+  "RECHARGE": {
+    "OPEN_ACCOUNT": {
+      "TITLE": "Recargas a todo operador",
+      "TEXT": "Solicita una cuenta de ahorros y realiza recargas a cualquiera de estos operadores. <strong>Son inmediatas y no tienen ningún costo.</strong>",
+      "BTN": "Más información"
+    },
+    "TITLE": "Recarga tu celular",
+    "TO_WHO": {
+      "ORIGIN": "Desde",
+      "DESTINATION": "Hacia",
+      "AMOUNT": {
+        "TITLE": "Por cuánto",
+        "VALUE": "Mín: {{min}} / Máx: {{max}}"
+      },
+      "OPERATOR": "Número de celular",
+      "OPERATOR_DEFAULT": "Escoge el operador",
+      "ORIGIN_DEFAULT": "Escoge la cuenta a debitar"
+    },
+    "CONFIRMATION": {
+      "TITLE": "Confirma tu información",
+      "BTN": "Recargar"
+    },
+    "SUCCESS": {
+      "TITLE": "Tu recarga fue exitosa",
+      "APPROVAL": "Nro. de transacción",
+      "BTN": "Finalizar"
+    },
+    "NEW": "Hacer nueva recarga"
+  },
+  "TRANSFER_WITHDRAWAL": {
+    "TITLE": "Retirar dinero",
+    "TO_WHO": {
+      "TOGGLE": {
+        "LEFT": "Retirar",
+        "RIGHT": "Girar"
+      },
+      "ORIGIN": "Desde",
+      "DOCUMENT": "Número de documento",
+      "WHERE": "Dónde",
+      "AMOUNT": {
+        "TITLE": "Por cuánto",
+        "VALUE": "Mín: {{min}} / Máx: {{max}}",
+        "AMOUNT": "Valor (Múltiplo de $10.000)"
+      },
+      "ORIGIN_DEFAULT": "Escoge la cuenta a debitar",
+      "OTHER_AMOUNT": "Otro valor",
+      "PLACES": {
+        "ATM": "Cajero ATH-AVAL",
+        "CORRESPONDENT": "Corresponsal"
+      }
+    },
+    "CONFIRMATION": {
+      "TITLE": "Confirma tu información",
+      "AMOUNT_TO_TRANSFER": "Valor a retirar",
+      "BUTTON": "Continuar"
+    },
+    "SUCCESS": {
+      "TITLE": "¡Ya puedes ir por tu dinero!",
+      "DESCRIPTION": "Hemos enviado el código de registro en un SMS a tu celular registrado.",
+      "BTN": "Hacer nuevo retiro"
+    },
+    "NEW": "Hacer nueva recarga",
+    "OPEN_ACCOUNT": {
+      "TITLE": "Retira dinero en segundos",
+      "TEXT": "<strong>Con nuestras cuentas de ahorros,</strong> es posible retirar dinero en nuestra red de cajeros y corresponsales bancarios.",
+      "BTN": "Más información"
+    },
+    "MODAL_TERMS": {
+      "TITLE": "¿Qué necesitas saber sobre tu retiro/giro?",
+      "LIST": [
+        "Solicitar este código temporal no generará <strong>ningún costo para ti.</strong> 🤟",
+        "<strong>La comisión por el retiro</strong> depende del tipo de cuenta y convenio que tienes. \uD83D\uDE42",
+        "Cuando vayas a retirar el dinero, <strong>deberás indicar tu número de cédula.</strong> ☝️",
+        "Si le giras a otra persona, <strong>debes darnos su número de cédula</strong> y se la pediremos al momento de retirar el dinero. \uD83E\uDD13"
+      ],
+      "CHECK": "No volver a mostrar este mensaje."
+    }
+  },
+  "COST_TRANSACTION": {
+    "TITLE": "Costo de la transacción",
+    "VALUE": "$0"
+  },
+  "NEW_TRANSFER": {
+    "TITLE": "Transferir",
+    "DESTINATION": "Hacia",
+    "VOUCHER": "No. de Factura (opcional)",
+    "FAVORITE": "Guardar transferencia como favorita",
+    "HOW_MUCH": {
+      "PLACEHOLDER_DESCRIPTION": "Ejem: Pago mensual arriendo"
+    },
+    "WHEN": {
+      "DATE": "Fecha a transferir"
+    },
+    "CONFIRMATION": {
+      "TITLE_AMOUNT": "Valor de tu transferencia",
+      "BTN": "Transferir",
+      "BTN_RETRY": "Reintentar"
+    },
+    "SUCCESS": {
+      "TITLE": "Tu transferencia fue exitosa",
+      "DESCRIPTION": "Resumen detallado de tu transacción",
+      "ID": "No. de comprobante",
+      "BTN": "Nueva transferencia"
+    },
+    "OPEN_ACCOUNT": {
+      "TITLE": "Transferencias a un solo clic",
+      "TEXT": "Solicita tu cuenta de ahorros y <strong>transfiere dinero de manera rápida</strong> a cualquier banco a nivel nacional. ",
+      "BTN": "Más información"
+    },
+    "NOT_REGISTERED": {
+      "NUMBER": "Número de cuenta",
+      "VALUE_TO_TRANSFER": "Valor a transferir",
+      "MORE_OPTIONS": "Ver más opciones",
+      "FEWER_OPTIONS": "Ver menos opciones"
+    }
+  },
+  "LAST_ENTRY": "Último ingreso",
+  "PAYMENT": {
+    "TITLE": "Pagos",
+    "EMPTY": "No tienes servicios inscritos",
+    "ERROR": "Error en la carga",
+    "VOUCHER": "Fact.",
+    "HOW_MUCH": {
+      "AMOUNT": "Valor factura",
+      "REFERENCE": "Número de referencia"
+    },
+    "WHEN": {
+      "DATE": "Fecha de pago"
+    },
+    "CONFIRMATION": {
+      "PAY": "Pagar"
+    },
+    "SUCCESS": {
+      "TITLE": "Tu pago fue exitoso",
+      "DESCRIPTION": "Resumen detallado de tu transacción",
+      "BUTTON_SECOND": "Realizar otro pago"
+    },
+    "OPEN_ACCOUNT": {
+      "TITLE": "Pagos rápidos y seguros",
+      "TEXT": "<strong>Paga tus servicios públicos/privados y obligaciones bancarias</strong> a través de tu cuenta de ahorros o corriente.",
+      "BTN": "Más información"
+    },
+    "LOANS": {
+      "TO_WHO": {
+        "DESTINATION": "Obligación a pagar"
+      },
+      "HOW_MUCH": {
+        "OPTION_ONE": "Selecciona el valor a pagar",
+        "OPTION_TWO": "Escribe el valor a pagar",
+        "MIN": "Pago mínimo"
+      },
+      "CONFIRMATION": {
+        "DATE": "Fecha de pago",
+        "DESTINATION": "Obligación a pagar"
+      },
+      "SUCCESS": {
+        "APPROVAL": "No. de comprobante"
+      }
+    },
+    "NOT_REGISTERED": {
+      "TO_WHO": {
+        "FROM": "Desde",
+        "TO": "Hacia",
+        "SCAN_BARCODE": "<i class='icon-vel-qr-code'></i> Escanear factura",
+        "COMPANY": "Buscar servicio",
+        "REFERENCE": "Referencia de pago",
+        "BARCODE": "Escanea el código de barras"
+      },
+      "ERROR_BARCODE": {
+        "TITLE": "¡Oh oh! Error inesperado",
+        "DESCRIPTION": "El servicio no se encuentra disponible. <strong>¡Intenta en unos minutos!</strong>",
+        "BTN": "Entendido"
+      },
+      "AGREEMENT_FINDER": {
+        "SEARCH_PLACEHOLDER": "Nombre del servicio",
+        "CANCEL_BTN": "Cancelar",
+        "WELCOME_IMG_TITLE": "Búsqueda de servicios",
+        "NOT_FOUND_IMG_TITLE": "No encontramos servicios con facturas"
+      },
+      "HOW_MUCH": {
+        "TITLE": "Valor factura",
+        "DUE_DATE": "Fecha de vencimiento: "
+      },
+      "SUCCESS": {
+        "REFERENCE": "Fact"
+      }
+    },
+    "TAXES": {
+      "TO_WHO": {
+        "FROM": "Desde",
+        "TO": "Hacia",
+        "SCAN_BARCODE": "<i class='icon-vel-qr-code'></i> Escanear factura",
+        "BARCODE": "Escanea el código de barras",
+        "CITY": "Ciudad",
+        "TAX_AGREEMENT": "Impuesto",
+        "SELECT_TAX": "Elige el impuesto que quieres pagar",
+        "LOADING_AGREEMENTS": "Buscando impuestos para esa ciudad",
+        "REFERENCE": "Número de referencia"
+      },
+      "ERROR_BARCODE": {
+        "TITLE": "¡Oh oh! Error inesperado",
+        "DESCRIPTION": "El servicio no se encuentra disponible. <strong>¡Intenta en unos minutos!</strong>",
+        "BTN": "Entendido"
+      },
+      "CITY_FINDER": {
+        "SEARCH_PLACEHOLDER": "Busca la ciudad del impuesto",
+        "CANCEL_BTN": "Cancelar",
+        "ERROR_MSG": "Ha ocurrido un error consultando las ciudades"
+      },
+      "CONFIRMATION": {
+        "TITLE": "Confirma tu información",
+        "REFERENCE": "No. de referencia",
+        "DATE": "Fecha de pago"
+      },
+      "SUCCESS": {
+        "APPROVAL": "No. de comprobante",
+        "BUTTON_SECOND": "Realizar otro pago"
+      }
+    },
+    "PILA": {
+      "TO_WHO": {
+        "FROM": "Desde",
+        "TO": "Hacia",
+        "SELECT_PAYROLL": "Elige la planilla que quieres pagar",
+        "PAYMENT_REFERENCE": "Elige la referencia de pago",
+        "REFERENCE_TYPE": {
+          "PAYROLL": "Nro. Planilla",
+          "DOCUMENT_ID": "Nro. de documento"
+        },
+        "PAYROLL_NUMBER": "Número de planilla",
+        "DOCUMENT_ID": "Número de documento",
+        "PERIOD": "Periodo"
+      },
+      "CONFIRMATION": {
+        "TITLE": "Confirma tu información",
+        "PAYROLL_NUMBER": "Nro. planilla",
+        "DATE": "Fecha de pago"
+      },
+      "SUCCESS": {
+        "APPROVAL": "No. de transacción",
+        "BUTTON_SECOND": "Realizar otro pago"
+      }
+    }
+  },
+  "MODAL_LEAVE": {
+    "TITLE": "Abandonar transacción",
+    "DESCRIPTION": "¿Estás seguro que deseas cancelar tu transacción? ✋",
+    "BTN_FIRST": "Si, cancelar",
+    "SECOND_BTN": "No, volver"
+  },
+  "HOME_PAYMENT": {
+    "TITLE": "Pagos",
+    "IMAGE_TITLE": "¿Qué quieres pagar?",
+    "OBLIGATIONS": {
+      "TITLE": "Obligación bancaria",
+      "DESCRIPTION": "TC y créditos con nosotros y otros bancos."
+    },
+    "REGISTERED": {
+      "TITLE": "Servicio inscrito",
+      "DESCRIPTION": "Paga los servicios que más utilizas."
+    },
+    "NOT_REGISTERED": {
+      "TITLE": "Servicio no inscrito",
+      "DESCRIPTION": "Paga facturas que no tengas inscritas."
+    },
+    "TAXES": {
+      "TITLE": "Impuestos",
+      "DESCRIPTION": "Paga tus impuestos nacionales."
+    },
+    "PILA": {
+      "TITLE": "PILA",
+      "DESCRIPTION": "Paga con tu número de planilla o documento."
+    }
+  },
+  "HOME_TRANSFER": {
+    "TITLE": "Transferir",
+    "IMAGE_TITLE": "¿Qué quieres hacer?",
+    "NEW_TRANSFER": {
+      "TITLE": "Transferir a cuentas inscritas",
+      "DESCRIPTION": "Transfiere a cuentas de cualquier banco"
+    },
+    "FAST_TRANSFER": {
+    "TITLE": "Transferencia rápida",
+    "DESCRIPTION": "Transfiere fácimente y en pocos pasos"
+    },
+    "NOT_REGISTERED": {
+      "TITLE": "Transferir a cuentas no inscritas",
+      "DESCRIPTION": "Solo para cuentas del Banco Popular."
+    },
+    "PROGRAM_TRANSFERS": {
+      "TITLE": "Programar transferencias",
+      "DESCRIPTION": "Transferencias futuras y/o recurrentes"
+    },
+    "CELL_TO_CELL": {
+      "TITLE": "Transferencia celular a celular",
+      "DESCRIPTION": "Celulares vinculados a cuentas AVAL"
+    }
+  },
+  "DOCUMENTS": {
+    "FILE_NAME": {
+      "GMF": "Certificado-gmf",
+      "INCOME_TAXES": "Retencion-fuente",
+      "RAC": "Certificado-rac"
+    },
+    "HOME_DOCUMENTS": {
+      "TITLE": "Documentos",
+      "IMAGE_TITLE": "¿Qué documento necesitas?",
+      "STATEMENTS": {
+        "TITLE": "Extractos",
+        "DESCRIPTION": "Verifica los movimientos de tus productos."
+      },
+      "PRODUCT_CERTIFICATES": {
+        "TITLE": "Certificados de productos",
+        "DESCRIPTION": "Certifica tus productos del Banco Popular."
+      },
+      "TAX_CERTIFICATES": {
+        "TITLE": "Certificados tributarios",
+        "DESCRIPTION": "Valida y cumple con tus obligaciones tributarias."
+      }
+    },
+    "STATEMENTS": {
+      "TITLE": "Extractos",
+      "PRODUCTS_LABEL": "Selecciona el producto a consultar",
+      "PERIOD_LABEL": "Elige el periodo de tiempo",
+      "INFO_MESSAGE": "Si el extracto que buscas no aparece en el listado comunícate con nuestra línea verde.",
+      "DOWNLOAD_BTN": "Descargar extracto",
+      "RETRY_BTN": "Reintentar descarga",
+      "ERROR": {
+        "TITLE": "¡Error en la carga!",
+        "DESCRIPTION": "En estos momentos tenemos problemas técnicos para cargar tus productos.",
+        "BTN": "Intentar de nuevo"
+      }
+    },
+    "CERTIFICATES": {
+      "TITLE": "Certificados de productos",
+      "PRODUCTS_LABEL": "Selecciona el producto a consultar",
+      "SECTION_LABEL": "Elige el tipo de certificado que necesitas",
+      "RECIPIENT_LABEL": "Nombre del destinatario (Opcional)",
+      "RECIPIENT_PLACEHOLDER": "Ej. Emilio Rodríguez",
+      "TYPE_CERTIFICATE": "Tipo de certificado",
+      "DOWNLOAD_BTN": "Descargar certificado",
+      "RETRY_BTN": "Reintentar descarga"
+    },
+    "TAX_CERTIFICATES": {
+      "TITLE": "Certificados tributarios",
+      "TYPE_CERTIFICATE_LABEL": "Selecciona el tipo de certificado",
+      "TYPE_CERTIFICATES": {
+        "WITHHOLDING": "Retención en la fuente",
+        "GMF": "GMF (4x1000)",
+        "INCOME_DECLARATION_TC": "Declaración de renta con tarjeta de crédito",
+        "RAC": "Reporte anual de costos"
+      },
+      "SECTION_LABEL": "Elige el periodo de tiempo",
+      "INFO_MESSAGE": "Los certificados del año 2022 estarán disponibles a partir de marzo de 2023.",
+      "WITHHOLDING_MESSAGE": {
+        "TITLE": "Ten en cuenta",
+        "DESCRIPTION": "Se descargarán todos los certificados disponibles para tarjeta de crédito."
+      },
+      "DOWNLOAD_BTN": "Descargar certificado",
+      "RETRY_BTN": "Reintentar descarga"
+    }
+  },
+  "BANKS": {
+    "BANCO_DE_BOGOTA": "Banco de Bogotá",
+    "BANCO_OCCIDENTE": "Banco de Occidente",
+    "BANCO_AV_VILLAS": "Banco AV Villas",
+    "PORVENIR": "Pensiones y Cesantías Porvenir",
+    "FACIL_PASS": "Facilpass",
+    "BANCO_POPULAR": "Banco Popular"
+  },
+  "AVAL_PRODUCTS": {
+    "BACK": "Regresar",
+    "SHOW_PRODUCTS": "Ver productos",
+    "TITLE": {
+      "LOADING": "Buscando productos en otras entidades…",
+      "COMPLETED": "Búsqueda finalizada.",
+      "EMPTY": "No tienes productos en otra entidad."
+    },
+    "PRODUCT": {
+      "LOADING": "Buscando…",
+      "TEXT": "Productos encontrados.",
+      "ERROR": "Ha ocurrido un error."
+    }
+  },
+  "CERTIFICATE": {
+    "TITLE": "Generar certificado",
+    "NO_BALANCE": "Sin saldo",
+    "BALANCE": "Con saldo",
+    "RECIPIENT": "Nombre del destinatario (opcional)",
+    "ERROR": "¡Error en la descarga! Intenta de nuevo. \uD83D\uDC47"
+  },
+  "CERTIFICATE_TC": {
+    "TITLE": "Generar certificado",
+    "RENT": "Declaración de renta",
+    "TEXT": "*Se descargarán todos los certificados de tarjeta de crédito disponibles para declaración de renta.",
+    "ERROR": "¡Error en la descarga! Intenta de nuevo. \uD83D\uDC47",
+    "SUCCESS": "Tu certificado se ha descargado con éxito.",
+    "FILE_NAME": "Declaracion-de-renta"
+  },
+  "STATEMENTS": {
+    "TITLE": "Generar extracto",
+    "DEFAULT_OPTION": "Selecciona el periodo que deseas",
+    "RETRY_DOWNLOAD": "Reintentar Descarga",
+    "ERROR": "Algo salió mal"
+  },
+  "TUPLUS": {
+    "NAME": "Puntos tuplús",
+    "TOTAL_POINTS": "Puntos totales",
+    "POINTS": "Puntos",
+    "BTN": "Redimir",
+    "VALOR": "Valor:",
+    "REDEEMED": "¡Has redimido 5.000 puntos!",
+    "EQUIVALENT_MONEY": "En dinero",
+    "REDEEMED_ERROR": "¡Lo sentimos!",
+    "MOVEMENTS": "Últimos movimientos",
+    "SUCCESS_DESCRIPTION_MODAL": "Con estos puntos, abonaste $50.000 a tu cuenta ****2080",
+    "ERROR_DESCRIPTION_MODAL": "Has excedido el límite máximo de intentos",
+    "DESCRIPTION_MODAL": "Ingresarás al portal <strong>tuplus.com.co</strong> allí encontrarás más formas de disfrutar tus puntos.",
+    "OPTION_TO_REDEEM": {
+      "TITLE": "Redención de puntos tuplús",
+      "HOW": "¿Cómo quieres redimir tus puntos?",
+      "ERROR_MESSAGE": "Necesitas al menos 2.000 puntos para realizar abonos. Intenta con otros beneficios",
+      "TECHNICAL_PROBLEMS": "Estamos trabajando para tí. Esta opción estará disponible próximamente. \uD83E\uDD29\uD83E\uDD29",
+      "MONEY": "Dinero",
+      "BENEFITS": "Beneficios",
+      "PAY_ACCOUNT_TEXT": "Realiza abonos a tus cuentas o tarjetas de crédito",
+      "BENEFITS_TEXT": "Descubre otras formas de disfrutar tus puntos en el cátalogo de tuplús"
+    },
+    "WHERE_TO_REDEEM": {
+      "AVAILABLE_POINTS": "Puntos disponibles",
+      "POINTS_TO_REDEEM": "¿Cuántos puntos quieres redimir?",
+      "MIN_MAX_POINTS": "Mínimo {min} y máximo {max} puntos.",
+      "EQUIVALENT_IN_PESOS": "Equivalente en pesos",
+      "CHOOSE_WHERE_REDEEM": "¿Dónde quieres realizar el abono?",
+      "INFO_REDEEM": "Se redimirán primero los puntos más antiguos sin importar la entidad.",
+      "INFO_DEPOSIT": "El dinero será consignado inmediatamente en tu cuenta.",
+      "INFO_CREDIT": "El abono será destinado a cubrir el pago mínimo. Si la cuota ya fue pagada se abonará al pago total.",
+      "REDEEMED": "¡Has redimido {points} puntos!",
+      "DESCRIPTIONCC": "Con estos puntos abonaste <strong>${value}</strong> a tu tarjeta de crédito <strong>****{id}</strong>. Tu cupo ya fue liberado pero el pago se verá reflejado el siguiente día hábil.",
+      "DESCRIPTIONDC": "Con estos puntos abonaste <strong>${value}</strong> a tu {typeAccount} <strong>****{id}</strong>",
+      "TITLE": "Redención de puntos tuplús",
+      "DEPOSIT_ACCOUNT": "Cuenta",
+      "CREDIT_ACCOUNT": "Tarjeta de crédito",
+      "WHERE": "Abonar en",
+      "ERROR_TITLE": "¡Lo sentimos!",
+      "ERROR_DESCRIPTION": "Has excedido el límite de intentos"
+    }
+  },
+  "PAY_ROLL_LOANS": {
+    "NAME": "Crédito de libranza",
+    "DESCRIPTION": "Próximo pago",
+    "PAYMENT_PROGRESS": "Has pagado",
+    "NRO": "Nro.",
+    "TITLE_MOVEMENTS": "Detalle de tu crédito",
+    "STATUS": {
+      "SUCCESS": "Al día",
+      "ERROR": "En mora"
+    },
+    "NEXT_PAYMENT": "Fecha Proximo pago",
+    "DESCRIPTION_DETAIL": "Las cuotas de este crédito son descontadas de tu nómina",
+    "PAYMENT": "Pagaduría",
+    "VALUE_CREDIT": "Valor del crédito",
+    "OPEN_DATE": "Fecha de apertura",
+    "INTEREST_RATE": "Tasa de Interés",
+    "PAID_FEES": "Cuotas pagadas",
+    "TERM": "PLAZO",
+    "PERCENTAGE": "% Nominal"
+  },
+  "FREE_DESTINATION": {
+    "NAME": "Crédito de Libre Destino",
+    "DETAIL_NAME": "Crédito Libre Destino",
+    "SHORT_NAME": "de Libre Destino",
+    "TOTAL_BALANCE": "Saldo total",
+    "PAYMENT_PROGRESS": "Has pagado",
+    "DUE_DAYS": "Días en mora",
+    "CREDIT_AMOUNT": "Valor del crédito",
+    "MIN_PAYMENT": "Pago mínimo",
+    "STATUS": {
+      "SUCCESS": "Al día",
+      "ERROR": "En mora"
+    },
+    "DETAILS_LIST": {
+      "NEXT_PAYMENT_DATE": "Fecha próximo pago",
+      "MIN_PAYMENT": "Pago mínimo",
+      "TOTAL_BALANCE": "Saldo total",
+      "DUE_RATE": "Tasa en mora",
+      "PERCENTAGE": "% E.A.",
+      "DUE_DAYS": "Días en mora",
+      "DUE_AMOUNT": "Valor en mora*",
+      "AMOUNT": "Valor del crédito",
+      "DISBURSEMENT_DATE": "Fecha de desembolso",
+      "TERM": "Plazo",
+      "RATE": "Tasa de interés",
+      "DESCRIPTION": "*El valor en mora incluye intereses al día de la consulta. Este valor puede cambiar hasta que se efectúe el pago."
+    }
+  },
+  "ACTIVE_CREDIT_CARD": {
+    "TITLE": "Activar productos",
+    "TOGGLE": {
+      "ONE": "Ver/Bloquear",
+      "TWO": "Activar"
+    },
+    "EMPTY": {
+      "TITLE": "¡No tienes productos disponibles!",
+      "DESCRIPTION": "Solicita de manera <strong>rápida y segura</strong> tus tarjetas de crédito con tasas preferenciales.",
+      "BTN": "Solicitar una tarjeta de crédito"
+    },
+    "CARD": {
+      "NAME": "Tarjeta Crédito",
+      "DATE": "valid thru"
+    },
+    "BTN": "Reintentar activación",
+    "NUMBER": {
+      "LABEL": "Número de tarjeta de crédito",
+      "PLACEHOLDER": "Ingresa los 16 números de tu tarjeta"
+    },
+    "MODAL": {
+      "TITLE": "¡Tu tarjeta ya estaba activa!",
+      "DESCRIPTION": "Puedes utilizar tu <strong>{{name}}</strong> sin ningún problema.",
+      "BTN_FIRST": "Ver detalle de la tarjeta",
+      "BTN_SECOND": "Activar otra tarjeta"
+    },
+    "VOUCHER": {
+      "TITLE": "Activación exitosa",
+      "DESCRIPTION": "Tu tarjeta está lista para usarse",
+      "NAME": "Número de tarjeta de crédito",
+      "BTN_FIRST": "Activar otra tarjeta",
+      "BTN_SECOND": "Ver tarjetas activas"
+    },
+    "ERRORS": {
+      "ERROR_ONE": "El número de tarjeta es incorrecto. Verifica los datos.",
+      "ERROR_TWO": "Tenemos problemas técnicos en este momento. Inténtalo de nuevo. 😅",
+      "INFO": "Esta tarjeta ya se encuentra activa. Puedes realizar tus transacciones sin problema o activar otra tarjeta. 👍"
+    }
+  },
+  "STOCKS": {
+    "TITLE": "Acciones AVAL",
+    "TYPE": "Tipo de acciones",
+    "PERIOD": "Mes",
+    "INFORMATION": {
+      "TITLE": "Acciones",
+      "AMOUNT": "Total acciones",
+      "DESCRIPTION": "Esta información se actualiza mensualmente, por lo que no contempla los movimientos posteriores a la fecha de corte. Si quieres conocer la información a la fecha, te invitamos a consultarla a través de Deceval S.A."
+    },
+    "ERROR": "Tenemos problemas técnicos en este momento, pero estamos corriendo para solucionarlos. <strong>Intenta más tarde.</strong>"
+  },
+  "DETAIL": {
+    "MODAL_ADVANCES": {
+      "TITLE": "Una sugerencia para tí 😉",
+      "DESCRIPTION": "Aunque no tienes cupo en tu <strong>{{description}}</strong>, realiza tu avance con",
+      "BTN_FIRST": "Si, hacer avance",
+      "BTN_SECOND": "No, volver"
+    }
+  },
+  "ADVANCES": {
+    "TITLE": "Avances",
+    "TO_WHO": {
+      "FROM": "Desde",
+      "TO": "Para consignar en",
+      "TO_DEFAULT": "Escoge la cuenta",
+      "AMOUNT": "Valor del avance (Mín. {{min}} / Máx. {{max}})",
+      "DESCRIPTION": {
+        "LABEL": "Descripción",
+        "PLACEHOLDER": "Ej: Compra ropa"
+      },
+      "EXPIRATION_DATE": {
+        "LABEL": "Fecha de vencimiento de tu tarjeta",
+        "PLACEHOLDER_MONTH": "MM",
+        "PLACEHOLDER_YEAR": "AA"
+      }
+    },
+    "CONFIRMATION": {
+      "TITLE": "Confirma tu información",
+      "DESCRIPTION": "El abono se realizará al instante",
+      "AMOUNT_ADVANCE": "Valor de tu avance",
+      "BUTTON": "Hacer avance"
+    },
+    "SUCCESS": {
+      "TITLE": "Tu avance fue exitoso",
+      "DESCRIPTION": "Resumen detallado de tu transacción",
+      "AMOUNT_ADVANCE": "Valor de tu avance",
+      "BTN_FIRST": "Finalizar",
+      "BTN_SECOND": "Hacer otro avance"
+    },
+    "DEFERRED_FEES": {
+      "TITLE": "Diferido automáticamente a:",
+      "QUANTITY_FEES": "Número de cuotas",
+      "VALUE": "36 cuotas",
+      "QUANTITY": "36"
+    }
+  },
+  "OPEN_ACCOUNT_SCREEN": {
+    "REQUEST_NEW_CREDIT_CARD": {
+      "TITLE": "Dinero al instante",
+      "TEXT": "Realiza avances con tu tarjeta de crédito con tazas preferenciales. ¡Somos tu mejor aliado financiero!",
+      "BTN": "Solicitar una tarjeta de crédito"
+    },
+    "REQUEST_DEPOSIT_ACCOUNT": {
+      "TITLE": "Retira dinero en segundos",
+      "TEXT": "Con nuestras cuentas de ahorros, es posible retirar dinero en nuestra red de cajeros y corresponsales bancarios.",
+      "BTN": "Abrir una cuenta de ahorros"
+    },
+    "ACTIVE_CREDIT_CARD": {
+      "TITLE": "Solicita una nueva tarjeta",
+      "TEXT": "<strong>¡Aún no tienes tarjetas para activar!</strong> Puedes adquirir un nuevo producto para hacer avances con taza preferenciales."
+    }
+  },
+  "CHANGE_PASSWORD": {
+    "TITLE": "Cambio de contraseña",
+    "CURRENT_PASSWORD": "Contraseña actual",
+    "NEW_PASSWORD": "Contraseña nueva",
+    "CONFIRM_PASSWORD": "Confirma contraseña nueva",
+    "DESCRIPTION": "Te recomendamos asignar una contraseña diferente a la que utilizas para retirar",
+    "BUTTON": "Cambiar contraseña",
+    "SUCCESSFUL_CHANGE": {
+      "TITLE": "¡Contraseña actualizada!",
+      "DESCRIPTION": "Ahora puedes usar tu nueva contraseña para ingresar a nuestra APP.",
+      "BUTTON": "Ir al home"
+    }
+  },
+  "BIOMETRIC": {
+    "TITLE": "Configuración de huella",
+    "TERMS": {
+      "TITLE": "¿Cómo funciona?",
+      "BULLETS": [
+        "Al agregar esta configuración ingresaras a Banca Móvil usando tu huella.",
+        "Por tu seguridad solo accederas con aquellas huellas que estén guardadas en el dispositivo.",
+        "Recuerda ser cuidadoso con las huellas que registras en tu celular, éstas darán acceso a tu información bancaria."
+      ],
+      "BUTTON_GROUP": {
+        "DESCRIPTION": "¿Deseas agregar la huella?",
+        "BTN_CONFIRM": "Si, continuar",
+        "BTN_CANCEL": "No, regresar"
+      }
+    },
+    "DELETE_BIOMETRIC": {
+      "TITLE": "¡Ahora ya accedes con tu huella!",
+      "TRASH_SECTION": {
+        "TITLE": "Eliminar huella",
+        "SUBTITLE": "Accederás de nuevo con tu contraseña."
+      }
+    },
+    "DELETE_BIOMETRIC_MODAL": {
+      "TITLE": "¿Quieres eliminar tu huella?",
+      "DESCRIPTION": "Queremos estar seguros que quieres cambiar tu configuración de acceso.",
+      "PRIMARY_BTN": "Todavía no",
+      "SECONDARY_BTN": "Si, eliminar"
+    },
+    "SUCCESSFUL_REMOVAL": {
+      "TITLE": "¡Huellas eliminadas!",
+      "DESCRIPTION": "Ahora accederas a la aplicación nuevamente con tu contraseña.",
+      "BTN_CONFIRM": "Ir al inicio",
+      "BTN_CANCEL": "Agregar huella de nuevo"
+    },
+    "SUCCESSFUL_REGISTRATION": {
+      "TITLE": "¡Huellas agregadas!",
+      "DESCRIPTION": "La próxima vez accederás con tu huella de una manera rápida y sencilla.",
+      "BTN_CONFIRM": "Ir al inicio"
+    },
+    "FINGERPRINT_READER": {
+      "TITLE": "Coloca tu huella ahora",
+      "DESCRIPTION": "Necesitamos identificarte, pon la huella que usas comúnmente en el dispositivo.",
+      "CANCEL_BUTTON": "Cancelar"
+    },
+    "ERRORS": {
+      "NOT_FOUND_READER": "Tu dispositivo no cuenta con un lector biometrico o aún no se encuentra configurado",
+      "NOT_FOUND_TEMPORAL_KEY": "No se encontró el registro temporal.",
+      "ERROR_REGISTERING": "Error inesperado en el proceso de configuración de huella. ¡intenta de nuevo! \uD83D\uDC47",
+      "ERROR_DELETING": "Error inesperado en la eliminación de huella. ¡intenta de nuevo! \uD83D\uDC47"
+    },
+    "GLOBAL_MODAL": {
+      "TITLE": "Protege tu app",
+      "DESCRIPTION": "Configura tu biométrico <strong>(huella digital o lector facial)</strong> para ingresar a tu Banca Móvil de forma más segura.",
+      "FIRST_BUTTON": "configurar ahora",
+      "SECOND_BUTTON": "Lo haré luego"
+    }
+  },
+  "BLOCK_PRODUCT": {
+    "TITLE": "Bloquear productos",
+    "TITLE_PRODUCTS": "Restringir productos",
+    "TITLE_DEBIT_CARD": "Débito compras",
+    "EMPTY_ACCOUNT": {
+      "DESCRIPTION": "Solicita de manera <strong>rápida y segura</strong> tus cuentas.",
+      "BTN": "Solicitar una cuenta."
+    },
+    "TOGGLE": {
+      "CARD": "Tarjetas",
+      "ACCOUNT": "Cuentas"
+    },
+    "LINE": "Si quieres realizar un denuncio, ve a <span>este enlace.</span>",
+    "MODAL": {
+      "CREDIT_CARD": {
+        "TITLE": "¡Tarjeta de crédito bloqueada!",
+        "SUBTITLE": "¿Qué tienes que hacer ahora?",
+        "DESCRIPTION": "Nada \uD83D\uDE42. Enviaremos una tarjeta a tu dirección en los próximos 5 días hábiles. <strong>¡Recuerda!</strong> Si tienes registrada esta tarjeta en plataformas o pagos automáticos ya no funcionará."
+      },
+      "DEBIT_CARD": {
+        "TITLE": "¡Tarjeta débito bloqueada!",
+        "SUBTITLE": "¿Qué tienes que hacer ahora?",
+        "DESCRIPTION": "Si necesitas efectivo, recuerda que puedes solicitar un código de retiro en \n<span class=link>“Giros y Retiros”</span> <p><strong>Para solicitar una nueva tarjeta dirígete a cualquiera de nuestras oficinas con:</strong></p><p>1. Copia de la denuncia por pérdida o robo.</p><p>2. Tu documento de identidad.</p>"
+      },
+      "ACCOUNT_TYPE": {
+        "TITLE": "¡Cuenta restringida!",
+        "TITLE_2": "¡Tu cuenta esta bloqueada!",
+        "SUBTITLE": "¿Qué tienes que hacer ahora?",
+        "DESCRIPTION": "Para quitar las restricciones de tu cuenta dirígete a cualquiera de",
+        "LINK": "nuestras oficinas",
+        "DESCRIPTION_TWO": "con tu documento de identidad."
+      },
+      "ACTIVE": {
+        "TITLE": "¿Por qué quieres bloquearla?",
+        "LOSS_LOCK": "La perdí",
+        "DEFINITIVE_LOCK": "Me la robaron"
+      },
+      "ACCOUNT": {
+        "TITLE": "¿Quieres restringir tu cuenta?",
+        "DESCRIPTION": "Se aplicarán restricciones y no podrás realizar ningún tipo de retiro o transacción que debite dinero de tu cuenta.",
+        "DESCRIPTION_FLEX_CUBE": "Se aplicarán restricciones y no podrás realizar transacciones que debiten o abonen dinero a tu cuenta.",
+        "BTN1": "Si, restringir",
+        "BTN2": "Cancelar"
+      }
+    }
+  },
+  "QR": {
+    "NAV_BAR": {
+      "TITLE": "¿Qué quieres hacer?",
+      "ANNULMENT": "Anular pago QR",
+      "PAYMENT": "Pagar con QR"
+    },
+    "QR_CODE": "Escanea el código QR",
+    "TITLE": {
+      "PAYMENT": "Pagos QR AVAL",
+      "ANNULMENT": "Anulación QR AVAL"
+    },
+    "TO_WHO": {
+      "FROM": "¿Con cuál tarjeta quieres pagar?",
+      "NUMBER_OF_INSTALMENTS": "Número de cuotas",
+      "COMMERCE": "Comercio",
+      "AMOUNT": "Valor a pagar",
+      "BASE": "Monto base",
+      "INC": "Impuesto INC",
+      "TIP": "Propina",
+      "IVA": "IVA",
+      "DATE": "Fecha de pago",
+      "CONSECUTIVE_CODE": "Nro. de transacción"
+    },
+    "CONFIRMATION": {
+      "TITLE": "Valor de tu pago"
+    },
+    "ANNULMENT": {
+      "SUCCESS": {
+        "TITLE": "Anulación exitosa"
+      }
+    },
+    "MODALS": {
+      "ERROR_QR": {
+        "TITLE": "Código QR invalido",
+        "DESCRIPTION": "Este código qr no es válido para realizar transacciones"
+      },
+      "ANNULMENT": {
+        "TITLE": "¡Atención!",
+        "DESCRIPTION": "Solo podrás anular una transacción el mismo día que la realices."
+      },
+      "NOT_ANNULMENT": {
+        "DESCRIPTION": "No es posible realizar anulaciones desde la opción de pagar."
+      },
+      "PAYMENT": {
+        "DESCRIPTION": "No es posible realizar pagos desde la opción de anular."
+      }
+    },
+    "OPEN_ACCOUNT": {
+      "TITLE": "Pagos QR AVAL",
+      "SUB_TITLE": "No tienes productos disponibles para pago QR",
+      "TEXT": "Para realizar pagos por medio de código QR debes tener una tarjeta de crédito con saldo disponible."
+    }
+  },
+  "ERRORS": {
+    "GENERAL": "¡Algo salió mal! Por favor intenta más tarde."
+  },
+  "MODALS": {
+    "MIN_AMOUNT": {
+      "TITLE": "¡Lo sentimos!",
+      "DESCRIPTION": "No tienes saldo suficiente para utilizar este servicio"
+    }
+  },
+  "OFFICES": {
+    "TITLE": "Visítanos"
+  },
+  "CONTACTS": {
+    "TITLE": "Contáctanos",
+    "DOWNLOAD": "Descarga la app"
+  },
+  "MESSAGES": {
+    "TITLE": "Buzón de mensajes",
+    "EMPTY": "No tienes mensajes",
+    "SELECT_ALL": "Seleccionar todo",
+    "UNCHECK_ALL": "Desmarcar todo",
+    "DELETE_SUCCESS": "Mensaje eliminado exitosamente.",
+    "ERROR_DESCRIPTION": "En estos momentos tenemos problemas técnicos para cargar tus mensajes. Inténtalo más tarde.",
+    "MODAL": {
+      "TITLE": "¡Eliminar mensaje!",
+      "DESCRIPTION": "¿Estás seguro de eliminar este mensaje?"
+    }
+  },
+  "EXPERIENCE": {
+    "TITLE": "Mejora tu experiencia",
+    "RETRIES_LIMIT_EXCEED": {
+      "TITLE": "¡Lo sentimos!",
+      "DESCRIPTION": "Has excedido el límite máximo de intentos para ingresar una respuesta válida, intentalo de nuevo más tarde.",
+      "BUTTON": "Volver al inicio"
+    },
+    "EXPERIENCE_COMPLETED": {
+      "TITLE": "¡Servicios activados con exito!",
+      "DESCRIPTION": "Ahora podrás disfrutar de todas las ventajas que te ofrece la aplicación de Banco Popular.",
+      "BUTTON": "Ir al inicio"
+    },
+    "FILL_OTP_DATA": {
+      "TITLE": "Enviamos un código a tu celular",
+      "DESCRIPTION": "Llegará un código de 8 dígitos a tu número de celular registrado en el Banco. Lo leeremos automáticamente.",
+      "PASSWORD": "Código temporal",
+      "LINK_TEXT": "¿No la has recibido?",
+      "LINK_TEXT_TIMER": "Espera <strong>00:{{value}}</strong> y recibiras tu código.",
+      "LINK_TEXT_RESEND": "<strong>Solicitar nuevo código.</strong>",
+      "BUTTON_TEXT": "Entendido",
+      "LOADING": "Buscando código en el dispositivo",
+      "TOAST_NORMAL": {
+        "TITLE": "Importante",
+        "TITLE_IOS": "Ten en cuenta",
+        "DESCRIPTION": "Cuando vayas a ingresarlo, utiliza la sugerencia de tu teclado.",
+        "DESCRIPTION_IOS": "Cuando vayas a ingresarlo, utiliza la sugerencia de tu teclado."
+      },
+      "TOAST_ERROR": "No pudimos leer automáticamente el código que te enviamos para validar tu célular.",
+      "TOAST_FLOAT": {
+        "TITLE": "Validemos tu celular",
+        "DESCRIPTION": "Hemos enviado un mensaje de texto al número registrado en el banco con un código temporal.",
+        "BTN": "Entendido"
+      },
+      "MODAL": {
+        "TITLE": "No pudimos leer tu código",
+        "DESCRIPTION": "Necesitamos que tu código sea leído automáticamente para que podamos habilitar tus transacciones, por ahora puedes:",
+        "BTN": "Solicitar nuevo código",
+        "BTN_SECOND": "Ingresar código manualmente"
+      }
+    },
+    "HAVE_PIN_DEBIT_CARD_ENABLE": {
+      "TITLE": "Tienes estos servicios pendientes por activar",
+      "BUTTON": "Activar servicios"
+    },
+    "DOESNT_HAVE_PIN_ENABLE": {
+      "TITLE": "Tu puedes acceder a estos servicios",
+      "BUTTON": "¿Quieres saber como obtenerlos?",
+      "MODAL": {
+        "TITLE": "¿Cómo obtenerlos?",
+        "DESCRIPTION": "Activa tu tarjeta débito o abre tu Cuenta de Ahorros con nosotros. Puedes hacer todo el proceso de apertura 100% digital.",
+        "BTN": "Abre tu cuenta",
+        "BTN_SECOND": "¿Cómo activo mi tarjeta?"
+      }
+    },
+    "FILL_SECURITY_QUESTION": {
+      "TITLE": "Validemos tu identidad",
+      "DESCRIPTION": "Antes de continuar con el registro, debemos comprobar que seas tú.",
+      "PASSWORD": "Clave de tu tarjeta débito terminada en",
+      "BUTTON": "Validar"
+    },
+    "SERVICES": {
+      "WITHDRAW": {
+        "TITLE": "Retirar/Girar (¡Sin tarjeta!)",
+        "SUBTITLE": "En cajeros AVAL o corresponsales"
+      },
+      "RECHARGUE": {
+        "TITLE": "Recargar",
+        "SUBTITLE": "Recarga tu célular"
+      },
+      "PAY": {
+        "TITLE": "Pagar",
+        "SUBTITLE": "Servicios no inscritos"
+      },
+      "TRANSFER": {
+        "TITLE": "Transferir",
+        "SUBTITLE": "A cuentas no inscritas"
+      }
+    },
+    "ACTIVATE_CARD": {
+      "TITLE": "Activa tu tarjeta",
+      "DESCRIPTION": "Si ya cuentas con tarjeta débito, dirigete a uno de nuestros <strong>cajeros automáticos</strong> para activarla. Si aún no la tienes, acercate a una de <strong>nuestras oficinas</strong> para solicitarla",
+      "BUTTON": "Salir"
+    },
+    "SERVICE_ERROR": {
+      "TITLE": "No eres tú, somos nosotros",
+      "DESCRIPTION": "Tenemos problemas técnicos en este momento. <strong>¡Intenta más tarde!</strong>",
+      "CODE_ERROR": "Código de error: ",
+      "BUTTON": "Entendido"
+    }
+  },
+  "PUSH_NOTIFICATION": {
+    "TITLE": "Notificaciones",
+    "DESCRIPTION": "Activa o desactiva tus notificaciones",
+    "ENABLE": "Se encuentran activadas.",
+    "DISABLED": "Se encuentran desactivadas.",
+    "MODAL": {
+      "DISABLED": {
+        "TITLE": "Desactivación",
+        "DESCRIPTION": "¿Estás seguro que quieres dejar de recibir notificaciones?",
+        "BTN": "Si, desactivar"
+      },
+      "ENABLE": {
+        "TITLE": "Activación",
+        "DESCRIPTION": "¿Quieres recibir notificaciones en tu dispositivo?",
+        "BTN": "Si, Activar"
+      }
+    }
+  },
+  "NOT_COMPLEMENTARY": {
+    "TITLE": "¡Muy  pronto podrás usarlo!",
+    "DESCRIPTION": "<strong>Este dispositivo quedó vinculado a tu número de documento con servicios básicos.</strong> No te preocupes, muy pronto te diremos cómo puedes mejorar tu experiencia."
+  },
+  "CARDS_OPEN_ACCOUNT": {
+    "TITLE": "Adquiere tus productos de forma 100% digital",
+    "DEPOSIT_ACCOUNT": {
+      "TITLE": "Abre tu Cuenta de Ahorros",
+      "DESCRIPTION": "Con transferencias gratuitas entre cuentas del grupo Aval.",
+      "TEXT_LINK": "Abrir una cuenta"
+    },
+    "TC": {
+      "TITLE": "Solicita tu tarjeta de crédito",
+      "DESCRIPTION": "Realiza compras desde tu celular de manera ágil.",
+      "TEXT_LINK": "Solicítala ahora"
+    },
+    "CDT": {
+      "TITLE": "Abre un CDT sin salir de casa",
+      "DESCRIPTION": "Invierte tu dinero con tasas preferenciales y cuotas fijas.",
+      "TEXT_LINK": "Me interesa"
+    }
+  },
+  "REQUEST_PRODUCTS": {
+    "TITLE": "Solicitar productos"
+  },
+  "CARD_COMPLEMENTARY": {
+    "TITLE": "¡Tienes servicios pendientes por activar!",
+    "DESCRIPTION": "Podrás hacer giros/retiros, recargas, pagos y transferencias a cuentas no inscritas.",
+    "TEXT_LINK": "Activar ahora"
+  }
+}

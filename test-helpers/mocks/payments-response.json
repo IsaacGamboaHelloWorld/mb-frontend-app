@@ -1,0 +1,56 @@
+{
+    "dateTime": "2022-10-19T17:06:17.115",
+    "request": {
+        "notes": "pago",
+        "idType": "CC",
+        "scheduledTransfer": false,
+        "dueDate": "2022-10-19T22:06:13.630Z",
+        "ipAddress": "3.13.132.40",
+        "transactionCost": "$0",
+        "deviceId": "*********mock",
+        "transferInformation": {
+            "amount": "*0000"
+        },
+        "companyId": "BANCO_POPULAR",
+        "accountFromInformation": {
+            "bank": "0002",
+            "accountIdentifier": "********1304",
+            "productType": "DEPOSIT_ACCOUNT"
+        },
+        "requestId": 1666217175,
+        "invoiceNumber": null,
+        "customerId": "5b904123b983835d9b0b678e78d3418469757f9198e0fcbaf41d90cbd42f790a",
+        "accountToInformation": {
+            "bank": "0002",
+            "isNewAccount": false,
+            "name": "",
+            "identificationNumber": "",
+            "accountIdentifier": "********8926",
+            "bankName": "Banco Popular",
+            "identificationType": "",
+            "productType": "DEPOSIT_ACCOUNT",
+            "isFavorite": false
+        },
+        "id": "5b904123b983835d9b0b678e78d3418469757f9198e0fcbaf41d90cbd42f790a",
+        "customerIdType": "CC"
+    },
+    "specificErrorMessage": "",
+    "success": true,
+    "errorMessage": "",
+    "errorStatusCode": "",
+    "approvalId": "12345",
+    "specificErrorCode": "",
+
+    "rechargeInfo": {
+        "accountId": "idMock",
+        "accountType": "accountTypeMock",
+        "phoneNumber": "phoneNumber",
+        "amount": 50000,
+        "operatorName": "Claro",
+        "currencyCode": "currencyCodeMock",
+        "companyId": "companyIdMock",
+        "id": "idMock",
+        "idType": "idType",
+        "ipAddress": "1.1.1.1.1"
+      }
+}

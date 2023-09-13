@@ -1,0 +1,54 @@
+{
+  "contacts": [
+    {
+      "group": "Línea verde",
+      "numbers": [
+        {
+          "name": "Bogotá",
+          "number": "6017434646",
+          "numberText": "601 7434646"
+        },
+        {
+          "name": "Resto del país",
+          "number": "018000184646",
+          "numberText": "01 8000 18 4646"
+        }
+      ]
+    },
+    {
+      "group": "Asistencia Visa y MasterCard ",
+      "numbers": [
+        {
+          "name": "Bogotá",
+          "number": "6017434646",
+          "numberText": "601 7434646"
+        },
+        {
+          "name": "Europa",
+          "number": "34900838040",
+          "numberText": "+34 900 83 8040"
+        },
+        {
+          "name": "Estados Unidos",
+          "number": "18009353718",
+          "numberText": "+1 800 9353718"
+        }
+      ]
+    },
+    {
+      "group": "Asistencia Tarjeta Diamante",
+      "numbers": [
+        {
+          "name": "Línea Nacional",
+          "number": "018000189970",
+          "numberText": "01 8000 18 9970"
+        }
+      ]
+    }
+  ],
+  "stores": {
+    "title": "Asistencia IKE",
+    "android": "com.ike.asistencia",
+    "ios": "485811292"
+  }
+}

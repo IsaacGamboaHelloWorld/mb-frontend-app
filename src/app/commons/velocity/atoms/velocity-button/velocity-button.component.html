@@ -1,0 +1,13 @@
+<button [type]="type" class="{{ class }} {{ nameTypeClass }}"
+        [ngClass]="{'btn-loading': isLoading }"
+        [disabled]="disabled" [id]="id" (click)="actionButton.emit()">
+  <div class="text-container">
+    <span [innerHTML]="text" class="vel-text-semibold"></span>
+    <i *ngIf="!!icon" class="{{icon}}"></i>
+  </div>
+  <small class="loading-dots">
+    <span class="dot-btn"></span>
+    <span class="dot-btn"></span>
+    <span class="dot-btn"></span>
+  </small>
+</button>

@@ -1,0 +1,20 @@
+<div class="cont-header-qr">
+  <app-custom-header>
+    <div left>
+      <i class="{{iconLeft(2)}}" (click)="backCustom()"></i>
+    </div>
+    <div center>
+      <p>{{title}}</p>
+    </div>
+    <div right>
+      <i class="{{iconRight(2)}}" (click)="openModal()"></i>
+    </div>
+  </app-custom-header>
+
+  <div class="shadow-qr"
+       [class.show]="animation.showShadow | async"
+       (click)="animation.setActionClick()"></div>
+</div>
+<ion-content class="feature-template-container cont-qr">
+  <router-outlet></router-outlet>
+</ion-content>

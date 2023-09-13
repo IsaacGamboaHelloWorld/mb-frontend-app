@@ -1,0 +1,71 @@
+@import mixins
+
+.velocity-message
+  padding: 16px 24px
+  border-radius: 12px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08)
+  background-color: var(--vel-color-neutral-light-10)
+  position: relative
+  &.message-read
+    .velocity-message-title
+      span
+        color: var(--vel-color-neutral-mid-90)
+      small
+        display: none
+    .velocity-message-date,
+    .velocity-message-description
+      color: var(--vel-color-neutral-mid-90)
+  &-left,
+  &-content
+    +inline(middle)
+  &-left
+    width: 32px
+    position: relative
+    text-align: center
+  &-icon
+    width: 32px
+    height: 32px
+    background: var(--vel-color-accent-o-100)
+    border-radius: 50%
+    +flex(inline-flex, center, center)
+    i
+      font-size: 20px
+      color: var(--vel-color-accent-o-700)
+  &-content
+    width: calc(100% - 32px)
+    padding-left: 15px
+  &-title
+    position: relative
+    min-height: 28px
+    span
+      font-size: 14px
+      font-weight: 600
+      line-height: 2
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      display: inline-block
+      vertical-align: middle
+      max-width: calc(100% - 80px)
+    small
+      width: 8px
+      height: 8px
+      background: var(--vel-info-600)
+      +inline(middle)
+      margin-left: 8px
+      border-radius: 50%
+  &-description
+    font-size: 12px
+    font-weight: 500
+    line-height: 2
+    color: var(--vel-color-neutral-mid-200)
+  &-date
+    position: absolute
+    right: 24px
+    top: 23px
+    font-size: 11px
+    color: var(--vel-info-600)
+    font-weight: 500
+
+
+

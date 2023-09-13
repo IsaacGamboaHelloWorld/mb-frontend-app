@@ -1,0 +1,82 @@
+<form class="new-payment-to-who-not-registered form-global-template"
+      [formGroup]="formToWhoPayment"
+      (ngSubmit)="submitForm()">
+  <div>
+    <ion-item class="hidden-element">
+      <ion-label>¿{{'PAYMENT.NOT_REGISTERED.TO_WHO.FROM' | translate}}?</ion-label>
+      <ion-select
+        formControlName="from"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'PAYMENT.NOT_REGISTERED.TO_WHO.FROM' | translate}}</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="showButtonProductActive$ | async"
+          [isError]="isErrorCardActive"
+          (actionBtn)="changeAccount(hiddenElement)"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'PAYMENT.NOT_REGISTERED.TO_WHO.TO' | translate}}</ion-label>
+      <div class="cont-form-groups">
+        <velocity-button
+          class="btn-secondary medium"
+          [type]="'button'"
+          [text]="'PAYMENT.NOT_REGISTERED.TO_WHO.SCAN_BARCODE' | translate"
+          [id]="'payment-scan-barcode'"
+          (actionButton)="openBarcode()"
+          [disabled]="scanBarcode">
+        </velocity-button>
+        <div class="middle-line">
+          <div class="separator-line"></div>
+          <p>O</p>
+        </div>
+        <div class="form-group margin-b-23">
+          <ion-label class="new-text-body-2">{{'PAYMENT.NOT_REGISTERED.TO_WHO.COMPANY' | translate}}</ion-label>
+          <div class="input-agreement-finder" (click)="openFinder()">
+            <p class="text-wrap-ellipsis">{{(company.value?.entityName || company?.value?.billerName) | uppercase}}</p>
+            <i class="icon-vel-search"></i>
+          </div>
+        </div>
+        <div class="form-group">
+          <ion-label class="new-text-body-2">{{'PAYMENT.NOT_REGISTERED.TO_WHO.REFERENCE' | translate}}</ion-label>
+          <app-cont-error [control]="reference">
+            <ion-input
+              clearInput="true"
+              type="text"
+              inputmode="numeric"
+              formControlName="reference"
+              appOnlyNumbers
+            ></ion-input>
+          </app-cont-error>
+        </div>
+      </div>
+    </div>
+    <div class="margin-b-32 p-lr-global">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="'COST_TRANSACTION.VALUE' | translate"
+      ></velocity-transaction-cost>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formToWhoPayment.invalid || (detailBiller$ | async)?.loading"
+                     [isLoading]="(detailBiller$ | async)?.loading"
+                     [id]="'payment-loan-step-one'">
+    </velocity-button>
+  </div>
+</form>

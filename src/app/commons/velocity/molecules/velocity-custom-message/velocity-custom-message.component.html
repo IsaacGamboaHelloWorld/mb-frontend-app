@@ -1,0 +1,27 @@
+<div class="velocity-custom-message" [class.card-disabled]="deactivate" (click)="viewCard.emit()" *ngIf="!isLoading">
+  <div class="velocity-custom-message-left">
+    <div class="velocity-custom-message-icon">
+      <i class="{{icon}}"></i>
+    </div>
+  </div>
+  <div class="velocity-custom-message-content">
+    <div class="velocity-custom-message-title">
+      <span>
+        {{title | translate}}
+      </span>
+    </div>
+    <p class="velocity-custom-message-description">
+      {{description | translate}}
+    </p>
+  </div>
+</div>
+<ng-container *ngIf="isLoading">
+  <div class="vel-card-custom-loading">
+    <div class="skeleton-global vel-card-custom-loading-img">
+    </div>
+    <div class="skeleton-global vel-card-custom-loading-skeleton-info">
+      <strong class="skeleton width-100"></strong>
+      <strong class="skeleton width-70"></strong>
+    </div>
+  </div>
+</ng-container>

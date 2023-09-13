@@ -1,0 +1,21 @@
+{
+  "appId": "com.myionictest.mobile",
+  "appName": "Banco Popular",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "server": {
+    "hostname": "mi.bancopopular.com.co",
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "backgroundColor": "#11B719",
+      "androidScaleType": "CENTER_CROP"
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    }
+  }
+}

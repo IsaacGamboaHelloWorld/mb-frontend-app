@@ -1,0 +1,33 @@
+<app-custom-header>
+  <div left></div>
+  <div center>
+    <p>{{'PUSH_NOTIFICATION.TITLE' | translate}}</p>
+  </div>
+  <div right>
+    <i class="icon-vel-essential-delete-2" (click)="back()"></i>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <div class="header-complement complement-size-md">
+    <div class="p-lr-global">
+      <div class="white-container" *ngIf="enable$ | async as register">
+        <velocity-image-title [img]="'/notifications.png' | imageCdn"
+                              [title]="'PUSH_NOTIFICATION.DESCRIPTION' | translate"></velocity-image-title>
+        <section class="notification-content">
+          <div>
+            <strong>{{'PUSH_NOTIFICATION.TITLE' | translate}}</strong>
+            <p>{{(register?.enable ? 'PUSH_NOTIFICATION.ENABLE' : 'PUSH_NOTIFICATION.DISABLED') | translate}}</p>
+          </div>
+          <div>
+            <velocity-checkbox-slide
+              [id]="'push-notification'"
+              [check]="register?.enable"
+              (stateCheck)="toggleCheck(register?.enable)"
+            ></velocity-checkbox-slide>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</ion-content>

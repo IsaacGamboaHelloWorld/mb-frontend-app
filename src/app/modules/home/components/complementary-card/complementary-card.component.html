@@ -1,0 +1,19 @@
+<section class="complementary-card vel-elevation-b-z4 animated loop invert-zoom">
+  <div class="container-title">
+    <p class="vel-text-body-1 vel-text-semibold text-title">{{'CARD_COMPLEMENTARY.TITLE' | translate}}</p>
+    <app-lottie-animation class="lottie"
+                          [width]="'64px'"
+                          [height]="'64px'"
+                          [path]="'/assets/images/Rocket.json'"
+                          [loop]="true">
+    </app-lottie-animation>
+  </div>
+  <p class="vel-text-body-3 text-description">{{'CARD_COMPLEMENTARY.DESCRIPTION' | translate}}</p>
+  <div class="text-right">
+    <velocity-button [text]="'CARD_COMPLEMENTARY.TEXT_LINK' | translate" type='text'
+                     class="text-primary vel-text-action-3"
+                     icon="icon-vel-arrows-diagrams-right-4"
+                     (click)="navigateToExperience()">
+    </velocity-button>
+  </div>
+</section>

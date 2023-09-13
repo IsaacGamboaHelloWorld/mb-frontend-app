@@ -1,0 +1,59 @@
+@import 'mixins'
+
+.vel-line-time
+  width: 100%
+  display: block
+  .line
+    width: 80%
+    display: block
+    background: var(--vel-color-neutral-mid-80)
+    height: 2px
+    position: relative
+    margin: 0 auto
+    bottom: -13px
+  ul
+    +flex(flex, center, space-between)
+    position: relative
+    span
+      width: 24px
+      height: 24px
+      border-radius: 50%
+      background: var(--vel-color-carbon-light-400)
+      border: 1px solid var(--vel-color-carbon-mid-100)
+      position: relative
+      transition: .3s
+      font-size: 12px
+      font-weight: 600
+      +flex(flex, center, center)
+      color: var(--vel-color-carbon-mid-600)
+      i
+        font-size: 26px
+    p
+      font-weight: 500
+      margin-top: 8px
+      font-size: 13px
+      color: var(--vel-color-carbon-mid-600)
+    li
+      text-align: center
+      div
+        +inline(middle)
+        padding: 0 5px
+        background: var(--vel-color-neutral-light-10)
+      &.active-step
+        span
+          color: var(--vel-color-accent-600)
+          box-shadow: 0 2px 4px 0 rgba(255, 160, 37, 0.2)
+          border-color: var(--vel-color-accent-400)
+          background: rgba(255, 193, 43, 0.2)
+        p
+          font-weight: 600
+          color: var(--vel-color-carbon-900)
+      &.success-step
+        span
+          background: var(--vel-color-primary-g-500)
+          border-color: var(--vel-color-primary-g-500)
+          color: var(--vel-color-neutral-light-10)
+        p
+          font-weight: 600
+          color: var(--vel-color-carbon-900)
+

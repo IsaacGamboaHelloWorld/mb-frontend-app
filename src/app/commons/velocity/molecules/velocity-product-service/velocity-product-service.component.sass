@@ -1,0 +1,49 @@
+.vel-prod-service
+  text-align: center
+  cursor: pointer
+  .vel-prod-cont-img
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 64px
+    height: 64px
+    border-radius: 32px
+    margin: 0 auto 10px
+    background: var(--vel-color-neutral-light-10)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14)
+    font-size: 24px
+    color: var(--vel-color-primary-g-600)
+    &.not-permission,
+    &.disabled
+      .icon-shadow
+        display: none
+    &.not-permission
+      background: var(--vel-color-neutral-light-10)
+      color: var(--vel-color-neutral-mid-90)
+      span
+        color: var(--vel-color-neutral-mid-90)
+    &.disabled
+      background: var(--vel-color-neutral-light-10)
+      box-shadow: inherit
+      color: var(--vel-color-neutral-mid-80)
+      span
+        color: var(--vel-color-neutral-mid-80)
+    .service-icon
+      z-index: 1
+    .icon-shadow
+      display: block
+      color: var(--vel-color-primary-g-100)
+      position: absolute
+      font-size: 24px
+      top: 50%
+      left: 50%
+      transform: translate(calc(-50% + 2px), calc(-50% + 2px))
+  span
+    font-size: 11px
+    font-weight: 500
+    color: var(--vel-color-neutral-dark-800)
+    &.not-permission
+      color: var(--vel-color-neutral-mid-90)
+    &.disabled
+      color: var(--vel-color-neutral-mid-80)

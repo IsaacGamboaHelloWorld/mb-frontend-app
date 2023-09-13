@@ -1,0 +1,334 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  vertical-align: baseline
+  font-weight: normal
+  box-sizing: border-box
+  outline: none
+
+\:root[mode=ios],
+\:root[mode=md]
+  --ion-font-family: 'Inter' !important
+  font-family: 'Inter' !important
+
+img
+  vertical-align: top
+  font-size: 0
+
+app-layout
+  background-color: var(--vel-color-neutral-light-20)
+
+ion-content
+  --ion-background-color: var(--vel-color-neutral-light-20)
+  --keyboard-offset: 0 !important
+
+.ion-page
+  background: var(--vel-color-neutral-light-20)
+
+ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+p
+  margin: 0
+
+.decimal-numbers
+  display: inline-block
+  color: var(--vel-color-neutral-mid-90)
+
+.capitalize
+  text-transform: capitalize
+
+
+.skeleton-global
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    height: 100%
+    width: 500px
+    top: 0
+    left: -500px
+    background-image: linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.6),hsla(0,0%,100%,0))
+    animation: skeleton-progress 1.2s ease-in-out infinite
+
+.skeleton-box
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+  background-color: var(--white)
+
+.skeleton
+  +skeleton()
+  &.width-10
+    width: 10%
+  &.width-20
+    width: 20%
+  &.width-30
+    width: 30%
+  &.width-40
+    width: 40%
+  &.width-50
+    width: 50%
+  &.width-60
+    width: 60%
+  &.width-70
+    width: 70%
+  &.width-80
+    width: 80%
+  &.width-90
+    width: 90%
+
+.link
+  color: var(--vel-color-accent-o-900)
+  font-size: 15px
+  font-weight: 600
+  cursor: pointer
+  i
+    display: inline-block
+    vertical-align: middle
+
+.hidden-element
+  overflow: hidden
+  height: 0
+
+.alert-title
+  &.sc-ion-alert-ios,
+  &.sc-ion-alert-md
+    line-height: normal
+
+.alert-button
+  &.sc-ion-alert-ios,
+  &.sc-ion-alert-md
+    text-transform: initial
+
+.fixed-btn
+  position: fixed
+  z-index: 3
+  bottom: 0
+  left: 0
+  right: 0
+  padding: 28px var(--vel-grid-padding)
+  background: var(--vel-color-neutral-light-20)
+  -webkit-backface-visibility: hidden
+
+body.relative-button
+  .fixed-btn
+    position: relative
+    padding: 0
+    background: transparent
+
+ion-toast
+  --box-shadow: none
+  --border-radius: 6px
+  --border-style: solid
+  --border-width: 1px
+  --start: 16px
+  --end: 16px
+  --color: var(--vel-color-carbon-900)
+  top: 32px
+  &::part(container)
+    padding-left: 36px
+    padding-top: 2px
+    .toast-content
+      padding-top: 16px
+    &::after
+      content: ''
+      position: absolute
+      width: 4px
+      height: 24px
+      border-radius: 2px
+      margin: 16px 12px 0 4px
+      top: 0
+      left: 0
+    &::before
+      font-family: 'velocity-icons'
+      position: absolute
+      left: 20px
+      font-size: 16px
+      width: 24px
+      height: 24px
+      border-radius: 50%
+      text-align: center
+      margin: 16px 8px 0 0
+      top: 0
+      display: flex
+      justify-content: center
+      align-items: center
+  &::part(message)
+    font-size: 12px
+    font-weight: 500
+    line-height: 24px
+
+.error-toast
+  --background: var(--vel-color-s-error-light)
+  --border-color: var(--vel-color-s-error-100)
+  &::part(container)
+    &::after
+      background-color: var(--vel-error)
+    &::before
+      content: '\e931'
+      background-color: var(--vel-color-s-error-100)
+      color: var(--vel-error)
+
+.success-toast
+  --background: var(--vel-color-s-success-light)
+  --border-color: var(--vel-color-s-success-100)
+  &::part(container)
+    &::after
+      background-color: var(--vel-color-s-success-400)
+    &::before
+      content: '\e933'
+      background-color: var(--vel-color-s-success-100)
+      color: var(--vel-color-s-success-400)
+
+.warning-toast
+  --background: var(--vel-color-s-warning-light)
+  --border-color: var(--vel-color-s-warning-100)
+  &::part(container)
+    &::after
+      background-color: var(--vel-color-s-warning-600)
+    &::before
+      content: '\e934'
+      background-color: var(--vel-color-s-warning-100)
+      color: var(--vel-color-s-warning-600)
+
+.info-toast
+  --background: var(--vel-color-s-info-light)
+  --border-color: var(--vel-color-s-info-100)
+  &::part(container)
+    &::after
+      background-color: var(--vel-color-s-info-600)
+    &::before
+      content: '\e932'
+      background-color: var(--vel-color-s-info-100)
+      color: var(--vel-color-s-info-600)
+
+.form-global-template
+  +flex(flex, $justify-content: space-between, $flex-direction: column)
+  height: 100%
+
+.overflow-content
+  overflow-y: auto
+  overflow-x: hidden
+  z-index: 1
+
+.header-complement
+  position: relative
+  padding-top: 10px
+  z-index: 0
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    border-radius: 0 0 32px 32px
+    background: var(--vel-color-primary-g-500)
+    z-index: -1
+
+.header-complement
+  &::before
+    height: 58px
+  &.complement-size-md
+    &::before
+      height: 94px
+  &.complement-size-ls
+    &::before
+      height: 110px
+  &.complement-size-l
+    &::before
+      height: 118px
+  &.complement-size-xl
+    &::before
+      height: 194px
+  &.complement-size-xxl
+    &::before
+      height: 220px
+
+.p-lr-global
+  padding-left: var(--vel-grid-padding)
+  padding-right: var(--vel-grid-padding)
+
+.template-submit-btn
+  padding-top: var(--vel-grid-padding)
+
+.feature-template-container
+  position: relative
+
+.default-modal
+  padding: 26px 0
+  --backdrop-opacity: .7 !important
+  .modal-wrapper
+    background: transparent
+    --box-shadow: inherit
+    box-shadow: inherit
+  .ion-page
+    background: transparent
+    max-width: 324px
+    margin: 0 auto
+  &.position-button
+    padding: 0
+    .ion-page
+      max-width: 100%
+
+.wide-modal
+  padding: 26px 16px
+  --backdrop-opacity: .7 !important
+  .modal-wrapper
+    background: transparent
+    --box-shadow: inherit
+    box-shadow: inherit
+  .ion-page
+    background: transparent
+    margin: 0 auto
+
+.center-modal
+  height: 100%
+  display: flex
+  align-items: center
+  > *
+    width: 100%
+
+.bottom-modal
+  height: 100%
+  display: flex
+  align-items: flex-end
+  > *
+    width: 100%
+
+.text-with-bold
+  strong
+    font-weight: bold
+
+.link
+  font-size: 15px
+  font-weight: 600
+  color: var(--vel-color-accent-o-900)
+  display: inline-block
+
+.orange
+  color: var(--vel-color-accent-o-900)
+
+.content-full
+  height: 100%
+
+.enabled-item
+  &.not-permission
+    opacity: .6
+  &.disabled
+    opacity: .4
+

@@ -1,0 +1,23 @@
+<div class="wrapper {{classError}} {{hasTouched}} {{hasDirty}}"
+     id="c_{{componentKey}}"
+     *ngIf="otpForm?.controls"
+     [class.hasIcon]="hasIcon"
+     [class.has-focus]="hasFocus">
+  <input *ngFor="let item of otpForm?.controls | keysOtp;let i=index"
+         [type]="typeInput"
+         [placeholder]="config?.placeholder || ''"
+         [pattern]="config.allowNumbersOnly ? '\\d*' : ''"
+         [disabledNumberOnly]="!config.allowNumbersOnly"
+         [formControl]="otpForm.controls[item]" id="otp_{{i}}_{{componentKey}}"
+         appNumberOnly
+         class="otp-input"
+         inputmode="numeric"
+         autocomplete="one-time-code"
+         (keydown)="onKeyDown($event)"
+         (keyup)="onKeyUp($event,i)"
+         (focusout)="markAsTouchedControl()"
+         (focusin)="setFocus()">
+  <div class="otp-input-icon-container" *ngIf="hasIcon" (click)="clickIcon.emit()">
+    <i class="{{icon}}"></i>
+  </div>
+</div>

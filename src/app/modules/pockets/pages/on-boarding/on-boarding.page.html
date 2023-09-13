@@ -1,0 +1,79 @@
+<ion-content class="onboarding-contet">
+  <div class="general-container">
+    <ng-container *ngIf="!showingSlides">
+      <div class="onboarding-container prime">
+        <i class="icon-vel-close" (click)="close()"></i>
+        <div class="container-image">
+          <velocity-image-title
+            [img]="'/money-hand.png' | imageCdn"
+            [title]="('POCKETS.ONBOARDING.HELLO' | translate) + ' ' + (userName)"
+            [description]="'POCKETS.ONBOARDING.FIRST_DESCRIPTION' | translate"
+            [big]="true">
+          </velocity-image-title>
+        </div>
+        <div class="margin-t-36">
+          <velocity-button
+            class="btn-secondary medium"
+            [text]="'POCKETS.ONBOARDING.YES' | translate"
+            [id]="'pockets-yes'"
+            (actionButton)="showSlides()">
+          </velocity-button>
+          <a class="link"
+             (click)="showSlides()">{{"POCKETS.ONBOARDING.NO" | translate}}</a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showingSlides">
+      <ion-slides [options]="slideOpts" [pager]="true" class="onboarding-slides">
+        <ion-slide>
+          <div class="onboarding-container">
+            <i class="icon-vel-close" (click)="close()"></i>
+            <div class="container-image">
+              <velocity-image-title
+                [img]="'/money-hands.png' | imageCdn"
+                [title]="'POCKETS.ONBOARDING.SECOND_TITLE' | translate"
+                [description]="'POCKETS.ONBOARDING.SECOND_DESCRIPTION' | translate"
+                [big]="true">
+              </velocity-image-title>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="onboarding-container">
+            <i class="icon-vel-close" (click)="close()"></i>
+            <div class="container-image">
+              <velocity-image-title
+                [img]="'/travel-and-passport.png' | imageCdn"
+                [title]="'POCKETS.ONBOARDING.THIRD_TITLE' | translate"
+                [description]="'POCKETS.ONBOARDING.THIRD_DESCRIPTION' | translate"
+                [big]="true">
+              </velocity-image-title>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="onboarding-container flex-end">
+            <i class="icon-vel-close" (click)="close()"></i>
+            <div class="container-image">
+              <velocity-image-title
+                [img]="'/pocket-hand.png' | imageCdn"
+                [title]="'POCKETS.ONBOARDING.FOURTH_TITLE' | translate"
+                [description]="'POCKETS.ONBOARDING.FOURTH_DESCRIPTION' | translate"
+                [big]="true">
+              </velocity-image-title>
+            </div>
+            <div class="container-button">
+              <velocity-button
+                class="btn-secondary medium"
+                type="submit"
+                [text]="buttonText  | translate"
+                [id]="'pockets-new-pocket'"
+                (actionButton)="goHome()">
+              </velocity-button>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ng-container>
+  </div>
+</ion-content>

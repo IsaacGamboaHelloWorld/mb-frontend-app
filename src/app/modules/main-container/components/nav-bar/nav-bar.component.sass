@@ -1,0 +1,123 @@
+@import mixins
+
+.navbar
+  .qr-shadow
+    position: fixed
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    background: rgba(0, 0, 0, 0.64)
+    z-index: -2
+    opacity: 0
+    visibility: hidden
+    transition: .3s
+    &.show
+      z-index: 2
+      opacity: 1
+      visibility: visible
+  .qr-content
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    background: var(--vel-color-neutral-light-20)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(233, 233, 233, 0.6)
+    border-radius: 12px
+    height: 0
+    opacity: 0
+    visibility: hidden
+    z-index: -1
+    padding: 28px 16px
+    transition: .3s
+    &.show
+      height: 304px
+      z-index: 3
+      opacity: 1
+      visibility: visible
+    &::before
+      width: 32px
+      height: 4px
+      border-radius: 2px
+      background-color: var(--vel-color-neutral-light-60)
+      content: ''
+      position: absolute
+      top: 8px
+      left: 50%
+      margin-left: -16px
+    > p
+      font-size: 18px
+      font-weight: 600
+      line-height: 1.56
+      margin-bottom: 24px
+      text-align: center
+    ul
+      +flex(flex,center, space-between)
+      li
+        width: 48%
+  .wave
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9
+    height: 59px
+    display: flex
+    justify-content: space-between
+    .wave-side
+      height: 100%
+      display: flex
+      flex-grow: 1
+      background-color: var(--vel-color-neutral-light-10)
+      box-shadow: 0 1px 0 0 var(--vel-color-neutral-light-50) inset
+    .wave-curve
+      background-image: url(/assets/images/navbar-shape.svg)
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      width: 118px
+      height: 100%
+      display: flex
+  .navbar-items-container
+    display: flex
+    justify-content: space-between
+    position: absolute
+    width: 100%
+    height: 60px
+    bottom: 0
+    z-index: 10
+    .side-content
+      display: flex
+      flex-direction: row
+      justify-content: space-around
+      width: 40%
+      max-width: 40%
+    .middle-content
+      width: 20%
+      min-width: 78px
+      .qr-button
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 56px
+        width: 56px
+        border-radius: 28px
+        background-color: var(--vel-color-primary-g-500)
+        position: absolute
+        transform: translate(-50%)
+        left: 50%
+        bottom: 28px
+        box-shadow: 0 8px 20px 0 rgba(17, 183, 25, 0.35)
+        i
+          color: var(--vel-color-neutral-light-10)
+          font-size: 28px
+        &:hover
+          background-color: var(--vel-color-primary-g-600)
+          box-shadow: none
+        &.not-permission
+          box-shadow: none
+          background-color: var(--vel-color-neutral-mid-90)
+        &:disabled,
+        &.active
+          background-color: var(--vel-color-neutral-mid-100)
+          box-shadow: none

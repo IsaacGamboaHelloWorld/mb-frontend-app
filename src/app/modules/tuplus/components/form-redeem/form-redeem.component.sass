@@ -1,0 +1,48 @@
+@import 'mixins'
+.form-where-to-redeem
+  +flex(flex, inherit, center, column)
+
+  &-header-balance
+    +flex(flex, center, flex-start, row)
+
+  &-input-points
+    .text-amount
+      color: var(--vel-color-carbon-600)
+      font-size: 12px
+      font-weight: 400
+
+  &-info-redeem
+    color: var(--vel-color-carbon-600)
+    font-size: 12px
+    line-height: 17px
+
+  &-where
+    width: 100%
+    +flex(flex, flex-start, inherit, column)
+
+    .places-container
+      width: 100%
+
+      ion-radio-group
+        display: flex
+        justify-content: space-between
+
+        li
+          width: calc(50% - 4px)
+
+.registered-account
+  +scrollHorizontal()
+  padding: 4px 16px 10px
+
+  li
+    width: 256px
+    margin-right: 8px
+    +inline(middle)
+
+  li:last-child
+    margin-right: 0
+
+
+.container-otp-tuplus
+  height: 100%
+  +flex(flex, center, center, row)

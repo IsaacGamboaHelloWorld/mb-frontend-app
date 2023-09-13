@@ -1,0 +1,145 @@
+<app-custom-header>
+  <div left></div>
+  <div center>
+    <p>{{(toggle ? 'BLOCK_PRODUCT.TITLE_PRODUCTS': 'BLOCK_PRODUCT.TITLE') | translate}}</p>
+  </div>
+  <div right>
+    <i class="icon-vel-essential-delete-2" (click)="back()"></i>
+  </div>
+</app-custom-header>
+
+<ion-content class="content-block-products">
+  <div class="header-complement" [class.complement-size-xl]="!toggle">
+    <div class="p-lr-global cont-info-block">
+      <div class="cont-toggle-active">
+        <velocity-toggle-label
+          [textOne]="'BLOCK_PRODUCT.TOGGLE.CARD' | translate"
+          [textTwo]="'BLOCK_PRODUCT.TOGGLE.ACCOUNT' | translate"
+          [check]="toggle"
+          (actionClick)="setToggle()"
+        ></velocity-toggle-label>
+      </div>
+
+      <div class="overflow-content">
+        <div class="cont-list-credit-card" *ngIf="!toggle">
+          <div class="animated fade-in-up">
+            <ng-container *ngIf="{credit: hasCreditCard$ | async, debit: hasDebitCard$ | async} as values;">
+              <ng-container *ngIf="values.debit || values.credit; else emptyCreditCard">
+                <div class="cont-form-groups">
+                  <div *ngIf="hasCreditCard$ | async">
+                    <p class="title-type">{{'PRODUCT_TYPES.CREDIT_CARD' | translate}}
+                      <span>{{lengthCreditCard$ | async}}</span></p>
+                    <ul>
+                      <li *ngFor="let product of (creditCards$ | async)">
+                        <velocity-card-credit-card
+                          (actionOptions)="actionClickProduct(product.status, product.id, product.typeAccount)"
+                          [title]="('PRODUCT_TYPES.CREDIT' | translate) + ' ' + (product?.id | typeCreditCard).typeClass"
+                          [type]="(product?.id | typeCreditCard).typeClass"
+                          [img]="(product?.id | typeCreditCard).imgBig | imageCdn"
+                          [chip]="'/chip.png' | imageCdn"
+                          [titleDate]="'ACTIVE_CREDIT_CARD.CARD.DATE' | translate"
+                          [date]="product?.dueDate | date:  'MM/yy'"
+                          [number]="product?.id |slice: -4"
+                        ></velocity-card-credit-card>
+                      </li>
+                    </ul>
+                  </div>
+                  <div *ngIf="hasDebitCard$ | async" class="animated fade-in-up">
+                    <p class="title-type margin-t-28">{{'PRODUCT_TYPES.DEBIT_CARD' | translate}}
+                      <span>{{lengthDebitCard$ | async}}</span></p>
+                    <ul>
+                      <li *ngFor="let debitCard of (debitCards$ | async)">
+                        <velocity-card-credit-card
+                          (actionOptions)="actionClickProduct('ACTIVE', debitCard?.card?.cardId, debitCard?.card?.cardType)"
+                          [title]="('BLOCK_PRODUCT.TITLE_DEBIT_CARD' | translate) + ' ' + (debitCard?.card?.cardId | typeCreditCard).typeClass"
+                          [type]="'classic'"
+                          [img]="'/visa-big.png' | imageCdn"
+                          [chip]="'/chip.png' | imageCdn"
+                          [titleDate]="'ACTIVE_CREDIT_CARD.CARD.DATE' | translate"
+                          [number]="debitCard?.card?.cardId |slice: -4"
+                        ></velocity-card-credit-card>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <div class="cont-list-credit-card" *ngIf="toggle">
+          <div class="animated fade-in-up">
+            <ng-container *ngIf="hasAccounts$ | async; else emptyAccounts">
+              <div *ngIf="(hasTypeAccount$('deposit') | async)">
+                <p class="title-type">{{'PRODUCT_TYPES.DEPOSIT_ACCOUNT' | translate}}
+                  <span>{{lengthAccounts$('deposit') | async}}</span></p>
+                <ul>
+                  <li *ngFor="let product of (obtainAcounts$('deposit') | async)">
+                    <velocity-card-account [title]="product?.nameAccount" [accountIcon]="'icon-vel-money-box-b'"
+                                           [descriptionAmount]="('PRODUCTS.DEPOSIT_ACCOUNT.BALANCE_AVAILABLE' | translate)"
+                                           [amount]="(product?.productAccountBalances?.saldo_disponible?.amount | currency)"
+                                           [number]="product?.id.substr((product?.id?.length - 4), product?.id?.length)"
+                                           [typeCard]="typeCardAccount(product?.status, product?.accountInformation?.productType)"
+                                           [textOption]="textStatusAccount(product?.status)"
+                                           (clickOption)="actionClickAccount(product.status, product.id, product.typeAccount)"></velocity-card-account>
+                  </li>
+                </ul>
+              </div>
+              <div class="margin-t-28" *ngIf="(hasTypeAccount$('current') | async)">
+                <p class="title-type">{{'PRODUCT_TYPES.CURRENT_ACCOUNT' | translate}}
+                  <span>{{lengthAccounts$('current') | async}}</span></p>
+                <ul>
+                  <li *ngFor="let product of (obtainAcounts$('current') | async)">
+                    <velocity-card-account [title]="product?.nameAccount" [accountIcon]="'icon-vel-money'"
+                                           [descriptionAmount]="('PRODUCTS.DEPOSIT_ACCOUNT.BALANCE_AVAILABLE' | translate)"
+                                           [amount]="(product?.productAccountBalances?.saldo_disponible?.amount | currency)"
+                                           [number]="product?.id.substr((product?.id?.length - 4), product?.id?.length)"
+                                           [typeCard]="typeCardAccount(product?.status, product?.accountInformation?.productType)"
+                                           [textOption]="textStatusAccount(product?.status)"
+                                           (clickOption)="actionClickAccount(product.status, product.id, product.typeAccount)"></velocity-card-account>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="padding-b-32">
+          <velocity-info-with-lines [text]="'BLOCK_PRODUCT.LINE' | translate"
+                                    (actionClick)="openBrowser(urlDenunciation)"></velocity-info-with-lines>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #emptyCreditCard>
+  <div class="empty-list-card cont-form-groups">
+    <div>
+      <velocity-image-title
+        [img]="'/credit-card.png' | imageCdn"
+        [title]="'ACTIVE_CREDIT_CARD.EMPTY.TITLE' | translate"
+        [description]="'ACTIVE_CREDIT_CARD.EMPTY.DESCRIPTION' | translate"
+      ></velocity-image-title>
+      <velocity-button
+        [class]="'btn btn-secondary medium margin-t-36'"
+        (click)="openBrowser(urlCreditCard)"
+        [text]="'ACTIVE_CREDIT_CARD.EMPTY.BTN' | translate"></velocity-button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #emptyAccounts>
+  <div class="empty-list-card cont-form-groups">
+    <div>
+      <velocity-image-title
+        [img]="'/credit-card.png' | imageCdn"
+        [title]="'ACTIVE_CREDIT_CARD.EMPTY.TITLE' | translate"
+        [description]="'BLOCK_PRODUCT.EMPTY_ACCOUNT.DESCRIPTION' | translate"
+      ></velocity-image-title>
+      <velocity-button
+        [class]="'btn btn-secondary medium margin-t-36'"
+        (click)="openBrowser(urlAccounts)"
+        [text]="'BLOCK_PRODUCT.EMPTY_ACCOUNT.BTN' | translate"></velocity-button>
+    </div>
+  </div>
+</ng-template>
+

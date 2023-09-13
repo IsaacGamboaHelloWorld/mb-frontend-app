@@ -1,0 +1,11 @@
+<a class="velocity-link {{class}}"
+        [class.link-loading]="isLoading"
+        [class.disabled]="disabled"
+        [id]="id" (click)="emit()">
+  {{ text }}
+  <small class="loading-dots-link">
+    <span class="dot-btn-link"></span>
+    <span class="dot-btn-link"></span>
+    <span class="dot-btn-link"></span>
+  </small>
+</a>

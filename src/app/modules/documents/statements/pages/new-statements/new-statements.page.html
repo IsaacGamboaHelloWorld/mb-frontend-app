@@ -1,0 +1,100 @@
+<app-custom-header size='medium'>
+  <div left>
+    <i class='icon-vel-arrow-left-s' (click)='goHome()'></i>
+  </div>
+  <div center>
+    <p>{{'DOCUMENTS.STATEMENTS.TITLE' | translate}}</p>
+  </div>
+  <div right>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <form class='form-global-template' [formGroup]='formNewStatements' (ngSubmit)='formSubmit()'>
+    <div class='margin-t-24'>
+      <div class='overflow-content'>
+        <div class='form-group margin-b-28'>
+          <ion-label class='label-global p-lr-global'>{{'DOCUMENTS.STATEMENTS.PRODUCTS_LABEL' | translate}}</ion-label>
+          <ul class='products-small-card-list'>
+            <ion-radio-group formControlName='selectedProduct'>
+              <li *ngFor='let product of (products$ | async); let i = index'>
+                <velocity-product-card-small
+                  [info]='infoProductCardSmall(product)'
+                  [id]="'card-product-small-' + (product.typeAccount | lowercase) + '-' + i"
+                  [control]='selectedProduct'
+                  [value]='product'
+                ></velocity-product-card-small>
+              </li>
+            </ion-radio-group>
+          </ul>
+        </div>
+
+        <div class='margin-b-32 p-lr-global'>
+          <ng-container *ngIf='hasSelectedProduct'>
+            <ion-label class='label-global'>{{'DOCUMENTS.STATEMENTS.PERIOD_LABEL' | translate}}</ion-label>
+            <ng-container *ngIf='hasPeriods$ | async; else loadingOrError'>
+              <div class='cont-form-groups'>
+                <div class='form-group margin-b-24'>
+                  <ion-select
+                    mode='md'
+                    formControlName='period'
+                    interface='action-sheet'
+                    [class.error]='(periods$ | async)?.error'
+                    cancelText="{{'CANCEL' | translate}}"
+                    [attr.disabled]='(periods$ | async)?.loading || (periods$ | async)?.error'
+                    [placeholder]="'STATEMENTS.DEFAULT_OPTION' | translate">
+                    <ion-select-option *ngFor='let period of (periods$ | async)?.periods' [value]='period'>
+                      {{period.periodName | titlecase}}
+                    </ion-select-option>
+                  </ion-select>
+                </div>
+                <div class='form-group'>
+                  <velocity-toast
+                    [type]="'toast-normal'"
+                    [description]="'DOCUMENTS.STATEMENTS.INFO_MESSAGE' | translate"
+                    [icon]="'icon-vel-notification-bell'"
+                  ></velocity-toast>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div *ngIf='hasSelectedProduct && periods$' class='template-submit-btn p-lr-global padding-b-16'>
+      <velocity-button class='btn-primary'
+                       [text]="((statementsFile$ | async)?.error ? 'DOCUMENTS.STATEMENTS.RETRY_BTN': 'DOCUMENTS.STATEMENTS.DOWNLOAD_BTN') | translate"
+                       [type]="'submit'"
+                       [disabled]='(statementsFile$ | async)?.loading || formNewStatements.invalid'
+                       [isLoading]='(statementsFile$ | async)?.loading'
+                       [id]="'download-statement-btn'">
+      </velocity-button>
+    </div>
+  </form>
+</ion-content>
+
+<ng-template #loadingOrError>
+  <div class='cont-form-groups statements-cont-periods-loading' *ngIf='(periods$ | async)?.loading'>
+    <div class='skeleton-global'>
+      <div class='statements-periods-skeleton-content'>
+        <p class='skeleton width-60'></p>
+        <p class='skeleton width-100'></p>
+        <p class='skeleton width-90'></p>
+      </div>
+      <div>
+        <p class='skeleton width-60'></p>
+        <p class='skeleton width-100'></p>
+        <p class='skeleton width-90'></p>
+      </div>
+    </div>
+  </div>
+  <div class='cont-form-groups error-periods' *ngIf='!(periods$ | async)?.loading && (periods$ | async)?.error'>
+    <velocity-modal-leave
+      [icon]="'icon-vel-face-wrong'"
+      [iconType]="'error'"
+      [title]="'DOCUMENTS.STATEMENTS.ERROR.TITLE' | translate"
+      [description]="'DOCUMENTS.STATEMENTS.ERROR.DESCRIPTION' | translate"
+      [firstBtn]="'DOCUMENTS.STATEMENTS.ERROR.BTN' | translate"
+    ></velocity-modal-leave>
+  </div>
+</ng-template>

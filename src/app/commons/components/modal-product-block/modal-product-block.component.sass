@@ -1,0 +1,47 @@
+@import mixins
+
+.modal-product-block
+  background: var(--vel-color-neutral-light-10)
+  padding: 24px
+  border-radius: 12px
+  position: relative
+  text-align: center
+  &-icon
+    width: 48px
+    height: 48px
+    +flex(flex, center, center)
+    border-radius: 50%
+    margin: 0 auto 12px
+    font-size: 32px
+    &.success
+      background: var(--vel-color-success-100)
+      color: var(--vel-color-primary-g-500)
+    &.warning
+      background: var(--vel-color-warning-100)
+      color: var(--vel-color-warning-400)
+    &.error
+      background: var(--vel-color-error-100)
+      color: var(--vel-color-error-800)
+    &.information
+      background: var(--vel-color-info-100)
+      color: var(--vel-color-info-600)
+  > strong
+    font-size: 16px
+    font-weight: 600
+    line-height: 1.5
+    margin: 16px 0 12px
+    display: block
+  &-subtitle
+    font-size: 14px
+    font-weight: 600
+    margin-bottom: 12px
+    line-height: 2
+    display: block
+  p
+    font-size: 13px
+    line-height: 2.15
+    margin-bottom: 8px
+    a
+      font-weight: 600
+  .margin-top
+    margin-top: 16px

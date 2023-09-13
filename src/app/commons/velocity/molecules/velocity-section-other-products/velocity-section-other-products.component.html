@@ -1,0 +1,14 @@
+<div class="velocity-section-other-products">
+  <div class="velocity-section-other-products-info">
+    <img [src]="img" [alt]="title" *ngIf="hasImg">
+    <span>{{title}}</span>
+    <p>{{description}}</p>
+  </div>
+  <div class="velocity-section-other-products-toggle">
+    <velocity-checkbox-slide
+      size="tiny"
+      (stateCheck)="actionClick.emit()"
+      [disabled]="disabled"
+      [check]="check"></velocity-checkbox-slide>
+  </div>
+</div>

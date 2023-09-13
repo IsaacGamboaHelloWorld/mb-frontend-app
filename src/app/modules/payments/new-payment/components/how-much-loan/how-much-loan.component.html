@@ -1,0 +1,76 @@
+<form class="new-payment-how-much-loan form-global-template"
+      [formGroup]="formHowMuchLoan" (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+
+    <div class="form-group margin-b-28" *ngIf="isTC && (hasProduct$ | async)">
+      <ion-label class="text-body-2">{{'PAYMENT.LOANS.HOW_MUCH.OPTION_ONE' | translate}}</ion-label>
+      <ul *ngIf="product$ | async as product" class="amount-loans">
+        <ion-radio-group formControlName="type">
+          <li (click)="changeOtherValue(false)">
+            <velocity-value-loan
+              [title]="'PAYMENT.LOANS.HOW_MUCH.MIN' | translate"
+              [valueCurrency]="(product?.productAccountBalances?.valor_pago_minimo?.amount || 0) | currencyFormat"
+              [control]="type"
+              [value]="types.MIN"
+            ></velocity-value-loan>
+          </li>
+          <li (click)="changeOtherValue(false)">
+            <velocity-value-loan
+              [title]="'PRODUCTS.CREDIT_CARD.FULL_PAYMENT' | translate"
+              [valueCurrency]="(product?.productAccountBalances?.pago_total_pesos?.amount || 0) | currencyFormat"
+              [control]="type"
+              [value]="types.TOTAL"></velocity-value-loan>
+          </li>
+          <li>
+            <div class="cont-card-input">
+              <app-cont-error [control]="otherAmount">
+                <velocity-value-loan
+                  (click)="changeOtherValue(true)"
+                  [title]="'Otro Valor'"
+                  [placeholder]="'$'"
+                  *ngIf="!showInput"
+                  [valueCurrency]="otherAmount.value"
+                  [value]="types.OTHER"
+                  [control]="type"></velocity-value-loan>
+                <ion-input
+                  type="text"
+                  clearInput="true"
+                  inputmode="numeric"
+                  placeholder="$"
+                  formControlName="otherAmount"
+                  class="input-other-value"
+                  (focusout)="changeOtherValue(false)"
+                  *ngIf="showInput"
+                  #inputId
+                  appCleave
+                  [cleave]="configCurrency"
+                ></ion-input>
+              </app-cont-error>
+            </div>
+          </li>
+        </ion-radio-group>
+      </ul>
+    </div>
+
+    <div class="form-group margin-b-28" *ngIf="!isTC || !(hasProduct$ | async)">
+      <ion-label class="text-body-2">{{'PAYMENT.LOANS.HOW_MUCH.OPTION_TWO' | translate}}</ion-label>
+      <app-cont-error [control]="amount">
+        <ion-input
+          type="text"
+          clearInput="true"
+          inputmode="numeric"
+          placeholder="$ 0.00"
+          formControlName="amount"
+          appCleave
+          [cleave]="configCurrency"
+        ></ion-input>
+      </app-cont-error>
+    </div>
+  </div>
+
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formHowMuchLoan.invalid" [id]="'payment-how-much-loan'">
+    </velocity-button>
+  </div>
+</form>

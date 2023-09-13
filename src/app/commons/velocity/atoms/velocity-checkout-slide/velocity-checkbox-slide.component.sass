@@ -1,0 +1,74 @@
+@import 'mixins'
+
+.vel-checkbox-slide
+  +inline(top)
+
+  input
+    display: none
+
+  label
+    position: relative
+    padding-left: 42px
+    min-height: 20px
+    cursor: pointer
+    font-size: 12px
+    font-weight: 500
+    color: var(--vel-color-carbon-mid-400)
+
+    &.has-text
+      padding-left: 52px
+
+    &::before,
+    &::after
+      top: 50%
+      transform: translateY(-50%)
+      cursor: pointer
+
+    &::before
+      content: ''
+      position: absolute
+      left: 3px
+      border-radius: 100px
+      background: var(--vel-color-carbon-light-900)
+      width: 40px
+      height: 24px
+
+    &::after
+      content: ''
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      position: absolute
+      left: 6px
+      background: var(--vel-color-carbon-light-100)
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14)
+      transition: .3s
+
+  &.tiny
+    label
+      padding-left: 32px
+
+      &::before
+        height: 20px
+        width: 32px
+
+      &::after
+        width: 16px
+        height: 16px
+
+  &.active
+    label
+      color: var(--vel-color-carbon-dark-600)
+
+      &::after
+        left: 20px
+
+      &::before
+        background: var(--vel-color-primary-600)
+
+    &.tiny
+      label
+        &::after
+          left: 16px
+
+

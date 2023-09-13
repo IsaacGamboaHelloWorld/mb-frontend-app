@@ -1,0 +1,35 @@
+version: "1"
+
+app:
+
+  stacks:
+
+    - stack: 'dev'
+      ios:
+        bundleId: 'com.grupoavalpo.bancamovil'
+        compilationModeRelease: false
+        exportOptionsFile: 'exportOptionsDEV.plist'
+        entitlementsFile: 'entitlementsDEV.plist'
+      android:
+        bundleId: 'co.com.adl.mb.dev.popular'
+        compilationModeRelease: false
+
+    - stack: 'stg'
+      ios:
+        bundleId: 'com.grupoavalpo.bancamovil'
+        compilationModeRelease: false
+        exportOptionsFile: 'exportOptionsSTG.plist'
+        entitlementsFile: 'entitlementsSTG.xml'
+      android:
+        bundleId: 'co.com.adl.mb.stg.popular'
+        compilationModeRelease: false
+
+    - stack: 'pro'
+      ios:
+        bundleId: 'com.grupoavalpo.bancamovil'
+        compilationModeRelease: true
+        exportOptionsFile: 'exportOptionsPRO.plist'
+        entitlementsFile: 'entitlementsPRO.plist'
+      android:
+        bundleId: 'com.grupoavalpo.bancamovil'
+        compilationModeRelease: true

@@ -1,0 +1,99 @@
+@import src/sass/mixins
+
+.movements-filter
+  display: flex
+  align-items: inherit
+  flex-direction: column
+  height: 100%
+  padding-top: 20px
+  padding-top: constant(safe-area-inset-top)
+  padding-top: env(safe-area-inset-top)
+
+  .filters-cont
+    padding-bottom: 24px
+
+  .search-input
+    display: flex
+    padding-top: 16px
+
+    .cancel-btn
+      margin-left: var(--vel-grid-padding)
+      background-color: var(--vel-color-neutral-light-20)
+      color: var(--vel-color-accent-o-900)
+      font-size: 14px
+      font-weight: 500
+
+  .buttons-date-cont
+    display: flex
+
+
+    .delete-btn
+      background-color: var(--vel-color-neutral-light-20)
+      border: solid 1.3px var(--vel-color-primary-g-800)
+      color: var(--vel-color-primary-g-800)
+      padding: 0 16px
+      border-radius: 8px
+      font-size: 13px
+      font-weight: 600
+      margin-left: var(--vel-grid-padding)
+      height: 32px
+      &:disabled
+        border: solid 1.3px var(--vel-color-neutral-mid-90)
+        color: var(--vel-color-neutral-mid-90)
+    ion-segment
+      --background: var(--vel-color-neutral-light-20)
+      +scrollHorizontal()
+      display: block
+      ion-segment-button
+        --background: var(--vel-color-primary-g-100)
+        --background-checked: var(--vel-color-primary-g-600)
+        --border-width: 0
+        --indicator-height: 0
+        --border-radius: 8px
+        --color: var(--vel-color-primary-g-600)
+        --color-checked: var(--vel-color-neutral-light-10)
+        --margin-top: 0
+        --margin-bottom: 0
+        min-height: 32px
+        margin-top: 0
+        margin-bottom: 0
+        min-width: auto
+        font-size: 13px
+        font-weight: 600
+        letter-spacing: normal
+        text-transform: none
+        display: inline-block
+
+    .mr-16
+      margin-right: var(--vel-grid-padding)
+  ion-content
+    --padding-top: 24px
+
+  .movements-content
+    display: flex
+    align-items: inherit
+    flex-direction: column
+    height: 100%
+    border-radius: 24px 24px 0 0
+    background-color: var(--vel-color-neutral-light-10)
+    box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+
+    .result-head
+      padding: 10px var(--vel-grid-padding)
+      border-bottom: 1px solid var(--vel-color-neutral-mid-70)
+      margin-bottom: var(--vel-grid-padding)
+    .result-content
+      padding: var(--vel-grid-padding)
+      padding-top: 0
+
+  .search-image
+    display: flex
+    flex-grow: 1
+    justify-content: center
+    align-items: center
+
+    velocity-image-title
+      max-width: 295px
+
+
+

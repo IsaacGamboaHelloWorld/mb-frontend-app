@@ -1,0 +1,48 @@
+<form class="form-global-template"
+      [formGroup]="formWhen"
+      (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+    <div class="cont-form-groups margin-b-24">
+      <div class="form-group margin-b-28">
+        <ion-label class="text-subtitle-3">{{'POCKETS.CREATE.HOW.PERIODICITY' | translate}}</ion-label>
+        <ul class="periodicity-container margin-t-12">
+          <ion-radio-group formControlName="pocketPeriod">
+            <li *ngFor='let periodicityItem of periodicityItems'>
+              <velocity-operator
+                [name]="periodicityItem.name | translate"
+                [value]="periodicityItem.value"
+                [showImage]="false"
+                [control]="pocketPeriod"
+              ></velocity-operator>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </div>
+      <div class="form-group">
+        <ion-label class="text-body-2">{{'POCKETS.CREATE.HOW.HOW_MUCH' | translate}}</ion-label>
+        <app-cont-error [control]="periodicAmount">
+          <ion-input
+            type="text"
+            clearInput="true"
+            inputmode="numeric"
+            placeholder="$ 0.00"
+            formControlName="periodicAmount"
+            appDetectFocus
+            appCleave
+            [cleave]="configCurrency"
+          ></ion-input>
+        </app-cont-error>
+      </div>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button
+      class="btn-primary"
+      type="submit"
+      [id]="'create-pocket-how-btn'"
+      [text]="((createPocketStatus$ | async)?.error ? 'RETRY': 'POCKETS.CREATE.HOW.BTN_CREATE') | translate"
+      [disabled]="formWhen.invalid"
+      [isLoading]="isLoading$ | async">
+    </velocity-button>
+  </div>
+</form>

@@ -1,0 +1,60 @@
+<div class="vel-card {{class}}" [id]="id">
+  <div class="vel-card-content">
+    <div class="vel-card-account-type">
+      <div class="vel-card-img" *ngIf="hasImg">
+        <img [src]="product.img" [alt]="product.name">
+      </div>
+      <div class="vel-card-account-type-info">
+        <p class="text-subtitle-2 config-text remove-l-h">{{product?.name}}</p>
+        <div class="content-id-eye" [class.shortId]="showHidden">
+          <p class="text-body-2 config-text remove-l-h">{{product?.id}}</p>
+          <div class="icon-cont {{ iconType}}">
+              <i *ngIf="showHidden" class="{{hiddenIcon}}" (click)="toogleHiddenId.emit()"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="hasProduct; else loadingOrError">
+      <div class="vel-card-account-amount">
+        <p class="text-body-1 config-text remove-l-h">{{product?.content?.title}}</p>
+        <strong [innerHTML]="product?.content?.amount"></strong>
+        <small *ngIf="hasAmountSmall">{{product?.content?.amountSmall}}</small>
+      </div>
+      <div class="vel-card-account-view-detail">
+        <a *ngIf="hasLink" [innerHTML]="product?.content?.link" (click)="viewDetail.emit()"></a>
+      </div>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="hasProduct && product?.content?.showFooter">
+    <ng-container *ngTemplateOutlet="footer"></ng-container>
+  </ng-container>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="vel-card-cont-loading-error">
+    <div class="skeleton-global" *ngIf="product?.loading">
+      <div class="vel-card-skeleton-content">
+        <p class="skeleton width-30"></p>
+        <p class="skeleton width-80"></p>
+      </div>
+      <div class="vel-card-skeleton-footer">
+        <div>
+          <p class="skeleton width-60"></p>
+          <p class="skeleton width-100"></p>
+        </div>
+      </div>
+    </div>
+    <div class="error-product" *ngIf="!product?.loading && product?.error">
+      <div>
+        <strong class="text-subtitle-2">{{product?.sectionError?.title}}</strong>
+        <p class="text-body-2">{{product?.sectionError?.description}}</p>
+      </div>
+      <velocity-button
+        class="medium"
+        [class]="product?.sectionError?.typeButton"
+        [text]="product?.sectionError?.textButton"
+        (actionButton)="retry.emit()">
+      </velocity-button>
+    </div>
+  </div>
+</ng-template>

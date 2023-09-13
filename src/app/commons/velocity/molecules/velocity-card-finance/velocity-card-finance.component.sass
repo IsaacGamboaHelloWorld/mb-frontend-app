@@ -1,0 +1,47 @@
+@import '../../../../../sass/mixins'
+
+.vel-card-finance
+  background: var(--vel-color-neutral-light-10)
+  border-radius: 12px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+  padding: 24px 16px
+  min-width: 238px
+  margin-left: 8px
+  display: flex
+  overflow: hidden
+  min-height: 92px
+  +flex(flex, center, flex-start)
+  &-img
+    min-width: 44px
+    height: 44px
+    border-radius: 50%
+    background: var(--vel-color-accent-o-100)
+    +flex(flex, center, center)
+    i
+      color: var(--vel-color-warning-400)
+      font-size: 24px
+  &-info
+    padding-left: 12px
+    text-align: left
+    width: 100%
+    strong
+      font-size: 21px
+      font-weight: 500
+      margin-bottom: 3px
+      display: block
+      span
+        font-weight: 500
+    p
+      color: var(--vel-color-neutral-mid-200)
+  &-skeleton-img
+    min-width: 44px
+    height: 44px
+    border-radius: 50%
+    background: var(--vel-color-neutral-light-40)
+  &-skeleton-info
+    padding: 9px 8px
+    display: flex
+    flex-direction: column
+    width: 100%
+    strong
+      margin: 3px

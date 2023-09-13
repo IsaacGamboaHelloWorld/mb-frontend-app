@@ -1,0 +1,17 @@
+<div class="header-complement p-lr-global complement-size-ls padding-b-16">
+  <div class="white-container error-container">
+    <velocity-image-title
+      [description]="'EXPERIENCE.SERVICE_ERROR.DESCRIPTION' | translate"
+      [img]="'/problemas-tecnicos.png' | imageCdn"
+      [title]="'EXPERIENCE.SERVICE_ERROR.TITLE' | translate"
+      class="image-title">
+    </velocity-image-title>
+    <p class="error-code text-center">{{'EXPERIENCE.SERVICE_ERROR.CODE_ERROR' |
+      translate}}{{errorCode}}</p>
+    <velocity-button
+      (click)="back()"
+      [text]="'EXPERIENCE.SERVICE_ERROR.BUTTON' | translate"
+      class="btn-primary">
+    </velocity-button>
+  </div>
+</div>

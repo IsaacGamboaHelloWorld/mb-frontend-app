@@ -1,0 +1,17 @@
+<div class="center-modal">
+  <div class="vel-modal-leave">
+    <i class="vel-modal-leave-icon {{props?.icon}} {{props?.iconType}}"></i>
+    <strong class="padding-lr-24">{{props?.title}}</strong>
+    <p [innerHTML]="props?.description" class="padding-lr-24"></p>
+    <ng-content></ng-content>
+    <div class="vel-modal-leave-button-width-complete-2 padding-lr-24 margin-top">
+      <a class="link padding-lr-24" (click)="actionButton(typeButtons.secondary)">{{props?.secondBtn}}</a>
+      <velocity-button
+        [text]="props?.firstBtn"
+        [class]="'btn btn-primary medium'"
+        [isLoading]="isLoading$ | async"
+        (actionButton)="blockProduct()"
+      ></velocity-button>
+    </div>
+  </div>
+</div>

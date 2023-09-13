@@ -1,0 +1,9 @@
+<figure [class.vel-image-title-small]="!big" [class.vel-image-title-big]="big">
+  <div class="cont-image" *ngIf="hasImage">
+    <img [src]="img" [alt]="title">
+  </div>
+  <figcaption>
+    <p class="text-subtitle-2" *ngIf="hasTitle">{{title}}</p>
+    <p class="text-body-2" *ngIf="hasDescription" [innerHTML]="description"></p>
+  </figcaption>
+</figure>

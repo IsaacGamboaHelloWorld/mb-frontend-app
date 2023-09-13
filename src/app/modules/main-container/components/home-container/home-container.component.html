@@ -1,0 +1,7 @@
+<app-side-menu *ngIf="!(hiddenNavBar$ | async)" [sideMenuItems]="sideMenuItems"></app-side-menu>ß
+<div id="main-container-ro">
+  <ion-router-outlet></ion-router-outlet>
+  <app-nav-bar *ngIf="!(hasErrorProducts$ | async)"
+               class="position-nav-bar"
+  ></app-nav-bar>
+</div>

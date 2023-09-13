@@ -1,0 +1,18 @@
+<section class="home-finances">
+  <ion-slides pager="false" [options]="slideOpts" class="slider-finance">
+    <ng-container *ngIf="hasFinance; else loadingOrError">
+      <ion-slide class="slide" *ngFor="let finance of finances; trackBy: trackByFn">
+        <velocity-card-finance [finance]="finance"></velocity-card-finance>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+</section>
+
+<ng-template #loadingOrError>
+  <div *ngIf="hasProducts">
+    <ion-slide class="slide">
+      <velocity-card-finance></velocity-card-finance>
+      <velocity-card-finance></velocity-card-finance>
+    </ion-slide>
+  </div>
+</ng-template>

@@ -1,0 +1,108 @@
+@import mixins
+
+.form-qr
+  padding-top: 28px
+  .cards-qr
+    +scrollHorizontal()
+    padding: 4px 16px 10px
+    li
+      width: 256px
+      margin-right: 8px
+      +inline(middle)
+    li:last-child
+      margin-right: 0
+  .shadow-qr-to-who
+    position: absolute
+    height: 100%
+    left: 0
+    right: 0
+    top: 0
+    background: rgba(0, 0, 0, .6)
+    z-index: -1
+    opacity: 0
+    visibility: hidden
+    transition: .2s
+    &.show
+      opacity: 1
+      visibility: visible
+      z-index: 2
+  .scroll-content-qr
+    max-height: calc(100vh - 180px)
+    padding: 0 16px
+    &.scroll
+      overflow-y: auto
+  .dynamic-info-qr
+    position: absolute
+    bottom: calc(61px - 100vh)
+    left: 0
+    right: 0
+    border-radius: 12px
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(233, 233, 233, 0.6)
+    height: calc(100vh - 61px)
+    background: var(--vel-color-neutral-light-10)
+    padding: 28px 0 104px
+    z-index: 2
+    transform: translate3d(0,-290px,0)
+    &.small
+      transform: translate3d(0,-196px,0)
+    .swipe-qr
+      position: absolute
+      width: 32px
+      height: 4px
+      border-radius: 2px
+      background-color: var(--vel-color-neutral-light-60)
+      content: ''
+      top: 8px
+      left: 50%
+      margin-left: -16px
+    .sections-info-qr
+      padding: 28px 0
+      border-top: 1px dashed var(--vel-color-neutral-mid-80)
+      &:last-child
+        border-bottom: none
+      span
+        color: var(--vel-color-neutral-mid-200)
+        font-size: 13px
+      p
+        font-size: 14px
+        font-weight: 500
+        line-height: 1.71
+    .section-one-qr
+      text-align: center
+      padding-bottom: 4px
+      span
+        font-size: 13px
+        line-height: 2.15
+        color: var(--vel-color-neutral-mid-200)
+        margin-bottom: 8px
+      p
+        font-size: 16px
+        font-weight: 600
+        line-height: 1.5
+        margin-bottom: 24px
+        &.amount-qr
+          font-size: 28px
+    .section-two-qr,
+    .section-four-qr
+      li
+        +flex(flex, center, space-between)
+        margin-bottom: 16px
+        &:last-child
+          margin-bottom: 0
+        p
+          text-align: right
+    .section-three-qr
+      +flex(flex, center, space-between)
+      span
+        margin-bottom: 6px
+        display: block
+      li:last-child
+        text-align: right
+  .btn-submit-qr
+    position: absolute
+    padding: 28px 16px
+    background: var(--vel-color-neutral-light-10)
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 3

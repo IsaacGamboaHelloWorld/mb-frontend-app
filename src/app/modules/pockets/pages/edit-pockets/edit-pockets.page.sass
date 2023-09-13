@@ -1,0 +1,45 @@
+@import mixins
+
+.edit-container
+  padding: 16px
+  .label-global
+    align-items: start
+    padding-left: 0
+  .pocket-type
+    display: flex
+    align-content: center
+    justify-content: center
+    +scrollHorizontal()
+    &.skeleton-global
+      .skeleton
+        width: 98px
+        height: 138px
+    li
+      +inline(middle)
+    .li-normal
+      width: 158px
+      height: 140px
+      margin-right: 8px
+    .li-small
+      width: 96px
+      height: 80px
+      margin-right: 4px
+    li:last-child
+      margin-right: 0
+  .link
+    width: 100%
+    text-align: center
+    margin: 32px 0 14px 0
+
+.destination-container
+  ion-radio-group
+    +flex(flex, center, space-between, row)
+    li
+      width: calc(100%/2 - 4px)
+.periodicity-container
+  ion-radio-group
+    display: flex
+    justify-content: space-between
+    li
+      width: calc(100%/3 - 8px)
+      margin: 0

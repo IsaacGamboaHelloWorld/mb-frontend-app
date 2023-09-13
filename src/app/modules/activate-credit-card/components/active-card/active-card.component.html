@@ -1,0 +1,48 @@
+<form class="form-global-template form-active-card" [formGroup]="formActiveCreditCard" (ngSubmit)="formSubmit()">
+  <div class="header-complement complement-size-xl">
+    <div class="p-lr-global">
+      <div class="overflow-content">
+        <div class="form-group margin-b-32 write-number-card animated fade-in-up">
+          <div class="cont-form-groups">
+            <velocity-card-credit-card
+              [title]="('ACTIVE_CREDIT_CARD.CARD.NAME' | translate) + ' ' + ((productId?.currencyValue()) | typeCreditCard).typeClass"
+              [chip]="'/chip.png' | imageCdn"
+              [type]="((productId?.currencyValue()) | typeCreditCard).typeClass"
+              [img]="((productId?.currencyValue()) | typeCreditCard).imgBig | imageCdn"
+              [howManySections]="4"
+              [titleDate]="'ACTIVE_CREDIT_CARD.CARD.DATE' | translate"
+              [number]="maskId"
+              [isDynamicNumber]="true"
+            ></velocity-card-credit-card>
+
+            <ion-label class="label-global">{{'ACTIVE_CREDIT_CARD.NUMBER.LABEL' | translate}}</ion-label>
+            <app-cont-error [control]="productId">
+              <ion-input
+                type="text"
+                clearInput="true"
+                inputmode="numeric"
+                placeholder="{{'ACTIVE_CREDIT_CARD.NUMBER.PLACEHOLDER' | translate}}"
+                formControlName="productId"
+                appDetectFocus
+                appCleave
+                [cleave]="configCreditCard"
+              ></ion-input>
+            </app-cont-error>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'ACTIVE_CREDIT_CARD.' + ((activeCreditCard$ | async)?.error ?
+                              'BTN' : 'TOGGLE.TWO') | translate" class="btn-primary"
+                     [type]="'submit'"
+                     [disabled]="(activeCreditCard$ | async)?.loading || formActiveCreditCard.invalid"
+                     [isLoading]="(activeCreditCard$ | async)?.loading"
+                     [id]="'active-card-step-one'">
+    </velocity-button>
+  </div>
+
+</form>
+

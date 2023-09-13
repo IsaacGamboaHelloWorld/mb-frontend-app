@@ -1,0 +1,96 @@
+<form class="form-global-template form-qr" [formGroup]="formQr" (ngSubmit)="submitForm()">
+  <div class="overflow-content">
+    <ion-label class="label-global p-lr-global">{{'QR.TO_WHO.FROM' | translate}}</ion-label>
+    <ul class="cards-qr">
+      <ion-radio-group formControlName="from">
+        <li *ngFor="let creditCard of (cards$ | async)?.information;">
+          <velocity-card-lite-credit-card
+            [titleAmount]="'PRODUCTS.CREDIT_CARD.QUOTA_AVAILABLE' | translate"
+            [title]="('PRODUCT_TYPES.CREDIT_CARD' | translate) + ' ' + (creditCard?.accountId | typeCreditCard).typeClass"
+            [type]="(creditCard?.accountId | typeCreditCard).typeClass"
+            [img]="((creditCard?.accountId | typeCreditCard).imgBig) | imageCdn"
+            [amount]="creditCard?.accountBalance | currencyFormat"
+            [number]="creditCard?.accountId?.slice(-4)"
+            [value]="creditCard"
+            [control]="from">
+          </velocity-card-lite-credit-card>
+        </li>
+      </ion-radio-group>
+    </ul>
+    <div class="p-lr-global">
+      <div class="margin-b-36 margin-t-16">
+        <ion-label class="label-global">{{'QR.TO_WHO.NUMBER_OF_INSTALMENTS' | translate}}</ion-label>
+        <velocity-sum-subtract
+          [counter]="numberOfInstalments.value"
+          [subtractDisabled]="disabledSubtract"
+          [sumDisabled]="disabledSum"
+          (emmitSum)="sum()"
+          (emmitSubtract)="subtract()"
+        ></velocity-sum-subtract>
+      </div>
+    </div>
+    <div class="shadow-qr-to-who" [class.show]="showShadow"></div>
+    <div class="dynamic-info-qr" id="dynamic-info-qr" #dynamic [class.small]="isSmall">
+      <div #swipe class="swipe-qr"></div>
+      <div class="scroll-content-qr" [class.scroll]="showShadow">
+        <div class="info-payment-qr" *ngIf="(qrInfo$ | async)?.information as info">
+          <ul class="section-one-qr">
+            <li *ngIf="!isSmall">
+              <span>{{'QR.TO_WHO.COMMERCE' | translate}}</span>
+              <p>{{info?.merchantName}}</p>
+            </li>
+            <li>
+              <span>{{'QR.TO_WHO.AMOUNT' | translate}}</span>
+              <p class="amount-qr">{{info?.transactionAmount | currencyFormat}}</p>
+            </li>
+          </ul>
+          <ul class="section-two-qr sections-info-qr">
+            <li *ngIf="isSmall">
+              <span>{{'QR.TO_WHO.COMMERCE' | translate}}</span>
+              <p>{{info?.merchantName}}</p>
+            </li>
+            <li>
+              <span>{{'QR.TO_WHO.BASE' | translate}}</span>
+              <p>{{info?.ivaBaseValue | currencyFormat}}</p>
+            </li>
+            <li>
+              <span>{{'QR.TO_WHO.INC' | translate}}</span>
+              <p class="amount-qr">{{info?.incValue | currencyFormat}}</p>
+            </li>
+            <li>
+              <span>{{'QR.TO_WHO.TIP' | translate}}</span>
+              <p>{{info?.tipValue | currencyFormat}}</p>
+            </li>
+            <li>
+              <span>{{'QR.TO_WHO.IVA' | translate}}</span>
+              <p class="amount-qr">{{info?.ivaValue | currencyFormat}}</p>
+            </li>
+          </ul>
+          <ul class="section-three-qr sections-info-qr">
+            <li>
+              <span>{{'QR.TO_WHO.DATE' | translate}}</span>
+              <p>{{'TODAY' | translate}} - {{today | date:'dd/MMM/yyyy' | replace : '.' : ''}}</p>
+            </li>
+            <li>
+              <span>{{'QR.TO_WHO.CONSECUTIVE_CODE' | translate}}</span>
+              <p class="amount-qr">{{info?.trnConsecutiveCode}}</p>
+            </li>
+          </ul>
+          <ul class="section-four-qr sections-info-qr">
+            <li>
+              <span>{{'COST_TRANSACTION.TITLE' | translate}}</span>
+              <p>{{'COST_TRANSACTION.VALUE' | translate}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-submit-qr">
+      <velocity-button [text]="'CONTINUE' | translate" class="btn-primary medium" type="submit"
+                       [disabled]="formQr.invalid || !(hasInfoQr | async)"
+                       [id]="'payment-public-step-one'">
+      </velocity-button>
+    </div>
+  </div>
+</form>

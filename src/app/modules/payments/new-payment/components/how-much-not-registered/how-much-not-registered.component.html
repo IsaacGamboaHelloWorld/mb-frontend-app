@@ -1,0 +1,20 @@
+<form class="payment-how-much-not-registered form-global-template">
+  <div class="p-lr-global">
+    <velocity-general-information
+      [img]="'/money-hand.png' | imageCdn"
+      [title]="'PAYMENT.NOT_REGISTERED.HOW_MUCH.TITLE' | translate"
+      [value]="biller?.amount | currencyFormat: true"
+      [description]="('PAYMENT.NOT_REGISTERED.HOW_MUCH.DUE_DATE' | translate) + '<strong>' + (biller?.expirationDate | date: 'dd/MMM/yyyy' | replace : '.' : '') + '</strong>'"
+    ></velocity-general-information>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button
+      type="submit"
+      class="btn-primary"
+      [text]="'CONTINUE' | translate"
+      [id]="'new-payment-step-two'"
+      (actionButton)="submitForm()"
+      [disabled]="!hasFunds">
+    </velocity-button>
+  </div>
+</form>

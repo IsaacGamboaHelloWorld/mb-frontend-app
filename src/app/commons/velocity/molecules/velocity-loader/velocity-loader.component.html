@@ -1,0 +1,13 @@
+<div class="center-modal modal-logo-loading">
+  <div class="rectangle">
+    <app-lottie-animation class="lottie"
+      [width]="'57px'"
+      [height]="'49px'"
+      [path]="'/assets/images/Logo_ani_loader.json'"
+      [renderer]="'canvas'"
+      [loop]="true">
+    </app-lottie-animation>
+    <img [src]="'/assets/images/isologo-wh.png'">
+  </div>
+  <p *ngIf="!!props?.text" class="loader-message">{{props?.text}}</p>
+</div>

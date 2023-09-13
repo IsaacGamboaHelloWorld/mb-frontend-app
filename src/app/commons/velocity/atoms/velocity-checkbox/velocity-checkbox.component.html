@@ -1,0 +1,6 @@
+<div class="vel-checkbox">
+  <input type="checkbox" id="{{id}}"
+         [checked]="check"
+         (change)="clickCheck.emit($event.target?.checked)">
+  <label for="{{id}}">{{text}}</label>
+</div>

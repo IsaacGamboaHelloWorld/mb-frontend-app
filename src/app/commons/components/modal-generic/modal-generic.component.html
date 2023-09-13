@@ -1,0 +1,18 @@
+<div class="center-modal">
+  <velocity-modal-leave
+    [icon]="props?.icon"
+    [close]="props?.close"
+    [iconType]="props?.iconType"
+    [title]="props?.title"
+    [subtitle]="props?.subTitle"
+    [description]="props?.description"
+    [firstBtn]="props?.firstBtn"
+    [secondBtn]="props?.secondBtn"
+    [hasLink]="props?.hasLink"
+    [areButtonsWidthComplete]="props?.areButtonsWidthComplete"
+    [hasInLineLink]="props?.hasInLineLink"
+    (actionFirstBtn)="props?.eventFirstBtn ? props?.eventFirstBtn() : actionButton(typeButtons.primary, props?.closeOnActionButton)"
+    (actionSecondBtn)="props?.eventSecondBtn ? props?.eventSecondBtn() : actionButton(typeButtons.secondary, props?.closeOnActionButton)"
+    (actionClose)="modalService.close()"
+  ></velocity-modal-leave>
+</div>

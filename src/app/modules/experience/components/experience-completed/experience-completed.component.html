@@ -1,0 +1,42 @@
+<app-custom-header 
+  class="custom-header"
+  [size]="'big'">
+  <div left></div>
+  <div center>
+    <img class="header-image" src="/assets/images/bp-horizontal.png" alt="">
+  </div>
+  <div right></div>
+</app-custom-header>
+<div class="header-complement padding-b-16 p-lr-global complement-size-ls center-items">
+  <div class="white-container center-content">
+    <div class="center-content content">
+      <app-lottie-animation 
+        class="lottie-well-done" 
+        [width]="'205%'" 
+        [height]="'50%'"
+        [path]="'/assets/images/88486-well-done.json'" 
+        [loop]="true">
+      </app-lottie-animation>
+      <app-lottie-animation
+        class="lottine-success"
+        [width]="'190px'" 
+        [height]="'190px'"
+        [path]="'/assets/images/96245-success.json'" 
+        [loop]="true">
+      </app-lottie-animation>
+      <velocity-image-title 
+          class="image-title margin-b-36" 
+          [title]="'EXPERIENCE.EXPERIENCE_COMPLETED.TITLE' | translate"
+          [description]="'EXPERIENCE.EXPERIENCE_COMPLETED.DESCRIPTION' | translate">
+      </velocity-image-title>
+        <velocity-button 
+          [text]="'EXPERIENCE.EXPERIENCE_COMPLETED.BUTTON' | translate" 
+          class="btn btn-primary button"
+          (click)="back()">
+        </velocity-button>
+  </div>
+</div>
+
+
+
+

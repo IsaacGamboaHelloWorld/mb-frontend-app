@@ -1,0 +1,82 @@
+<form class="new-transfer-to-who-not-registered form-global-template"
+      [formGroup]="formNewTransferToWho"
+      (ngSubmit)="submitForm()">
+  <div>
+    <ion-item class="hidden-element p-lr-global">
+      <ion-label>¿{{'RECHARGE.TO_WHO.ORIGIN' | translate}}?</ion-label>
+      <ion-select
+        formControlName="from"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        [placeholder]="'RECHARGE.TO_WHO.ORIGIN_DEFAULT' | translate"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">¿{{'RECHARGE.TO_WHO.ORIGIN' | translate}}?</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="showButtonProductActive$ | async"
+          (actionBtn)="changeAccount(hiddenElement)"
+          [isError]="isErrorCardActive"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+
+    <div class="form-group margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'NEW_TRANSFER.DESTINATION' | translate}}</ion-label>
+      <div class="default-bank">
+        <div>
+          <img [src]="'/isologo.png' | imageCdn" alt="Banco Popular">
+          <p>{{'NAME_BANK' | translate}}</p>
+        </div>
+        <i class="icon-vel-check"></i>
+      </div>
+    </div>
+
+    <div class="form-group margin-b-32 p-lr-global">
+      <div class="cont-form-groups">
+        <div class="margin-b-24">
+          <ion-radio-group formControlName="typeAccount">
+            <div class="cont-type-account-not-registered">
+              <velocity-label-radio [control]="typeAccount" [name]="'PRODUCT_TYPES_SMALL.DEPOSIT_ACCOUNT' | translate" [value]="'DEPOSIT_ACCOUNT'"></velocity-label-radio>
+              <velocity-label-radio [control]="typeAccount" [name]="'PRODUCT_TYPES_SMALL.CURRENT_ACCOUNT' | translate" [value]="'CURRENT_ACCOUNT'"></velocity-label-radio>
+            </div>
+          </ion-radio-group>
+        </div>
+        <ion-label class="text-body-2">{{'NEW_TRANSFER.NOT_REGISTERED.NUMBER' | translate}}</ion-label>
+        <app-cont-error [control]="numberAccount">
+          <ion-input
+            type="tel"
+            inputmode="numeric"
+            clearInput="true"
+            formControlName="numberAccount"
+            appOnlyNumbers
+            maxlength="12"
+          ></ion-input>
+        </app-cont-error>
+      </div>
+    </div>
+
+
+    <div class="margin-b-32 p-lr-global">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="'COST_TRANSACTION.VALUE' | translate"
+      ></velocity-transaction-cost>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [id]="'new-transfer-step-one'"
+                     [disabled]="formNewTransferToWho.invalid">
+    </velocity-button>
+  </div>
+</form>

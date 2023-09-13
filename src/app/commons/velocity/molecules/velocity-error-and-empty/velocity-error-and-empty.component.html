@@ -1,0 +1,7 @@
+<div class="velocity-error-and-empty">
+  <i class="{{icon?.name}} {{icon?.type}}" *ngIf="hasIcon"></i>
+  <strong>{{title}}</strong>
+  <velocity-button
+    *ngIf="hasButton"
+    type="button" class="btn-primary medium" [text]="buttonText" (actionButton)="actionButton.emit()"></velocity-button>
+</div>

@@ -1,0 +1,7 @@
+<figure class="vel-prod-service" [id]="'services-' + service?.type | lowercase" (click)="emmitEvent()">
+  <div class="vel-prod-cont-img"  [class.disabled]="service?.disabled" [class.not-permission]="!service?.hasPermissions">
+    <i class="{{ service?.img }} service-icon" *ngIf="hasImage"></i>
+    <i class="{{ service?.img }}-shadow icon-shadow"></i>
+  </div>
+  <span [innerHTML]="service?.name" [class.disabled]="service?.disabled" [class.not-permission]="!service?.hasPermissions"></span>
+</figure>

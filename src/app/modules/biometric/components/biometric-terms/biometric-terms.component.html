@@ -1,0 +1,48 @@
+<div class="header-complement p-lr-global padding-b-16">
+  <div class="white-container">
+    <ng-container *ngIf="!hasBiometric">
+      <velocity-image-title
+        [img]="'/idea-mark.png' | imageCdn"
+      ></velocity-image-title>
+      <ul class="margin-b-32 padding-l-16">
+        <li class="text-body-2 margin-b-8" type="disc" *ngFor="let term of ('BIOMETRIC.TERMS.BULLETS' | translate)">
+          <p>{{term}}</p>
+        </li>
+      </ul>
+      <p class="text-subtitle-3 text-center">{{'BIOMETRIC.TERMS.BUTTON_GROUP.DESCRIPTION' | translate}}</p>
+      <div class="template-submit-btn">
+        <velocity-button
+          type="submit"
+          class="btn-primary medium margin-b-16"
+          [text]="'BIOMETRIC.TERMS.BUTTON_GROUP.BTN_CONFIRM' | translate"
+          [id]="'ConfigurarHuella_btn_continuar'"
+          (actionButton)="openBiometricSensor()">
+        </velocity-button>
+        <velocity-button
+          type="submit"
+          class="btn-secondary medium"
+          [text]="'BIOMETRIC.TERMS.BUTTON_GROUP.BTN_CANCEL' | translate"
+          [id]="'ConfigurarHuella_btn_regresar'"
+          (actionButton)="goHome()">
+        </velocity-button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="hasBiometric">
+      <velocity-image-title
+        [img]="'/fingerprint-lock.png' | imageCdn"
+        [title]="'BIOMETRIC.DELETE_BIOMETRIC.TITLE' | translate"
+      ></velocity-image-title>
+      <div class="separator-line"></div>
+      <div class="trash-section">
+        <div>
+          <p class="delete-title">{{'BIOMETRIC.DELETE_BIOMETRIC.TRASH_SECTION.TITLE' | translate}}</p>
+          <p class="delete-subtitle">{{'BIOMETRIC.DELETE_BIOMETRIC.TRASH_SECTION.SUBTITLE' | translate}}</p>
+        </div>
+        <div (click)="openModal()">
+          <i class="icon-vel-trash"></i>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

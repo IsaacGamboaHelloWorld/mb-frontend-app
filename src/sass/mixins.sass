@@ -1,0 +1,44 @@
+=placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+
+
+=flex($display, $align-item: inherit, $justify-content: inherit, $flex-direction: inherit)
+  display: $display
+  align-items: $align-item
+  justify-content: $justify-content
+  flex-direction: $flex-direction
+
+=scrollHorizontal()
+  white-space: nowrap
+  overflow-x: auto
+  -webkit-overflow-scrolling: touch
+
+=velocity-icons($icon)
+  content: $icon
+  font-family: 'velocity-icons'
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+=skeleton($background: var(--vel-color-neutral-light-40), $radius: 7px, $height: 8px, $width: 100%)
+  background: $background
+  border-radius: $radius
+  height: $height
+  width: $width
+
+=inline($position: middle, $display: inline-block)
+  display: $display
+  vertical-align: $position
+

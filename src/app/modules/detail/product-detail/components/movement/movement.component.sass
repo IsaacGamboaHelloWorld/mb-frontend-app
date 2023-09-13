@@ -1,0 +1,50 @@
+@import 'src/sass/mixins'
+
+.movement
+  padding: var(--vel-grid-padding) var(--vel-grid-padding) 0 var(--vel-grid-padding)
+  transition: .3s
+  background: var(--vel-color-neutral-light-10)
+  &.active
+    background: var(--vel-color-carbon-light-400)
+  .text-caption
+    color: var(--vel-color-neutral-mid-200)
+  .movement-head
+    +flex(flex, center, space-between)
+    strong
+      display: block
+  .movement-value
+    +flex(flex, center, flex-end)
+    max-width: 60%
+    text-align: right
+    button
+      background: transparent
+      margin-left: 6px
+      width: 24px
+      height: 24px
+      outline: none
+      padding: 0
+      font-size: 24px
+      i
+        color: var(--vel-color-primary-gc-600)
+    .text-body-2
+      span
+        color: var(--vel-color-neutral-mid-90)
+    &.positive
+      .text-body-2
+        color: var(--vel-color-primary-gc-600)
+        span
+          color: var(--vel-color-primary-g-300)
+  ul
+    transition: .5s
+    max-height: 0
+    overflow: hidden
+    &.show-content
+      max-height: 1000px
+      transition: .5s
+  li
+    +flex(flex, center, space-between)
+    &:last-child
+      margin: 0 0 var(--vel-grid-padding) 0
+    &:first-child
+      margin-top: 10px
+

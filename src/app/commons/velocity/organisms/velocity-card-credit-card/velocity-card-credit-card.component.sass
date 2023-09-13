@@ -1,0 +1,85 @@
+@import mixins
+
+.vel-card-credit-card
+  border-radius: 12px
+  height: 192px
+  padding: 24px
+  background: var(--vel-color-neutral-mid-80)
+  position: relative
+  color: var(--vel-color-neutral-light-10)
+  transition: .3s
+  &-title
+    font-size: 14px
+    font-weight: 500
+    line-height: 1.43
+    text-transform: capitalize
+  &-chip
+    margin: 20px 0 12px
+    img
+      height: 30px
+  &-options
+    position: absolute
+    right: 24px
+    top: 24px
+    font-weight: 600
+    color: var(--vel-color-neutral-light-10)
+    transition: 0.3s
+    font-size: 12px
+    line-height: 1.33
+    i
+      margin-left: 4px
+      +inline(middle)
+      font-size: 24px
+  &-number
+    span
+      +inline(middle)
+      font-size: 18px
+      font-weight: 600
+      letter-spacing: 1.5px
+      margin-right: 16px
+      &:last-child
+        margin-right: 0
+  &-align
+    position: absolute
+    right: 16px
+    bottom: 4px
+  &-date,
+  &-img
+    +inline(middle)
+  &-date
+    small,
+    span
+      +inline(middle)
+    small
+      width: 25px
+      font-size: 8px
+      font-weight: 600
+      line-height: 1.38
+      text-transform: uppercase
+    span
+      margin-left: 8px
+      font-size: 14px
+      font-weight: 500
+      line-height: 1.43
+  &-img
+    margin-left: 25px
+    width: 64px
+    height: 64px
+    img
+      height: 64px
+      width: auto
+  &.classic
+    background-image: linear-gradient(to bottom, var(--vel-color-primary-g-600) 4%, #4ac246)
+    color: var(--vel-color-neutral-light-20)
+  &.black
+    background-image: linear-gradient(to bottom, #121212, #252525 98%)
+    .vel-card-credit-card-title,
+    .vel-card-credit-card-date small
+      color: var(--vel-color-neutral-mid-90)
+  &.platinum
+    background-image: linear-gradient(to bottom, var(--vel-color-neutral-mid-100) 2%, var(--vel-color-neutral-mid-90) 98%)
+    color: var(--vel-color-neutral-light-20)
+  &.gold
+    background-image: linear-gradient(to bottom, #cd9e48, #e5ad47 98%)
+
+

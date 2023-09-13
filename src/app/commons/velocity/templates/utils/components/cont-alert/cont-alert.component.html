@@ -1,0 +1,13 @@
+<div class="center-modal">
+  <velocity-modal-leave
+    [icon]="props?.icon"
+    [iconType]="props?.iconType"
+    [title]="props?.title"
+    [description]="props?.description"
+    [hasInLineLink]="props?.hasInLineLink"
+    [firstBtn]="props?.firstBtn"
+    [secondBtn]="props?.secondBtn"
+    (actionFirstBtn)="beforeUrl()"
+    (actionSecondBtn)="modalService.close()"
+  ></velocity-modal-leave>
+</div>

@@ -1,0 +1,50 @@
+@import mixins
+
+.velocity-card-open-new-product
+  border-radius: 12px
+  height: 190px
+  position: relative
+  +flex(flex, center)
+  color: var(--vel-color-neutral-light-10)
+  &.orange
+    background: var(--vel-color-accent-600)
+  &.green
+    background: var(--vel-color-primary-g-500)
+  &.right
+    .velocity-card-open-new-product-img
+      order: 2
+    .velocity-card-open-new-product-content
+      order: 1
+      text-align: left
+      padding-left: 24px
+      padding-right: 0
+  &-img
+    align-self: flex-end
+    min-width: 130px
+    img
+      height: 208px
+      width: auto
+  &-content
+    padding-right: 24px
+    text-align: left
+    strong
+      font-size: 21px
+      font-weight: bold
+      line-height: 1.2
+      margin-bottom: 3.5px
+      display: block
+    p
+      font-size: 12px
+      font-weight: 500
+      line-height: 1.5
+    button
+      color: var(--vel-color-neutral-dark-900)
+      padding: 8px 24px
+      border-radius: 8px
+      font-size: 14px
+      font-weight: 600
+      line-height: 1.71
+      background: var(--vel-color-neutral-light-10)
+      text-decoration: none
+      display: inline-block
+      margin-top: 16px

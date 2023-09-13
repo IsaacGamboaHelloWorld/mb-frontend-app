@@ -1,0 +1,89 @@
+.voucher-container
+  .vel-voucher
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14)
+    border-radius: 16px
+    background: var(--vel-color-neutral-light-10)
+    &-head
+      padding: 24px
+      text-align: center
+      img
+        width: 80px
+        height: auto
+        margin-bottom: 8px
+        &.small
+          width: 44px
+          margin-bottom: 20px
+      strong
+        display: block
+      p
+        color: var(--vel-color-neutral-mid-200)
+        font-weight: inherit
+      &::after
+        top: inherit
+        bottom: 0
+        right: inherit
+        left: -10px
+        transform: rotate(0deg)
+        &::before
+          top: 0
+          bottom: inherit
+          left: -10px
+          right: inherit
+          transform: rotate(180deg)
+    &-body
+      padding: 0 24px
+      ul
+        padding: 32px 0
+        &.lines-voucher
+          border-top: 1px dashed var(--vel-color-neutral-mid-80)
+        p
+          color: var(--vel-color-neutral-mid-200)
+          font-weight: normal
+        strong
+          font-weight: 500
+      li
+        margin-bottom: 16px
+        &:last-child
+          margin: 0
+    &-amount
+      text-align: center
+      padding: 32px 0
+      border-top: 1px dashed var(--vel-color-neutral-mid-80)
+      border-bottom: 1px dashed var(--vel-color-neutral-mid-80)
+      p
+        color: var(--vel-color-neutral-mid-200)
+        margin-bottom: 12px
+      h4
+        font-weight: 600
+      small
+        display: inline-block
+        border-radius: 16px
+        font-size: 12px
+        font-weight: 500
+        color: var(--vel-info-600)
+        background: var(--vel-color-info-100)
+        line-height: 2
+        padding: 0 16px
+        &.margin-top
+          margin-top: 12px
+
+.half-circles
+  position: relative
+  &::after,
+  &::before
+    position: absolute
+    content: ''
+    height: 20px
+    width: 20px
+    background: var(--vel-color-neutral-light-20)
+    top: -10px
+    z-index: 1
+    border-radius: 20px
+  &::after
+    right: -10px
+    box-shadow: -3px 7px 4px -4px rgba(0, 0, 0, 0.14) inset
+    transform: rotate(270deg)
+  &::before
+    left: -10px
+    box-shadow: 3px 7px 4px -4px rgba(0, 0, 0, 0.14) inset
+    transform: rotate(90deg)

@@ -1,0 +1,15 @@
+<div class='vel-operator-container' [class.vel-operator]="showImage || hasIcon" [class.vel-operator-alone]="!showImage && !hasIcon" (click)="setValue()" [class.active]="addClass">
+  <div>
+    <ion-radio
+        mode="md"
+        class="vel-operator-radio"
+        [value]="value"
+        [id]="id"
+    ></ion-radio>
+    <img [src]="img" [alt]="name" *ngIf="showImage">
+    <div class="icon-container" *ngIf="hasIcon">
+      <i [className]="icon"></i>
+    </div>
+    <p>{{name}}</p>
+  </div>
+</div>

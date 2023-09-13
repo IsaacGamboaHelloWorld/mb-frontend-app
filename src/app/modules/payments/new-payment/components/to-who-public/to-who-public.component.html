@@ -1,0 +1,90 @@
+<form class="new-payment-to-who-public form-global-template"
+      [formGroup]="formToWhoPayment"
+      (ngSubmit)="submitForm()">
+  <div>
+    <ion-item class="hidden-element">
+      <ion-label>¿{{'RECHARGE.TO_WHO.ORIGIN' | translate}}?</ion-label>
+      <ion-select
+          formControlName="from"
+          [placeholder]="'RECHARGE.TO_WHO.ORIGIN_DEFAULT' | translate"
+          mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+          #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+          : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">{{'RECHARGE.TO_WHO.ORIGIN' | translate}}</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card
+            [product]="productActive"
+            [showButton]="showButtonProductActive$ | async"
+            [isError]="isErrorCardActive"
+            (actionBtn)="changeAccount(hiddenElement)"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+
+    <div class="form-group margin-b-32">
+      <ion-label class="label-global p-lr-global">{{'RECHARGE.TO_WHO.DESTINATION' | translate}}</ion-label>
+      <ng-container *ngIf="hasBillers$ | async; else loadingServices">
+        <ul class="service-payment-public">
+          <ion-radio-group formControlName="to">
+            <li *ngFor="let biller of (listBiller$ | async)?.information; trackBy: trackByTo">
+              <velocity-service-payment
+                  [title]="biller?.billerName"
+                  [name]="biller?.billerNickName"
+                  [description]=" ('PAYMENT.VOUCHER' | translate) + ' ' + biller?.contract"
+                  [control]="to"
+                  [date]="setDate(biller?.dueDate)"
+                  [value]="biller"></velocity-service-payment>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </ng-container>
+    </div>
+
+    <div class="margin-b-32 p-lr-global">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="'COST_TRANSACTION.VALUE' | translate"
+      ></velocity-transaction-cost>
+    </div>
+  </div>
+
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formToWhoPayment.invalid"
+                     [id]="'payment-public-step-one'">
+    </velocity-button>
+  </div>
+</form>
+
+<ng-template #loadingServices>
+  <ul class="service-payment-public skeleton-global" *ngIf="(listBiller$ | async)?.loading">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <p class="skeleton width-40"></p>
+      <strong class="skeleton width-50"></strong>
+      <div class="skeleton width-80"></div>
+    </li>
+  </ul>
+  <div *ngIf="!(listBiller$ | async)?.loading && (listBiller$ | async)?.error">
+    <velocity-general-error
+        [img]="'/falla-tecnica.png' | imageCdn"
+        [title]="'¡' + ('PAYMENT.ERROR' | translate) + '!'"
+        [btn]="'RETRY' | translate"
+    (actionBtn)="fetchBillers()"></velocity-general-error>
+  </div>
+  <div *ngIf="(listBiller$ | async)?.completed">
+    <velocity-general-error
+        [img]="'/icon-bank.png' | imageCdn"
+        [title]="'PAYMENT.EMPTY' | translate"
+    ></velocity-general-error>
+  </div>
+</ng-template>
+

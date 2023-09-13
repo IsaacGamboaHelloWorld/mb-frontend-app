@@ -1,0 +1,104 @@
+@import mixins
+
+.modal-other-products
+  border-radius: 12px
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+  background-color: var(--vel-color-neutral-light-10)
+  overflow: hidden
+  max-height: 90vh
+  overflow-y: auto
+  .modal-other-header
+    padding: 22px 24px
+    text-align: center
+    background: var(--vel-color-neutral-light-20)
+    p
+      font-size: 16px
+      font-weight: 600
+      line-height: 1.5
+  .modal-other-body
+    padding: 32px 24px
+    li
+      margin-bottom: 34px
+      &:nth-child(odd)
+        .loading-bank
+          span
+            animation-delay: 1s
+    .img-bank,
+    .cont-info-bank
+      +inline(middle)
+    .img-bank
+      width: 45px
+      height: 45px
+      border-radius: 12px
+      margin-right: 15px
+      +flex(inline-flex, center, center)
+      img
+        width: 38px
+      &.banco_de_bogota
+        background: var(--vel-bogota)
+      &.banco_occidente
+        background: var(--vel-occidente)
+      &.banco_av_villas
+        background: var(--vel-villas)
+      &.porvenir
+        background: var(--vel-porvenir)
+      &.facil_pass
+        background: var(--vel-facilpass)
+    .cont-info-bank
+      width: calc(100% - 60px)
+      position: relative
+      strong
+        font-size: 14px
+        font-weight: 500
+        margin-bottom: 4px
+        display: block
+        &.error-text
+          text-overflow: ellipsis
+          overflow: hidden
+          white-space: nowrap
+          padding-right: 70px
+      p
+        font-size: 11px
+        &.success
+          color: var(--vel-success-600)
+        .info
+          color: var(--vel-info-600)
+        &.error
+          color: var(--vel-color-error-800)
+        &.loading
+          color: var(--vel-color-neutral-mid-200)
+      .link
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        font-size: 12px
+        font-weight: 500
+    .cont-link
+      text-align: center
+  .loading-bank
+    position: relative
+    border-radius: 2px
+    background: var(--vel-color-neutral-light-50)
+    height: 4px
+    overflow: hidden
+    margin-top: 8px
+    span
+      height: 100%
+      width: 64px
+      border-radius: 2px
+      background: var(--vel-color-accent-o-900)
+      position: absolute
+      top: 0
+      left: 0
+      animation: animationX 5s linear infinite
+
+
+@keyframes animationX
+  0%
+    left: 0
+  50%
+
+    left: calc(100% - 64px)
+  100%
+    left: 0

@@ -1,0 +1,41 @@
+<form class="header-complement complement-size-md p-lr-global padding-b-16" [formGroup]="formAcceptTerms"
+  (ngSubmit)="submitEnrollment(formAcceptTerms)">
+  <div class="animated fade-in-up white-container">
+    <div class="margin-b-32 padding-lr-24">
+      <velocity-image-title [img]="'/terms-conditions.png' | imageCdn"
+          [title]="'AUTH.ACCEPT_CHANNEL_POLICIES.TITLE' | translate"
+          [description]="'AUTH.ACCEPT_CHANNEL_POLICIES.DESCRIPTION' | translate"
+      ></velocity-image-title>
+    </div>
+    <div class="form-group padding-bottom">
+      <div class="cont-checkbox">
+        <ion-checkbox formControlName="termsAndConditions" id="terms-conditions"></ion-checkbox>
+        <p class="text-body-2 config-text remove-bold">
+          {{'AUTH.ACCEPT_CHANNEL_POLICIES.TERMS_AND_CONDITIONS.PREFIX' | translate}}
+          <a (click)="openPDF('terms')">
+            {{'AUTH.ACCEPT_CHANNEL_POLICIES.TERMS_AND_CONDITIONS.LINK_TEXT' | translate}}
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="cont-checkbox">
+        <ion-checkbox formControlName="bankPolicies" id="bank-policies"></ion-checkbox>
+        <p class="text-body-2 config-text remove-bold">
+          {{'AUTH.ACCEPT_CHANNEL_POLICIES.BANK_POLICIES.PREFIX' | translate}}
+          <a (click)="openPDF('policies')">
+            {{'AUTH.ACCEPT_CHANNEL_POLICIES.BANK_POLICIES.LINK_TEXT' | translate}}
+          </a>
+        </p>
+      </div>
+    </div>
+      <velocity-button
+        [text]="'AUTH.ACCEPT_CHANNEL_POLICIES.BUTTON' | translate"
+        class="btn-primary margin-t-36"
+        type="submit"
+        [isLoading]="isLoading$ | async"
+        [disabled]="formAcceptTerms.invalid || (isLoading$ | async)"
+        id="accept-channel-policies-submit"
+      ></velocity-button>
+  </div>
+</form>

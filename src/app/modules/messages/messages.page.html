@@ -1,0 +1,77 @@
+<app-custom-header>
+  <div left>
+    <p class="regular-text" *ngIf="(hasMessages$ | async) && showCheck" (click)="toggleSelectedAll()">
+      {{(checkAll ? 'MESSAGES.UNCHECK_ALL' : 'MESSAGES.SELECT_ALL') | translate}}
+    </p>
+    <i *ngIf="!showCheck" class="icon-vel-arrows-diagrams-left-2" (click)="back(home)"></i>
+  </div>
+  <div center>
+    <p *ngIf="!showCheck">{{'MESSAGES.TITLE' | translate}}</p>
+  </div>
+  <div right>
+    <p class="regular-text" *ngIf="(hasMessages$ | async) && showCheck" (click)="toggleChecks()">{{'CANCEL' | translate}}</p>
+    <ng-container *ngIf="(hasMessages$ | async) && !showCheck">
+      <i class="icon-vel-essential-refresh" (click)="loadMessages()"></i>
+      <i class="icon-vel-essential-delete margin-l-20" (click)="toggleChecks()"></i>
+    </ng-container>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <div class="p-lr-global animated fade-in-up"
+       [class.center-empty-messages]="!(messages$ | async)?.loading && !(hasMessages$ | async)">
+    <div class="loading-message-spinner" *ngIf="(messages$ | async)?.loading && (hasMessages$ | async)">
+      <img [src]="'/spinner.svg' | imageCdn" alt="">
+    </div>
+    <ng-container *ngIf="hasMessages$ | async; else loadingOrError">
+      <ul class="messages-container" [class.add-padding-bottom]="hasDeleteMessage">
+        <li *ngFor="let message of (messages$ | async)?.messages; trackBy: trackBy" class="messages-item">
+          <velocity-message
+            [title]="message.title"
+            [id]="message?.id"
+            [showCheck]="showCheck"
+            [description]="shortContent(message.content)"
+            [date]="message.startDt | date: isSameDate(message.startDt) ? 'shortTime' : 'dd/LLL'"
+            [check]="checkAll"
+            [read]="message.read"
+            [icon]="'icon-vel-essential-message'"
+            (toggleCheck)="customMessages($event)"
+            (viewMessage)="showMessage(message)"></velocity-message>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+  <div class="delete-messages animated quick fade-in-up" *ngIf="hasDeleteMessage">
+    <velocity-button [text]="((messages$ | async)?.retry ? 'RETRY': 'DELETE') | translate" class="btn-primary" type="button" (click)="openModal(fetchDeleteMessages)"></velocity-button>
+  </div>
+</ion-content>
+
+<ng-template #loadingOrError>
+  <ul class="messages-container" *ngIf="(messages$ | async)?.loading; else noMessages">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <div class="message-loading">
+        <div class="skeleton-global">
+          <strong class="skeleton profile-message-loading"></strong>
+          <div>
+            <p class="skeleton width-60"></p>
+            <p class="skeleton"></p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #noMessages>
+  <velocity-image-title
+    class="empty-error"
+    *ngIf="(messages$ | async)?.error"
+    [img]="'/falla-tecnica.png' | imageCdn"
+    [description]="'MESSAGES.ERROR_DESCRIPTION' | translate"
+    [title]="'¡'+ ('PRODUCTS.ERROR.PRODUCTS_TITLE' | translate ) +'!'"></velocity-image-title>
+  <velocity-image-title
+    class="empty-error"
+    [img]="'/pocket.png' | imageCdn"
+    [title]="'MESSAGES.EMPTY' | translate"
+    *ngIf="(messages$ | async)?.completed"></velocity-image-title>
+</ng-template>

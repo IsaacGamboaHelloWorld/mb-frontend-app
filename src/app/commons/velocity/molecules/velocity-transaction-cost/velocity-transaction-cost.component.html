@@ -1,0 +1,17 @@
+<div class="vel-transaction-cost">
+  <div class="d-flex-btw">
+    <p class="text-body-2 config-text remove-l-h">{{name}}</p>
+    <strong class="text-body-2 config-text remove-l-h">
+      <img [src]="img" [alt]="name" *ngIf="loading">
+      <ng-container *ngIf="!loading">{{ hasValue ? value : '—'}}</ng-container>
+    </strong>
+  </div>
+
+  <div class="d-flex-btw quantity-fees" *ngIf="hasFee">
+    <p class="text-body-2 config-text remove-l-h">{{nameFees}}</p>
+    <strong class="text-body-2 config-text remove-l-h">
+      <img [src]="img" [alt]="name" *ngIf="loading">
+      <ng-container *ngIf="!loading">{{ hasFee ? quantityFees : '—'}}</ng-container>
+    </strong>
+  </div>
+</div>

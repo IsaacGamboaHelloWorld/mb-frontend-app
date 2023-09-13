@@ -1,0 +1,31 @@
+@import mixins
+
+.new-transfer-to-who-not-registered
+  .default-bank
+    background: var(--vel-color-neutral-light-10)
+    +flex(flex, center, space-between)
+    border-radius: 12px
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+    padding: 20px
+    div
+      +flex(flex, center, flex-start)
+    img
+      height: 28px
+    p
+      font-size: 14px
+      line-height: 1.71
+      margin-left: 12px
+      font-weight: 600
+    i
+      margin-right: 4px
+      color: var(--vel-color-primary-g-800)
+      font-size: 20px
+      background: var(--vel-color-primary-g-100)
+      width: 24px
+      height: 24px
+      border-radius: 50%
+      +flex(flex, center, center)
+  .cont-type-account-not-registered
+    +flex(flex, center, space-between)
+    velocity-label-radio
+      width: 48%

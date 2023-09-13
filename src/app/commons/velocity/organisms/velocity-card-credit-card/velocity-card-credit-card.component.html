@@ -1,0 +1,23 @@
+<div class="vel-card-credit-card {{type}}">
+  <p class="vel-card-credit-card-title">{{title}}</p>
+  <div class="vel-card-credit-card-options"
+       (click)="actionOptions.emit()"
+       *ngIf="hasOption" [innerHTML]="textOption"></div>
+  <div class="vel-card-credit-card-chip">
+    <img [src]="chip" [alt]="title">
+  </div>
+  <div class="vel-card-credit-card-number" *ngIf="!isDynamicNumber">
+    <span *ngFor="let sections of [].constructor(howManySections)">{{point.repeat(this.howManyPoints)}}</span>
+    <span>{{ number }}</span>
+  </div>
+  <div class="vel-card-credit-card-number" [innerHTML]="number" *ngIf="isDynamicNumber"></div>
+  <div class="vel-card-credit-card-align">
+    <div class="vel-card-credit-card-date">
+      <small>{{titleDate}}</small>
+      <span>{{date ? date : point.repeat(2)}}</span>
+    </div>
+    <div class="vel-card-credit-card-img">
+      <img [src]="img">
+    </div>
+  </div>
+</div>

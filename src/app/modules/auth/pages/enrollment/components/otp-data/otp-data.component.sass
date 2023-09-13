@@ -1,0 +1,28 @@
+@import mixins
+
+.toast-ios-otp-data
+  position: fixed
+  left: 16px
+  right: 16px
+  top: 32px
+  z-index: 10
+
+.link-otp-data
+  display: grid
+
+  .otp-text
+    color: var(--vel-color-neutral-mid-200)
+    font-size: 12px
+
+  .text-body-2
+    strong
+      color:  var(--vel-color-accent-o-900)
+
+
+.otp-data-loading
+  +flex(flex, center)
+  font-size: 12px
+  line-height: 2
+  color: var(--vel-color-neutral-mid-200)
+  img
+    width: 24px

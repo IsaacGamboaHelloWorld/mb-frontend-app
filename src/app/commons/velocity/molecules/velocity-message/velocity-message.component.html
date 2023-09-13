@@ -1,0 +1,20 @@
+<div class="velocity-message" [class.message-read]="read" (click)="viewMessage.emit()">
+  <div class="velocity-message-left">
+    <velocity-checkbox
+      *ngIf="showCheck"
+      [id]="id"
+      [check]="check"
+      (clickCheck)="toggleCheck.emit({id: id, check: $event})"></velocity-checkbox>
+    <div class="velocity-message-icon" *ngIf="!showCheck">
+      <i class="{{icon}}"></i>
+    </div>
+  </div>
+  <div class="velocity-message-content">
+    <div class="velocity-message-title">
+      <span [innerText]="title"></span>
+      <small></small>
+    </div>
+    <p [innerText]="description" class="velocity-message-description"></p>
+  </div>
+  <div class="velocity-message-date capitalize" [innerText]="date"></div>
+</div>

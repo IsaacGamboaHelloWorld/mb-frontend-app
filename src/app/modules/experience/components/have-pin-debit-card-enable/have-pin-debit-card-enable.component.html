@@ -1,0 +1,23 @@
+<div class="header-complement p-lr-global padding-b-16 content">
+  <div class="white-container margin-b-16">
+    <velocity-image-title
+      [img]="'/smartphone-single.png' | imageCdn"
+      [title]="'EXPERIENCE.HAVE_PIN_DEBIT_CARD_ENABLE.TITLE' | translate"
+      class="image-title">
+    </velocity-image-title>
+    <div class="padding-lr-16">
+      <hr class="separator-line">
+      <velocity-service-item
+        *ngFor="let item of experienceServicesItems"
+        [icon]="item.icon | translate"
+        [subtitle]="item.subtitle | translate"
+        [title]="item.title | translate">
+      </velocity-service-item>
+    </div>
+  </div>
+  <velocity-button
+    (click)="sendHavePin()"
+    [text]="'EXPERIENCE.HAVE_PIN_DEBIT_CARD_ENABLE.BUTTON' | translate"
+    class="btn-primary">
+  </velocity-button>
+</div>

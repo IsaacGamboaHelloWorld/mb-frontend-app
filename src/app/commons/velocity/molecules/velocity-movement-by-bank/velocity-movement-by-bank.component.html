@@ -1,0 +1,37 @@
+<div class="movement-by-bank">
+  <div class="movement-by-bank-container-img">
+    <div class="image {{bankBackground}}">
+      <img alt="" [src]="detailMovement?.img">
+    </div>
+  </div>
+  <div class="movement-by-bank-info-description margin-l-8">
+    <div class="date">
+      <p class=" text-body-1">
+        {{detailMovement?.date }}
+      </p>
+    </div>
+    <div class="description">
+      <p class="text-description  text-subtitle-3">
+        {{detailMovement?.description}}
+      </p>
+    </div>
+    <div class="equivalent">
+      <p class="equivalent-description text-body-1">
+        {{detailMovement?.textValue}}  {{detailMovement?.equivalent}}
+      </p>
+    </div>
+
+  </div>
+  <div class="movement-by-bank-info-points margin-l-8">
+    <div class="points-value text-body-1">
+      <p class="{{typeRedeem}}">
+        {{detailMovement?.points}}
+      </p>
+    </div>
+    <div class="points-text">
+      <p class="text-body-1">
+        {{detailMovement?.textPoints}}
+      </p>
+    </div>
+  </div>
+</div>

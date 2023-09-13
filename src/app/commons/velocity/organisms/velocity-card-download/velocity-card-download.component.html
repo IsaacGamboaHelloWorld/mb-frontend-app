@@ -1,0 +1,15 @@
+<div class="vel-card-download">
+  <div class="vel-card-download-info">
+    <img [src]="img" [alt]="account">
+    <strong> <img [src]="imgAccount" *ngIf="hasImgAccount">{{account}}</strong>
+    <p>{{id}}</p>
+  </div>
+  <ng-content></ng-content>
+  <velocity-button
+    [text]="btnText"
+    [isLoading]="isLoading"
+    [disabled]="isDisabled"
+    [class]="'btn btn-primary medium'"
+    (actionButton)="actionBtn.emit()"
+  ></velocity-button>
+</div>

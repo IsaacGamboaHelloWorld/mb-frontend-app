@@ -1,0 +1,82 @@
+<app-custom-header size="medium">
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="goHome()"></i>
+  </div>
+  <div center>
+    <p>{{'DOCUMENTS.TAX_CERTIFICATES.TITLE' | translate}}</p>
+  </div>
+  <div right>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <form class="form-global-template" [formGroup]="formNewTaxCertificates" (ngSubmit)="formSubmit()">
+    <div class="margin-t-24">
+      <div class="overflow-content">
+        <div class="form-group margin-b-28">
+          <ion-label
+            class="label-global p-lr-global">{{'DOCUMENTS.TAX_CERTIFICATES.TYPE_CERTIFICATE_LABEL' | translate}}</ion-label>
+          <ul class="type-certificate-container">
+            <ion-radio-group formControlName="typeCertificate">
+              <li *ngFor="let type of typeCertificates">
+                <velocity-withdrawal-place
+                  [icon]="type.icon"
+                  [name]="type.name | translate"
+                  [value]="type.value"
+                  [align]="'left'"
+                  [orientation]="'row'"
+                  [size]="'small'"
+                  [control]="typeCertificate"
+                  [disabled]="type.disabled"
+                ></velocity-withdrawal-place>
+              </li>
+            </ion-radio-group>
+          </ul>
+        </div>
+        <div class="margin-b-32 p-lr-global">
+          <ng-container *ngIf="hasTypeSelected">
+            <ion-label *ngIf="isWithholdingTaxesOrGMF"
+                       class="label-global">{{'DOCUMENTS.TAX_CERTIFICATES.SECTION_LABEL' | translate}}</ion-label>
+            <div class="cont-form-groups">
+              <div *ngIf="isWithholdingTaxesOrGMF" class="form-group">
+                <ion-label class="text-body-2">{{'YEAR' | translate}}</ion-label>
+                <ion-select
+                  class="margin-b-24"
+                  mode="md"
+                  formControlName="year"
+                  interface="action-sheet"
+                  cancelText="{{'CANCEL' | translate}}">
+                  <ion-select-option *ngFor="let year of yearsList" [value]="year">
+                    {{year}}
+                  </ion-select-option>
+                </ion-select>
+                <velocity-toast
+                  [type]="'toast-normal'"
+                  [description]="'DOCUMENTS.TAX_CERTIFICATES.INFO_MESSAGE' | translate"
+                  [icon]="'icon-vel-notification-bell'"
+                ></velocity-toast>
+              </div>
+              <div *ngIf="isIncomeDeclarationTC" class="form-group">
+                <velocity-modal-leave
+                  [icon]="'icon-vel-notification-bell'"
+                  [iconType]="'information'"
+                  [title]="'DOCUMENTS.TAX_CERTIFICATES.WITHHOLDING_MESSAGE.TITLE' | translate"
+                  [description]="'DOCUMENTS.TAX_CERTIFICATES.WITHHOLDING_MESSAGE.DESCRIPTION' | translate"
+                ></velocity-modal-leave>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="hasTypeSelected" class="template-submit-btn p-lr-global padding-b-16">
+      <velocity-button class="btn-primary"
+                       [text]="'DOCUMENTS.CERTIFICATES.DOWNLOAD_BTN' | translate"
+                       [type]="'submit'"
+                       [disabled]="(certificateGMF$ | async)?.loading || (certificateTc$ | async)?.loading || (certificateIncomeTaxes$ | async)?.loading || (certificateRAC$ | async)?.loading || formNewTaxCertificates.invalid"
+                       [isLoading]="(certificateGMF$ | async)?.loading || (certificateTc$ | async)?.loading || (certificateIncomeTaxes$ | async)?.loading || (certificateRAC$ | async)?.loading"
+                       [id]="'download-certificate-btn'">
+      </velocity-button>
+    </div>
+  </form>
+</ion-content>

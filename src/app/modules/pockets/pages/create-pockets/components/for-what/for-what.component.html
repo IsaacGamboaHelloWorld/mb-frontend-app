@@ -1,0 +1,50 @@
+<form class="form-global-template"
+      [formGroup]="formForWhat"
+      (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+    <div class="cont-form-groups margin-b-24">
+      <div class="form-group">
+        <ion-label class="text-body-2">{{'POCKETS.CREATE.FOR_WHAT.NAME_LABEL' | translate}}</ion-label>
+        <app-cont-error [control]="pocketName">
+          <ion-input
+            type="text"
+            clearInput="true"
+            formControlName="pocketName"
+          ></ion-input>
+        </app-cont-error>
+      </div>
+    </div>
+
+    <div class="form-group margin-b-28">
+      <ion-label class="text-subtitle-3">{{'POCKETS.CREATE.FOR_WHAT.USE' | translate}}</ion-label>
+      <p class="use-description">{{'POCKETS.CREATE.FOR_WHAT.USE_DESCRIPTION' | translate}}</p>
+      <ul class="categories-container">
+        <ion-radio-group formControlName="destination">
+          <li>
+            <velocity-withdrawal-place
+              [icon]="customCategory('Gasto')?.icon"
+              [name]="(customCategory('Gasto')?.description) | translate"
+              [value]="customCategory('Gasto')?.category"
+              [align]="'center'"
+              [control]="destination"
+            ></velocity-withdrawal-place>
+          </li>
+          <li>
+            <velocity-withdrawal-place
+              [icon]="customCategory('Ahorro')?.icon"
+              [name]="(customCategory('Ahorro')?.description) | translate"
+              [value]="customCategory('Ahorro')?.category"
+              [align]="'center'"
+              [control]="destination"
+            ></velocity-withdrawal-place>
+          </li>
+        </ion-radio-group>
+      </ul>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formForWhat.invalid" [id]="'create-pocket-for-what-btn'">
+    </velocity-button>
+  </div>
+</form>

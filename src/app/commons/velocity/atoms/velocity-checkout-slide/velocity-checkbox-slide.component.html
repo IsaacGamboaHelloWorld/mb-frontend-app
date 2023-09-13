@@ -1,0 +1,4 @@
+<div class="vel-checkbox-slide {{size}}" [ngClass]="{'active': check}">
+	<input type="checkbox" id="checkbox-slide-{{id}}">
+	<label for="checkbox-slide-{{id}}" (click)="toggleCheck()" [class.has-text]="hasText">{{text}}</label>
+</div>

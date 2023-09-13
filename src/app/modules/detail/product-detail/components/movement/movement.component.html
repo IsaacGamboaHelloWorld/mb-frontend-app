@@ -1,0 +1,20 @@
+<div class="movement" [class.active]="showList">
+  <div class="movement-head">
+    <div class="movement-type">
+      <p class="text-caption">{{movement?.date}}</p>
+      <strong class="text-body-2">{{movement?.title}}</strong>
+    </div>
+    <div class="movement-value" [class.positive]="movement?.positive">
+      <p class="text-body-2" [innerHTML]="movement?.value"></p>
+      <button type="button" (click)="toggleList()" *ngIf="hasList">
+        <i [className]="showList ? 'icon-vel-subtract-circle' : 'icon-vel-add-circle'"></i>
+      </button>
+    </div>
+  </div>
+  <ul [class.show-content]="showList" *ngIf="hasList">
+    <li *ngFor="let item of movement?.list; trackBy: trackBy">
+      <span class="text-caption">{{item?.title}}</span>
+      <p class="text-body-2" [innerHTML]="item?.value"></p>
+    </li>
+  </ul>
+</div>

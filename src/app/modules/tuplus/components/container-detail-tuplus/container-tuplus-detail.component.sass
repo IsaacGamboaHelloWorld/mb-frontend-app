@@ -1,0 +1,27 @@
+@import 'src/sass/mixins'
+.tuplus-container
+  position: relative
+
+  .tuplus-info-section
+    padding: 20px var(--vel-grid-padding)
+    z-index: 1
+    position: relative
+
+    .white-container
+      +flex(flex, flex-start, center, column)
+
+      &-header
+        +flex(flex, center, space-between, row)
+        width: 100%
+
+      &-points-banks
+        margin-top: 16px
+        width: 100%
+
+      &-btn-redeem
+        width: 100%
+        margin-top: 36px
+
+  .movements-section
+    padding: 20px var(--vel-grid-padding)
+

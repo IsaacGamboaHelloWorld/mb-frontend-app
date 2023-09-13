@@ -1,0 +1,84 @@
+@import 'src/sass/mixins'
+
+.form-transfer-withdrawal
+  .form-transfer-withdrawal-container
+    padding-top: 6px
+
+  .amount-container
+    margin-top: 24px
+  .places-container
+    ion-radio-group
+      display: flex
+      justify-content: space-between
+      li
+        width: calc(50% - 4px)
+  .transfer-toggle-container
+    width: 100%
+    padding-bottom: 30px
+    display: flex
+    justify-content: center
+
+  .toggle-label
+    position: relative
+    display: block
+    width: 100%
+    max-width: 282px
+    height: 36px
+    border-radius: 18px
+
+  .toggle-label input[type=checkbox]
+    opacity: 0
+    position: absolute
+    width: 100%
+    height: 100%
+
+  .toggle-label input[type=checkbox]+.back
+    position: absolute
+    display: flex
+    align-items: center
+    width: 100%
+    height: 100%
+    border-radius: 18px
+    background: var(--vel-color-success-900)
+    transition: background 150ms linear
+
+  .toggle-label input[type=checkbox]:checked+.back
+    background: var(--vel-color-success-900)
+
+  .toggle-label input[type=checkbox]+.back .toggle
+    display: block
+    position: absolute
+    content: ''
+    background: var(--vel-color-neutral-light-10)
+    width: 50%
+    height: 100%
+    transition: margin 150ms linear
+    border-radius: 18px
+
+  .toggle-label input[type=checkbox]:checked+.back .toggle
+    margin-left: 50%
+
+  .toggle-label .label
+    display: block
+    position: absolute
+    width: 50%
+    color: var(--vel-color-neutral-dark-900)
+    text-align: center
+    font-size: 13px
+    font-weight: 600
+
+  .toggle-label .label.left
+    left: 0px
+  .toggle-label .label.right
+    right: 0px
+
+  .toggle-label input[type=checkbox]:checked+.back .label.left
+    color: var(--vel-color-neutral-light-10)
+
+  .toggle-label input[type=checkbox]:checked+.back .label.right
+    color: var(--vel-color-neutral-dark-900)
+
+  .toggle-label input[type=checkbox]+.back .label.right
+    color: var(--vel-color-neutral-light-10)
+
+

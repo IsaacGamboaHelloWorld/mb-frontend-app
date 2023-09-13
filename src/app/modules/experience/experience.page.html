@@ -1,0 +1,63 @@
+<ng-container *ngIf="step$| async as step">
+  <app-custom-header
+    *ngIf="showHeader(step)"
+    [size]="showBigHeader(step) ? 'big' : 'medium'">
+    <div left></div>
+    <div *ngIf="!showBigHeader('step')" center>
+      <p>{{'EXPERIENCE.TITLE' | translate}}</p>
+    </div>
+    <div *ngIf="showBigHeader('step')" center>
+      <img alt="" class="header-image" src="/assets/images/bp-horizontal.png">
+    </div>
+    <div right>
+      <i (click)="back()" class="icon-vel-essential-delete-2"></i>
+    </div>
+  </app-custom-header>
+
+  <ion-content>
+    <div *ngIf="!(showSkeleton$ | async);else Services" [ngSwitch]="step">
+      <div *ngSwitchCase="stepExperienceType.HAVE_PIN_DEBIT_CARD_ENABLE" class="align-item"
+           have-pin-debit-card-enable></div>
+      <div *ngSwitchCase="stepExperienceType.DOESNT_HAVE_PIN_DEBIT_CARD_ENABLE"
+           class="align-item" doesnt-have-pin-card-enable></div>
+      <div *ngSwitchCase="stepExperienceType.FILL_SECURITY_QUESTION"
+           app-fill-security-question-experience class="align-item"></div>
+      <div *ngSwitchCase="stepExperienceType.FILL_OTP_DATA"
+           app-fill-otp-data-experience class="align-item"></div>
+      <div *ngSwitchCase="stepExperienceType.COMPLETED"
+           app-experience-completed class="align-item"></div>
+      <div *ngSwitchCase="stepExperienceType.RETRIES_LIMIT_EXCEED_ON_FILL_SECURITY_QUESTION"
+           app-retries-limit-exceed class="align-item"></div>
+      <div *ngSwitchCase="stepExperienceType.RETRIES_LIMIT_EXCEED_ON_LOAD_ENROLLMENT_OTP"
+           app-retries-limit-exceed class="align-item"></div>
+      <div *ngSwitchCase="stepExperienceType.SERVICE_ERROR"
+           app-service-error-experience class="align-item"></div>
+    </div>
+  </ion-content>
+</ng-container>
+
+<ng-template #Services>
+  <div class="header-complement p-lr-global padding-b-16 skeleton-container">
+    <div class="white-container">
+      <div>
+        <div class="skeleton-global skeleton skeleton-img">
+        </div>
+        <div class="skeleton-global skeleton-line">
+          <strong class="skeleton"></strong>
+        </div>
+      </div>
+      <hr class="separator-line">
+      <div>
+        <div *ngFor="let item of listItems" class="skeleton-info-container margin-t-12">
+          <div class="skeleton-global skeleton skeleton-img-item">
+          </div>
+          <div class="skeleton-global skeleton-info">
+            <strong class="skeleton width-60"></strong>
+            <strong class="skeleton width-100"></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

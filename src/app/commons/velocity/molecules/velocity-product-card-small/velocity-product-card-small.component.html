@@ -1,0 +1,18 @@
+<div [id]="id" class="vel-product-card-small" (click)="setValue()" *ngIf="hasInfo" [class.active]="addClass">
+  <ion-radio
+    mode="md"
+    class="vel-product-card-small-radio"
+    [value]="value"
+  ></ion-radio>
+  <div class="vel-product-card-small-account-info">
+    <div class="vel-product-card-small-icon" [class.icon-background]="hasIcon" [class.img-background]="hasImg">
+      <i *ngIf="hasIcon" class="{{info?.icon}}"></i>
+      <img *ngIf="hasImg" [src]="info.img" [alt]="info.productName">
+    </div>
+    <p class="small-product-name">{{info?.productName}}
+      <span class="small-product-id">{{info?.accountIdentifier}}</span>
+    </p>
+  </div>
+  <p class="vel-product-card-small-balance-label">{{info?.availableBalanceLabel}}</p>
+  <strong class="vel-product-card-small-balance-amount" [innerHTML]="info?.availableBalance"></strong>
+</div>

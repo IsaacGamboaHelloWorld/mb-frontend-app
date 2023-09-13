@@ -1,0 +1,26 @@
+@import mixins
+
+.custom-validator-message
+  +flex(flex, center, flex-start, row)
+  i
+    font-size: 24px
+    margin-right: 8px
+  p
+    font-size: 12px
+    line-height: 2
+    color: var(--vel-color-carbon-900)
+  &.default-custom-validator
+    i
+      color: var(--vel-color-s-info-600)
+    p
+      color: var(--vel-color-carbon-mid-600)
+  &.success-custom-validator
+    i
+      color: var(--vel-color-s-success-600)
+    p
+      color: var(--vel-color-carbon-900)
+  &.error-custom-validator
+    i
+      color: var(--vel-color-s-error-600)
+    p
+      color: var(--vel-color-s-error-600)

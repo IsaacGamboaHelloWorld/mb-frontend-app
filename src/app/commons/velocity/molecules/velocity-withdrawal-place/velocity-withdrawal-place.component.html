@@ -1,0 +1,17 @@
+<div class="vel-withdrawal-place {{align}} {{size}}" (click)="setValue()" [class.active]="addClass" [class.disabled]="disabled">
+  <div class='vel-withdrawal-place-container {{orientation}}'>
+    <ion-radio
+      mode="md"
+      *ngIf="hasControl"
+      class="vel-place-radio"
+      [value]="value"
+      [disabled]='disabled'
+    ></ion-radio>
+    <div *ngIf="hasIcon" class="icon-cont {{iconColor}}">
+      <i class="{{ icon }}"></i>
+    </div>
+    <div class='vel-withdrawal-text'>
+      <p>{{name}}</p>
+    </div>
+  </div>
+</div>

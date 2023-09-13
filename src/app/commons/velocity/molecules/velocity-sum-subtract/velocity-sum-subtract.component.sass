@@ -1,0 +1,19 @@
+@import mixins
+
+.velocity-sum-subtract
+  border-radius: 8px
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+  background: var(--vel-color-neutral-light-10)
+  padding: 12px
+  +flex(flex, center, space-between)
+  p
+    font-size: 16px
+    font-weight: 600
+    line-height: 1.5
+  button
+    font-size: 24px
+    background: transparent
+    color: var(--vel-color-success-500)
+    &:disabled
+      color: var(--vel-color-neutral-mid-200)
+

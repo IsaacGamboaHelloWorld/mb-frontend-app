@@ -1,0 +1,22 @@
+{
+  "deviceInfo": {
+    "model": "SM-G981B",
+    "platform": "web",
+    "operatingSystem": "android",
+    "osVersion": "Android 10",
+    "manufacturer": "Google Inc.",
+    "isVirtual": false,
+    "webViewVersion": "80.0.3987.162"
+  },
+  "appInfo": {
+    "build": "1",
+    "id": "com.myionictest.mobile",
+    "name": "Banco Popular",
+    "version": "1.0"
+  },
+  "deviceId": {
+    "uuid": "bcc19df1-2990-452a-a591-b8b60beedf1d"
+  },
+  "key": "123456789mock"
+}
+

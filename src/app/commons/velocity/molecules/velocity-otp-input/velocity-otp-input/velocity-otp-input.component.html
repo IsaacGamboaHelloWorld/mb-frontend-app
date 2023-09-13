@@ -1,0 +1,20 @@
+<div [class.otp-input-container-circle]="!square" [class.otp-input-container-square]="square">
+  <ng-container *ngFor="let input of counter; index as i">
+    <input id="otp-input-{{id}}-{{i+1}}"
+           [class.otp-input-android]="isAndroid"
+           [class.otp-input-ios]="!isAndroid"
+           [class.focus-square]="focus"
+           (inputChange)="onOTPInputChange($event, i)"
+           (deleteRequest)="onOTPDeleteRequest(i)"
+           (focusin)="focusState(i, true)"
+           (focusout)="focusState(i, false)"
+           [type]="type"
+           (input)="onInput($event)"
+           [value]="validateData(input)"
+           [disabled]="disabled"
+           inputmode="numeric"
+           [autocomplete]="autocomplete"
+           placeholder="-"
+           appOtpInput>
+  </ng-container>
+</div>

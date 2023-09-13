@@ -1,0 +1,63 @@
+@import mixins
+
+.product-detail
+  background: var(--vel-color-neutral-light-10)
+  border-radius: 12px
+  .header
+    padding: 24px
+    display: flex
+    justify-content: center
+    background-color: var(--vel-color-neutral-light-20)
+    border-radius: 12px 12px 0 0
+    position: relative
+    .close-modal-btn
+      position: absolute
+      right: 12px
+      top: 12px
+      height: 24px
+      width: 24px
+      display: flex
+      justify-content: center
+      align-items: center
+      i
+        font-size: 16px
+        color: var(--vel-color-neutral-mid-100)
+    .credit-card-header
+      text-align: center
+      img
+        width: 28px
+      small
+        display: block
+        font-size: 13px
+        margin-top: 6px
+  .content
+    padding: 0 24px 24px
+    .amount
+      padding: 32px 0
+      text-align: center
+      p
+        color: var(--vel-color-neutral-mid-200)
+      h4
+        font-weight: 500
+    li
+      +flex(flex, center, space-between)
+      margin-bottom: 12px
+      line-height: normal
+      span
+        font-size: 14px
+        line-height: normal
+        color: var(--vel-color-neutral-mid-200)
+      p
+        font-size: 14px
+        line-height: normal
+      &:last-child
+        margin: 0
+    > p
+      line-height: 2.09
+      font-size: 11px
+      margin-top: 10px
+      color: var(--vel-color-neutral-mid-200)
+    .footnotes
+      margin-top: 24px
+    .btn
+      margin-top: 32px

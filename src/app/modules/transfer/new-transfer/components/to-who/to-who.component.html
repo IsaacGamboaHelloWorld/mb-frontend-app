@@ -1,0 +1,89 @@
+<form class="new-transfer-to-who form-global-template"
+      [formGroup]="formNewTransferToWho"
+      (ngSubmit)="submitForm()">
+  <div>
+    <ion-item class="hidden-element p-lr-global">
+      <ion-label>{{'RECHARGE.TO_WHO.ORIGIN' | translate}}</ion-label>
+      <ion-select
+        formControlName="from"
+        mode="md" interface="action-sheet" cancelText="{{'CANCEL' | translate}}"
+        [placeholder]="'RECHARGE.TO_WHO.ORIGIN_DEFAULT' | translate"
+        (ionChange)="change($event)"
+        #hiddenElement>
+        <ion-select-option *ngFor="let product of products$ | async; trackBy: trackBy" [value]="product">
+          {{product?.nameSmall}}
+          {{product.id | slice: -4}}
+          {{!!product?.productAccountBalances?.saldo_disponible?.amount
+          ? ' - ' + ('BALANCE_AVAILABLE_SHORT' | translate) + ' ' + (product?.productAccountBalances?.saldo_disponible?.amount | currencyFormat)
+            : ''}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="margin-b-32 p-lr-global">
+      <ion-label class="label-global">¿{{'RECHARGE.TO_WHO.ORIGIN' | translate}}?</ion-label>
+      <app-cont-error [control]="from">
+        <velocity-small-card
+          [product]="productActive"
+          [showButton]="showButtonProductActive$ | async"
+          (actionBtn)="changeAccount(hiddenElement)"
+          [isError]="isErrorCardActive"
+          [idButton]="'TransferirCtaInscrita_btn_cambiarCta'"
+        ></velocity-small-card>
+      </app-cont-error>
+    </div>
+
+    <div class="form-group margin-b-32">
+      <ion-label class="label-global p-lr-global">{{'NEW_TRANSFER.DESTINATION' | translate}}</ion-label>
+      <ng-container *ngIf="hasRegisteredAccounts$ | async; else loadingRegistered">
+        <ul class="registered-account">
+          <ion-radio-group formControlName="to" (ionChange)="changeTo($event)">
+            <li *ngFor="let product of (registeredAccounts | async)?.products; trackBy: trackByTo">
+              <velocity-type-bank [control]="to" [value]="product" [info]="typeBank(product)"></velocity-type-bank>
+            </li>
+          </ion-radio-group>
+        </ul>
+      </ng-container>
+    </div>
+
+    <div class="margin-b-32 p-lr-global">
+      <velocity-transaction-cost [name]="'COST_TRANSACTION.TITLE'  | translate"
+                                 [value]="(cost$ | async)?.information?.cost"
+                                 [img]="'/spinner.svg' | imageCdn"
+                                 [loading]="(cost$ | async)?.loading"
+      ></velocity-transaction-cost>
+    </div>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [id]="'TransferirCtaInscrita_btn_continuar'"
+                     [disabled]="formNewTransferToWho.invalid">
+    </velocity-button>
+  </div>
+</form>
+
+<ng-template #loadingRegistered>
+  <ul class="registered-account skeleton-global" *ngIf="(registeredAccounts | async)?.loading">
+    <li *ngFor="let loading of [].constructor(loading)">
+      <p class="skeleton width-50"></p>
+      <div class="skeleton profile-loading"></div>
+      <div class="cont-info-loading">
+        <strong class="skeleton width-70"></strong>
+        <p class="skeleton"></p>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="!(registeredAccounts | async)?.loading && (registeredAccounts | async)?.error">
+    <velocity-general-error
+        [img]="'/falla-tecnica.png' | imageCdn"
+        [title]="'¡' + ('PAYMENT.ERROR' | translate) + '!'"
+        [btn]="'RETRY' | translate"
+        (actionBtn)="fetchAffiliations()"></velocity-general-error>
+  </div>
+  <div *ngIf="(registeredAccounts | async)?.completed">
+    <velocity-general-error
+        [img]="'/icon-bank.png' | imageCdn"
+        [title]="'No tienes cuentas inscritas'"
+    ></velocity-general-error>
+  </div>
+</ng-template>

@@ -1,0 +1,17 @@
+@import 'mixins'
+
+.expiration-date
+  display: flex
+  .expiration-input
+    width: 56px
+    max-width: 56px
+
+.registered-account
+  +scrollHorizontal()
+  padding: 4px 16px 10px
+  li
+    width: 256px
+    margin-right: 8px
+    +inline(middle)
+  li:last-child
+    margin-right: 0

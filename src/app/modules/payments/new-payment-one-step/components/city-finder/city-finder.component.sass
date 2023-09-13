@@ -1,0 +1,46 @@
+@import src/sass/mixins
+
+.agreement-finder
+  display: flex
+  align-items: inherit
+  flex-direction: column
+  height: 100%
+  padding-top: 20px
+  padding-top: constant(safe-area-inset-top)
+  padding-top: env(safe-area-inset-top)
+  .overflow-content
+    flex-grow: 1
+  .search-input
+    display: flex
+    padding-top: 16px
+    .cancel-btn
+      margin-left: var(--vel-grid-padding)
+      background-color: var(--vel-color-neutral-light-20)
+      color: var(--vel-color-accent-o-900)
+      font-size: 14px
+      font-weight: 500
+  .result-finder-cont
+    margin-top: 8px
+    .result-finder-card
+      margin-bottom: 8px
+  .search-image
+    display: flex
+    flex-grow: 1
+    justify-content: center
+    align-items: center
+    velocity-image-title
+      max-width: 295px
+  .finder-loading
+    padding: 8px 16px
+    &.skeleton-global
+      li
+        background: var(--vel-color-neutral-light-10)
+        margin-bottom: 8px
+        border-radius: 12px
+        height: 60px
+        padding: 28px 24px
+        strong
+          display: block
+          width: 96px
+      .skeleton
+        height: 8px

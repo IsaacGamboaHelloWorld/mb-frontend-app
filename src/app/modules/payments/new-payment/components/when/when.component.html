@@ -1,0 +1,16 @@
+<form class="new-payment-when form-global-template"
+      [formGroup]="formWhen"
+      (ngSubmit)="submitForm()">
+  <div class="p-lr-global">
+    <velocity-general-information
+        [img]="'/calendar.png' | imageCdn"
+        [title]="'PAYMENT.WHEN.DATE' | translate"
+        [value]="today | date:'dd/MMM/yyyy' | replace : '.' : ''"
+    ></velocity-general-information>
+  </div>
+  <div class="template-submit-btn p-lr-global">
+    <velocity-button [text]="'CONTINUE' | translate" class="btn-primary" type="submit"
+                     [disabled]="formWhen.invalid" [id]="'new-payment-step-three'">
+    </velocity-button>
+  </div>
+</form>

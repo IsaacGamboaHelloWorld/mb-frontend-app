@@ -1,0 +1,21 @@
+<section class="group-other-products group-products-config">
+  <ion-slides pager="false"
+              [options]="slideOpts"
+              class="cont-slides space-slide">
+    <ng-container  *ngFor="let product of products; let i = index; trackBy: trackByFn">
+      <ion-slide class="slide">
+        <p class="type-other text-subtitle-3">
+          <ng-container *ngIf="product?.first">
+            <img [src]="'/' + ( product.information?.accountInformation?.bank | lowercase) + '_small.png' | imageCdn">
+            {{ ('SHORT_PRODUCT_NAMES.' + product.information?.accountInformation?.productType) | translate}}
+            ({{product?.total}})
+          </ng-container>
+        </p>
+        <velocity-card
+            [product]="setProduct(product?.information)"
+            [class]="product?.information?.accountInformation?.bank | lowercase"
+        ></velocity-card>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+</section>

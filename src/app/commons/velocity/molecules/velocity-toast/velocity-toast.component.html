@@ -1,0 +1,7 @@
+<div class="velocity-toast {{type}}">
+  <i class="velocity-toast-icon {{icon}}" *ngIf="hasIcon"></i>
+  <div class="velocity-toast-content" [class.full-toast]="!hasIcon">
+    <strong *ngIf="hasTitle">{{title}}</strong>
+    <p *ngIf="hasDescription">{{description}}</p>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+@import 'mixins'
+
+.vel-type-bank
+  background: var(--vel-color-neutral-light-10)
+  border-radius: 12px
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05)
+  padding: 24px
+  position: relative
+  height: 112px
+  small,
+  strong
+    display: block
+  &-radio
+    position: absolute
+    top: 8px
+    right: 8px
+  &-img,
+  &-align
+    +inline(middle)
+  &-img
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background: var(--vel-color-neutral-mid-80)
+    margin-right: 12px
+    font-size: 21px
+    font-weight: 500
+    color: var(--vel-color-neutral-light-10)
+    +flex(inline-flex, center, center)
+  &-align
+    width: calc(100% - 52px)
+  small
+    font-size: 11px
+    margin-bottom: 10px
+    color: var(--vel-color-neutral-mid-100)
+  strong
+    font-weight: 500
+    margin-bottom: 5px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    font-size: 13px
+  p
+    color: var(--vel-color-neutral-mid-100)
+    font-size: 11px
+  &.active
+    box-shadow: 0 0 0 1.5px var(--vel-color-primary-g-500)
+
+

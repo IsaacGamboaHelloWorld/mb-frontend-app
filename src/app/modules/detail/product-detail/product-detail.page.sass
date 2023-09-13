@@ -1,0 +1,41 @@
+@import 'src/sass/mixins'
+
+.detail-container
+  position: relative
+  ion-refresher
+    --color: var(--vel-color-neutral-light-10)
+    z-index: 2
+    ion-refresher-content
+      background: var(--vel-color-primary-g-500)
+  .detail-back
+    padding: 0 16px
+    color: var(--vel-color-neutral-light-10)
+    i
+      color: var(--vel-color-neutral-light-10)
+  .mask-green
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    background: var(--vel-color-primary-g-500)
+    z-index: 1
+    height: 120px
+    border-radius: 0 0 32px 32px
+  section
+    z-index: 2
+    position: relative
+  .detail-info-section
+    padding: 20px var(--vel-grid-padding)
+  .detail-service-section
+    display: flex
+    justify-content: center
+    ul
+      +scrollHorizontal()
+      padding: 0 16px 24px
+      width: auto
+    li
+      margin-right: 16px
+      white-space: normal
+      +inline(middle)
+      &:last-child
+        margin: 0

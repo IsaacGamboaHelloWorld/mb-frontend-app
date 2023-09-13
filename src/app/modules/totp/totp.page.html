@@ -1,0 +1,23 @@
+<app-custom-header>
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>Generación de token</p>
+  </div>
+  <div right></div>
+</app-custom-header>
+
+<ion-content>
+    <div class="p-lr-global">
+      <div class="center-time">
+        <div class="dynamic-token" [class.show]="token">
+          <svg class="progress" width="60" height="60" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="6" />
+            <circle class="progress-value" cx="60" cy="60" r="54" fill="none" stroke="#ed143d" stroke-width="6" />
+          </svg>
+          <p>{{token}}</p>
+        </div>
+      </div>
+    </div>
+</ion-content>

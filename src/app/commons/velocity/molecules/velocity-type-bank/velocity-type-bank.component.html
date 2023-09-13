@@ -1,0 +1,14 @@
+<div class="vel-type-bank" (click)="setValue()" *ngIf="hasInfo" [class.active]="addClass">
+  <ion-radio
+      mode="md"
+      class="vel-type-bank-radio"
+      [value]="value"
+  ></ion-radio>
+  <small>{{info?.bankName}}</small>
+  <div class="vel-type-bank-img"
+       [style.background]="info?.customBank?.background">{{info?.customBank?.initialLetter}}</div>
+  <div class="vel-type-bank-align">
+    <strong>{{info?.name}}</strong>
+    <p>{{info?.account}}</p>
+  </div>
+</div>

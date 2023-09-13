@@ -1,0 +1,17 @@
+<app-custom-header>
+    <div left>
+        <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+    </div>
+    <div center>
+        <p>{{'TUPLUS.OPTION_TO_REDEEM.TITLE'|translate}}</p>
+    </div>
+    <div right>
+        <i class="icon-vel-essential-delete-2" (click)="openModal()"></i>
+    </div>
+</app-custom-header>
+<ion-content>
+    <section class="where-to-redeem ">
+        <app-form-redeem
+        ></app-form-redeem>
+    </section>
+</ion-content>

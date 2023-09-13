@@ -1,0 +1,120 @@
+@import mixins
+
+.velocity-custom-message
+  padding: 28px 24px
+  border-radius: 12px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08)
+  background-color: var(--vel-color-carbon-light-100)
+  position: relative
+  height: 120px
+  +flex(flex, center, space-between, row)
+
+  &.card-disabled
+    .velocity-custom-message-icon
+      background: var(--vel-color-carbon-light-600)
+      i
+        color: var(--vel-color-carbon-mid-100)
+
+    .velocity-custom-message-title
+      span
+        color: var(--vel-color-carbon-mid-100)
+
+      small
+        display: none
+
+    .velocity-custom-message-description
+      color: var(--vel-color-carbon-mid-100)
+
+  &-left
+    width: 42px
+    position: relative
+    text-align: center
+
+  &-icon
+    width: 42px
+    height: 42px
+    background: var(--vel-color-s-success-100)
+    border-radius: 50%
+    +flex(inline-flex, center, center)
+
+    i
+      font-size: 20px
+      color: var(--vel-color-s-success-400)
+
+  &-content
+    width: calc(100% - 32px)
+    padding-left: 15px
+
+  &-title
+    position: relative
+    min-height: 28px
+
+    span
+      font-size: 14px
+      font-weight: 600
+      line-height: 2
+      color: var(--vel-color-carbon-600)
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      display: inline-block
+      vertical-align: middle
+      max-width: calc(100% - 80px)
+
+  &-description
+    font-size: 12px
+    font-weight: 500
+    line-height: 2
+    color: var(--vel-color-carbon-mid-600)
+
+.vel-card-custom-loading
+  background: var(--vel-color-carbon-light-100)
+  border-radius: 12px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14)
+  padding: 24px 16px
+  min-width: 238px
+  margin-left: 8px
+  display: flex
+  overflow: hidden
+  min-height: 92px
+  +flex(flex, center, flex-start)
+
+  &-img
+    min-width: 44px
+    height: 44px
+    border-radius: 50%
+    background: var(--vel-color-neutral-light-40)
+    +flex(flex, center, center)
+
+  &-info
+    padding-left: 12px
+    text-align: left
+    width: 100%
+
+    strong
+      font-size: 21px
+      font-weight: 500
+      margin-bottom: 3px
+      display: block
+
+      span
+        font-weight: 500
+
+    p
+      color: var(--vel-color-carbon-mid-600)
+
+  &-skeleton-img
+    min-width: 44px
+    height: 44px
+    border-radius: 50%
+    background: var(--vel-color-neutral-light-40)
+
+  &-skeleton-info
+    padding: 9px 8px
+    display: flex
+    flex-direction: column
+    width: 100%
+
+    strong
+      margin: 3px
+

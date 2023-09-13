@@ -1,0 +1,17 @@
+<div class="vel-card-service" (click)="actionClick.emit({enable: enabled, url: url})" [id]="id">
+  <div [class.disabled-service]="!enabled" [class.not-permission]="!hasPermission">
+    <div class="vel-card-service-img">
+      <app-lottie-animation
+        *ngIf="hasAnimation"
+        [width]="'80px'"
+        [height]="'80px'"
+        [path]="img">
+      </app-lottie-animation>
+      <div class="cont-image" *ngIf="!hasAnimation">
+        <img [src]="img" [alt]="title">
+      </div>
+    </div>
+    <strong>{{title}}</strong>
+    <p *ngIf="hasDescription">{{description}}</p>
+  </div>
+</div>

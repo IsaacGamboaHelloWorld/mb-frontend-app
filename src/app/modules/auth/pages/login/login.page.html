@@ -1,0 +1,68 @@
+<div class="space-notch-login"></div>
+<ion-content>
+  <div class="head-login">
+    <img [src]="'/bp-horizontal.png' | imageCdn" alt="">
+  </div>
+  <form *ngIf="hasForm" class="header-complement complement-size-xl p-lr-global padding-b-16" [formGroup]="formLogin"
+        (ngSubmit)="submitFormLogin()">
+    <div class="link-auth">
+      <a routerLink="/contactenos"><i class="icon-vel-essential-cellphone"></i>{{'CONTACTS.TITLE' | translate}}</a>
+      <a routerLink="/visitanos"><i class="icon-vel-essential-marker"></i>{{'OFFICES.TITLE' | translate}}</a>
+    </div>
+    <div class="white-container">
+      <p class="text-subtitle-1 text-bold text-center margin-t-12 margin-b-48">{{'AUTH.TITLE' | translate}}</p>
+      <div class="form-group margin-b-24">
+        <ion-label class="text-body-2">{{'AUTH.DOCUMENT.TYPE' | translate}}</ion-label>
+        <ion-select formControlName="idType"
+                    id="document-type"
+                    mode="md"
+                    interface="action-sheet"
+                    [attr.disabled]="disabled"
+                    cancelText="{{'CANCEL' | translate}}">
+          <ion-select-option *ngFor="let document of ('AUTH.DOCUMENT_TYPE' | translate)" [value]="document?.id">
+            {{document.name}}
+          </ion-select-option>
+        </ion-select>
+      </div>
+      <ion-label class="text-body-2">{{'AUTH.DOCUMENT.ID' | translate}}</ion-label>
+      <div class="form-group margin-b-28">
+        <app-cont-error [control]="id" *ngIf="!hasIdMask">
+          <ion-input
+            id="document-id"
+            type="text"
+            inputmode="numeric"
+            formControlName="id"
+            clearInput="true"
+            maxlength="12"
+            [attr.disabled]="disabled"
+            appOnlyNumbers
+          ></ion-input>
+        </app-cont-error>
+        <ion-input
+          *ngIf="hasIdMask"
+          id="document-id-fake"
+          type="text"
+          inputmode="numeric"
+          formControlName="idFake"
+          maxlength="12"
+          [attr.disabled]="disabled"
+        ></ion-input>
+      </div>
+      <velocity-button [text]="'CONTINUE' | translate"
+                       id="IniciarSesion_btn_continuar"
+                       class="btn-primary margin-t-36"
+                       type="submit"
+                       [isLoading]="isLoading$ | async"
+                       [disabled]="formLogin.invalid || (isLoading$ | async)">
+      </velocity-button>
+      <p
+        *ngIf="disabled"
+        (click)="removeAccount()"
+        id="IniciarSesion_href_desvincularDispositivo"
+        class="link margin-t-28 text-center remove-account">{{'AUTH.LOGIN.UNLIKE_DEVICE' | translate}}<i
+        class="icon-vel-essential-lock"></i></p>
+
+      <small class="version-app">© {{'NAME_BANK' | translate}} | v{{version}}</small>
+    </div>
+  </form>
+</ion-content>

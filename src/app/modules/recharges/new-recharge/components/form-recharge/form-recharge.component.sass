@@ -1,0 +1,14 @@
+@import mixins
+
+.operators
+  +scrollHorizontal()
+  padding: 0 16px 10px 16px
+  &.skeleton-global
+    .skeleton
+      width: 98px
+      height: 138px
+  li
+    +inline(middle)
+    margin-right: 8px
+  li:last-child
+    margin-right: 0

@@ -1,0 +1,8 @@
+<div class="velocity-general-info" [class.has-description]="hasDescription">
+  <img [src]="img" [alt]="title">
+  <p>{{title}}</p>
+  <strong [innerHTML]="value"></strong>
+  <div *ngIf="hasDescription" class="velocity-general-info-description">
+    <p [innerHTML]="description"></p>
+  </div>
+</div>

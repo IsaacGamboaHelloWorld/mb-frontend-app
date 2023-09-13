@@ -1,0 +1,32 @@
+<div class="center-modal">
+  <div class="product-detail">
+    <div class="header">
+      <div class="close-modal-btn" (click)="closeModal()">
+        <i class="icon-vel-close"></i>
+      </div>
+      <div class="credit-card-header">
+        <img [src]="product?.img" [alt]="product?.name" *ngIf="hasImg">
+        <p class="text-subtitle-2" *ngIf="hasImg">{{product?.name}} {{product?.id | slice: -4}}</p>
+        <ng-container *ngIf="!hasImg">
+          <p class="text-subtitle-2">{{product?.name}}</p>
+          <small>{{product?.id}}</small>
+        </ng-container>
+      </div>
+    </div>
+    <div class="content">
+      <div class="amount">
+        <p class="text-subtitle-3">{{product?.amount?.title}}</p>
+        <h4 [innerHTML]="product?.amount?.value"></h4>
+      </div>
+      <ul>
+        <li *ngFor="let list of product?.content?.list; trackBy: trackByList">
+          <span class="text-body-1">{{list?.title}}</span>
+          <p [innerHTML]="list?.value"></p>
+        </li>
+      </ul>
+      <p *ngIf="hasFootnotes" class="text-caption footnotes">{{footnotes}}</p>
+      <p *ngIf="hasContentDescription">{{product?.content?.description}}</p>
+      <velocity-button [class]="'btn btn-primary medium'" [text]="btn" *ngIf="hasBtn" (actionButton)="goUrl.emit()"></velocity-button>
+    </div>
+  </div>
+</div>

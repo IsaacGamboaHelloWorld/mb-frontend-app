@@ -1,0 +1,17 @@
+<div class="form-global-template">
+  <div class="header-complement p-lr-global padding-b-16">
+    <div class="white-container">
+      <velocity-image-title
+        [img]="'/success_v.png' | imageCdn"
+        [title]="'CHANGE_PASSWORD.SUCCESSFUL_CHANGE.TITLE' | translate"
+        [description]="'CHANGE_PASSWORD.SUCCESSFUL_CHANGE.DESCRIPTION' | translate"
+        class="margin-b-32"
+      ></velocity-image-title>
+      <velocity-button
+        [class]="'btn btn-primary margin-t-36'"
+        [text]="'CHANGE_PASSWORD.SUCCESSFUL_CHANGE.BUTTON' | translate"
+        (actionButton)="redirect()"
+      ></velocity-button>
+    </div>
+  </div>
+</div>

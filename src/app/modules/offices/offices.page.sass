@@ -1,0 +1,52 @@
+.cont-offices
+  opacity: 0
+  transition: .3s
+  transition-delay: 1s
+  &.show
+    opacity: 1
+  iframe
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    height: 100%
+    width: 100%
+
+.patch
+  top: 0
+  right: 0
+  z-index: 10000
+  height: 8%
+  position: absolute
+  background-color: var(--vel-color-neutral-light-10)
+  width: 22%
+  padding-right: 20px
+
+@media (max-width: 600px)
+  .patch
+      height: 8%
+@media (max-width: 600px) and (min-height: 750px)
+  .patch
+      height: 5%
+@media (min-width: 590px)
+  .patch
+      height: 8%
+@media (min-width: 590px) and (orientation: landscape)
+  .patch
+      height: 8%
+@media (min-width: 768px)
+  .patch
+      height: 6%
+@media (min-width: 768px) and (orientation: landscape)
+  .patch
+      height: 8%
+@media (min-width: 992px)
+  .patch
+      height: 6%
+@media (min-width: 992px) and (orientation: landscape)
+  .patch
+      height: 8%
+@media (min-width: 1200px)
+  .patch
+      height: 8%

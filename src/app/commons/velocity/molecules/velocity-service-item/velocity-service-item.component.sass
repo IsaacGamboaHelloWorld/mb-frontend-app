@@ -1,0 +1,35 @@
+@import 'mixins'
+
+.vel-service-item-container
+  +flex(flex, center, inherit, row)
+
+  .icon-cont
+    +flex(flex, center, center, row)
+    width: 44px
+    height: 44px
+    font-size: 24px
+    border-radius: 50%
+    margin-right: 20px
+
+    &.success
+      background: var(--vel-color-highlight-100)
+      color: var(--vel-color-highlight-600)
+
+    &.warning
+      background: var(--vel-color-s-warning-100)
+      color: var(--vel-color-s-warning-400)
+
+    &.error
+      background: var(--vel-color-s-error-100)
+      color: var(--vel-color-s-error-600)
+
+    &.information
+      background: var(--vel-color-s-info-100)
+      color: var(--vel-color-s-info-400)
+
+  .info-container
+    +flex(flex, flex-star, center, column)
+
+    .text-body-2
+      color: var(--vel-color-carbon-mid-100)
+      line-height: 16px

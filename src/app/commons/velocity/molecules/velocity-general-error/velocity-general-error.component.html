@@ -1,0 +1,8 @@
+<div class="velocity-general-error">
+  <img [src]="img" [alt]="title">
+  <p>{{title}}</p>
+  <velocity-button *ngIf="hasBtn"
+                   (actionButton)="actionBtn.emit()"
+                   [class]="'btn btn-primary small'"
+                   [text]="btn"></velocity-button>
+</div>

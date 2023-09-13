@@ -1,0 +1,53 @@
+@import 'mixins'
+
+.vel-product-card-small
+  background: var(--vel-color-carbon-light-100)
+  border-radius: 12px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08)
+  padding: 16px
+  position: relative
+  height: 128px
+  width: 255px
+
+  &-radio
+    position: absolute
+    top: 8px
+    right: 8px
+
+  &-account-info
+    +flex(flex, center, flex-start, row)
+    margin-bottom: 20px
+    font-size: 13px
+    color: var(--vel-color-carbon-mid-600)
+    .small-product-id
+      font-weight: 500
+      color: var(--vel-color-highlight-600)
+    .icon-background
+      background-color: var(--vel-color-s-success-100)
+    .img-background
+      background-color: var(--vel-color-carbon-light-400)
+  &-icon
+    width: 32px
+    height: 32px
+    border-radius: 50%
+    margin-right: 8px
+    +flex(flex, center, center)
+    i
+      color: var(--vel-color-highlight-400)
+      font-size: 24px
+    img
+      height: 14px
+
+  &-balance-label
+    font-size: 13px
+    color: var(--vel-color-carbon-600)
+  &-balance-amount
+    font-size: 18px
+    line-height: 1.56
+    font-weight: 600
+    color: var(--vel-color-carbon-900)
+
+  &.active
+    box-shadow: 0 0 0 1.5px var(--vel-color-primary-g-500)
+
+

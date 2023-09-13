@@ -1,0 +1,36 @@
+<app-custom-header size="medium">
+  <div left>
+    <i class="icon-vel-arrows-diagrams-left-2" (click)="back()"></i>
+  </div>
+  <div center>
+    <p>{{'CERTIFICATE_TC.TITLE' | translate}}</p>
+  </div>
+  <div right>
+  </div>
+</app-custom-header>
+
+<ion-content>
+  <div class="header-complement cont-certificate-tc p-lr-global padding-b-28" *ngIf="certificateTc$ | async as certificate">
+    <form [formGroup]="formGenerateCertificateTC">
+      <velocity-card-download
+        *ngIf="productBasic"
+        [img]="'/isologo.png' | imageCdn"
+        [account]="'PRODUCT_TYPES.' + (productBasic?.type | uppercase) | translate"
+        [imgAccount]="(productBasic?.id | typeCreditCard)?.img | imageCdn"
+        [id]="('PRODUCTS.CREDIT_CARD.TEXT_PRE_NUMBER' | translate) + '. ' + (productBasic?.id | typeCreditCard)?.maskId"
+        [btnText]="'DOWNLOAD' | translate"
+        [isLoading]="certificate.loading"
+        [isDisabled]="certificate.loading || formGenerateCertificateTC.invalid"
+        (actionBtn)="formSubmit()"
+      >
+        <div class="form-group">
+          <ion-select mode="md" formControlName="type" interface="action-sheet" cancelText="{{'CANCEL' | translate}}">
+            <ion-select-option
+              [value]="'RENT'">{{'CERTIFICATE_TC.RENT' | translate}}</ion-select-option>
+          </ion-select>
+        </div>
+        <p class="margin-t-12 text-certificate-tc">{{'CERTIFICATE_TC.TEXT' | translate}}</p>
+      </velocity-card-download>
+    </form>
+  </div>
+</ion-content>

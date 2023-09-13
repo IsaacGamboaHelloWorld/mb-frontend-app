@@ -1,0 +1,27 @@
+//Sizes spacing
+$orientations: ("t": "top", "r": "right", "b": "bottom", "l": "left") 
+$sizes: ("2xs": 4px,"s": 8px,"2s":12px,"3s": 16px,"4s":24px,"m":32px,"2m":40px,"3m":48px,"l":56px,"2l":64px,"3l":72px)
+
+@each $orientation, $name in $orientations
+    @each $size, $number in $sizes
+        .m-#{$orientation}-#{$size} 
+          margin-#{$name}: $number
+
+@each $orientation, $name in $orientations
+    @each $size, $number in $sizes
+        .p-#{$orientation}-#{$size} 
+          padding-#{$name}: $number
+
+@each $orientation, $name in $orientations
+  @each $orientation2, $name2 in $orientations
+    @each $size, $number in $sizes
+        .p-#{$orientation}#{$orientation2}-#{$size} 
+         padding-#{$name}: $number
+         padding-#{$name2}: $number
+
+@each $orientation, $name in $orientations
+  @each $orientation2, $name2 in $orientations
+    @each $size, $number in $sizes
+        .m-#{$orientation}#{$orientation2}-#{$size} 
+         margin-#{$name}: $number
+         margin-#{$name2}: $number

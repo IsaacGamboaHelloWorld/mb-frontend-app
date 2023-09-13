@@ -1,0 +1,9 @@
+<div class="vel-cont-lab-txt-rad" [class.active]="addClass" (click)="setValue()">
+  <ion-radio
+    mode="md"
+    class="vel-cont-lab-txt-rad-radio"
+    [value]="value"
+  ></ion-radio>
+  <p class="vel-card-label">{{label}}</p>
+  <p class="vel-card-description text-wrap-ellipsis">{{description}}</p>
+</div>

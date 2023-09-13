@@ -1,0 +1,36 @@
+@import 'mixins'
+
+.vel-card-request-product
+    background-color: var(--vel-color-carbon-light-100)
+    border-radius: 12px
+    border: 1px solid var(--vel-color-carbon-light-900)
+    height: 82px
+    width: 100%
+    padding: 25px 15px
+    .vel-card-request-product-container
+        width: 100%
+        +flex(flex, center, space-between, row)
+        .icon-cont
+            +flex(flex, center, center, row)
+            width: 32px
+            height: 32px
+            font-size: 24px
+            border-radius: 50%
+            &.success
+                background: var(--vel-color-highlight-100)
+                color: var(--vel-color-highlight-600)
+            &.warning
+                background: var(--vel-color-s-warning-100)
+                color: var(--vel-color-s-warning-400)
+            &.error
+                background: var(--vel-color-s-error-100)
+                color: var(--vel-color-s-error-600)
+            &.information
+                background: var(--vel-color-s-info-100)
+                color: var(--vel-color-s-info-400)
+        .arrow-icon
+            +flex(flex, flex-end, flex-end, row )
+            flex-grow: 1
+        .vel-card-request-text
+            flex-grow: 2
+            margin-left: 10px
